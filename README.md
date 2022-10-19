@@ -33,7 +33,7 @@ GIF Images
 
 | Styled-Component |
 | :--------: |
-|   ![image](https://user-images.githubusercontent.com/99936345/196706570-c5f0d390-5779-4c5d-b81c-f0a64603a655.png)|
+|   ![image](https://user-images.githubusercontent.com/99936345/196709299-bbefdafe-a904-4b1f-b34f-28788e2abb26.png)|
 
 <br>
 
