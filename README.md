@@ -29,6 +29,12 @@ GIF Images
 | :--------: | :------: | :-----: |
 |   ![image](https://user-images.githubusercontent.com/99936345/196704273-3a0b5e30-f05e-42c8-b61e-0b6217185ba3.png)    | ![image](https://user-images.githubusercontent.com/99936345/196704558-29c7d6b9-c24f-4e29-8f08-07eabab86317.png) | ![image](https://user-images.githubusercontent.com/99936345/196704599-c40e1550-de5f-4ee3-a3f7-8a50ff0b8495.png) |
 
+## 사용된 라이브러리
+
+| Styled-Component |
+| :--------: |
+|   ![image](https://user-images.githubusercontent.com/99936345/196706570-c5f0d390-5779-4c5d-b81c-f0a64603a655.png)|
+
 <br>
 
 ## 구현 기능
