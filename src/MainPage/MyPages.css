@@ -2,7 +2,7 @@
   width: 1200px;
   height: 170px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -22,9 +22,28 @@
   width: 1200px;
   height: 73px;
   border: 1px solid red;
-  border-radius: 14px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-top: 10px;
+}
+
+.Record__Tab__Container {
+  width: 1200px;
+  height: 85px;
+  border: 1px solid red;
+  margin-top: 10px;
+}
+
+.Record__Tab__Container > div {
+  height: 42.5px;
+}
+
+.Tab__Title{
+
+}
+
+.Tab__Header{
+
 }
