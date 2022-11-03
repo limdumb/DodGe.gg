@@ -1,0 +1,72 @@
+.search-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-text {
+  width: 500px;
+  height: 40px;
+}
+
+.search-btn {
+  height: 50px;
+  width: 50px;
+  border: 0;
+}
+
+.Tear {
+  width: 1200px;
+  height: 500px;
+  background-color: bisque;
+  /* margin-top: 75px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.patch {
+  width: 1200px;
+  height: 500px;
+  background-color: bisque;
+  margin-bottom: 30px;
+}
+
+.Tear-box {
+  width: 210px;
+  height: 350px;
+  background-color: brown;
+  margin-left: 15px;
+}
+.Top-tear {
+  margin-left: 20px;
+}
+
+.support-tear {
+  margin-right: 20px;
+}
+
+.tear-position {
+  width: 210px;
+  height: 45px;
+  background-color: coral;
+  font-size: 21px;
+  text-align: center;
+  line-height: 45px;
+  margin-bottom: 20px;
+}
+
+.role-container {
+  display: grid;
+  grid-template-columns: 75px 75px;
+  grid-template-rows: 75px 75px 75px;
+  gap: 10px 30px;
+  row-gap: 20px;
+  column-gap: 10px;
+  place-content: center;
+}
+
+.role {
+  background-color: black;
+  border-radius: 50%;
+}

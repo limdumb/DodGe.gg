@@ -19,6 +19,71 @@ export default function Home() {
               </form>
             </div>
           </section>
+          <section>
+            <h3>소환사의 협곡 티어</h3>
+            <div className="Tear">
+              <div className="Tear-box Top-tear">
+                <div className="tear-position">탑</div>
+                <div className="role-container">
+                  <span className="role"></span>
+                  <span className="role"></span>
+                  <span className="role"></span>
+                  <span className="role"></span>
+                  <span className="role"></span>
+                  <span className="role"></span>
+                </div>
+              </div>
+              <div className="Tear-box">
+                <div className="tear-position">정글</div>
+                <div className="role-container">
+                  <span className="role"></span>
+                  <span className="role"></span>
+                  <span className="role"></span>
+                  <span className="role"></span>
+                  <span className="role"></span>
+                  <span className="role"></span>
+                </div>
+              </div>
+              <div className="Tear-box">
+                <div className="tear-position">미드</div>
+                <div className="role-container">
+                  <span className="role"></span>
+                  <span className="role"></span>
+                  <span className="role"></span>
+                  <span className="role"></span>
+                  <span className="role"></span>
+                  <span className="role"></span>
+                </div>
+              </div>
+              <div className="Tear-box">
+                <div className="tear-position">원딜</div>
+                <div className="role-container">
+                  <span className="role"></span>
+                  <span className="role"></span>
+                  <span className="role"></span>
+                  <span className="role"></span>
+                  <span className="role"></span>
+                  <span className="role"></span>
+                </div>
+              </div>
+              <div className="Tear-box support-tear">
+                <div className="tear-position">서폿</div>
+                <div className="role-container">
+                  <span className="role"></span>
+                  <span className="role"></span>
+                  <span className="role"></span>
+                  <span className="role"></span>
+                  <span className="role"></span>
+                  <span className="role"></span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h3>소환사의 협곡 패치내용</h3>
+            <div className="patch"></div>
+          </section>
         </main>
         <footer></footer>
       </div>
