@@ -34,6 +34,8 @@
   height: 85px;
   border: 1px solid red;
   margin-top: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 .Record__Tab__Container > div {
@@ -41,9 +43,28 @@
 }
 
 .Tab__Title{
-
+  display: flex;
+  align-items: center;
 }
 
 .Tab__Header{
+  display: flex;
+  align-items: center;
+}
 
+.Record__List__Container {
+  width: 1200px;
+  height: 100vh;
+  border: 1px solid red;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.List__Contents {
+  width: 1030px;
+  height: 90px;
+  border: 1px solid red;
+  margin-top: 10px;
+  padding: 10px 18px 10px 18px;
 }
