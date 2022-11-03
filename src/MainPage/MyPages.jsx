@@ -3,6 +3,7 @@ import "./MyPages.css";
 import { UserInformation } from "../Components/UserInformation";
 import TypeTab from "../Components/TypeTab";
 import RecordList from "../Components/RecordList";
+import Footer from "../Components/Footer";
 
 export default function MyPages() {
   return (
@@ -18,7 +19,7 @@ export default function MyPages() {
           {TypeTab()}
           {RecordList()}
         </main>
-        <footer></footer>
+        {Footer()}
       </div>
     </>
   );
