@@ -1,6 +1,5 @@
 
 
-
 export default function TypeTab() {
   return (
     <div className="Record__Tab__Container">
