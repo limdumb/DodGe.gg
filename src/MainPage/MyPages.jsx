@@ -2,6 +2,7 @@ import MainHeader from "../Components/header";
 import "./MyPages.css";
 import { UserInformation } from "../Components/UserInformation";
 import TypeTab from "../Components/TypeTab";
+import RecordList from "../Components/RecordList";
 
 export default function MyPages() {
   return (
@@ -15,6 +16,7 @@ export default function MyPages() {
             <span>협곡의 전령은 바위개의 형이랍니다 응애</span>
           </div>
           {TypeTab()}
+          {RecordList()}
         </main>
         <footer></footer>
       </div>
