@@ -68,3 +68,23 @@
   margin-top: 10px;
   padding: 10px 18px 10px 18px;
 }
+
+.Information__Contents {
+  display: flex;
+  justify-content: space-between
+}
+
+.Icon__Image{
+  width: 100px;
+  height: 100px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.User__Name {
+  font-size: 60px;
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
