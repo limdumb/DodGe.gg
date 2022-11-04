@@ -1,3 +1,4 @@
+// 최종완료
 import styled from "styled-components";
 
 const InfoDiv = styled.div`
@@ -45,7 +46,7 @@ const TagsLi = styled.li`
 `
 
 export const Profile = ( {championInfo} )=>{
-
+    
     return(
         <InfoDiv>
             <MainImgeDiv>

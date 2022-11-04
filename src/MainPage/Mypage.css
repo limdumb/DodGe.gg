@@ -21,12 +21,6 @@ li{
     min-width: 1200px;
 }
 
-
-.champion{
-    outline: 1px solid black;
-    height: 250px;
-
-}
 .rune{
     outline: 1px solid black;
     height: 500px;
@@ -35,13 +29,6 @@ li{
     outline: 1px solid black;
     height: 300px;
 }
-
-
-*{
-    /* outline: 1px solid blue; */
-    
-}
-
 
 /************ champion ************/
 .champion{
