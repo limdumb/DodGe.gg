@@ -1,6 +1,8 @@
 import React from "react";
 import './Mypage.css';
 import Header from '../Components/Header';
+import {Profile} from '../Components/Profile'
+import {Skill} from '../Components/Skill'
 
 
 function Mypage(){
@@ -8,9 +10,12 @@ function Mypage(){
         <>
         <Header/>
             <main id="layout">
-                <article className="champion_profile"></article>
-                <section className="rune_page"></section>
-                <section className="item_page"></section>
+                <article className="champion">
+                <Profile/>
+                <Skill/>
+                </article>
+                <section className="rune"></section>
+                <section className="item"></section>
             </main>
         </>
     )

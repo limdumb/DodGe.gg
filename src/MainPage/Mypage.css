@@ -12,16 +12,16 @@ html,body,h1,h2,h3,h4,h5,ul,ol,li{
 }
 
 
-.champion_profile{
+.champion{
     outline: 1px solid black;
     height: 250px;
 
 }
-.rune_page{
+.rune{
     outline: 1px solid black;
     height: 500px;
 }
-.item_page{
+.item{
     outline: 1px solid black;
     height: 300px;
 }
