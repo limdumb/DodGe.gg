@@ -7,9 +7,11 @@ function Mypage(){
     return(
         <>
         <Header/>
-            <div id="Main__Container">
-            
-            </div>
+            <main id="layout">
+                <article className="champion_profile"></article>
+                <section className="rune_page"></section>
+                <section className="item_page"></section>
+            </main>
         </>
     )
 }

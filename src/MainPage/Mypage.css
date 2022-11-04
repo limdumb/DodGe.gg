@@ -3,3 +3,25 @@ html,body,h1,h2,h3,h4,h5,ul,ol,li{
     margin: 0;
     border: none;
 }
+
+
+#layout{
+    background-color: skyblue;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+
+.champion_profile{
+    outline: 1px solid black;
+    height: 250px;
+
+}
+.rune_page{
+    outline: 1px solid black;
+    height: 500px;
+}
+.item_page{
+    outline: 1px solid black;
+    height: 300px;
+}
