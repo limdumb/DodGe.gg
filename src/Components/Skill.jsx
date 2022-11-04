@@ -3,12 +3,21 @@ import styled from "styled-components";
 
 
 const InfoDiv = styled.div`
-    color:blue;
+    color:white;
+    text-align: center;
+    
 `   
 
 const SkillUl = styled.ul`
-    display:flex;
+    display: flex;
+    justify-content: space-around;
 `
+
+const SkillLi = styled.li`
+
+`
+
+
 
 export const Skill = ()=>{
 
@@ -17,8 +26,16 @@ export const Skill = ()=>{
 
     return(
         <InfoDiv>
+            <h1>챔피언 기본스킬</h1>
             <SkillUl>
+                <SkillLi><img src="#"/></SkillLi>
+                <SkillLi>2</SkillLi>
+                <SkillLi>3</SkillLi>
+                <SkillLi>4</SkillLi>
+                <SkillLi>5</SkillLi>
             </SkillUl>
+            
+            
         </InfoDiv>
     )
 }

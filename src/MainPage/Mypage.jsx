@@ -9,22 +9,20 @@ import {lol} from "../dummy_data/data";
 
 
 function Mypage({ props }){
-    const jsonData = lol;
     const championid = props;
+    const jsonData = lol.data[championid];
+    
     
 
-    function changeData(jsonData, championName) {
+    function changeProfile(jsonData) {
         return {
-            name: jsonData.data[championName].name,
-            image: jsonData.data[championName].image.full,
-            position: jsonData.data[championName].tags
+            name: jsonData.name,
+            image: jsonData.image.full,
+            position: jsonData.tags
         }
         
     }
-    
-    const championInfo = changeData(jsonData, championid);
-     
-    
+    const profileinfo = changeProfile(jsonData);
 
     return(
         <>
@@ -32,7 +30,7 @@ function Mypage({ props }){
             <main id="layout">
                 <article className="champion">
                     <div className="profile">
-                        <Profile championInfo={championInfo}/>
+                        <Profile profileinfo={profileinfo}/>
                     </div>
                     <div className="Skill">
                         <Skill/>

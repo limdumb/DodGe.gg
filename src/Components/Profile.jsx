@@ -45,18 +45,18 @@ const TagsLi = styled.li`
     color: orange;
 `
 
-export const Profile = ( {championInfo} )=>{
+export const Profile = ( {profileinfo} )=>{
     
     return(
         <InfoDiv>
             <MainImgeDiv>
-                <MainImge src={championInfo.image} alt="#"/>
+                <MainImge src={profileinfo.image} alt="#"/>
             </MainImgeDiv>
             <SimpleDiv>
-                <NameSpan>{championInfo.name}</NameSpan>
+                <NameSpan>{profileinfo.name}</NameSpan>
             </SimpleDiv>
             <TagsUl>
-                {championInfo.position.map((el)=>{ return <TagsLi key={el}><span>{el}</span></TagsLi>})}
+                {profileinfo.position.map((el)=>{ return <TagsLi key={el}><span>{el}</span></TagsLi>})}
             </TagsUl>
         </InfoDiv>
     )
