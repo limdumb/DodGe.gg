@@ -1,4 +1,5 @@
-const data = {
+
+export const lol = {
     "type": "champion",
     "format": "standAloneComplex",
     "version": "12.21.1",
@@ -9,7 +10,7 @@ const data = {
         "name": "Aatrox",
         "title": "the Darkin Blade",
         "image": {
-          "full": "Aatrox.png",
+          "full": "http://ddragon.leagueoflegends.com/cdn/12.21.1/img/champion/Aatrox.png",
           "sprite": "champion0.png",
           "group": "champion",
           "x": 0,
@@ -707,3 +708,5 @@ const data = {
       }
     }
   }
+
+  
