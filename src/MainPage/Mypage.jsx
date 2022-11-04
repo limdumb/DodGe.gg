@@ -24,6 +24,22 @@ function Mypage({ props }){
     }
     const profileinfo = changeProfile(jsonData);
 
+
+    // console.log(jsonData.spells[0].id)
+    
+    function changeSkill(jsonData){
+        const result = {}
+        for(let spell of jsonData.spells){
+            result[spell.id.at(-1)] = spell.image.full;
+            
+        }
+    
+        return result;
+    }
+    const skillinfo = changeSkill(jsonData);
+    
+    console.log(skillinfo)
+
     return(
         <>
         <Header/>
