@@ -53,12 +53,11 @@ li{
     justify-content: center;
     box-sizing: border-box;
     padding: 30px;
+    background-color: #2c3245;
 }
 
 .profile {
     flex: 1;
-    outline: 1px solid red;
-
 }
 
 .Skill{
