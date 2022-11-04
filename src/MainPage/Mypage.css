@@ -1,14 +1,28 @@
-html,body,h1,h2,h3,h4,h5,ul,ol,li{
+
+/************ css 초기값설정 ************/
+
+html,body,h1,h2,h3,h4,h5,ul,ol,li,p{
     padding: 0;
     margin: 0;
     border: none;
 }
 
+li{
+    list-style: none;
+}
+
+
+
+
+
+
+/************ 레이아웃 임시설정 ************/
 
 #layout{
     background-color: skyblue;
     margin: 0 auto;
     max-width: 1200px;
+    min-width: 1200px;
 }
 
 
@@ -24,4 +38,18 @@ html,body,h1,h2,h3,h4,h5,ul,ol,li{
 .item{
     outline: 1px solid black;
     height: 300px;
+}
+
+
+*{
+    
+}
+
+
+/************ champion ************/
+.champion{
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 30px;
 }

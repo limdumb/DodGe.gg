@@ -7,7 +7,7 @@ export const lol = {
       "Aatrox": {
         "id": "Aatrox",
         "key": "266",
-        "name": "Aatrox",
+        "name": "아트록스",
         "title": "the Darkin Blade",
         "image": {
           "full": "http://ddragon.leagueoflegends.com/cdn/12.21.1/img/champion/Aatrox.png",
@@ -93,8 +93,8 @@ export const lol = {
           "Keep your distance when Aatrox uses his Ultimate to prevent him from reviving."
         ],
         "tags": [
-          "Fighter",
-          "Tank"
+          "전사",
+          "탱커"
         ],
         "partype": "Blood Well",
         "info": {
