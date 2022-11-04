@@ -1,13 +1,17 @@
 import React from "react";
 import './Mypage.css';
+import Header from '../Components/Header';
 
 
-function Main(){
+function Mypage(){
     return(
         <>
-        <h1>임시</h1>
+        <Header/>
+            <div id="Main__Container">
+            
+            </div>
         </>
     )
 }
 
-export default Main;
+export default Mypage;
