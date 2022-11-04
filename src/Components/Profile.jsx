@@ -43,35 +43,18 @@ const TagsLi = styled.li`
     color: orange;
 `
 
-export const Profile = ( {jsonData} )=>{
-
-    function changeData(data, type){
-        
-    }
-
-
-    let ChampionImage = changeData(jsonData, "image");
-    let ChampionName = changeData(jsonData, "name");
-    let ChampionPostion = changeData(jsonData, "postion");
-
-    console.log("챔피언 이미지",ChampionImage)
-    console.log("챔피언 이름",ChampionName)
-    console.log("챔피언 포지션",ChampionPostion)
-
-    // console.log(jsonData.data.Aatrox.name)
-
+export const Profile = ( {championInfo} )=>{
 
     return(
         <InfoDiv>
             <MainImgeDiv>
-                <MainImge src="챔피언이미지" alt="#"/>
+                <MainImge src={championInfo.image} alt="#"/>
             </MainImgeDiv>
             <SimpleDiv>
-                <NameSpan>챔피언이름</NameSpan>
+                <NameSpan>{championInfo.name}</NameSpan>
             </SimpleDiv>
             <TagsUl>
-                {/* {ChampionPostion.map((el)=>{ return <TagsLi key={el}><span>{el}</span></TagsLi>})} */}
-                챔피언 포지션
+                {championInfo.position.map((el)=>{ return <TagsLi key={el}><span>{el}</span></TagsLi>})}
             </TagsUl>
         </InfoDiv>
     )

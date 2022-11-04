@@ -7,8 +7,23 @@ import {lol} from "../dummy_data/data";
 
 
 
-function Mypage(){
-     const jsonData = lol;
+
+function Mypage({ props }){
+    const jsonData = lol;
+    const championid = props;
+    
+
+    function changeData(jsonData, championName) {
+        return {
+            name: jsonData.data[championName].name,
+            image: jsonData.data[championName].image.full,
+            position: jsonData.data[championName].tags
+        }
+        
+    }
+    
+    const championInfo = changeData(jsonData, championid);
+     
     
 
     return(
@@ -17,7 +32,7 @@ function Mypage(){
             <main id="layout">
                 <article className="champion">
                     <div className="profile">
-                        <Profile jsonData={jsonData}/>
+                        <Profile championInfo={championInfo}/>
                     </div>
                     <div className="Skill">
                         <Skill/>
