@@ -11,8 +11,12 @@ function Mypage(){
         <Header/>
             <main id="layout">
                 <article className="champion">
-                <Profile/>
-                <Skill/>
+                    <div className="profile">
+                        <Profile/>
+                    </div>
+                    <div className="Skill">
+                        <Skill/>
+                    </div>
                 </article>
                 <section className="rune"></section>
                 <section className="item"></section>

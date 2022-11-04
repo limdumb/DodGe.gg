@@ -18,68 +18,6 @@ export const lol = {
           "w": 48,
           "h": 48
         },
-        "skins": [
-          {
-            "id": "266000",
-            "num": 0,
-            "name": "default",
-            "chromas": false
-          },
-          {
-            "id": "266001",
-            "num": 1,
-            "name": "Justicar Aatrox",
-            "chromas": false
-          },
-          {
-            "id": "266002",
-            "num": 2,
-            "name": "Mecha Aatrox",
-            "chromas": true
-          },
-          {
-            "id": "266003",
-            "num": 3,
-            "name": "Sea Hunter Aatrox",
-            "chromas": false
-          },
-          {
-            "id": "266007",
-            "num": 7,
-            "name": "Blood Moon Aatrox",
-            "chromas": false
-          },
-          {
-            "id": "266008",
-            "num": 8,
-            "name": "Prestige Blood Moon Aatrox",
-            "chromas": false
-          },
-          {
-            "id": "266009",
-            "num": 9,
-            "name": "Victorious Aatrox",
-            "chromas": true
-          },
-          {
-            "id": "266011",
-            "num": 11,
-            "name": "Odyssey Aatrox",
-            "chromas": true
-          },
-          {
-            "id": "266020",
-            "num": 20,
-            "name": "Prestige Blood Moon Aatrox (2022)",
-            "chromas": false
-          },
-          {
-            "id": "266021",
-            "num": 21,
-            "name": "Lunar Eclipse Aatrox",
-            "chromas": true
-          }
-        ],
         "lore": "Once honored defenders of Shurima against the Void, Aatrox and his brethren would eventually become an even greater threat to Runeterra, and were defeated only by cunning mortal sorcery. But after centuries of imprisonment, Aatrox was the first to find freedom once more, corrupting and transforming those foolish enough to try and wield the magical weapon that contained his essence. Now, with stolen flesh, he walks Runeterra in a brutal approximation of his previous form, seeking an apocalyptic and long overdue vengeance.",
         "blurb": "Once honored defenders of Shurima against the Void, Aatrox and his brethren would eventually become an even greater threat to Runeterra, and were defeated only by cunning mortal sorcery. But after centuries of imprisonment, Aatrox was the first to find...",
         "allytips": [
@@ -96,35 +34,6 @@ export const lol = {
           "전사",
           "탱커"
         ],
-        "partype": "Blood Well",
-        "info": {
-          "attack": 8,
-          "defense": 4,
-          "magic": 3,
-          "difficulty": 4
-        },
-        "stats": {
-          "hp": 650,
-          "hpperlevel": 114,
-          "mp": 0,
-          "mpperlevel": 0,
-          "movespeed": 345,
-          "armor": 38,
-          "armorperlevel": 4.45,
-          "spellblock": 32,
-          "spellblockperlevel": 2.05,
-          "attackrange": 175,
-          "hpregen": 3,
-          "hpregenperlevel": 1,
-          "mpregen": 0,
-          "mpregenperlevel": 0,
-          "crit": 0,
-          "critperlevel": 0,
-          "attackdamage": 60,
-          "attackdamageperlevel": 5,
-          "attackspeedperlevel": 2.5,
-          "attackspeed": 0.651
-        },
         "spells": [
           {
             "id": "AatroxQ",
@@ -263,7 +172,7 @@ export const lol = {
             ],
             "rangeBurn": "25000",
             "image": {
-              "full": "AatroxQ.png",
+              "full": "https://ddragon.leagueoflegends.com/cdn/12.21.1/img/spell/AatroxQ.png",
               "sprite": "spell0.png",
               "group": "spell",
               "x": 288,
@@ -408,7 +317,7 @@ export const lol = {
             ],
             "rangeBurn": "825",
             "image": {
-              "full": "AatroxW.png",
+              "full": "https://ddragon.leagueoflegends.com/cdn/12.21.1/img/spell/AatroxW.png",
               "sprite": "spell0.png",
               "group": "spell",
               "x": 336,
@@ -555,7 +464,7 @@ export const lol = {
             ],
             "rangeBurn": "25000",
             "image": {
-              "full": "AatroxE.png",
+              "full": "https://ddragon.leagueoflegends.com/cdn/12.21.1/img/spell/AatroxE.png",
               "sprite": "spell0.png",
               "group": "spell",
               "x": 384,
@@ -678,7 +587,7 @@ export const lol = {
             ],
             "rangeBurn": "25000",
             "image": {
-              "full": "AatroxR.png",
+              "full": "https://ddragon.leagueoflegends.com/cdn/12.21.1/img/spell/AatroxR.png",
               "sprite": "spell0.png",
               "group": "spell",
               "x": 432,
@@ -693,7 +602,7 @@ export const lol = {
           "name": "Deathbringer Stance",
           "description": "Periodically, Aatrox's next basic attack deals bonus <physicalDamage>physical damage</physicalDamage> and heals him, based on the target's max health. ",
           "image": {
-            "full": "Aatrox_Passive.png",
+            "full": "https://ddragon.leagueoflegends.com/cdn/12.21.1/img/passive/Aatrox_Passive.png",
             "sprite": "passive0.png",
             "group": "passive",
             "x": 0,

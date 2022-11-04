@@ -3,7 +3,6 @@ import {lol} from "../dummy_data/data";
 
 const InfoDiv = styled.div`
     color:red;
-    outline: 1px solid red;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -13,9 +12,9 @@ const InfoDiv = styled.div`
 export const Profile = ()=>{
     return(
         <InfoDiv>
-            <img src={lol.data.Aatrox.image.full} alt="아트록스"></img>
-            <p>{lol.data.Aatrox.name}</p>
-            <p>{lol.data.Aatrox.tags}</p>
+            {/* <img src={lol.data.Aatrox.image.full} alt="아트록스"></img> */}
+            {/* <p>{lol.data.Aatrox.name}</p> */}
+            {/* <p>{lol.data.Aatrox.tags}</p> */}
         </InfoDiv>
     )
 }

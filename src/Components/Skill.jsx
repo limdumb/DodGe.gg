@@ -1,22 +1,24 @@
 import styled from "styled-components";
+import { lol } from "../dummy_data/data";
 
 
 const InfoDiv = styled.div`
     color:blue;
-    outline: 1px solid red;
+`   
+
+const SkillUl = styled.ul`
+    display:flex;
 `
 
 export const Skill = ()=>{
+
+    // lol.data.Aatrox.spells[0].image.full
+    //  lol.data.Aatrox.passive.image.full
+
     return(
         <InfoDiv>
-            <h1>챔피언 기본스킬 설명</h1>
-            <ul>
-                <li>스킬1</li>
-                <li>스킬1</li>
-                <li>스킬1</li>
-                <li>스킬1</li>
-                <li>스킬1</li>
-            </ul>
+            <SkillUl>
+            </SkillUl>
         </InfoDiv>
     )
 }
