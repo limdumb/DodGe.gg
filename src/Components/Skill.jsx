@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { lol } from "../dummy_data/data";
+
 
 
 const InfoDiv = styled.div`

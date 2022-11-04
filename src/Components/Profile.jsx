@@ -9,9 +9,10 @@ const InfoDiv = styled.div`
 `
 
 const MainImgeDiv = styled.div`
-    width:90px;
+    width: 90px;
     height: 90px;
-    outline: 3px solid black;
+    border: 3px solid black;
+    box-sizing: border-box;
 `
 
 const MainImge = styled.img`

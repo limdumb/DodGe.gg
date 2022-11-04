@@ -7,14 +7,10 @@ html,body,h1,h2,h3,h4,h5,ul,ol,li,p{
     border: none;
 }
 
+
 li{
     list-style: none;
 }
-
-
-
-
-
 
 /************ 레이아웃 임시설정 ************/
 
@@ -42,6 +38,7 @@ li{
 
 
 *{
+    /* outline: 1px solid blue; */
     
 }
 
@@ -61,6 +58,5 @@ li{
 }
 
 .Skill{
-    outline: 1px solid blue;
     flex: 3;
 }
