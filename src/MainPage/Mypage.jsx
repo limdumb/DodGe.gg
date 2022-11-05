@@ -24,13 +24,22 @@ function Mypage({ props }){
     }
     const profileinfo = changeProfile(jsonData);
 
-
-    // console.log(jsonData.spells[0].id)
     
     function changeSkill(jsonData){
-        const result = {}
+        const result = []
+        result.push(
+            {
+                images : jsonData.passive.image.full,
+                i : jsonData.passive.image.full
+            },
+        )
+
         for(let spell of jsonData.spells){
-            result[spell.id.at(-1)] = spell.image.full;
+            result.push(
+                {
+                    images : spell.image.full
+                }
+            )
             
         }
     
@@ -38,7 +47,7 @@ function Mypage({ props }){
     }
     const skillinfo = changeSkill(jsonData);
     
-    console.log(skillinfo)
+    
 
     return(
         <>
@@ -49,7 +58,7 @@ function Mypage({ props }){
                         <Profile profileinfo={profileinfo}/>
                     </div>
                     <div className="Skill">
-                        <Skill/>
+                        <Skill skillinfo={skillinfo}/>
                     </div>
                 </article>
                 <section className="rune"></section>

@@ -19,7 +19,7 @@ const SkillLi = styled.li`
 
 
 
-export const Skill = ()=>{
+export const Skill = ({skillinfo})=>{
 
     // lol.data.Aatrox.spells[0].image.full
     //  lol.data.Aatrox.passive.image.full
@@ -28,11 +28,14 @@ export const Skill = ()=>{
         <InfoDiv>
             <h1>챔피언 기본스킬</h1>
             <SkillUl>
-                <SkillLi><img src="#"/></SkillLi>
+                {/* <SkillLi><img src="#"/></SkillLi>
                 <SkillLi>2</SkillLi>
                 <SkillLi>3</SkillLi>
                 <SkillLi>4</SkillLi>
-                <SkillLi>5</SkillLi>
+                <SkillLi>5</SkillLi> */}
+                {skillinfo.map((el)=>{
+                    return <SkillLi><img src={el["images"]} alt="#"/></SkillLi>
+                })}
             </SkillUl>
             
             
