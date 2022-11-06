@@ -11,34 +11,23 @@ const InfoDiv = styled.div`
 const SkillUl = styled.ul`
     display: flex;
     justify-content: space-around;
+    margin-top:30px;
 `
 
-const SkillLi = styled.li`
-
+const Skillimg = styled.img`
+    border-radius: 10px;
 `
 
-
-
-export const Skill = ({skillinfo})=>{
-
-    // lol.data.Aatrox.spells[0].image.full
-    //  lol.data.Aatrox.passive.image.full
+export const Skill = ({skillinfo, jsonData})=>{
 
     return(
         <InfoDiv>
-            <h1>챔피언 기본스킬</h1>
+            <h1>{jsonData.name} 스킬</h1>
             <SkillUl>
-                {/* <SkillLi><img src="#"/></SkillLi>
-                <SkillLi>2</SkillLi>
-                <SkillLi>3</SkillLi>
-                <SkillLi>4</SkillLi>
-                <SkillLi>5</SkillLi> */}
                 {skillinfo.map((el)=>{
-                    return <SkillLi><img src={el["images"]} alt="#"/></SkillLi>
+                    return <li key={el.id}><Skillimg src={el.images} alt="#"/></li>
                 })}
             </SkillUl>
-            
-            
         </InfoDiv>
     )
 }

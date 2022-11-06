@@ -8,8 +8,8 @@ import {lol} from "../dummy_data/data";
 
 
 
-function Mypage({ props }){
-    const championid = props;
+function Mypage({ champion }){
+    const championid = champion;
     const jsonData = lol.data[championid];
     
     
@@ -29,17 +29,20 @@ function Mypage({ props }){
         const result = []
         result.push(
             {
+                id : "passive",
                 images : jsonData.passive.image.full,
-                i : jsonData.passive.image.full
+                
             },
         )
 
         for(let spell of jsonData.spells){
             result.push(
                 {
+                    id : spell.id,
                     images : spell.image.full
                 }
             )
+            
             
         }
     
@@ -58,7 +61,7 @@ function Mypage({ props }){
                         <Profile profileinfo={profileinfo}/>
                     </div>
                     <div className="Skill">
-                        <Skill skillinfo={skillinfo}/>
+                        <Skill skillinfo={skillinfo} jsonData={jsonData} />
                     </div>
                 </article>
                 <section className="rune"></section>

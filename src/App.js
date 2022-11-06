@@ -8,7 +8,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         {/* 임시데이터 */}
-          <Route path="/" element={<Mypage props={"Aatrox"}/>}></Route>
+          <Route path="/" element={<Mypage champion={"Aatrox"}/>}></Route>
       </Routes>
     </BrowserRouter>
 
