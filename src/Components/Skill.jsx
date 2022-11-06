@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import {useState} from "react";
+import { act } from "react-dom/test-utils";
 
 
 
@@ -16,6 +17,8 @@ const SkillUl = styled.ul`
 
 `
 const SkillLi = styled.li`
+    
+
     &::after{
         content:"";
         display:block;
@@ -31,39 +34,46 @@ const SkillLi = styled.li`
         background-color:yellow;
     }
 
+    
+    &:hover > img{
+        transform: translateY(-10px);
+        
+    }
     `
     
 
 const Skillimg = styled.img`
     border-radius: 10px;
     transition: 0.5s;
-    &:hover{
+    pointer-events: none;
+
+    &.is_open{
+        outline: 2px solid yellow;
         transform: translateY(-10px);
     }
 `
 
 
 
-// 
-
-
-
 export const Skill = ({skillinfo, jsonData})=>{
-    const [line, setLine] = useState(false);
 
-    function lineChange(){
-        console.log('테스트')
-    }
+    const [currentValue, setCurrentValue] = useState(0);
+    
+    function saveValue(arg){setCurrentValue(arg.target.value)}
+
     return(
         <InfoDiv>
             <h1>{jsonData.name} 스킬</h1>
             <SkillUl>
-                {skillinfo.map((el)=>{
+                {skillinfo.map((el, idx)=>{
                     return (
-                        <SkillLi
-                         key={el.id}
-                         onClick={lineChange}
-                        ><Skillimg src={el.images} alt="#"/></SkillLi>
+                        <SkillLi 
+                        key={el.id} 
+                        onClick={saveValue} 
+                        value={idx}>
+                            <Skillimg src={el.images} alt="#"
+                            className={ idx === currentValue ? "is_open" : "null"}/>
+                        </SkillLi>
                     )
                 })}
             </SkillUl>
