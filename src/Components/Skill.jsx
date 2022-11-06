@@ -7,6 +7,8 @@ import { act } from "react-dom/test-utils";
 const InfoDiv = styled.div`
     color:white;
     text-align: center;
+    
+    
 `   
 
 const SkillUl = styled.ul`
@@ -14,20 +16,38 @@ const SkillUl = styled.ul`
     justify-content: space-around;
     margin-top:30px;
     
+    
+    
 
 `
 const SkillLi = styled.li`
+    position: relative;
     
 
-    &::after{
+    &::before{
+        position: absolute;
         content:"";
         display:block;
-        margin: 33% auto;
+        width: 270%;
+        height: 1px;
+        background-color:black;
+        border-radius: 50%;
+        bottom: -30px;
+        left:-80%;
+        
+    }
+
+    &::after{
+        position: absolute;
+        content:"";
+        display:block;
         width: 8px;
         height: 8px;
         background-color:black;
         border-radius: 50%;
         transition: 0.5s;
+        bottom: -34px;
+        transform: translateX(30px);
     }
 
     &:hover::after{
@@ -47,17 +67,20 @@ const Skillimg = styled.img`
     transition: 0.5s;
     pointer-events: none;
 
-    &.is_open{
-        outline: 2px solid yellow;
+    &.is_line{
+        outline: 3px solid yellow;
+        outline-style: double;
         transform: translateY(-10px);
     }
+
+    
 `
 
 
 
 export const Skill = ({skillinfo, jsonData})=>{
 
-    const [currentValue, setCurrentValue] = useState(0);
+    const [currentValue, setCurrentValue] = useState(null);
     
     function saveValue(arg){setCurrentValue(arg.target.value)}
 
@@ -72,7 +95,7 @@ export const Skill = ({skillinfo, jsonData})=>{
                         onClick={saveValue} 
                         value={idx}>
                             <Skillimg src={el.images} alt="#"
-                            className={ idx === currentValue ? "is_open" : "null"}/>
+                            className={ idx === currentValue ? "is_line" : "null"}/>
                         </SkillLi>
                     )
                 })}
