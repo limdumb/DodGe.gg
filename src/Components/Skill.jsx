@@ -75,6 +75,17 @@ const Skillimg = styled.img`
 
     
 `
+const UplineDiv = styled.div`
+    position: absolute;
+    width:1px;
+    height: ${({line})=> line ? "25px" : "0px"};
+    background-color: yellow;
+    bottom: -20px;
+    transform: translateX(34px);
+    transition: .3s ease-in;
+    
+    `
+
 
 
 
@@ -95,11 +106,13 @@ export const Skill = ({skillinfo, jsonData})=>{
                         onClick={saveValue} 
                         value={idx}>
                             <Skillimg src={el.images} alt="#"
-                            className={ idx === currentValue ? "is_line" : "null"}/>
+                            className={ idx === currentValue ? "is_line" : null}>
+                            </Skillimg>
+                            <UplineDiv line={idx === currentValue}/>
                         </SkillLi>
-                    )
-                })}
+                    )})}
             </SkillUl>
+
         </InfoDiv>
     )
 }
