@@ -7,17 +7,19 @@ const TabButton = styled.button`
   &:hover {
     cursor: pointer;
   }
+  font-weight: bold;
+  font-size: 28px;
 `;
 
-export default function TypeTab({onTabChange}) {
+export default function TypeTab({ onTabChange }) {
   const [activate, setActivate] = useState(0);
 
   const tabClickHandler = (index) => {
     setActivate(index);
-    if(onTabChange) {
-      onTabChange(index)
+    if (onTabChange) {
+      onTabChange(index);
     }
-  }
+  };
 
   const tabContArr = [
     {
@@ -26,7 +28,7 @@ export default function TypeTab({onTabChange}) {
           <TabButton
             style={{
               borderBottom: activate === 0 ? "2px solid gray" : "none",
-              color: activate===0 ? "black" : "rgb(187, 187, 187)"
+              color: activate === 0 ? "black" : "rgb(187, 187, 187)",
             }}
             onClick={() => tabClickHandler(0)}
           >
@@ -41,7 +43,7 @@ export default function TypeTab({onTabChange}) {
           <TabButton
             style={{
               borderBottom: activate === 1 ? "2px solid gray" : "none",
-              color: activate===1 ? "black" : "rgb(187, 187, 187)"
+              color: activate === 1 ? "black" : "rgb(187, 187, 187)",
             }}
             onClick={() => tabClickHandler(1)}
           >
@@ -56,7 +58,7 @@ export default function TypeTab({onTabChange}) {
           <TabButton
             style={{
               borderBottom: activate === 2 ? "2px solid gray" : "none",
-              color: activate===2 ? "black" : "rgb(187, 187, 187)"
+              color: activate === 2 ? "black" : "rgb(187, 187, 187)",
             }}
             onClick={() => tabClickHandler(2)}
           >
@@ -70,8 +72,8 @@ export default function TypeTab({onTabChange}) {
         <li>
           <TabButton
             style={{
-              borderBottom: activate===3 ? "2px solid gray" : "none",
-              color: activate===3 ? "black" : "rgb(187, 187, 187)"
+              borderBottom: activate === 3 ? "2px solid gray" : "none",
+              color: activate === 3 ? "black" : "rgb(187, 187, 187)",
             }}
             onClick={() => tabClickHandler(3)}
           >
@@ -79,12 +81,11 @@ export default function TypeTab({onTabChange}) {
           </TabButton>
         </li>
       ),
-    },
+    }
   ];
 
   return (
     <div className="Record__Tab__Container">
-      <div className="Tab__Title">종류별 전적</div>
       <div className="Tab__Type">
         {tabContArr.map((section) => {
           return section.tabTitle;
