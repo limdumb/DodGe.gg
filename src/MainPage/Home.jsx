@@ -1,4 +1,7 @@
 import MainHeader from "../Components/header";
+import Search from "../Components/Search.jsx";
+import Champion from "../api/Champion";
+import Lotation from "../Components/Lotation";
 
 export default function Home() {
   return (
@@ -8,16 +11,10 @@ export default function Home() {
         <main>
           <section>
             <h2>Logo</h2>
-            <div className="search-box">
-              <form action="." method="post">
-                <input
-                  className="search-text"
-                  type="text"
-                  placeholder="아이디를 입력해 주세요"
-                />
-                <button className="search-btn">검색</button>
-              </form>
-            </div>
+            <Search />
+          </section>
+          <section>
+            <Lotation></Lotation>
           </section>
           <section>
             <h3>소환사의 협곡 티어</h3>
@@ -82,7 +79,12 @@ export default function Home() {
 
           <section>
             <h3>소환사의 협곡 패치내용</h3>
-            <div className="patch"></div>
+            <div className="patch">
+              <div className="patch-highlight">패치 하이라이트</div>
+              <a href="https://www.leagueoflegends.com/ko-kr/news/game-updates/patch-12-21-notes/">
+                <div className="patch-content">패치 내용</div>
+              </a>
+            </div>
           </section>
         </main>
         <footer></footer>
