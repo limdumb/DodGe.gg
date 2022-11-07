@@ -54,7 +54,7 @@
   height: 100vh;
   margin-top: 10px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
 }
 
 .List__Contents {
