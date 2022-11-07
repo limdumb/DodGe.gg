@@ -15,3 +15,7 @@ footer{
   align-items: center;
   flex-direction: column;
 }
+
+li {
+  list-style: none;
+}
