@@ -32,19 +32,18 @@
   margin-top: 10px;
   display: flex;
   flex-direction: column;
-
 }
 
 .Record__Tab__Container > div {
   height: 42.5px;
 }
 
-.Tab__Title{
+.Tab__Title {
   display: flex;
   align-items: center;
 }
 
-.Tab__Type{
+.Tab__Type {
   display: flex;
   align-items: center;
 }
@@ -62,16 +61,16 @@
   height: 90px;
   margin-top: 10px;
   padding: 10px 18px 10px 18px;
-  background-color: rgba(59,130,246,0.5);
+  background-color: rgba(59, 130, 246, 0.5);
   border-radius: 10px;
 }
 
 .Information__Contents {
   display: flex;
-  justify-content: space-between
+  justify-content: space-between;
 }
 
-.Icon__Image{
+.Icon__Image {
   width: 100px;
   height: 100px;
   border-radius: 15px;
