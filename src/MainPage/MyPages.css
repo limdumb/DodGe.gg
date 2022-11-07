@@ -9,19 +9,16 @@
 .User__Profil {
   width: 300px;
   height: 150px;
-  border: 1px solid red;
 }
 
 .Tier__InforMation {
   width: 300px;
   height: 150px;
-  border: 1px solid red;
 }
 
 .Information__transfer__Container {
   width: 1200px;
   height: 73px;
-  border: 1px solid red;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,10 +29,10 @@
 .Record__Tab__Container {
   width: 1200px;
   height: 85px;
-  border: 1px solid red;
   margin-top: 10px;
   display: flex;
   flex-direction: column;
+
 }
 
 .Record__Tab__Container > div {
@@ -47,7 +44,7 @@
   align-items: center;
 }
 
-.Tab__Header{
+.Tab__Type{
   display: flex;
   align-items: center;
 }
@@ -55,18 +52,18 @@
 .Record__List__Container {
   width: 1200px;
   height: 100vh;
-  border: 1px solid red;
   margin-top: 10px;
   display: flex;
   justify-content: center;
 }
 
 .List__Contents {
-  width: 1030px;
+  width: 1200px;
   height: 90px;
-  border: 1px solid red;
   margin-top: 10px;
   padding: 10px 18px 10px 18px;
+  background-color: rgba(59,130,246,0.5);
+  border-radius: 10px;
 }
 
 .Information__Contents {
