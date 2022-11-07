@@ -20,7 +20,6 @@ function Mypage({ champion }){
             image: jsonData.image.full,
             position: jsonData.tags
         }
-        
     }
     const profileinfo = changeProfile(jsonData);
 
@@ -31,7 +30,6 @@ function Mypage({ champion }){
             {
                 id : "passive",
                 images : jsonData.passive.image.full,
-                
             },
         )
 
@@ -40,12 +38,7 @@ function Mypage({ champion }){
                 {
                     id : spell.id,
                     images : spell.image.full
-                }
-            )
-            
-            
-        }
-    
+                })}
         return result;
     }
     const skillinfo = changeSkill(jsonData);

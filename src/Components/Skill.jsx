@@ -112,7 +112,6 @@ export const Skill = ({skillinfo, jsonData})=>{
                         </SkillLi>
                     )})}
             </SkillUl>
-
         </InfoDiv>
     )
 }
