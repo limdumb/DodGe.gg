@@ -8,18 +8,18 @@ import Footer from "../Components/Footer";
 export default function MyPages() {
   return (
     <>
-      <MainHeader></MainHeader>
+      <MainHeader/>
       <div id="Main__Container">
         <main>
-          {UserInformation()}
+          <UserInformation/>
           <div className="Information__transfer__Container">
             <span>혹시 알고 계셨나요?</span>
             <span>협곡의 전령은 바위개의 형이랍니다 응애</span>
           </div>
-          {TypeTab()}
-          {RecordList()}
+          <TypeTab/>
+          <RecordList/>
         </main>
-        {Footer()}
+        <Footer/>
       </div>
     </>
   );
