@@ -14,6 +14,29 @@
 .Tier__InforMation {
   width: 300px;
   height: 150px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.Tab__Tier__Container {
+  display: flex;
+}
+
+.Tab__Tier__Contents{
+  margin-left: 10px;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+}
+
+.Tab__Tier__Contents__1{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.Tab__Tier__Contents__2{
+  font-size: 17px;
 }
 
 .Information__transfer__Container {
@@ -24,6 +47,13 @@
   align-items: center;
   flex-direction: column;
   margin-top: 10px;
+  border-top: 1px solid rgb(187, 187, 187);
+  border-bottom: 1px solid rgb(187, 187, 187);
+}
+
+.Information__transfer__Container > span {
+  font-weight: bold;
+  font-size: 20px;
 }
 
 .Record__Tab__Container {
@@ -41,6 +71,13 @@
 .Tab__Title {
   display: flex;
   align-items: center;
+  margin-top: 10px;
+}
+
+.Tab__Title > span {
+  font-weight: bold;
+  font-size: 20px;
+  padding-left: 6px;
 }
 
 .Tab__Type {
@@ -51,6 +88,7 @@
 .Information__Contents {
   display: flex;
   justify-content: space-between;
+  padding-top: 10px;
 }
 
 .Icon__Image {
