@@ -13,6 +13,7 @@ const MainImgeDiv = styled.div`
     height: 90px;
     border: 3px solid black;
     box-sizing: border-box;
+    cursor: pointer;
 `
 const MainImge = styled.img`
     width:100%;
@@ -41,15 +42,6 @@ const TagsLi = styled.li`
 `
 
 export const Profile = ( {profileinfo, setText} )=>{
-
-    // -------------------------------------------------- //
-    // const componentDidUpdate = () => {
-    //     if (this.props.onChange) {
-    //         console.log(this.props.onChange(this.state));
-    //     }
-    // };
-    // -------------------------------------------------- //
-
 
     return(
         <InfoDiv>
