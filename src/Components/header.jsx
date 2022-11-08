@@ -6,5 +6,5 @@ const TopHeader = styled.header`
 `;
 
 export default function MainHeader() {
-  return <TopHeader></TopHeader>;
+  return <TopHeader/>;
 }
