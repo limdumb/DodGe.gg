@@ -88,6 +88,7 @@ export const Skill = ({skillinfo, jsonData, text, setText})=>{
                     )})}
             </SkillUl>
             <DescriptionDiv>
+                <h4>제목</h4>
                 <p>{text === null ? jsonData.lore : skillinfo[text].description}</p>
             </DescriptionDiv>
         </InfoDiv>
