@@ -9,6 +9,8 @@ const TabButton = styled.button`
   }
   font-weight: bold;
   font-size: 28px;
+  border-bottom: ${(props) => (props.borderBottom ? "2px solid gray" : "none")};
+  color: ${(props) => (props.color ? "black" : "rgb(187, 187, 187)")};
 `;
 
 export default function TypeTab({ onTabChange }) {
@@ -26,10 +28,8 @@ export default function TypeTab({ onTabChange }) {
       tabTitle: (
         <li>
           <TabButton
-            style={{
-              borderBottom: activate === 0 ? "2px solid gray" : "none",
-              color: activate === 0 ? "black" : "rgb(187, 187, 187)",
-            }}
+            borderBottom={activate === 0}
+            color={activate === 0}
             onClick={() => tabClickHandler(0)}
           >
             전체큐
@@ -41,10 +41,8 @@ export default function TypeTab({ onTabChange }) {
       tabTitle: (
         <li>
           <TabButton
-            style={{
-              borderBottom: activate === 1 ? "2px solid gray" : "none",
-              color: activate === 1 ? "black" : "rgb(187, 187, 187)",
-            }}
+            borderBottom={activate === 1}
+            color={activate === 1}
             onClick={() => tabClickHandler(1)}
           >
             솔로랭크
@@ -56,10 +54,8 @@ export default function TypeTab({ onTabChange }) {
       tabTitle: (
         <li>
           <TabButton
-            style={{
-              borderBottom: activate === 2 ? "2px solid gray" : "none",
-              color: activate === 2 ? "black" : "rgb(187, 187, 187)",
-            }}
+            borderBottom={activate === 2}
+            color={activate === 2}
             onClick={() => tabClickHandler(2)}
           >
             자유랭크
@@ -71,17 +67,15 @@ export default function TypeTab({ onTabChange }) {
       tabTitle: (
         <li>
           <TabButton
-            style={{
-              borderBottom: activate === 3 ? "2px solid gray" : "none",
-              color: activate === 3 ? "black" : "rgb(187, 187, 187)",
-            }}
+            borderBottom={activate === 3}
+            color={activate === 3}
             onClick={() => tabClickHandler(3)}
           >
             일반
           </TabButton>
         </li>
       ),
-    }
+    },
   ];
 
   return (
