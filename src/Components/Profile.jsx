@@ -40,10 +40,20 @@ const TagsLi = styled.li`
     color: orange;
 `
 
-export const Profile = ( {profileinfo} )=>{
+export const Profile = ( {profileinfo, setText} )=>{
+
+    // -------------------------------------------------- //
+    // const componentDidUpdate = () => {
+    //     if (this.props.onChange) {
+    //         console.log(this.props.onChange(this.state));
+    //     }
+    // };
+    // -------------------------------------------------- //
+
+
     return(
         <InfoDiv>
-            <MainImgeDiv>
+            <MainImgeDiv onClick={()=> setText(null)}>
                 <MainImge src={profileinfo.image} alt="#"/>
             </MainImgeDiv>
             <SimpleDiv>

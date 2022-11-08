@@ -4,15 +4,17 @@ import Header from '../Components/Header';
 import {Profile} from '../Components/Profile'
 import {Skill} from '../Components/Skill'
 import {lol} from "../dummy_data/data";
-
-
+import {useState} from "react";
 
 
 function Mypage({ champion }){
     const championid = champion;
     const jsonData = lol.data[championid];
+    const profileinfo = changeProfile(jsonData);
+    const skillinfo = changeSkill(jsonData);
+    const [text, setText] = useState(null)
     
-    
+
 
     function changeProfile(jsonData) {
         return {
@@ -21,9 +23,7 @@ function Mypage({ champion }){
             position: jsonData.tags
         }
     }
-    const profileinfo = changeProfile(jsonData);
 
-    
     function changeSkill(jsonData){
         const result = []
         result.push(
@@ -33,7 +33,6 @@ function Mypage({ champion }){
                 description: jsonData.passive.description
             },
         )
-
         for(let spell of jsonData.spells){
             result.push(
                 {
@@ -43,20 +42,16 @@ function Mypage({ champion }){
                 })}
         return result;
     }
-    const skillinfo = changeSkill(jsonData);
-    
-    
-
     return(
         <>
         <Header/>
             <main id="layout">
                 <header className="champion">
                     <div className="profile">
-                        <Profile profileinfo={profileinfo}/>
+                        <Profile profileinfo={profileinfo} setText={setText}/>
                     </div>
                     <div className="Skill">
-                        <Skill skillinfo={skillinfo} jsonData={jsonData} />
+                        <Skill skillinfo={skillinfo} jsonData={jsonData} text={text} setText={setText}/>
                     </div>
                 </header>
             </main>

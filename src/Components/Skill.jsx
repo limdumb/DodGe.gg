@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import {useState} from "react";
 
 const InfoDiv = styled.div`
     color:white;
@@ -7,11 +6,11 @@ const InfoDiv = styled.div`
 `   
 const SkillUl = styled.ul`
     display: flex;
-    justify-content: space-around;
-    
+    justify-content: space-around; 
 `
 const SkillLi = styled.li`
     position: relative;
+    cursor: pointer;
     &::before{
         position: absolute;
         content:"";
@@ -61,14 +60,16 @@ const UplineDiv = styled.div`
     transform: translateX(34px);
     transition: .3s ease-in;
     `
-const SimpleDiv = styled.div`
+const DescriptionDiv = styled.div`
     margin-top: 50px;
-    height: 100%;
+    text-align: left;
 `
-export const Skill = ({skillinfo, jsonData})=>{
-    const [currentValue, setCurrentValue] = useState(null);
-    function saveValue(arg){setCurrentValue(arg.target.value)}
-    
+export const Skill = ({skillinfo, jsonData, text, setText})=>{
+
+    function saveValue(arg){
+        setText(arg.target.value)
+    }
+
     return(
         <InfoDiv>
             <SkillUl>
@@ -80,15 +81,15 @@ export const Skill = ({skillinfo, jsonData})=>{
                         value={idx}>
                             <Skillimg
                                 src={el.images} alt="#"
-                                className={ idx === currentValue ? "is_line" : null}>
+                                className={ idx === text ? "is_line" : null}>
                             </Skillimg>
-                            <UplineDiv line={idx === currentValue}/>
+                            <UplineDiv line={idx === text}/>
                         </SkillLi>
                     )})}
             </SkillUl>
-            <SimpleDiv>
-                <p>{currentValue === null ? jsonData.lore : skillinfo[currentValue].description}</p>
-            </SimpleDiv>
+            <DescriptionDiv>
+                <p>{text === null ? jsonData.lore : skillinfo[text].description}</p>
+            </DescriptionDiv>
         </InfoDiv>
     )
 }
