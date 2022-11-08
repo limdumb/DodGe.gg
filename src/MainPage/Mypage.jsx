@@ -30,6 +30,7 @@ function Mypage({ champion }){
             {
                 id : "passive",
                 images : jsonData.passive.image.full,
+                description: jsonData.passive.description
             },
         )
 
@@ -37,7 +38,8 @@ function Mypage({ champion }){
             result.push(
                 {
                     id : spell.id,
-                    images : spell.image.full
+                    images : spell.image.full,
+                    description: spell.tooltip
                 })}
         return result;
     }
@@ -49,16 +51,14 @@ function Mypage({ champion }){
         <>
         <Header/>
             <main id="layout">
-                <article className="champion">
+                <header className="champion">
                     <div className="profile">
                         <Profile profileinfo={profileinfo}/>
                     </div>
                     <div className="Skill">
                         <Skill skillinfo={skillinfo} jsonData={jsonData} />
                     </div>
-                </article>
-                <section className="rune"></section>
-                <section className="item"></section>
+                </header>
             </main>
         </>
     )

@@ -8,7 +8,7 @@ const InfoDiv = styled.div`
 const SkillUl = styled.ul`
     display: flex;
     justify-content: space-around;
-    margin-top:30px;
+    
 `
 const SkillLi = styled.li`
     position: relative;
@@ -42,8 +42,6 @@ const SkillLi = styled.li`
         transform: translateY(-10px);   
     }
     `
-    
-
 const Skillimg = styled.img`
     border-radius: 10px;
     transition: 0.5s;
@@ -53,8 +51,6 @@ const Skillimg = styled.img`
         outline-style: double;
         transform: translateY(-10px);
     }
-
-    
 `
 const UplineDiv = styled.div`
     position: absolute;
@@ -64,15 +60,17 @@ const UplineDiv = styled.div`
     bottom: -20px;
     transform: translateX(34px);
     transition: .3s ease-in;
-    
     `
+const SimpleDiv = styled.div`
+    margin-top: 50px;
+    height: 100%;
+`
 export const Skill = ({skillinfo, jsonData})=>{
     const [currentValue, setCurrentValue] = useState(null);
     function saveValue(arg){setCurrentValue(arg.target.value)}
-
+    
     return(
         <InfoDiv>
-            <h1>{jsonData.name} 스킬</h1>
             <SkillUl>
                 {skillinfo.map((el, idx)=>{
                     return (
@@ -80,13 +78,17 @@ export const Skill = ({skillinfo, jsonData})=>{
                         key={el.id} 
                         onClick={saveValue} 
                         value={idx}>
-                            <Skillimg src={el.images} alt="#"
-                            className={ idx === currentValue ? "is_line" : null}>
+                            <Skillimg
+                                src={el.images} alt="#"
+                                className={ idx === currentValue ? "is_line" : null}>
                             </Skillimg>
                             <UplineDiv line={idx === currentValue}/>
                         </SkillLi>
                     )})}
             </SkillUl>
+            <SimpleDiv>
+                <p>{currentValue === null ? jsonData.lore : skillinfo[currentValue].description}</p>
+            </SimpleDiv>
         </InfoDiv>
     )
 }

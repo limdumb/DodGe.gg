@@ -1,5 +1,9 @@
 
 /************ css 초기값설정 ************/
+body *{
+    /* outline: 1px solid red; */
+    
+}
 html,body,h1,h2,h3,h4,h5,ul,ol,li,p{
     padding: 0;
     margin: 0;
@@ -41,6 +45,7 @@ li{
 
 .profile {
     flex: 1;
+    padding: 20px 0;
 }
 
 .Skill{
