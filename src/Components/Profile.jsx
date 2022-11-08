@@ -8,23 +8,19 @@ const InfoDiv = styled.div`
     text-align: center;
     align-items: center;
 `
-
 const MainImgeDiv = styled.div`
     width: 90px;
     height: 90px;
     border: 3px solid black;
     box-sizing: border-box;
 `
-
 const MainImge = styled.img`
     width:100%;
 `
-
 const SimpleDiv = styled.div`
     padding: 10px;
     margin: 5px;
 `
-
 const NameSpan = styled.span`
     font-weight: bolder;
     color: white;
@@ -33,7 +29,6 @@ const TagsUl = styled.ul`
     padding: 10px;
     margin: 5px;
     display : flex;
-    
 `
 const TagsLi = styled.li`
     background-color: darkblue;
@@ -46,7 +41,6 @@ const TagsLi = styled.li`
 `
 
 export const Profile = ( {profileinfo} )=>{
-    
     return(
         <InfoDiv>
             <MainImgeDiv>

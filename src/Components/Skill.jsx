@@ -1,29 +1,17 @@
 import styled from "styled-components";
 import {useState} from "react";
-import { act } from "react-dom/test-utils";
-
-
 
 const InfoDiv = styled.div`
     color:white;
     text-align: center;
-    
-    
 `   
-
 const SkillUl = styled.ul`
     display: flex;
     justify-content: space-around;
     margin-top:30px;
-    
-    
-    
-
 `
 const SkillLi = styled.li`
     position: relative;
-    
-
     &::before{
         position: absolute;
         content:"";
@@ -34,9 +22,7 @@ const SkillLi = styled.li`
         border-radius: 50%;
         bottom: -30px;
         left:-80%;
-        
     }
-
     &::after{
         position: absolute;
         content:"";
@@ -49,15 +35,11 @@ const SkillLi = styled.li`
         bottom: -34px;
         transform: translateX(30px);
     }
-
     &:hover::after{
         background-color:yellow;
     }
-
-    
     &:hover > img{
-        transform: translateY(-10px);
-        
+        transform: translateY(-10px);   
     }
     `
     
@@ -66,7 +48,6 @@ const Skillimg = styled.img`
     border-radius: 10px;
     transition: 0.5s;
     pointer-events: none;
-
     &.is_line{
         outline: 3px solid yellow;
         outline-style: double;
@@ -85,14 +66,8 @@ const UplineDiv = styled.div`
     transition: .3s ease-in;
     
     `
-
-
-
-
 export const Skill = ({skillinfo, jsonData})=>{
-
     const [currentValue, setCurrentValue] = useState(null);
-    
     function saveValue(arg){setCurrentValue(arg.target.value)}
 
     return(
