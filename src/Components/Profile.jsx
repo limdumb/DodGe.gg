@@ -41,11 +41,11 @@ const TagsLi = styled.li`
     color: orange;
 `
 
-export const Profile = ( {profileinfo, setText} )=>{
+export const Profile = ( {profileinfo, setSkillText} )=>{
 
     return(
         <InfoDiv>
-            <MainImgeDiv onClick={()=> setText(null)}>
+            <MainImgeDiv onClick={()=> setSkillText(null)}>
                 <MainImge src={profileinfo.image} alt="#"/>
             </MainImgeDiv>
             <SimpleDiv>

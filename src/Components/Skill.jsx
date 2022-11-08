@@ -64,10 +64,10 @@ const DescriptionDiv = styled.div`
     margin-top: 50px;
     text-align: left;
 `
-export const Skill = ({skillinfo, jsonData, text, setText})=>{
+export const Skill = ({skillinfo, jsonData, skilltext, setSkillText})=>{
 
     function saveValue(arg){
-        setText(arg.target.value)
+        setSkillText(arg.target.value)
     }
 
     return(
@@ -81,15 +81,15 @@ export const Skill = ({skillinfo, jsonData, text, setText})=>{
                         value={idx}>
                             <Skillimg
                                 src={el.images} alt="#"
-                                className={ idx === text ? "is_line" : null}>
+                                className={ idx === skilltext ? "is_line" : null}>
                             </Skillimg>
-                            <UplineDiv line={idx === text}/>
+                            <UplineDiv line={idx === skilltext}/>
                         </SkillLi>
                     )})}
             </SkillUl>
             <DescriptionDiv>
                 <h4>제목</h4>
-                <p>{text === null ? jsonData.lore : skillinfo[text].description}</p>
+                <p>{skilltext === null ? jsonData.lore : skillinfo[skilltext].description}</p>
             </DescriptionDiv>
         </InfoDiv>
     )

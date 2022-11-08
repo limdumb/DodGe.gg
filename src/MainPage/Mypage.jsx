@@ -45,7 +45,8 @@ function Mypage({ championId }){
         const jsonData = lol.data[championName];
         const profileinfo = changeProfile();
         const skillinfo = changeSkill(jsonData);
-        const [text, setText] = useState(null)
+        const [skilltext, setSkillText] = useState(null)
+        
     
     function changeProfile() {
         return {
@@ -79,10 +80,10 @@ function Mypage({ championId }){
             <main id="layout">
                 <header className="champion">
                     <div className="profile">
-                        <Profile profileinfo={profileinfo} setText={setText}/>
+                        <Profile profileinfo={profileinfo} setSkillText={setSkillText}/>
                     </div>
                     <div className="Skill">
-                        <Skill skillinfo={skillinfo} jsonData={jsonData} text={text} setText={setText}/>
+                        <Skill skillinfo={skillinfo} jsonData={jsonData} skilltext={skilltext} setSkillText={setSkillText}/>
                     </div>
                 </header>
             </main>
