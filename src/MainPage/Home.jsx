@@ -1,18 +1,18 @@
 import MainHeader from "../Components/header";
 import Search from "../Components/Search.jsx";
-import Champion from "../api/Champion";
+// import Champion from "../api/Champion";
 import Lotation from "../Components/Lotation";
 
 export default function Home() {
   return (
     <>
       <MainHeader></MainHeader>
+      <section className="lol">
+        <h2>Logo</h2>
+        <Search />
+      </section>
       <div id="Main__Container">
         <main>
-          <section>
-            <h2>Logo</h2>
-            <Search />
-          </section>
           <section>
             <Lotation></Lotation>
           </section>
@@ -80,10 +80,21 @@ export default function Home() {
           <section>
             <h3>소환사의 협곡 패치내용</h3>
             <div className="patch">
-              <div className="patch-highlight">패치 하이라이트</div>
-              <a href="https://www.leagueoflegends.com/ko-kr/news/game-updates/patch-12-21-notes/">
-                <div className="patch-content">패치 내용</div>
-              </a>
+              <div className="patch-header">
+                <div className="patch-highlight">패치 하이라이트</div>
+                <a href="https://www.leagueoflegends.com/ko-kr/news/game-updates/patch-12-21-notes/">
+                  <div className="patch-content">패치 내용</div>
+                </a>
+              </div>
+              <div className="patch-container">
+                <span className="patch-role"></span>
+                <span className="patch-role"></span>
+                <span className="patch-role"></span>
+                <span className="patch-role"></span>
+                <span className="patch-role"></span>
+                <span className="patch-role"></span>
+                <span className="patch-role"></span>
+              </div>
             </div>
           </section>
         </main>
