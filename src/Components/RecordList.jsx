@@ -12,7 +12,7 @@ const RecordContents = styled.div`
   width: 1200px;
   height: 90px;
   margin-top: 10px;
-  padding: 10px 18px 10px 18px;
+  padding: 10px 18px;
   background-color: rgba(59, 130, 246, 0.5);
   border-radius: 10px;
 `;
@@ -29,9 +29,9 @@ export default function RecordList(props) {
 
     if (tab === "Solo__Rank__Record") {
       return (
-          <ListContainer>
-            <RecordContents>솔로랭크</RecordContents>
-          </ListContainer>
+        <ListContainer>
+          <RecordContents>솔로랭크</RecordContents>
+        </ListContainer>
       );
     }
 
@@ -51,6 +51,10 @@ export default function RecordList(props) {
       );
     }
   };
-console.log(props.tab)
-  return <>{getChartList(props.tab)}</>;
+
+  return (
+    <>
+      {getChartList(props.tab)}
+    </>
+  );
 }
