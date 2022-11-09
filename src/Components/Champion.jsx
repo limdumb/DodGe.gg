@@ -1,25 +1,25 @@
-import { useState } from "react"
 import styled from "styled-components"
 
-const ChampionTh = styled.th`
+const ChampLine = styled.span`
     border: 1px solid red;
+    width: 130px;
     height: 30px;
-    width: 120px;
+    margin: 1px;
     display: flex;
     align-items: center;
     justify-content: center;
 `
+
 export default function Champion() {
-    const [line, setLine] = useState(0);
     return (
-        <div id="Champion_container">
-            <tr>
-                <ChampionTh>탑</ChampionTh>
-                <ChampionTh>정글</ChampionTh>
-                <ChampionTh>미드</ChampionTh>
-                <ChampionTh>원딜</ChampionTh>
-                <ChampionTh>서폿</ChampionTh>
-            </tr>
+        <div id="Champion__Container">
+            <div className="Line__Container">
+                <ChampLine>탑</ChampLine>
+                <ChampLine>정글</ChampLine>
+                <ChampLine>미드</ChampLine>
+                <ChampLine>원딜</ChampLine>
+                <ChampLine>서폿</ChampLine>
+            </div>
         </div>
     )
 }

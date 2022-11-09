@@ -1,55 +1,9 @@
-.card_container {
-    display: flex;
-}
-
-.top_card {
+.Card__Front {
     background-image: url("https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Garen_0.jpg");
     background-size: 100% 100%;
-    transform: rotateY(0deg);
 }
 
-.jungle_card {
-    background-image: url("https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Nidalee_0.jpg");
-    background-size: 100% 100%;
-}
-
-.mid_card {
-    background-image: url("https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Leblanc_0.jpg");
-    background-size: 100% 100%;
-}
-
-.bottom_card {
-    background-image: url("https://ddragon.leagueoflegends.com/cdn/img/champion/splash/MissFortune_0.jpg");
-    background-size: 100% 100%;
-}
-
-.support_card {
-    background-image: url("https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Thresh_0.jpg");
-    background-size: 100% 100%;
-}
-
-.top_card_front {
-    background-image: url(../Image/top.jpg);
-    background-size: 100% 100%;
-    transform: rotateY(180deg);
-}
-
-.jungle_card_front {
-    background-image: url(../Image/jungle.jpg);
-    background-size: 100% 100%;
-}
-
-.mid_card_front {
-    background-image: url(../Image/mid.jpg);
-    background-size: 100% 100%;
-}
-
-.bottom_card_front {
-    background-image: url(../Image/bottom.jpg);
-    background-size: 100% 100%;
-}
-
-.support_card_front {
-    background-image: url(../Image/support.jpg);
+.Card__Back {
+    background-image: url("/public/Image/top.jpg");
     background-size: 100% 100%;
 }

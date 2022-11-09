@@ -13,36 +13,36 @@
   margin-bottom: 50px;
 }
 
-.position_container {
+.Position__Container {
   display: flex;
 }
 
-.champion_container {
+.Champion__Container {
   display: flex;
   flex-direction: column;
   width: 240px;
   height: 100%
 }
 
-.champion_list {
+.Champion__List {
   border: 1px solid blue;
   height: 100%;
 }
 
-.search_champ {
+.Search__Champ {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 30px;
 }
 
-.line_container {
+.Line__Container {
   border: 1px solid blue;
   display: flex;
   height: 100vh;
 }
 
-.contents_container {
+.Contents__Container {
   display: flex;
   justify-content: space-evenly;
   width: 100%

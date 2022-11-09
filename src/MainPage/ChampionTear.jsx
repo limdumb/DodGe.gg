@@ -12,8 +12,8 @@ export default function ChampionTear() {
       <Header />
       <div id="Main__Container">
         <BestChampion />
-        <div className="contents_container">
-          <aside className="championlist_container">
+        <div className="Contents__Container">
+          <aside className="Championlist__Container">
             <ChampionList />
           </aside>
           <main>
