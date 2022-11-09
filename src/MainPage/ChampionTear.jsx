@@ -4,6 +4,7 @@ import BestChampion from "../Components/BestChampion";
 import ChampionList from "../Components/ChampionList";
 import Champion from "../Components/Champion";
 import "bootstrap/dist/css/bootstrap.css";
+import Footer from "../Components/Footer";
 
 export default function ChampionTear() {
   return (
@@ -20,6 +21,7 @@ export default function ChampionTear() {
           </main>
         </div>
       </div>
+      <Footer />
     </>
   );
 }
