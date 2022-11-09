@@ -4,17 +4,13 @@
   height: 100%;
 }
 
-.card_container {
+.Card__Container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   width: 100%;
   margin-bottom: 50px;
-}
-
-#ChampionList_Container {
-  display: flex;
-  margin-left: 100px;
 }
 
 .position_container {
@@ -24,9 +20,8 @@
 .champion_container {
   display: flex;
   flex-direction: column;
-  border: 1px solid red;
   width: 240px;
-  height: 500px;
+  height: 100%
 }
 
 .champion_list {
@@ -44,11 +39,15 @@
 .line_container {
   border: 1px solid blue;
   display: flex;
-  height: 100%
+  height: 100vh;
 }
 
 .contents_container {
   display: flex;
   justify-content: space-evenly;
   width: 100%
+}
+
+.Card__Section {
+  display: flex;
 }
