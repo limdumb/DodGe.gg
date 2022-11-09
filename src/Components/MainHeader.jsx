@@ -4,7 +4,6 @@ const Header = styled.header`
     background-color: black;
     height: 48px;
 `
-
 export default function MainHeader() {
 
     return (
