@@ -1,0 +1,54 @@
+#Main__Container {
+  margin: 0 auto;
+  width: 1200px;
+  height: 100%;
+}
+
+.card_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+#ChampionList_Container {
+  display: flex;
+  margin-left: 100px;
+}
+
+.position_container {
+  display: flex;
+}
+
+.champion_container {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid red;
+  width: 240px;
+  height: 500px;
+}
+
+.champion_list {
+  border: 1px solid blue;
+  height: 100%;
+}
+
+.search_champ {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+}
+
+.line_container {
+  border: 1px solid blue;
+  display: flex;
+  height: 100%
+}
+
+.contents_container {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%
+}
