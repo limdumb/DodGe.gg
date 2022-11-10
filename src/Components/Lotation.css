@@ -1,0 +1,21 @@
+.lotation__container {
+  display: grid;
+  grid-template-columns: 70px 70px 70px 70px 70px 70px 70px 70px;
+  grid-template-rows: 70px 70px;
+  place-content: center;
+  column-gap: 20px;
+  row-gap: 20px;
+  /* align-items:; */
+  /* grid-template-columns: 30px 30px 30px;
+  grid-template-rows: 30px 30px;
+  gap: 10px 30px;
+  
+  
+  ; */
+  line-height: 90px;
+}
+
+.lotation__img {
+  width: 70px;
+  border-radius: 50%;
+}
