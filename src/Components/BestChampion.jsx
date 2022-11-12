@@ -67,7 +67,7 @@ export default function BestChampion() {
         {card.map((el, idx) => {
           return (
             <Card
-              className={el ? "Card__Front" : "Card__Back"}
+              className={el ? "Card__Front"+idx : "Card__Back"+idx}
               onClick={() => cardChange(idx)}
             />
           );
