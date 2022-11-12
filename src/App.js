@@ -1,11 +1,11 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import ChampionTear from './MainPage/ChampionTear';
+import ChampionTier from './MainPage/ChampionTier';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/championtear" element={<ChampionTear />} />
+        <Route path="/championtier" element={<ChampionTier />} />
       </Routes>
     </BrowserRouter>
   );

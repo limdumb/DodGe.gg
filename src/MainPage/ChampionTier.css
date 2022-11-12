@@ -17,15 +17,15 @@
   display: flex;
 }
 
-.Champion__Container {
+.ChampionPrice__Container {
   display: flex;
   flex-direction: column;
   width: 240px;
   height: 100%
 }
 
-.Champion__List {
-  border: 1px solid blue;
+.ChampionPrice__List {
+  border: 1px solid rgb(8, 244, 0);
   height: 100%;
 }
 
@@ -37,7 +37,7 @@
 }
 
 .Line__Container {
-  border: 1px solid blue;
+  border: 1px solid rgb(240, 220, 40);
   display: flex;
   height: 100vh;
 }
@@ -50,4 +50,12 @@
 
 .Card__Section {
   display: flex;
+}
+
+input {
+  width: 150px;
+}
+
+.Card__Container {
+  margin-top: 100px;
 }
