@@ -24,6 +24,13 @@ const ListNumber = styled.span`
   border-radius: 50px;
 `;
 
+const ChampImg = styled.img`
+  width: 60%;
+  height: 100%;
+  border: 1px solid green;
+`;
+
+
 export default function Champion() {
   const [line, setLine] = useState(0);
   const tabHandler = (idx) => {
@@ -43,6 +50,7 @@ export default function Champion() {
       content: (
         <ContentBox>
           <ListNumber />
+          <ChampImg />
         </ContentBox>
       ),
     },
