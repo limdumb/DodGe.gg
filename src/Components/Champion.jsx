@@ -10,6 +10,14 @@ const ChampLine = styled.button`
   align-items: center;
   justify-content: center;
 `;
+const ContentBox = styled.div`
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+  height: 40px;
+  border: 1px solid pink;
+`;
+
 export default function Champion() {
   const [line, setLine] = useState(0);
   const tabHandler = (idx) => {
@@ -26,7 +34,11 @@ export default function Champion() {
           탑
         </ChampLine>
       ),
-      content: <div style={{ border: "1px solid red" }}>hi</div>,
+      content: (
+        <ContentBox>
+        
+        </ContentBox>
+      ),
     },
     {
       title: (
@@ -75,14 +87,19 @@ export default function Champion() {
   ];
   return (
     <div id="Champion__Container">
-      <div className="Line__Container">
+      <nav className="Line__Container">
         {champContents.map((el, idx) => {
           <ul>
             <li key={idx} />
           </ul>;
           return el.title;
         })}
+      </nav>
+      <div className="InfoText">
+        <span className="Rank__Info">순위</span> <span>티어</span>
       </div>
+      <hr />
+      {champContents[line].content}
     </div>
   );
 }
