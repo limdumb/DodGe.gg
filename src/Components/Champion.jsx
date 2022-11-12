@@ -30,7 +30,11 @@ const ChampImg = styled.img`
   border: 1px solid green;
 `;
 
-
+const ChamTierImg = styled.img`
+  width: 40px;
+  height: 100%;
+  border: 1px solid brown;
+`;
 export default function Champion() {
   const [line, setLine] = useState(0);
   const tabHandler = (idx) => {
@@ -51,6 +55,7 @@ export default function Champion() {
         <ContentBox>
           <ListNumber />
           <ChampImg />
+          <ChamTierImg />
         </ContentBox>
       ),
     },
