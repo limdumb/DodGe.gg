@@ -17,6 +17,12 @@ const ContentBox = styled.div`
   height: 40px;
   border: 1px solid pink;
 `;
+const ListNumber = styled.span`
+  width: 40px;
+  height: 100%;
+  border: 1px solid blue;
+  border-radius: 50px;
+`;
 
 export default function Champion() {
   const [line, setLine] = useState(0);
@@ -36,7 +42,7 @@ export default function Champion() {
       ),
       content: (
         <ContentBox>
-        
+          <ListNumber />
         </ContentBox>
       ),
     },
