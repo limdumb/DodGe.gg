@@ -2,6 +2,8 @@ import MainHeader from "../Components/header";
 import Search from "../Components/Search.jsx";
 // import Champion from "../api/Champion";
 import Lotation from "../Components/Lotation";
+import "bootstrap/dist/css/bootstrap.css";
+import MainFooter from "../Components/footer";
 
 export default function Home() {
   return (
@@ -81,7 +83,9 @@ export default function Home() {
             <h3>소환사의 협곡 패치내용</h3>
             <div className="patch">
               <div className="patch-header">
-                <div className="patch-highlight">패치 하이라이트</div>
+                <a href="https://www.youtube.com/watch?v=YweGTpzIYgU">
+                  <div className="patch-highlight">패치 하이라이트</div>
+                </a>
                 <a href="https://www.leagueoflegends.com/ko-kr/news/game-updates/patch-12-21-notes/">
                   <div className="patch-content">패치 내용</div>
                 </a>
@@ -98,8 +102,8 @@ export default function Home() {
             </div>
           </section>
         </main>
-        <footer></footer>
       </div>
+      <MainFooter />
     </>
   );
 }
