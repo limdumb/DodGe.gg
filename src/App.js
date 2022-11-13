@@ -1,5 +1,5 @@
 import './App.css';
-import Mypage from './MainPage/Mypage'
+import ChampionDetail from './MainPage/ChampionDetail'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -7,7 +7,7 @@ function App() {
     
     <BrowserRouter>
       <Routes>
-          <Route path="/" element={<Mypage championId={"Ahri"}/>}></Route>
+          <Route path="/" element={<ChampionDetail championId={"Ahri"}/>}></Route>
       </Routes>
     </BrowserRouter>
 

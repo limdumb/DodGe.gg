@@ -12,7 +12,7 @@ li{
 
 /************ 레이아웃 임시설정 ************/
 
-#layout{
+#Layout{
     background-color: skyblue;
     margin: 0 auto;
     max-width: 1200px;
@@ -29,7 +29,7 @@ li{
 }
 
 /************ champion ************/
-.champion{
+.Detail_Header{
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -39,7 +39,7 @@ li{
     background-color: #2c3245;
 }
 
-.profile {
+.Profile {
     flex: 1;
     padding: 20px 0;
 }
