@@ -1,17 +1,14 @@
 import styled from "styled-components";
 import { useState } from "react";
+import PriceCotent from "./PriceContent";
+
 const LineImage = styled.img`
   height: 40px;
   width: 40px;
   cursor: pointer;
 `;
 
-const PosBox = styled.div`
-  border: 1px solid red;
-  width: 90%;
-  height: 30px;
-`;
-export default function ChampionList() {
+export default function ChampionList( ) {
   //스프라이트 이미지로 구현할 것.
   const [pos, setPos] = useState(0);
 
@@ -29,7 +26,7 @@ export default function ChampionList() {
           }}
         ></LineImage>
       ),
-      content: <PosBox />,
+      content: <PriceCotent />
     },
     {
       id: "pos2",
