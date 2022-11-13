@@ -1,20 +1,41 @@
 import MainHeader from "../Components/header";
 import "./MyPages.css";
 import { UserInformation } from "../Components/UserInformation";
-import TypeTab from "../Components/TypeTab";
+import { TypeTab } from "../Components/TypeTab";
 import RecordList from "../Components/RecordList";
 import Footer from "../Components/Footer";
 import { useState } from "react";
+import "bootstrap/dist/css/bootstrap.css";
+import { useEffect } from "react";
+import { SummonerData } from "../RiotAPI";
 
 export default function MyPages() {
   const [currentTab, setCurrentTab] = useState("All__Game__Record");
+  const [profileIconID, setProfilIconId] = useState(null);
+  const [profileName, setProfilName] = useState(null);
+  const [lastRevisionDate, setLastRevisionDate] = useState(null)
+
+  useEffect(() => {
+    const userData = async () => {
+      const response = await SummonerData();
+      console.log(response.data);
+      setProfilIconId(response.data.profileIconId);
+      setProfilName(response.data.name);
+      setLastRevisionDate(response.data.revisionDate)
+    };
+    userData();
+  }, []);
 
   return (
     <>
       <MainHeader />
       <div id="Main__Container">
         <main>
-          <UserInformation />
+          <UserInformation
+            profilIconID={profileIconID}
+            profileName={profileName}
+            lastRevisionDate={lastRevisionDate}
+          />
           <div className="Information__transfer__Container">
             <span>혹시 알고 계셨나요?</span>
             <span>협곡의 전령은 바위개의 형이랍니다 응애</span>
@@ -34,8 +55,8 @@ export default function MyPages() {
           />
           <RecordList tab={currentTab} />
         </main>
-        <Footer />
       </div>
+      <Footer />
     </>
   );
 }
