@@ -8,12 +8,14 @@ const TabButton = styled.button`
     cursor: pointer;
   }
   font-weight: bold;
-  font-size: 28px;
+  font-size: ${(props) => props.fontsize || "28px"};
   border-bottom: ${(props) => (props.borderBottom ? "2px solid gray" : "none")};
   color: ${(props) => (props.color ? "black" : "rgb(187, 187, 187)")};
+  margin-top: ${(props) => props.marginTop};
+  margin-bottom: ${(props) => props.marginBtm};
 `;
 
-export default function TypeTab({ onTabChange }) {
+export function TypeTab({ onTabChange }) {
   const [activate, setActivate] = useState(0);
 
   const tabClickHandler = (index) => {
@@ -88,3 +90,77 @@ export default function TypeTab({ onTabChange }) {
     </div>
   );
 }
+
+export const RankTab = () => {
+  const [rankInfo, setRankInfo] = useState(0);
+
+  const tabHandler = (index) => {
+    setRankInfo(index)
+  }
+
+  const userTierArr = [
+    {
+      rankTitle: (
+        <li>
+          <TabButton
+            fontsize="20px"
+            color={rankInfo === 0}
+            onClick={() => tabHandler(0)}
+          >
+            솔로랭크
+          </TabButton>
+        </li>
+      ),
+      rankContent: (
+        <div className="Tab__Tier__Container">
+          <img
+            className="Icon__Image"
+            src={process.env.PUBLIC_URL + "./Image/PlatinumImage.png"}
+          />
+          <div className="Tab__Tier__Contents">
+            <span className="Tab__Tier__Contents__1">Platinum 3</span>
+            <span className="Tab__Tier__Contents__2">29LP</span>
+          </div>
+        </div>
+      )
+    },
+    {
+      rankTitle: (
+        <li>
+          <TabButton
+            fontsize="20px"
+            color={rankInfo === 1}
+            onClick={() => tabHandler(1)}
+          >
+            자유랭크
+          </TabButton>
+        </li>
+      ),
+      rankContent: (
+        <div className="Tab__Tier__Container">
+          <img
+            className="Icon__Image"
+            src={process.env.PUBLIC_URL + "./Image/PlatinumImage.png"}
+          />
+          <div className="Tab__Tier__Contents">
+            <span className="Tab__Tier__Contents__1">Platinum 5</span>
+            <span className="Tab__Tier__Contents__2">29LP</span>
+          </div>
+        </div>
+      )
+    }
+  ];
+
+  return (
+    <div >
+      <ul className="Tab__User__Tier">
+        {userTierArr.map((section) => {
+          return section.rankTitle;
+        })}
+      </ul>
+      <div>
+        {userTierArr[rankInfo].rankContent}
+      </div>
+    </div>
+  );
+};
