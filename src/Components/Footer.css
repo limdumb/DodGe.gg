@@ -1,0 +1,25 @@
+li {
+    list-style: none;
+  }
+  
+  a {
+    text-decoration: none;
+    color: white;
+  }
+  
+  a:hover {
+    color: rgb(153, 151, 151);
+  }
+  
+  article {
+    margin-top: 100px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .Footer__Container {
+    width: 1200px;
+    display: flex;
+    justify-content: space-around;
+  }

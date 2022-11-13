@@ -1,17 +1,10 @@
 
 /************ css 초기값설정 ************/
-body *{
-    /* outline: 1px solid red; */
-    /* cursor: pointer; */
-}
 html,body,h1,h2,h3,h4,h5,ul,ol,li,p{
     padding: 0;
     margin: 0;
     border: none;
 }
-
-
-
 
 li{
     list-style: none;
@@ -42,6 +35,7 @@ li{
     justify-content: center;
     box-sizing: border-box;
     padding: 30px;
+    height: 330px;
     background-color: #2c3245;
 }
 

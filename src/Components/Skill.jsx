@@ -64,8 +64,7 @@ const DescriptionDiv = styled.div`
     margin-top: 50px;
     text-align: left;
 `
-export const Skill = ({skillinfo, jsonData, skilltext, setSkillText})=>{
-
+export const Skill = ({skillinfo, skilltext, setSkillText})=>{
     function saveValue(arg){
         setSkillText(arg.target.value)
     }
@@ -73,7 +72,7 @@ export const Skill = ({skillinfo, jsonData, skilltext, setSkillText})=>{
     return(
         <InfoDiv>
             <SkillUl>
-                {skillinfo.map((el, idx)=>{
+                {Array.isArray(skillinfo) ? skillinfo.map((el, idx)=>{
                     return (
                         <SkillLi 
                         key={el.id} 
@@ -85,11 +84,11 @@ export const Skill = ({skillinfo, jsonData, skilltext, setSkillText})=>{
                             </Skillimg>
                             <UplineDiv line={idx === skilltext}/>
                         </SkillLi>
-                    )})}
+                    )}): null}
             </SkillUl>
             <DescriptionDiv>
-                <h4>제목</h4>
-                <p>{skilltext === null ? jsonData.lore : skillinfo[skilltext].description}</p>
+                <h4>{skilltext === null ? skillinfo[0]?.title : skillinfo[skilltext].name}</h4>
+                <p>{skilltext === null ? skillinfo[0]?.lore : skillinfo[skilltext].description}</p>
             </DescriptionDiv>
         </InfoDiv>
     )

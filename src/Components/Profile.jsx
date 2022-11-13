@@ -42,6 +42,13 @@ const TagsLi = styled.li`
 `
 
 export const Profile = ( {profileinfo, setSkillText} )=>{
+    const getPositionKorean = (line) => {
+        const maps = {
+            Fighter: '전사',
+            Tank : "탑",
+        }
+        return maps[line];    
+    };
 
     return(
         <InfoDiv>
@@ -52,7 +59,9 @@ export const Profile = ( {profileinfo, setSkillText} )=>{
                 <NameSpan>{profileinfo.name}</NameSpan>
             </SimpleDiv>
             <TagsUl>
-                {profileinfo.position.map((el)=>{ return <TagsLi key={el}><span>{el}</span></TagsLi>})}
+                { Array.isArray(profileinfo.position) ? 
+                profileinfo.position.map((el) => 
+                <TagsLi key={el}><span>{getPositionKorean(el)}</span></TagsLi>) : "s"}
             </TagsUl>
         </InfoDiv>
     )

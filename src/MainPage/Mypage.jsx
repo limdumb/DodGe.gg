@@ -1,59 +1,44 @@
 import React from "react";
 import './Mypage.css';
-import Header from '../Components/Header';
 import {Profile} from '../Components/Profile'
 import {Skill} from '../Components/Skill'
-import {lol} from "../dummy_data/data";
-import {useState} from "react";
+import {useState, useEffect} from "react";
+import "bootstrap/dist/css/bootstrap.css";
+import Header from '../Components/Header';
+import Footer from '../Components/Footer';
 
 
 
 
 function Mypage({ championId }){
     
-    // 방법 1
-    // let url = `https://ddragon.leagueoflegends.com/cdn/12.21.1/data/ko_KR/champion/${championId}.json`
-
-    // fetch(url)
-    // .then((response)=> {
-    //     if(!response.ok){
-    //         throw new Error("에러");
-    //     }
-    //     return response.json()
-    // })
-    // .then((data)=> {console.log(data)})
-    // .catch((error)=> console.log(error));
-
-    // 방법 2
-    async function lolData(){
-        const response = await fetch(`https://ddragon.leagueoflegends.com/cdn/12.21.1/data/ko_KR/champion/${championId}.json`);
-        if(!response.ok){
-            throw new Error('에러');
-         }
-        const result = await response.json();
-        console.log(result);
-    }
-    lolData().catch(()=>{
-        console.log("에러")
-    })
-        // const imagesURL = "http://ddragon.leagueoflegends.com/cdn/12.21.1/img"        
-        // 메인이미지 경로 -> "http://ddragon.leagueoflegends.com/cdn/12.21.1/img/champion/Aatrox.png"
-        // 스킬 경로 -> "https://ddragon.leagueoflegends.com/cdn/12.21.1/img/spell/AatroxQ.png",
-        // 패시브 경로 -> "https://ddragon.leagueoflegends.com/cdn/12.21.1/img/passive/Aatrox_Passive.png",
-        
-        const championName = championId;
-        const jsonData = lol.data[championName];
-        const profileinfo = changeProfile();
-        const skillinfo = changeSkill(jsonData);
-        const [skilltext, setSkillText] = useState(null)
-        
+    const [skilltext, setSkillText] = useState(null);
+    const [profileinfo, setProfileinfo] = useState({});
+    const [skillinfo, setSkillinfo] = useState([]);
+    const imagesURL = "http://ddragon.leagueoflegends.com/cdn/12.21.1/img";
     
-    function changeProfile() {
-        return {
+            useEffect(()=>{
+              async function lolData(){
+                  const response = await fetch(`https://ddragon.leagueoflegends.com/cdn/12.21.1/data/ko_KR/champion/${championId}.json`);
+                  const result = await response.json();
+                  if(!response.ok){
+                      throw new Error('404 Not Found');
+                  } 
+                  
+                changeProfile(result.data[championId])
+                changeSkill(result.data[championId])
+              }
+              lolData().catch((err)=>{
+                console.log("에러",err)
+              })
+          },)
+        
+      function changeProfile(jsonData) {
+        setProfileinfo({
             name: jsonData.name,
-            image: jsonData.image.full,
+            image: `${imagesURL}/champion/${championId}.png`,
             position: jsonData.tags
-        }
+        })
     }
 
     function changeSkill(jsonData){
@@ -61,32 +46,45 @@ function Mypage({ championId }){
         result.push(
             {
                 id : "passive",
-                images : jsonData.passive.image.full,
-                description: jsonData.passive.description
+                images : `${imagesURL}/passive/${championId}_Passive.png`,
+                name: jsonData.passive.name,
+                description: jsonData.passive.description,
+                lore: jsonData.lore,
+                title: jsonData.title
+                
             },
         )
         for(let spell of jsonData.spells){
             result.push(
                 {
                     id : spell.id,
-                    images : spell.image.full,
+                    images : `${imagesURL}/spell/${spell.id}.png`,
+                    name: spell.name,
                     description: spell.tooltip
                 })}
-        return result;
+        setSkillinfo(result)
     }
+
     return(
-        <>
-        <Header/>
+        <>  
+            <Header/>
             <main id="layout">
                 <header className="champion">
                     <div className="profile">
-                        <Profile profileinfo={profileinfo} setSkillText={setSkillText}/>
+                        <Profile 
+                        profileinfo={profileinfo}
+                        setSkillText={setSkillText}/>
                     </div>
                     <div className="Skill">
-                        <Skill skillinfo={skillinfo} jsonData={jsonData} skilltext={skilltext} setSkillText={setSkillText}/>
+                        <Skill 
+                        skillinfo={skillinfo} 
+                        skilltext={skilltext} 
+                        setSkillText={setSkillText}/>
                     </div>
                 </header>
             </main>
+            <Footer/>
+            
         </>
     )
 }
