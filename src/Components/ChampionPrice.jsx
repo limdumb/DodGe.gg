@@ -29,6 +29,7 @@ export default function ChampionList() {
           }}
         ></LineImage>
       ),
+      content: <PosBox />,
     },
     {
       id: "pos2",
@@ -103,6 +104,7 @@ export default function ChampionList() {
           <span>챔피언</span>
           <span>가격</span>
         </div>
+        {positionImgs[pos].content}
       </div>
     </div>
   );
