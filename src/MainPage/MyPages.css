@@ -109,3 +109,34 @@
 .Record__My__Champ{
   display: flex; 
 }
+
+.KDA__InfoContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-left: 20px;
+}
+
+.Game__Result__Information{
+  display: flex;
+}
+
+.Game__Player__List{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 0;
+  margin-top: 16px;
+}
+
+.Game__Player__List2{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 0;
+  margin-top: 16px;
+}
+
+.Nav__bar{
+  min-width: 1200px;
+}
