@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
+import ChampionContent from "./ChampionContent";
 
 const ChampLine = styled.button`
   border: 1px solid red;
@@ -10,31 +11,7 @@ const ChampLine = styled.button`
   align-items: center;
   justify-content: center;
 `;
-const ContentBox = styled.div`
-  display: flex;
-  justify-content: space-around;
-  width: 80%;
-  height: 40px;
-  border: 1px solid pink;
-`;
-const ListNumber = styled.span`
-  width: 40px;
-  height: 100%;
-  border: 1px solid blue;
-  border-radius: 50px;
-`;
 
-const ChampImg = styled.img`
-  width: 60%;
-  height: 100%;
-  border: 1px solid green;
-`;
-
-const ChamTierImg = styled.img`
-  width: 40px;
-  height: 100%;
-  border: 1px solid brown;
-`;
 export default function Champion() {
   const [line, setLine] = useState(0);
   const tabHandler = (idx) => {
@@ -42,6 +19,7 @@ export default function Champion() {
   };
   const champContents = [
     {
+      id: "tier1",
       title: (
         <ChampLine
           onClick={() => {
@@ -51,15 +29,10 @@ export default function Champion() {
           탑
         </ChampLine>
       ),
-      content: (
-        <ContentBox>
-          <ListNumber />
-          <ChampImg />
-          <ChamTierImg />
-        </ContentBox>
-      ),
+      content: <ChampionContent />,
     },
     {
+      id: "tier2",
       title: (
         <ChampLine
           onClick={() => {
@@ -69,8 +42,10 @@ export default function Champion() {
           정글
         </ChampLine>
       ),
+      content: <ChampionContent />,
     },
     {
+      id: "tier3",
       title: (
         <ChampLine
           onClick={() => {
@@ -80,8 +55,10 @@ export default function Champion() {
           미드
         </ChampLine>
       ),
+      content: <ChampionContent />,
     },
     {
+      id: "tier4",
       title: (
         <ChampLine
           onClick={() => {
@@ -91,8 +68,10 @@ export default function Champion() {
           원딜
         </ChampLine>
       ),
+      content: <ChampionContent />,
     },
     {
+      id: "tier5",
       title: (
         <ChampLine
           onClick={() => {
@@ -102,14 +81,15 @@ export default function Champion() {
           서폿
         </ChampLine>
       ),
+      content: <ChampionContent />,
     },
   ];
   return (
     <div id="Champion__Container">
       <nav className="Line__Container">
-        {champContents.map((el, idx) => {
+        {champContents.map((el) => {
           <ul>
-            <li key={idx} />
+            <li key={el.id}></li>
           </ul>;
           return el.title;
         })}
