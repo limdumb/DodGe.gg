@@ -140,3 +140,7 @@
 .Nav__bar{
   min-width: 1200px;
 }
+
+.Tab__User__Tier{
+  display: flex;
+}
