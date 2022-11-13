@@ -46,6 +46,11 @@ export const Profile = ( {profileinfo, setSkillText} )=>{
         const maps = {
             Fighter: '전사',
             Tank : "탑",
+            Mage : "마법사",
+            Assassin : "암살자",
+            Marksman : "원거리딜러",
+            Support : "서포터",
+
         }
         return maps[line];    
     };

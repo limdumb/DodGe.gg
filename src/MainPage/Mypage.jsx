@@ -24,14 +24,13 @@ function Mypage({ championId }){
                   if(!response.ok){
                       throw new Error('404 Not Found');
                   } 
-                  
                 changeProfile(result.data[championId])
                 changeSkill(result.data[championId])
               }
               lolData().catch((err)=>{
                 console.log("에러",err)
               })
-          },)
+          },[])
         
       function changeProfile(jsonData) {
         setProfileinfo({
@@ -42,11 +41,13 @@ function Mypage({ championId }){
     }
 
     function changeSkill(jsonData){
+
         const result = []
+        console.log(jsonData.passive.image.full)
         result.push(
             {
                 id : "passive",
-                images : `${imagesURL}/passive/${championId}_Passive.png`,
+                images : `${imagesURL}/passive/${jsonData.passive.image.full}`,
                 name: jsonData.passive.name,
                 description: jsonData.passive.description,
                 lore: jsonData.lore,
@@ -84,7 +85,6 @@ function Mypage({ championId }){
                 </header>
             </main>
             <Footer/>
-            
         </>
     )
 }

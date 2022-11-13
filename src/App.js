@@ -7,7 +7,7 @@ function App() {
     
     <BrowserRouter>
       <Routes>
-          <Route path="/" element={<Mypage championId={"Aatrox"}/>}></Route>
+          <Route path="/" element={<Mypage championId={"Ahri"}/>}></Route>
       </Routes>
     </BrowserRouter>
 
