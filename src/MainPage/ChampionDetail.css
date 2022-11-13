@@ -10,6 +10,10 @@ li{
     list-style: none;
 }
 
+*{
+    outline: 1px solid red;
+}
+
 /************ 레이아웃 임시설정 ************/
 
 #Layout{
@@ -19,16 +23,7 @@ li{
     min-width: 1200px;
 }
 
-.rune{
-    outline: 1px solid black;
-    height: 500px;
-}
-.item{
-    outline: 1px solid black;
-    height: 300px;
-}
-
-/************ champion ************/
+/************ header ************/
 .Detail_Header{
     display: flex;
     flex-direction: row;
@@ -47,3 +42,32 @@ li{
 .Skill{
     flex: 3;
 }
+
+/************ Main ************/
+.Detail_Main{
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 30px;
+    height: 800px;
+}
+
+.Detail_Build{
+    display: flex;
+    flex-direction: row;
+    height: 500px;
+}
+
+.Runes{
+    flex: 4;
+}
+
+.Skill_Spell{
+    flex: 2;
+}
+
+.Detail_item{
+    height: 200px;
+}
+
+

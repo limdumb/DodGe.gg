@@ -2,7 +2,7 @@ import "./Footer.css";
 
 export default function MainFooter() {
   return (
-    <article>
+    <article className="Footer">
       <div className="Footer__Container">
         <ul>
           <li>

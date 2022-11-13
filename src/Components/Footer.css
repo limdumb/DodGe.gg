@@ -11,7 +11,7 @@ li {
     color: rgb(153, 151, 151);
   }
   
-  article {
+  .Footer {
     margin-top: 100px;
     background-color: black;
     display: flex;

@@ -63,8 +63,8 @@ function ChampionDetail({ championId }) {
   return (
     <>
       <Header />
-      <div id="Layout">
-        <header className="Detail_Header">
+      <main id="Layout">
+        <section className="Detail_Header">
           <div className="Profile">
             <Profile profileinfo={profileinfo} setSkillText={setSkillText} />
           </div>
@@ -75,12 +75,17 @@ function ChampionDetail({ championId }) {
               setSkillText={setSkillText}
             />
           </div>
-        </header>
-        <main className="Detail_Main">
-          <section>룬페이지 탭두개</section>
-          <aside>스펠 챔피언 스킬빌드</aside>
-        </main>
-      </div>
+        </section>
+        <div className="Detail_Main">
+            <div className="Detail_Build">
+                <section className="Runes">룬페이지 탭두개</section>
+                <aside className="Skill_Spell">스펠 챔피언 스킬빌드</aside>
+            </div>
+            <div className="Detail_item">
+                <article>아이템빌드</article>
+            </div>
+        </div>
+      </main>
       <Footer />
     </>
   );
