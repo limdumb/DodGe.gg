@@ -20,16 +20,6 @@ export const UserInformation = (props) => {
       </article>
       <div className="Tier__InforMation">
         <RankTab></RankTab>
-        <div className="Tab__Tier__Container">
-          <img
-            className="Icon__Image"
-            src={process.env.PUBLIC_URL + "./Image/PlatinumImage.png"}
-          />
-          <div className="Tab__Tier__Contents">
-            <span className="Tab__Tier__Contents__1">Platinum 3</span>
-            <span className="Tab__Tier__Contents__2">29LP</span>
-          </div>
-        </div>
       </div>
     </section>
   );
