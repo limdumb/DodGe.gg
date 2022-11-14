@@ -10,7 +10,7 @@ const TabButton = styled.button`
   font-weight: bold;
   font-size: ${(props) => props.fontsize || "28px"};
   border-bottom: ${(props) => (props.borderBottom ? "2px solid gray" : "none")};
-  color: ${(props) => (props.color ? "black" : "rgb(187, 187, 187)")};
+  color: ${(props) => (props.changeColor ? "black" : "rgb(187, 187, 187)")};
   margin-top: ${(props) => props.marginTop};
   margin-bottom: ${(props) => props.marginBtm};
 `;
@@ -27,11 +27,12 @@ export function TypeTab({ onTabChange }) {
 
   const tabContArr = [
     {
+      id:("1"),
       tabTitle: (
         <li>
           <TabButton
             borderBottom={activate === 0}
-            color={activate === 0}
+            changeColor={activate === 0}
             onClick={() => tabClickHandler(0)}
           >
             전체큐
@@ -40,11 +41,12 @@ export function TypeTab({ onTabChange }) {
       ),
     },
     {
+      id:("2"),
       tabTitle: (
         <li>
           <TabButton
             borderBottom={activate === 1}
-            color={activate === 1}
+            changeColor={activate === 1}
             onClick={() => tabClickHandler(1)}
           >
             솔로랭크
@@ -53,11 +55,12 @@ export function TypeTab({ onTabChange }) {
       ),
     },
     {
+      id:("3"),
       tabTitle: (
         <li>
           <TabButton
             borderBottom={activate === 2}
-            color={activate === 2}
+            changeColor={activate === 2}
             onClick={() => tabClickHandler(2)}
           >
             자유랭크
@@ -66,11 +69,12 @@ export function TypeTab({ onTabChange }) {
       ),
     },
     {
+      id:("4"),
       tabTitle: (
         <li>
           <TabButton
             borderBottom={activate === 3}
-            color={activate === 3}
+            changeColor={activate === 3}
             onClick={() => tabClickHandler(3)}
           >
             일반
@@ -82,11 +86,11 @@ export function TypeTab({ onTabChange }) {
 
   return (
     <div className="Record__Tab__Container">
-      <div className="Tab__Type">
+      <ul className="Tab__Type">
         {tabContArr.map((section) => {
-          return section.tabTitle;
+          return <li key={section.id}>{section.tabTitle}</li>;
         })}
-      </div>
+      </ul>
     </div>
   );
 }
@@ -100,11 +104,12 @@ export const RankTab = () => {
 
   const userTierArr = [
     {
+      id:("1"),
       rankTitle: (
         <li>
           <TabButton
             fontsize="20px"
-            color={rankInfo === 0}
+            changeColor={rankInfo === 0}
             onClick={() => tabHandler(0)}
           >
             솔로랭크
@@ -125,11 +130,12 @@ export const RankTab = () => {
       )
     },
     {
+      id:("2"),
       rankTitle: (
         <li>
           <TabButton
             fontsize="20px"
-            color={rankInfo === 1}
+            changeColor={rankInfo === 1}
             onClick={() => tabHandler(1)}
           >
             자유랭크
@@ -153,9 +159,9 @@ export const RankTab = () => {
 
   return (
     <div >
-      <ul className="Tab__User__Tier">
+      <ul className="Tab__User__Tier" >
         {userTierArr.map((section) => {
-          return section.rankTitle;
+          return <li key={section.id}>{section.rankTitle}</li>;
         })}
       </ul>
       <div>
