@@ -25,7 +25,7 @@ export default function MyPages() {
     };
 
     const userLeagueData = async () => {
-
+      //작성예정
     }
     
     userData();
