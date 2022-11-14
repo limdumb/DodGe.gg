@@ -2,8 +2,9 @@ import React from "react";
 import "./ChampionDetail.css";
 import { Profile } from "../Components/Profile";
 import { Skill } from "../Components/Skill";
+import { RounesTap} from "../Components//RunesTap"
 import { useState, useEffect } from "react";
-import "bootstrap/dist/css/bootstrap.css";
+// import "bootstrap/dist/css/bootstrap.css";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 
@@ -11,10 +12,10 @@ function ChampionDetail({ championId }) {
   const [skilltext, setSkillText] = useState(null);
   const [profileinfo, setProfileinfo] = useState({});
   const [skillinfo, setSkillinfo] = useState([]);
-  const imagesURL = "http://ddragon.leagueoflegends.com/cdn/12.21.1/img";
+  const championImagesURL = "http://ddragon.leagueoflegends.com/cdn/12.21.1/img";
 
   useEffect(() => {
-    async function lolData() {
+    async function championData() {
       const response = await fetch(
         `https://ddragon.leagueoflegends.com/cdn/12.21.1/data/ko_KR/champion/${championId}.json`
       );
@@ -25,25 +26,39 @@ function ChampionDetail({ championId }) {
       changeProfile(result.data[championId]);
       changeSkill(result.data[championId]);
     }
-    lolData().catch((err) => {
+    championData().catch((err) => {
       console.log("에러", err);
     });
+
+    async function runesData(){
+      const response = await fetch(`​https://127.0.0.1:2999/liveclientdata/activeplayerrunes`);
+      const result = response.text();
+      if(!response.ok){
+        throw new Error("404 not Found");
+      }
+      return result
+    } 
+    // runesData().then((data)=>{
+    //   console.log(data)
+    // })
+    // .catch((err)=>{
+    //   console.log(err)
+    // })
   }, []);
 
   function changeProfile(jsonData) {
     setProfileinfo({
       name: jsonData.name,
-      image: `${imagesURL}/champion/${championId}.png`,
+      image: `${championImagesURL}/champion/${championId}.png`,
       position: jsonData.tags,
     });
   }
 
   function changeSkill(jsonData) {
     const result = [];
-    console.log(jsonData.passive.image.full);
     result.push({
       id: "passive",
-      images: `${imagesURL}/passive/${jsonData.passive.image.full}`,
+      images: `${championImagesURL}/passive/${jsonData.passive.image.full}`,
       name: jsonData.passive.name,
       description: jsonData.passive.description,
       lore: jsonData.lore,
@@ -52,7 +67,7 @@ function ChampionDetail({ championId }) {
     for (let spell of jsonData.spells) {
       result.push({
         id: spell.id,
-        images: `${imagesURL}/spell/${spell.id}.png`,
+        images: `${championImagesURL}/spell/${spell.id}.png`,
         name: spell.name,
         description: spell.tooltip,
       });
@@ -62,7 +77,7 @@ function ChampionDetail({ championId }) {
 
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <main id="Layout">
         <section className="Detail_Header">
           <div className="Profile">
@@ -78,15 +93,17 @@ function ChampionDetail({ championId }) {
         </section>
         <div className="Detail_Main">
             <div className="Detail_Build">
-                <section className="Runes">룬페이지 탭두개</section>
-                <aside className="Skill_Spell">스펠 챔피언 스킬빌드</aside>
+                <section className="Runes">
+                    <RounesTap profileinfo={profileinfo}/>
+                </section>
+                <aside className="Spell">스펠 챔피언 스킬빌드</aside>
             </div>
             <div className="Detail_item">
                 <article>아이템빌드</article>
             </div>
         </div>
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

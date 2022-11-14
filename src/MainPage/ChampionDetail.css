@@ -12,6 +12,7 @@ li{
 
 *{
     outline: 1px solid red;
+    
 }
 
 /************ 레이아웃 임시설정 ************/
@@ -62,7 +63,7 @@ li{
     flex: 4;
 }
 
-.Skill_Spell{
+.Spell{
     flex: 2;
 }
 
