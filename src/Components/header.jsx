@@ -1,10 +1,23 @@
-import styled from "styled-components";
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
 
-const TopHeader = styled.header`
-  background-color: black;
-  height: 48px;
-`;
-
-export default function MainHeader() {
-  return <TopHeader/>;
+function ColorSchemesExample() {
+  return (
+    <>
+      <Navbar className="Nav__bar" bg="dark" variant="dark">
+        <Container>
+          <Navbar.Brand href="#home">Dogde.gg</Navbar.Brand>
+          <Nav className="me-auto">
+            <Nav.Link href="#home">홈</Nav.Link>
+            <Nav.Link href="#features">챔피언 티어</Nav.Link>
+            {/* 로그인은 오른쪽 끝에  */}
+            <Nav.Link href="#pricing">Log-in</Nav.Link>
+          </Nav>
+        </Container>
+      </Navbar>
+    </>
+  );
 }
+
+export default ColorSchemesExample;
