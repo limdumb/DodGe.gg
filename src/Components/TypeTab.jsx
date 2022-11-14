@@ -27,59 +27,51 @@ export function TypeTab({ onTabChange }) {
 
   const tabContArr = [
     {
-      id:("1"),
+      id: "1",
       tabTitle: (
-        <li>
-          <TabButton
-            borderBottom={activate === 0}
-            changeColor={activate === 0}
-            onClick={() => tabClickHandler(0)}
-          >
-            전체큐
-          </TabButton>
-        </li>
+        <TabButton
+          borderBottom={activate === 0}
+          changeColor={activate === 0}
+          onClick={() => tabClickHandler(0)}
+        >
+          전체큐
+        </TabButton>
       ),
     },
     {
-      id:("2"),
+      id: "2",
       tabTitle: (
-        <li>
-          <TabButton
-            borderBottom={activate === 1}
-            changeColor={activate === 1}
-            onClick={() => tabClickHandler(1)}
-          >
-            솔로랭크
-          </TabButton>
-        </li>
+        <TabButton
+          borderBottom={activate === 1}
+          changeColor={activate === 1}
+          onClick={() => tabClickHandler(1)}
+        >
+          솔로랭크
+        </TabButton>
       ),
     },
     {
-      id:("3"),
+      id: "3",
       tabTitle: (
-        <li>
-          <TabButton
-            borderBottom={activate === 2}
-            changeColor={activate === 2}
-            onClick={() => tabClickHandler(2)}
-          >
-            자유랭크
-          </TabButton>
-        </li>
+        <TabButton
+          borderBottom={activate === 2}
+          changeColor={activate === 2}
+          onClick={() => tabClickHandler(2)}
+        >
+          자유랭크
+        </TabButton>
       ),
     },
     {
-      id:("4"),
+      id: "4",
       tabTitle: (
-        <li>
-          <TabButton
-            borderBottom={activate === 3}
-            changeColor={activate === 3}
-            onClick={() => tabClickHandler(3)}
-          >
-            일반
-          </TabButton>
-        </li>
+        <TabButton
+          borderBottom={activate === 3}
+          changeColor={activate === 3}
+          onClick={() => tabClickHandler(3)}
+        >
+          일반
+        </TabButton>
       ),
     },
   ];
@@ -99,22 +91,20 @@ export const RankTab = () => {
   const [rankInfo, setRankInfo] = useState(0);
 
   const tabHandler = (index) => {
-    setRankInfo(index)
-  }
+    setRankInfo(index);
+  };
 
   const userTierArr = [
     {
-      id:("1"),
+      id: "1",
       rankTitle: (
-        <li>
-          <TabButton
-            fontsize="20px"
-            changeColor={rankInfo === 0}
-            onClick={() => tabHandler(0)}
-          >
-            솔로랭크
-          </TabButton>
-        </li>
+        <TabButton
+          fontsize="20px"
+          changeColor={rankInfo === 0}
+          onClick={() => tabHandler(0)}
+        >
+          솔로랭크
+        </TabButton>
       ),
       rankContent: (
         <div className="Tab__Tier__Container">
@@ -127,20 +117,18 @@ export const RankTab = () => {
             <span className="Tab__Tier__Contents__2">29LP</span>
           </div>
         </div>
-      )
+      ),
     },
     {
-      id:("2"),
+      id: "2",
       rankTitle: (
-        <li>
-          <TabButton
-            fontsize="20px"
-            changeColor={rankInfo === 1}
-            onClick={() => tabHandler(1)}
-          >
-            자유랭크
-          </TabButton>
-        </li>
+        <TabButton
+          fontsize="20px"
+          changeColor={rankInfo === 1}
+          onClick={() => tabHandler(1)}
+        >
+          자유랭크
+        </TabButton>
       ),
       rankContent: (
         <div className="Tab__Tier__Container">
@@ -153,20 +141,18 @@ export const RankTab = () => {
             <span className="Tab__Tier__Contents__2">29LP</span>
           </div>
         </div>
-      )
-    }
+      ),
+    },
   ];
 
   return (
-    <div >
-      <ul className="Tab__User__Tier" >
+    <div>
+      <ul className="Tab__User__Tier">
         {userTierArr.map((section) => {
           return <li key={section.id}>{section.rankTitle}</li>;
         })}
       </ul>
-      <div>
-        {userTierArr[rankInfo].rankContent}
-      </div>
+      <div>{userTierArr[rankInfo].rankContent}</div>
     </div>
   );
 };

@@ -7,27 +7,27 @@ import Footer from "../Components/Footer";
 import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import { useEffect } from "react";
-import { SummonerData,SummonerLeagueData } from "../RiotAPI";
+import { SummonerData, SummonerLeagueData } from "../RiotAPI";
 
 export default function MyPages() {
   const [currentTab, setCurrentTab] = useState("All__Game__Record");
   // 상태값 추후 수정 예정
   const [profileIconID, setProfilIconId] = useState(null);
   const [profileName, setProfilName] = useState(null);
-  const [lastRevisionDate, setLastRevisionDate] = useState(null)
+  const [lastRevisionDate, setLastRevisionDate] = useState(null);
 
   useEffect(() => {
     const userData = async () => {
       const response = await SummonerData();
       setProfilIconId(response.data.profileIconId);
       setProfilName(response.data.name);
-      setLastRevisionDate(response.data.revisionDate)
+      setLastRevisionDate(response.data.revisionDate);
     };
 
     const userLeagueData = async () => {
       //작성예정
-    }
-    
+    };
+
     userData();
   }, []);
 

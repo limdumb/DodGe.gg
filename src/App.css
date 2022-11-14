@@ -3,15 +3,6 @@
   width: 1200px;
 }
 
-footer{
-  margin-top: 100px;
-  padding-bottom: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
 li {
   list-style: none;
 }

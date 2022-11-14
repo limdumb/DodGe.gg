@@ -23,7 +23,7 @@ const StyleSpan = styled.span`
   font-size: ${(props) => props.fontsize || "12px"};
   display: block;
   margin-bottom: ${(props) => props.marginBtm};
-  color: ${(props) => props.color};
+  color: ${(props) => props.changeColor};
   font-weight: ${(props) => props.fontweight};
 `;
 
@@ -52,7 +52,7 @@ export default function RecordList(props) {
               <StyleSpan marginBtm="12px">11/08</StyleSpan>
               <StyleSpan
                 fontsize="15px"
-                color="rgba(49, 141, 239, 0.676)"
+                changeColor="rgba(49, 141, 239, 0.676)"
                 fontweight="bold"
                 margin="3px"
               >
