@@ -30,20 +30,6 @@ function ChampionDetail({ championId }) {
       console.log("에러", err);
     });
 
-    async function runesData(){
-      const response = await fetch(`​https://127.0.0.1:2999/liveclientdata/activeplayerrunes`);
-      const result = response.text();
-      if(!response.ok){
-        throw new Error("404 not Found");
-      }
-      return result
-    } 
-    // runesData().then((data)=>{
-    //   console.log(data)
-    // })
-    // .catch((err)=>{
-    //   console.log(err)
-    // })
   }, []);
 
   function changeProfile(jsonData) {

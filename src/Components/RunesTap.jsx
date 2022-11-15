@@ -30,6 +30,12 @@ const TapDiv = styled.div`
   }
 `;
 
+const RounesDiv = styled.div`
+  margin: 2% auto;
+  width: 90%;
+  height: 60%;
+`
+
 
 // 현재 해당 컴포넌트는  Api 테스트중
 // profileinfo 임시
@@ -47,12 +53,14 @@ export const RounesTap = ({ profileinfo }) => {
               return ( <div key={idx} onClick={()=>setTapChange(!tapChange)}><img src={profileinfo.image} alt="#" /></div>);
             }) : null}
       </TapDiv>
-      {tapChange ?
+      <RounesDiv>
+        {tapChange ?
         // 첫번째 탭
         (<p>정밀&결의</p>) :
         // 두번째 탭
         (<p>결의&지배</p>)
         }
+      </RounesDiv>
     </>
   );
 };

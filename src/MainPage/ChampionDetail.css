@@ -11,8 +11,7 @@ li{
 }
 
 *{
-    /* outline: 1px solid red; */
-    
+    outline: 1px solid red;
 }
 
 /************ 레이아웃 임시설정 ************/
