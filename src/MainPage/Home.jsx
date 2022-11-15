@@ -1,6 +1,5 @@
 import MainHeader from "../Components/header";
 import Search from "../Components/Search.jsx";
-// import Champion from "../api/Champion";
 import Lotation from "../Components/Lotation";
 import "bootstrap/dist/css/bootstrap.css";
 import MainFooter from "../Components/footer";
@@ -21,9 +20,20 @@ export default function Home() {
           <section>
             <h3>소환사의 협곡 티어</h3>
             <div className="Tear">
-              <div className="Tear-box Top-tear">
-                <div className="tear-position">탑</div>
-                <div className="role-container">
+              <div className="Tear__Box Top__Tear">
+                <div className="Tear__Position">탑</div>
+                <div className="Role__Container">
+                  <span className="role"></span>
+                  <span className="role"></span>
+                  <span className="role"></span>
+                  <span className="role"></span>
+                  <span className="role"></span>
+                  <span className="role"></span>
+                </div>
+              </div>
+              <div className="Tear__Box">
+                <div className="Tear__Position">정글</div>
+                <div className="Role__Container">
                   <span className="role"></span>
                   <span className="role"></span>
                   <span className="role"></span>
@@ -33,8 +43,8 @@ export default function Home() {
                 </div>
               </div>
               <div className="Tear-box">
-                <div className="tear-position">정글</div>
-                <div className="role-container">
+                <div className="Tear__Position">미드</div>
+                <div className="Role__Container">
                   <span className="role"></span>
                   <span className="role"></span>
                   <span className="role"></span>
@@ -44,19 +54,8 @@ export default function Home() {
                 </div>
               </div>
               <div className="Tear-box">
-                <div className="tear-position">미드</div>
-                <div className="role-container">
-                  <span className="role"></span>
-                  <span className="role"></span>
-                  <span className="role"></span>
-                  <span className="role"></span>
-                  <span className="role"></span>
-                  <span className="role"></span>
-                </div>
-              </div>
-              <div className="Tear-box">
-                <div className="tear-position">원딜</div>
-                <div className="role-container">
+                <div className="Tear__Position">원딜</div>
+                <div className="Role__Container">
                   <span className="role"></span>
                   <span className="role"></span>
                   <span className="role"></span>
@@ -66,8 +65,8 @@ export default function Home() {
                 </div>
               </div>
               <div className="Tear-box support-tear">
-                <div className="tear-position">서폿</div>
-                <div className="role-container">
+                <div className="Tear__Position">서폿</div>
+                <div className="Role__Container">
                   <span className="role"></span>
                   <span className="role"></span>
                   <span className="role"></span>
@@ -82,22 +81,22 @@ export default function Home() {
           <section>
             <h3>소환사의 협곡 패치내용</h3>
             <div className="patch">
-              <div className="patch-header">
+              <div className="Patch__Header">
                 <a href="https://www.youtube.com/watch?v=YweGTpzIYgU">
-                  <div className="patch-highlight">패치 하이라이트</div>
+                  <div className="Patch__Highlight">패치 하이라이트</div>
                 </a>
                 <a href="https://www.leagueoflegends.com/ko-kr/news/game-updates/patch-12-21-notes/">
-                  <div className="patch-content">패치 내용</div>
+                  <div className="Patch__Content">패치 내용</div>
                 </a>
               </div>
-              <div className="patch-container">
-                <span className="patch-role"></span>
-                <span className="patch-role"></span>
-                <span className="patch-role"></span>
-                <span className="patch-role"></span>
-                <span className="patch-role"></span>
-                <span className="patch-role"></span>
-                <span className="patch-role"></span>
+              <div className="Patch__Container">
+                <span className="Patch__Role"></span>
+                <span className="Patch__Role"></span>
+                <span className="Patch__Role"></span>
+                <span className="Patch__Role"></span>
+                <span className="Patch__Role"></span>
+                <span className="Patch__Role"></span>
+                <span className="Patch__Role"></span>
               </div>
             </div>
           </section>

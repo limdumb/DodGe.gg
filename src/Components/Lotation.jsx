@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import "./Lotation.css";
 
 export default function Lotation() {
-  // const [opposite, setOpposite] = useState(false);
   const [data, setData] = useState([]);
   const [lotationKey, setLotaitionKey] = useState([]);
 
@@ -24,7 +23,7 @@ export default function Lotation() {
   useEffect(() => {
     async function fetchData() {
       const res = await fetch(
-        `https://kr.api.riotgames.com/lol/platform/v3/champion-rotations?api_key=RGAPI-91f5b898-9e52-4748-988b-e4aad1dafd57
+        `https://kr.api.riotgames.com/lol/platform/v3/champion-rotations?api_key=RGAPI-7328a2e6-8414-463f-a522-433b6cb54ac8
         `
       );
       const result = await res.json();
@@ -62,14 +61,14 @@ export default function Lotation() {
       <h3>금주의 로테이션</h3>
       <div className="lotation">
         {
-          <div className="lotation__container">
+          <div className="Lotation__Container">
             {data.data
               ? newArr.map((el, idx) => {
                   console.log(`${Url}${el.id}.png`);
                   return (
                     <span>
                       <img
-                        className="lotation__img"
+                        className="Lotation__Img"
                         src={`${Url}${el.id}.png`}
                       />
                     </span>
@@ -78,8 +77,6 @@ export default function Lotation() {
               : ""}
           </div>
         }
-
-        {/* { profileinfo.position.map((el)=>{ return <img src={${Url} + ${el.id}_0.jpg}></img>})} */}
       </div>
     </>
   );

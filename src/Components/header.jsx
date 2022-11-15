@@ -11,7 +11,6 @@ function MainHeader() {
           <Nav className="me-auto">
             <Nav.Link href="#home">홈</Nav.Link>
             <Nav.Link href="#features">챔피언 티어</Nav.Link>
-            {/* 로그인은 오른쪽 끝에  */}
             <Nav.Link href="#pricing">Log-in</Nav.Link>
           </Nav>
         </Container>
