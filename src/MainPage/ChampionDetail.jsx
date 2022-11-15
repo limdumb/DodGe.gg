@@ -3,8 +3,9 @@ import "./ChampionDetail.css";
 import { Profile } from "../Components/Profile";
 import { Skill } from "../Components/Skill";
 import { RounesTap} from "../Components//RunesTap"
+import {Bilid, Bulid} from "../Components/Bulid"
 import { useState, useEffect } from "react";
-// import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap/dist/css/bootstrap.css";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 
@@ -82,7 +83,9 @@ function ChampionDetail({ championId }) {
                 <section className="Runes">
                     <RounesTap profileinfo={profileinfo}/>
                 </section>
-                <aside className="Spell">스펠 챔피언 스킬빌드</aside>
+                <aside className="Spell">
+                  <Bulid/>
+                </aside>
             </div>
             <div className="Detail_item">
                 <article>아이템빌드</article>

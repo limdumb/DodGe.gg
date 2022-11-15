@@ -42,11 +42,10 @@ const RounesDiv = styled.div`
 export const RounesTap = ({ profileinfo }) => {
   const tap = [0,1];
   const [tapChange, setTapChange] = useState(true);
-
   return (
     <>
       <TitleName>
-        <h2>챔피언룬</h2>
+        <h2>{`${profileinfo.name} 룬`}</h2>
       </TitleName>
       <TapDiv>
         {Array.isArray(tap)? tap.map((el, idx) => {

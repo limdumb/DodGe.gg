@@ -19,6 +19,8 @@ const MainImge = styled.img`
     width:100%;
 `
 const SimpleDiv = styled.div`
+    box-sizing: content-box;
+    height:20px;
     padding: 10px;
     margin: 5px;
 `
@@ -27,9 +29,14 @@ const NameSpan = styled.span`
     color: white;
 `
 const TagsUl = styled.ul`
+    box-sizing: content-box;
+    text-align: center;
+    height:40px;
     padding: 10px;
     margin: 5px;
     display : flex;
+    justify-content: center;
+    align-items: center;
 `
 const TagsLi = styled.li`
     background-color: darkblue;
@@ -39,10 +46,11 @@ const TagsLi = styled.li`
     font-size: 10px;
     outline: 2px solid orange;
     color: orange;
+    
 `
 
 export const Profile = ( {profileinfo, setSkillText} )=>{
-    const getPositionKorean = (line) => {
+    const getPositionName = (line) => {
         const maps = {
             Fighter: '전사',
             Tank : "탑",
@@ -66,7 +74,7 @@ export const Profile = ( {profileinfo, setSkillText} )=>{
             <TagsUl>
                 { Array.isArray(profileinfo.position) ? 
                 profileinfo.position.map((el) => 
-                <TagsLi key={el}><span>{getPositionKorean(el)}</span></TagsLi>) : "s"}
+                <TagsLi key={el}><span>{getPositionName(el)}</span></TagsLi>) : "s"}
             </TagsUl>
         </InfoDiv>
     )

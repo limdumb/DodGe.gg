@@ -6,11 +6,14 @@ const InfoDiv = styled.div`
     text-align: center;
 `   
 const SkillUl = styled.ul`
+    padding:0px;
     display: flex;
     justify-content: space-around;
     margin-bottom: 150px;
 `
 const SkillLi = styled.li`
+    width:64px;
+    height:67.5px;
     position: relative;
     cursor: pointer;
     &::before{
