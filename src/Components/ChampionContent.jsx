@@ -6,6 +6,7 @@ const ChampContentBox = styled.div`
   width: 80%;
   height: 40px;
   border: 1px solid pink;
+  margin-bottom: 5px;
 `;
 const ListNumber = styled.span`
   width: 40px;
@@ -20,7 +21,7 @@ const ChampImg = styled.img`
   border: 1px solid green;
 `;
 
-const ChamTierImg = styled.img`
+const ChampTierImg = styled.img`
   width: 40px;
   height: 100%;
   border: 1px solid brown;
@@ -31,7 +32,7 @@ export default function ChampionContent() {
     <ChampContentBox>
       <ListNumber />
       <ChampImg />
-      <ChamTierImg />
+      <ChampTierImg />
     </ChampContentBox>
   );
 }
