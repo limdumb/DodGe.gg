@@ -77,7 +77,7 @@ function ChampionDetail({ championId }) {
 
   return (
     <>
-      {/* <Header /> */}
+      <Header />
       <main id="Layout">
         <section className="Detail_Header">
           <div className="Profile">
@@ -103,7 +103,7 @@ function ChampionDetail({ championId }) {
             </div>
         </div>
       </main>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }

@@ -3,10 +3,9 @@ import { useState } from "react";
 
 const RowFlexDiv = styled.div`
     display: flex;
-    justify-content: space-around;
     flex-direction: row;
 
-    & > ul{
+    & > div{
         flex: 1;
         text-align: center;
     }
@@ -16,11 +15,14 @@ const ItemDiv = styled.div`
     flex: 1;
     text-align: center;
     cursor: pointer;
+    background-color: red;
+    text-align: center;
 
     & > div{
         width: 50px;
         height: 50px;
         margin: 0 auto;
+        background-color: blue;
     }
 `
 
@@ -33,21 +35,32 @@ const BigImg = styled.img`
 const RowFlexUl = styled.ul`
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-
+    justify-content: space-between;
+    margin: 0 auto;
+    margin-top: 10px;
+    width:300px;
+    
     & > li{
         width: 50px;
         height: 50px;
-        margin: 0 auto;
+        line-height: 46px;
+
 
         & > img{
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
+            vertical-align: middle;
         }
     }
-
-
+`
+const TitleName = styled.hgroup`
+    border-bottom: 1px solid black;
+    padding: 10px;
+    margin-bottom: 10px;
+    & > h2{
+        text-align: center;
+    }
 `
 
 // 현재 해당 컴포넌트는  Api 테스트중 
@@ -57,7 +70,9 @@ export const RounesTap = (({profileinfo})=>{
     
     return(
         <>  
-            <h2>챔피언룬</h2>
+            <TitleName>
+                <h2>챔피언룬</h2>
+            </TitleName>	
             <RowFlexDiv>
                 {Array.isArray(tap) ? tap.map((el, idx)=>{
                     return (
@@ -70,14 +85,14 @@ export const RounesTap = (({profileinfo})=>{
                 }) : null}
             </RowFlexDiv>
             <RowFlexDiv>
-                <ul>
-                    <li>메인이미지1</li>
+                <div>
                     <RowFlexUl>
                         <li><img src={profileinfo.image} alt="1"></img></li>
                         <li><img src={profileinfo.image} alt="2"></img></li>
                         <li><img src={profileinfo.image} alt="3"></img></li>
                         <li><img src={profileinfo.image} alt="4"></img></li>
                     </RowFlexUl>
+                    <hr/>
                     <RowFlexUl>
                         <li><img src={profileinfo.image} alt="1"></img></li>
                         <li><img src={profileinfo.image} alt="2"></img></li>
@@ -94,19 +109,40 @@ export const RounesTap = (({profileinfo})=>{
                         <li><img src={profileinfo.image} alt="3"></img></li>
                         <li><img src={profileinfo.image} alt="4"></img></li>
                     </RowFlexUl>
-                </ul>                             
-                <ul>
-                    <li>메인이미지2</li>
-                    <li><img src="#" alt="1"></img></li>
-                    <li><img src="#" alt="2"></img></li>
-                    <li><img src="#" alt="3"></img></li>
-                    <li><img src="#" alt="4"></img></li>
-                    <ul>
-                        <li><img src="#" alt="1"></img></li>
-                        <li><img src="#" alt="2"></img></li>
-                        <li><img src="#" alt="3"></img></li>
-                    </ul>                             
-                </ul>                             
+                </div>                             
+                <div>
+                    <RowFlexUl>
+                        <li><img src={profileinfo.image} alt="1"></img></li>
+                        <li><img src={profileinfo.image} alt="2"></img></li>
+                        <li><img src={profileinfo.image} alt="3"></img></li>
+                    </RowFlexUl>
+                    <RowFlexUl>
+                        <li><img src={profileinfo.image} alt="1"></img></li>
+                        <li><img src={profileinfo.image} alt="2"></img></li>
+                        <li><img src={profileinfo.image} alt="3"></img></li>
+                    </RowFlexUl>
+                    <RowFlexUl>
+                        <li><img src={profileinfo.image} alt="1"></img></li>
+                        <li><img src={profileinfo.image} alt="2"></img></li>
+                        <li><img src={profileinfo.image} alt="3"></img></li>
+                    </RowFlexUl>
+                    <hr/>
+                    <RowFlexUl>
+                        <li><img src={profileinfo.image} alt="1"></img></li>
+                        <li><img src={profileinfo.image} alt="2"></img></li>
+                        <li><img src={profileinfo.image} alt="3"></img></li>
+                    </RowFlexUl>                          
+                    <RowFlexUl>
+                        <li><img src={profileinfo.image} alt="1"></img></li>
+                        <li><img src={profileinfo.image} alt="2"></img></li>
+                        <li><img src={profileinfo.image} alt="3"></img></li>
+                    </RowFlexUl>                          
+                    <RowFlexUl>
+                        <li><img src={profileinfo.image} alt="1"></img></li>
+                        <li><img src={profileinfo.image} alt="2"></img></li>
+                        <li><img src={profileinfo.image} alt="3"></img></li>
+                    </RowFlexUl>                          
+                </div>                             
             </RowFlexDiv>
         </>
     )

@@ -7,7 +7,7 @@ function App() {
     
     <BrowserRouter>
       <Routes>
-          <Route path="/" element={<ChampionDetail championId={"Ahri"}/>}></Route>
+          <Route path="/" element={<ChampionDetail championId={"Akali"}/>}></Route>
       </Routes>
     </BrowserRouter>
 
