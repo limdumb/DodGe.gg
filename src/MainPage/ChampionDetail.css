@@ -63,18 +63,20 @@ li{
 }
 .Skill__Bulid{
     flex: 1;
+    margin: 5px;
     background-color: gray;
 
 }
 
 .Item__Bulid{
     flex: 2;
+    margin: 5px;
     height: 200px;
     background-color: darkcyan;
 }
 
 *{
     /* outline: 1px solid red; */
-    
+       
 }
 
