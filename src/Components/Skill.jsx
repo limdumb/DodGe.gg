@@ -1,12 +1,14 @@
 import styled from "styled-components";
 
 const InfoDiv = styled.div`
+    position: relative;
     color:white;
     text-align: center;
 `   
 const SkillUl = styled.ul`
     display: flex;
-    justify-content: space-around; 
+    justify-content: space-around;
+    margin-bottom: 150px;
 `
 const SkillLi = styled.li`
     position: relative;
@@ -61,8 +63,14 @@ const UplineDiv = styled.div`
     transition: .3s ease-in;
     `
 const DescriptionDiv = styled.div`
+    position: absolute;
+    top: 100%;
     margin-top: 50px;
     text-align: left;
+    & > h4{
+        text-align: center;
+        margin-bottom: 10px;
+    }
 `
 export const Skill = ({skillinfo, skilltext, setSkillText})=>{
     function saveValue(arg){
