@@ -87,10 +87,10 @@ function ChampionDetail({ championId }) {
           </div>
           <div className="Common__Build">
               <article className="Skill__Bulid">
-                <SkillBulid />
+                <SkillBulid  profileinfo={profileinfo} />
               </article>
               <article className="Item__Bulid">
-                <ItemBulid />
+                <ItemBulid  profileinfo={profileinfo} />
               </article>
           </div>
         </div>
