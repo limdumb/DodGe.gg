@@ -3,7 +3,7 @@ import "./ChampionDetail.css";
 import { Profile } from "../Components/Profile";
 import { Skill } from "../Components/Skill";
 import { RounesTap} from "../Components//RunesTap"
-import {Bilid, Bulid} from "../Components/Bulid"
+import {Bulid} from "../Components/Bulid"
 import { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import Header from "../Components/Header";
@@ -84,7 +84,7 @@ function ChampionDetail({ championId }) {
                     <RounesTap profileinfo={profileinfo}/>
                 </section>
                 <aside className="Spell">
-                  <Bulid/>
+                  <Bulid profileinfo={profileinfo}/>
                 </aside>
             </div>
             <div className="Detail_item">
