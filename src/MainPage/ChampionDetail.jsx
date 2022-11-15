@@ -2,9 +2,11 @@ import React from "react";
 import "./ChampionDetail.css";
 import { Profile } from "../Components/Profile";
 import { Skill } from "../Components/Skill";
-import { RounesTap} from "../Components//RunesTap"
-import {Bulid} from "../Components/Bulid"
+import { RounesTap } from "../Components//RunesTap";
+import { Bulid } from "../Components/Bulid";
 import { useState, useEffect } from "react";
+import { ItemBulid } from "../Components/ItemBulid";
+import { SkillBulid } from "../Components/SkillBulid";
 import "bootstrap/dist/css/bootstrap.css";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
@@ -13,7 +15,8 @@ function ChampionDetail({ championId }) {
   const [skilltext, setSkillText] = useState(null);
   const [profileinfo, setProfileinfo] = useState({});
   const [skillinfo, setSkillinfo] = useState([]);
-  const championImagesURL = "http://ddragon.leagueoflegends.com/cdn/12.21.1/img";
+  const championImagesURL =
+    "http://ddragon.leagueoflegends.com/cdn/12.21.1/img";
 
   useEffect(() => {
     async function championData() {
@@ -30,7 +33,6 @@ function ChampionDetail({ championId }) {
     championData().catch((err) => {
       console.log("에러", err);
     });
-
   }, []);
 
   function changeProfile(jsonData) {
@@ -67,29 +69,30 @@ function ChampionDetail({ championId }) {
       <Header />
       <main id="Layout">
         <section className="Detail_Header">
-          <div className="Profile">
-            <Profile profileinfo={profileinfo} setSkillText={setSkillText} />
-          </div>
-          <div className="Skill">
-            <Skill
-              skillinfo={skillinfo}
-              skilltext={skilltext}
-              setSkillText={setSkillText}
-            />
-          </div>
+            <div className="Profile">
+              <Profile profileinfo={profileinfo} setSkillText={setSkillText} />
+            </div>
+            <div className="Skill">
+              <Skill skillinfo={skillinfo} skilltext={skilltext} setSkillText={setSkillText}/>
+            </div>
         </section>
         <div className="Detail_Main">
-            <div className="Detail_Build">
-                <section className="Runes">
-                    <RounesTap profileinfo={profileinfo}/>
-                </section>
-                <aside className="Spell">
-                  <Bulid profileinfo={profileinfo}/>
-                </aside>
-            </div>
-            <div className="Detail_item">
-                <article>아이템빌드</article>
-            </div>
+          <div className="Common__Build">
+              <section className="Runes__Build">
+                  <RounesTap profileinfo={profileinfo} />
+              </section>
+              <aside className="First__Build">
+                  <Bulid profileinfo={profileinfo} />
+              </aside>
+          </div>
+          <div className="Common__Build">
+              <article className="Skill__Bulid">
+                <SkillBulid />
+              </article>
+              <article className="Item__Bulid">
+                <ItemBulid />
+              </article>
+          </div>
         </div>
       </main>
       <Footer />

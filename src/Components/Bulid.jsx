@@ -82,8 +82,6 @@ const TitleName = styled.hgroup`
         }
     `
 
-
-
 export const Bulid = ({ profileinfo }) => {
   
   return (
@@ -191,18 +189,7 @@ export const Bulid = ({ profileinfo }) => {
             <GraphDiv></GraphDiv>
           </div>
         </SelectDiv>
-      </div>
-      {/* <div>
-        <hgroup>
-          <h5>가렌스킬빌드</h5>
-          <div>
-            <span>Q</span>
-            <span>W</span>
-            <span>E</span>
-            <span>R</span>
-          </div>
-        </hgroup>
-      </div> */}
+      </div>      
     </>
   );
 };

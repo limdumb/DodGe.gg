@@ -10,24 +10,15 @@ li{
     list-style: none;
        
 }
-
-*{
-    /* outline: 1px solid red; */
-    
-}
-
 /************ 레이아웃 임시설정 ************/
-
 #Layout{
     background-color: skyblue;
     margin: 0 auto;
     max-width: 1200px;
     min-width: 1200px;
 }
-
 /************ header ************/
 .Detail_Header{
-    
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -45,35 +36,44 @@ li{
 .Skill{
     flex: 3;
 }
-
 /************ Main ************/
 .Detail_Main{
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
     padding: 30px;
-    height: 800px;
 }
 
-.Detail_Build{
+.Common__Build{
     display: flex;
     flex-direction: row;
-    height: 500px;
 }
 
-.Runes{
+.Runes__Build{
     border: 1px solid black;
     flex: 4;
 }
 
-.Spell{
+.First__Build{
+
     border: 1px solid black;
     margin: 0 10px;
     flex: 2;
 }
+.Skill__Bulid{
+    flex: 1;
+    background-color: gray;
 
-.Detail_item{
-    height: 200px;
 }
 
+.Item__Bulid{
+    flex: 2;
+    height: 200px;
+    background-color: darkcyan;
+}
+
+*{
+    /* outline: 1px solid red; */
+    
+}
 
