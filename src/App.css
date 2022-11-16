@@ -1,8 +1,15 @@
 #Main__Container {
   margin: 0 auto;
   width: 1200px;
+<<<<<<< HEAD
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+=======
 }
 
 li {
   list-style: none;
 }
+>>>>>>> 4dc08e155c562e3cb41ad5af1dbafa1ea22f4c55

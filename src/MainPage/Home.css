@@ -1,0 +1,145 @@
+.lol {
+  background-image: url(https://velog.velcdn.com/images/wnsgh156a/post/029eb77d-a0a1-4bd4-a89d-a5ba30b1a43c/image.jpeg);
+  background-size: 100%;
+  height: 350px;
+}
+
+h2 {
+  color: aliceblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0px;
+  font-size: 50px;
+}
+
+h3 {
+  margin-top: 70px;
+  font-size: 25px;
+}
+
+.Search__Box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Search__Text {
+  width: 500px;
+  height: 40px;
+}
+
+.Search__Button {
+  height: 40px;
+  width: 40px;
+  border: 0;
+}
+
+.Tear {
+  width: 1200px;
+  height: 400px;
+  border: 1px rgb(190, 188, 188) solid;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Tear__Box {
+  width: 210px;
+  height: 350px;
+  border: solid rgb(221, 220, 220);
+  margin-left: 15px;
+}
+.Top__Tear {
+  margin-left: 20px;
+}
+
+.support-tear {
+  margin-right: 20px;
+}
+
+.Tear__Position {
+  width: 210px;
+  height: 45px;
+  background-color: rgb(221, 220, 220);
+  font-size: 21px;
+  text-align: center;
+  line-height: 45px;
+  margin-bottom: 20px;
+}
+
+.Role__Container {
+  display: grid;
+  grid-template-columns: 75px 75px;
+  grid-template-rows: 75px 75px 75px;
+  gap: 10px 30px;
+  row-gap: 20px;
+  column-gap: 10px;
+  place-content: center;
+}
+
+.lotation {
+  column-gap: 30px;
+  width: 1200px;
+  height: 190px;
+  border: 1px rgb(190, 188, 188) solid;
+}
+
+.role {
+  background-color: black;
+  border-radius: 50%;
+}
+
+.patch {
+  width: 1200px;
+  height: 280px;
+  border: 1px rgb(190, 188, 188) solid;
+
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.Patch__Content {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  background-color: rgb(163, 163, 163);
+  width: 110px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+}
+
+.Patch__Highlight {
+  position: absolute;
+  top: 20px;
+  left: 40px;
+  height: 40px;
+  width: 150px;
+  background-color: rgb(163, 163, 163);
+  text-align: center;
+  line-height: 40px;
+}
+
+.Patch__Container {
+  display: grid;
+  grid-template-columns: 75px 75px 75px 75px 75px 75px 75px;
+  grid-template-rows: 75px;
+  gap: 20px 30px;
+  row-gap: 20px;
+  column-gap: 10px;
+  place-content: center;
+  margin-top: 50px;
+}
+
+.Patch__Role {
+  background-color: black;
+  border-radius: 50%;
+}
+
+.Patch__Header {
+  width: 1200px;
+  height: 80px;
+  border-bottom: 1px rgb(190, 188, 188) solid;
+}
