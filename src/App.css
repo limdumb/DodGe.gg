@@ -1,16 +1,7 @@
 #Main__Container {
   margin: 0 auto;
   width: 1200px;
-}
-
-h2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 58px;
-  font-size: 50px;
-}
-
-h3 {
-  margin-top: 70px;
 }

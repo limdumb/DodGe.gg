@@ -33,7 +33,7 @@ export default function Search() {
           type="text"
           placeholder="아이디를 입력해 주세요"
           value={search}
-          onChange={onChangeSearch}
+          onSubmit={onChangeSearch}
         />
         <button className="Search__Button" type="submit">
           검색
