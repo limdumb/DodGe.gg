@@ -1,0 +1,21 @@
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  color: rgb(153, 151, 151);
+}
+
+footer {
+  margin-top: 100px;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  min-width: 1200px;
+}
+
+.Footer__Container {
+  display: flex;
+  justify-content: space-around;
+}
