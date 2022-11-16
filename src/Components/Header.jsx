@@ -5,7 +5,7 @@ import Navbar from "react-bootstrap/Navbar";
 function MainHeader() {
   return (
     <>
-      <Navbar style={{ minWidth: "1200px" }} bg="dark" variant="dark">
+      <Navbar className="Nav__bar" bg="dark" variant="dark">
         <Container>
           <Navbar.Brand href="#home">Dogde.gg</Navbar.Brand>
           <Nav className="me-auto">
