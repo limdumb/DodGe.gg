@@ -4,6 +4,7 @@ const PosBox = styled.div`
   border: 1px solid red;
   width: 100%;
   height: 30px;
+  margin: 5px;
 `;
 
 const PosImg = styled.img`
