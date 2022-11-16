@@ -42,7 +42,7 @@ export default function Home() {
                   <span className="role"></span>
                 </div>
               </div>
-              <div className="Tear-box">
+              <div className="Tear__Box">
                 <div className="Tear__Position">미드</div>
                 <div className="Role__Container">
                   <span className="role"></span>
@@ -53,7 +53,7 @@ export default function Home() {
                   <span className="role"></span>
                 </div>
               </div>
-              <div className="Tear-box">
+              <div className="Tear__Box">
                 <div className="Tear__Position">원딜</div>
                 <div className="Role__Container">
                   <span className="role"></span>
@@ -64,7 +64,7 @@ export default function Home() {
                   <span className="role"></span>
                 </div>
               </div>
-              <div className="Tear-box support-tear">
+              <div className="Tear__Box support-tear">
                 <div className="Tear__Position">서폿</div>
                 <div className="Role__Container">
                   <span className="role"></span>

@@ -29,9 +29,9 @@ h3 {
   height: 40px;
 }
 
-.search-btn {
-  height: 45px;
-  width: 45px;
+.Search__Button {
+  height: 40px;
+  width: 40px;
   border: 0;
 }
 
@@ -125,7 +125,7 @@ h3 {
 .Patch__Container {
   display: grid;
   grid-template-columns: 75px 75px 75px 75px 75px 75px 75px;
-  grid-template-rows: 75px 75px 75px 75px;
+  grid-template-rows: 75px;
   gap: 20px 30px;
   row-gap: 20px;
   column-gap: 10px;
