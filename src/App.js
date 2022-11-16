@@ -1,14 +1,9 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import ChampionTier from './MainPage/ChampionTier';
+import "./App.css";
+import MyPages from "./MainPage/MyPages";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/championtier" element={<ChampionTier />} />
-      </Routes>
-    </BrowserRouter>
-  );
+  return
 }
 
 export default App;
