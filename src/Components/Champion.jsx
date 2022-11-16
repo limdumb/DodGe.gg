@@ -7,11 +7,11 @@ const ChampLine = styled.button`
   width: 130px;
   height: 30px;
   margin: 1px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 `;
 
+const Position = styled.li`
+  border 1px; solid blue;
+`;
 export default function Champion() {
   const [line, setLine] = useState(0);
   const tabHandler = (idx) => {
@@ -29,7 +29,16 @@ export default function Champion() {
           탑
         </ChampLine>
       ),
-      content: <ChampionContent />,
+      content: (
+        <>
+          <ChampionContent />
+          <ChampionContent />
+          <ChampionContent />
+          <ChampionContent />
+          <ChampionContent />
+          <ChampionContent />
+        </>
+      ),
     },
     {
       id: "tier2",
@@ -42,7 +51,22 @@ export default function Champion() {
           정글
         </ChampLine>
       ),
-      content: <ChampionContent />,
+      content: (
+        <>
+          <ChampionContent />
+          <ChampionContent />
+          <ChampionContent />
+          <ChampionContent />
+          <ChampionContent />
+          <ChampionContent />
+          <ChampionContent />
+          <ChampionContent />
+          <ChampionContent />
+          <ChampionContent />
+          <ChampionContent />
+          <ChampionContent />
+        </>
+      ),
     },
     {
       id: "tier3",
@@ -68,7 +92,16 @@ export default function Champion() {
           원딜
         </ChampLine>
       ),
-      content: <ChampionContent />,
+      content: (
+        <>
+          <ChampionContent />
+          <ChampionContent />
+          <ChampionContent />
+          <ChampionContent />
+          <ChampionContent />
+          <ChampionContent />
+        </>
+      ),
     },
     {
       id: "tier5",
@@ -86,14 +119,13 @@ export default function Champion() {
   ];
   return (
     <div id="Champion__Container">
-      <nav className="Line__Container">
-        {champContents.map((el) => {
-          <ul>
-            <li key={el.id}></li>
-          </ul>;
-          return el.title;
-        })}
-      </nav>
+      <div className="SelectLine__Container">
+        <ul className="Position__Box">
+          {champContents.map((el) => {
+            return <Position key={el.id}>{el.title}</Position>;
+          })}
+        </ul>
+      </div>
       <div className="InfoText">
         <span className="Rank__Info">순위</span> <span>티어</span>
       </div>

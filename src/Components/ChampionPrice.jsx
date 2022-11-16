@@ -8,7 +8,7 @@ const LineImage = styled.img`
   cursor: pointer;
 `;
 
-export default function ChampionList( ) {
+export default function ChampionPrice() {
   //스프라이트 이미지로 구현할 것.
   const [pos, setPos] = useState(0);
 
@@ -26,7 +26,18 @@ export default function ChampionList( ) {
           }}
         ></LineImage>
       ),
-      content: <PriceCotent />
+      content: (
+        <>
+          <PriceCotent />
+          <PriceCotent />
+          <PriceCotent />
+          <PriceCotent />
+          <PriceCotent />
+          <PriceCotent />
+          <PriceCotent />
+          <PriceCotent />
+        </>
+      ),
     },
     {
       id: "pos2",
@@ -37,6 +48,18 @@ export default function ChampionList( ) {
             positionHandler(1);
           }}
         ></LineImage>
+      ),
+      content: (
+        <>
+          <PriceCotent />
+          <PriceCotent />
+          <PriceCotent />
+          <PriceCotent />
+          <PriceCotent />
+          <PriceCotent />
+          <PriceCotent />
+          <PriceCotent />
+        </>
       ),
     },
     {
@@ -49,6 +72,12 @@ export default function ChampionList( ) {
           }}
         ></LineImage>
       ),
+      content: (
+        <>
+          <PriceCotent />
+          <PriceCotent />
+        </>
+      ),
     },
     {
       id: "pos4",
@@ -59,6 +88,14 @@ export default function ChampionList( ) {
             positionHandler(3);
           }}
         ></LineImage>
+      ),
+      content: (
+        <>
+          <PriceCotent />
+          <PriceCotent />
+          <PriceCotent />
+          <PriceCotent />
+        </>
       ),
     },
     {
@@ -71,6 +108,15 @@ export default function ChampionList( ) {
           }}
         ></LineImage>
       ),
+      content: (
+        <>
+          <PriceCotent />
+          <PriceCotent />
+          <PriceCotent />
+          <PriceCotent />
+          <PriceCotent />
+        </>
+      ),
     },
     {
       id: "pos6",
@@ -82,16 +128,26 @@ export default function ChampionList( ) {
           }}
         ></LineImage>
       ),
+      content: (
+        <>
+          <PriceCotent />
+          <PriceCotent />
+          <PriceCotent />
+          <PriceCotent />
+          <PriceCotent />
+          <PriceCotent />
+        </>
+      ),
     },
   ];
 
   return (
     <div className="ChampionPrice__Container">
-      <div className="Position__Container">
+      <ul className="PricePosition__Container">
         {positionImgs.map((el) => {
-          return el.title;
+          return <li key={el.id}>{el.title}</li>;
         })}
-      </div>
+      </ul>
       <div className="ChampionPrice__List">
         <div className="Search__Champ">
           <label>챔피언검색: </label>
