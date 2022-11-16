@@ -4,13 +4,7 @@ import MyPages from "./MainPage/MyPages";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/mypage" element={<MyPages />} />
-      </Routes>
-    </BrowserRouter>
-  );
+  return
 }
 
 export default App;
