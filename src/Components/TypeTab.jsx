@@ -87,12 +87,15 @@ export function TypeTab({ onTabChange }) {
   );
 }
 
-export const RankTab = () => {
+export const RankTab = ({ userSoloTier, userFreeRankTier }) => {
   const [rankInfo, setRankInfo] = useState(0);
 
   const tabHandler = (index) => {
     setRankInfo(index);
   };
+
+  console.log(userSoloTier.tier);
+  console.log(userFreeRankTier);
 
   const userTierArr = [
     {
@@ -113,8 +116,10 @@ export const RankTab = () => {
             src={process.env.PUBLIC_URL + "./Image/PlatinumImage.png"}
           />
           <div className="Tab__Tier__Contents">
-            <span className="Tab__Tier__Contents__1">Platinum 3</span>
-            <span className="Tab__Tier__Contents__2">29LP</span>
+            <span className="Tab__Tier__Contents__1">{userSoloTier.tier}</span>
+            <span className="Tab__Tier__Contents__2">
+              {userSoloTier.leaguePoints}LP
+            </span>
           </div>
         </div>
       ),
@@ -137,8 +142,12 @@ export const RankTab = () => {
             src={process.env.PUBLIC_URL + "./Image/PlatinumImage.png"}
           />
           <div className="Tab__Tier__Contents">
-            <span className="Tab__Tier__Contents__1">Platinum 5</span>
-            <span className="Tab__Tier__Contents__2">29LP</span>
+            <span className="Tab__Tier__Contents__1">
+              {userFreeRankTier.tier}
+            </span>
+            <span className="Tab__Tier__Contents__2">
+              {userFreeRankTier.leaguePoints}LP
+            </span>
           </div>
         </div>
       ),

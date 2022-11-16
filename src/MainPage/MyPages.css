@@ -83,6 +83,7 @@
 .Tab__Type {
   display: flex;
   align-items: center;
+  padding-left: 0px;
 }
 
 .Information__Contents {

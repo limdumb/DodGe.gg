@@ -15,21 +15,33 @@ export default function MyPages() {
   const [profileIconID, setProfilIconId] = useState(null);
   const [profileName, setProfilName] = useState(null);
   const [lastRevisionDate, setLastRevisionDate] = useState(null);
+  const [userSoloTier, setUserSoloTier] = useState(null);
+  const [userFreeRankTier, setUserFreeRankTier] = useState(null);
 
   useEffect(() => {
-    const userData = async () => {
+    const userInfoData = async () => {
       const response = await SummonerData();
       setProfilIconId(response.data.profileIconId);
       setProfilName(response.data.name);
       setLastRevisionDate(response.data.revisionDate);
     };
 
-    const userLeagueData = async () => {
-      //작성예정
+    const userTierData = async () => {
+      const response = await SummonerLeagueData();
+      setUserSoloTier(response.data[0]);
+      setUserFreeRankTier(response.data[1]);
     };
-
-    userData();
+    userTierData();
+    userInfoData();
   }, []);
+
+  const propsObj = {
+    profileIconID,
+    profileName,
+    lastRevisionDate,
+    userSoloTier,
+    userFreeRankTier,
+  };
 
   return (
     <>
@@ -37,9 +49,7 @@ export default function MyPages() {
       <div id="Main__Container">
         <main>
           <UserInformation
-            profilIconID={profileIconID}
-            profileName={profileName}
-            lastRevisionDate={lastRevisionDate}
+          {...propsObj}
           />
           <div className="Information__transfer__Container">
             <span>혹시 알고 계셨나요?</span>
