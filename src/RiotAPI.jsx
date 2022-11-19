@@ -5,7 +5,12 @@ export async function SummonerData() {
     const response = await axios.get(
       "https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/늑 사 덤?api_key=RGAPI-97e82b7c-b63e-44ed-ace0-99b8dc767d9a"
     );
-    return response;
+
+    return {
+      name: response.data.name,
+      profileIconId: response.data.profileIconId,
+      summonerLevel: response.data.summonerLevel
+    };
   } catch (error) {
     console.log(error(error));
   }
@@ -31,6 +36,12 @@ export async function MatchSummoryData(name) {
       (item) => (item.summonerName = "늑 사 덤")
     )[0];
 
+    const spellSlot = [
+      me.spell1Casts,
+      me.spell2Casts,
+      me.spell3Casts,
+      me.spell4Casts,
+    ]
     
     const itemSlot = [
       me.item0,
@@ -51,7 +62,10 @@ export async function MatchSummoryData(name) {
       itemSlot: itemSlot,
       teamId: response.data.info.participants.map((el) => el.teamId),
       totalMinionsKilled: me.totalMinionsKilled,
-      win: me.win
+      win: me.win,
+      spellSlot: spellSlot,
+      summonerName: me.summonerName,
+      profileIcon: me.profileIcon
     };
   } catch (error) {
     console.log(error(error));

@@ -12,9 +12,7 @@ import { SummonerData, SummonerLeagueData, MatchSummoryData } from "../RiotAPI";
 export default function MyPages() {
   const [currentTab, setCurrentTab] = useState("All__Game__Record");
   // 상태값 추후 수정 예정
-  const [profileIconID, setProfilIconId] = useState(null);
-  const [profileName, setProfilName] = useState(null);
-  const [lastRevisionDate, setLastRevisionDate] = useState(null);
+  const [userProfile, setUserProfile] = useState(null);
   const [userSoloTier, setUserSoloTier] = useState(null);
   const [userFreeRankTier, setUserFreeRankTier] = useState(null);
   const [userMatchData, setUserMatchData] = useState(null);
@@ -22,9 +20,7 @@ export default function MyPages() {
   useEffect(() => {
     const userInfoData = async () => {
       const response = await SummonerData();
-      setProfilIconId(response.data.profileIconId);
-      setProfilName(response.data.name);
-      setLastRevisionDate(response.data.revisionDate);
+      setUserProfile(response)
     };
 
     const userTierData = async () => {
@@ -43,21 +39,20 @@ export default function MyPages() {
     userInfoData();
   }, []);
 
-  const propsObj = {
-    profileIconID,
-    profileName,
-    lastRevisionDate,
-    userSoloTier,
-    userFreeRankTier,
-  };
-
-  console.log(userMatchData);
+  console.log(userProfile);
   return (
     <>
       <MainHeader />
       <div id="Main__Container">
         <main>
-          {propsObj && <UserInformation {...propsObj} />}
+          {userProfile && (
+            <UserInformation
+              userSoloTier={userSoloTier}
+              userFreeRankTier={userFreeRankTier}
+              profileIconId={userProfile.profileIconId}
+              name={userProfile.name}
+            />
+          )}
           <div className="Information__transfer__Container">
             <span>혹시 알고 계셨나요?</span>
             <span>협곡의 전령은 바위개의 형이랍니다 응애</span>
