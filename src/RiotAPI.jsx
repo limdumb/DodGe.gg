@@ -1,15 +1,18 @@
 import axios from "axios";
+const apiKey = "RGAPI-97e82b7c-b63e-44ed-ace0-99b8dc767d9a";
+const apiKrBase = "https://kr.api.riotgames.com";
+const apiAsiaBase = "https://asia.api.riotgames.com";
 
 export async function SummonerData() {
   try {
     const response = await axios.get(
-      "https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/늑 사 덤?api_key=RGAPI-97e82b7c-b63e-44ed-ace0-99b8dc767d9a"
+      `${apiKrBase}/lol/summoner/v4/summoners/by-name/늑 사 덤?api_key=${apiKey}`
     );
 
     return {
       name: response.data.name,
       profileIconId: response.data.profileIconId,
-      summonerLevel: response.data.summonerLevel
+      summonerLevel: response.data.summonerLevel,
     };
   } catch (error) {
     console.log(error(error));
@@ -19,7 +22,7 @@ export async function SummonerData() {
 export async function SummonerLeagueData() {
   try {
     const response = await axios.get(
-      "https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/eNR-W7JuvHIfroVhzz3x8zmjPd26m_l1jCH-gK3s_TwZ08I?api_key=RGAPI-97e82b7c-b63e-44ed-ace0-99b8dc767d9a"
+      `${apiKrBase}/lol/league/v4/entries/by-summoner/eNR-W7JuvHIfroVhzz3x8zmjPd26m_l1jCH-gK3s_TwZ08I?api_key=${apiKey}`
     );
     return response;
   } catch (error) {
@@ -27,13 +30,25 @@ export async function SummonerLeagueData() {
   }
 }
 
+const Uuid = async () => {
+  try {
+    const response = await axios.get(
+      `${apiAsiaBase}/lol/match/v5/matches/by-puuid/FOWsldOnkYnYYjsCBC36zudcGlKWr4muJuj8ukhZlAJ6ZPu50O4q_O8fMjNF_6yVSlw_ox2QfwXg3A/ids?start=0&count=20&api_key=${apiKey}`
+    );
+    return response;
+  } catch (error) {
+    console.log(error(error));
+  }
+};
+
 export async function MatchSummoryData(name) {
   try {
     const response = await axios.get(
-      "https://asia.api.riotgames.com/lol/match/v5/matches/KR_6215671639?api_key=RGAPI-97e82b7c-b63e-44ed-ace0-99b8dc767d9a"
+      `${apiAsiaBase}/lol/match/v5/matches/KR_6220081519?api_key=${apiKey}`
     );
+    //변수명은 변경 예정(생각중)
     const me = response.data.info.participants.filter(
-      (item) => (item.summonerName = "늑 사 덤")
+      (item) => (item.summonerName === "늑 사 덤")
     )[0];
 
     const spellSlot = [
@@ -41,8 +56,8 @@ export async function MatchSummoryData(name) {
       me.spell2Casts,
       me.spell3Casts,
       me.spell4Casts,
-    ]
-    
+    ];
+
     const itemSlot = [
       me.item0,
       me.item1,
@@ -58,14 +73,14 @@ export async function MatchSummoryData(name) {
       kills: me.kills,
       deaths: me.deaths,
       assist: me.assists,
-      championId: response.data.info.participants.map((el) => el.championId),
       itemSlot: itemSlot,
       teamId: response.data.info.participants.map((el) => el.teamId),
       totalMinionsKilled: me.totalMinionsKilled,
       win: me.win,
       spellSlot: spellSlot,
       summonerName: me.summonerName,
-      profileIcon: me.profileIcon
+      profileIcon: me.profileIcon,
+      championName: me.championName,
     };
   } catch (error) {
     console.log(error(error));
