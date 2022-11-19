@@ -12,7 +12,8 @@ const RecordContents = styled.div`
   height: 120px;
   margin-top: 10px;
   padding: 10px 18px;
-  background-color: rgba(59, 130, 246, 0.5);
+  background-color: ${(props) =>
+    props.backgroundColor ? "red" : "rgba(59, 130, 246, 0.5)"};
   border-radius: 10px;
   display: flex;
   justify-content: space-between;
@@ -41,14 +42,15 @@ const PlayerList = styled.div`
   font-size: 14px;
 `;
 
-export default function RecordList(props) {
+export default function RecordList({ tab, userMatchData }) {
+  const kdaScore = `${userMatchData.kills}/${userMatchData.deaths}/${userMatchData.assist}`;
   const getChartList = (tab) => {
     if (tab === "All__Game__Record") {
       return (
         <ListContainer>
           <RecordContents>
             <div className="Record__Information">
-              <StyleSpan>솔로랭크</StyleSpan>
+              <StyleSpan>{userMatchData.gameMode}</StyleSpan>
               <StyleSpan marginBtm="12px">11/08</StyleSpan>
               <StyleSpan
                 fontsize="15px"
@@ -56,7 +58,7 @@ export default function RecordList(props) {
                 fontweight="bold"
                 margin="3px"
               >
-                Win
+                {userMatchData.win ? "Win" : "Lose"}
               </StyleSpan>
               <StyleSpan>17:27</StyleSpan>
             </div>
@@ -94,8 +96,8 @@ export default function RecordList(props) {
                 </div>
               </div>
               <div className="KDA__InfoContainer">
-                <StyleSpan fontsize="25px">10/3/7</StyleSpan>
-                <StyleSpan fontsize="16px">228 CS</StyleSpan>
+                <StyleSpan fontsize="25px">{kdaScore}</StyleSpan>
+                <StyleSpan fontsize="16px">CS:{userMatchData.totalMinionsKilled}개</StyleSpan>
               </div>
             </div>
             <div className="Game__Result__Information">
@@ -166,5 +168,5 @@ export default function RecordList(props) {
     }
   };
 
-  return <>{getChartList(props.tab)}</>;
+  return <>{getChartList(tab)}</>;
 }
