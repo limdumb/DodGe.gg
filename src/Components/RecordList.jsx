@@ -46,10 +46,25 @@ export default function RecordList({ tab, userMatchData }) {
   // 데이터 확인용
   console.log(userMatchData);
   const kdaScore = `${userMatchData.kills}/${userMatchData.deaths}/${userMatchData.assist}`;
-  const gameCreationMonth = new Date(userMatchData.gameCreation).getMonth();
-  const gameCreationDay = new Date(userMatchData.gameCreation).getDate();
-  // 총 게임시간 가공예정
-  const gameDuration = (userMatchData.gameDuration /1000) * 600
+
+  const month_Day = () => {
+    const time = new Date(userMatchData.gameCreation * 1000);
+
+    let month = ("0" + (time.getMonth() + 1)).slice(-2);
+    let day = ("0" + time.getDate()).slice(-2);
+
+    return `${month}월${day}일`;
+  };
+
+  const minute_Second = () => {
+    const time = new Date(userMatchData.gameDuration * 1000)
+
+    let minutes = ('0'+ time.getMinutes()).slice(-2);
+    let secounds = ('0' + time.getSeconds()).slice(-2);
+
+    return `${minutes}분 ${secounds}초`
+  }
+
 
   const getChartList = (tab) => {
     if (tab === "All__Game__Record") {
@@ -58,7 +73,7 @@ export default function RecordList({ tab, userMatchData }) {
           <RecordContents backgroundColor={userMatchData.win}>
             <div className="Record__Information">
               <StyleSpan>{userMatchData.gameMode}</StyleSpan>
-              <StyleSpan marginBtm="12px">{`${gameCreationMonth}월${gameCreationDay}일`}</StyleSpan>
+              <StyleSpan marginBtm="12px">{month_Day()}</StyleSpan>
               <StyleSpan
                 fontsize="15px"
                 changeColor={
@@ -69,8 +84,7 @@ export default function RecordList({ tab, userMatchData }) {
               >
                 {userMatchData.win ? "Win" : "Lose"}
               </StyleSpan>
-              {/* 총 게임시간 가공 예정 */}
-              <StyleSpan>{gameDuration}</StyleSpan>
+              <StyleSpan>{minute_Second()}</StyleSpan>
             </div>
             <div className="Record__My__Champ">
               <div className="My__Champ__Img">
