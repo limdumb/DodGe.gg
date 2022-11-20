@@ -47,8 +47,9 @@ export default function RecordList({ tab, userMatchData }) {
   console.log(userMatchData);
   const kdaScore = `${userMatchData.kills}/${userMatchData.deaths}/${userMatchData.assist}`;
   const gameCreationMonth = new Date(userMatchData.gameCreation).getMonth();
-
   const gameCreationDay = new Date(userMatchData.gameCreation).getDate();
+  // 총 게임시간 가공예정
+  const gameDuration = (userMatchData.gameDuration /1000) * 600
 
   const getChartList = (tab) => {
     if (tab === "All__Game__Record") {
@@ -68,7 +69,8 @@ export default function RecordList({ tab, userMatchData }) {
               >
                 {userMatchData.win ? "Win" : "Lose"}
               </StyleSpan>
-              <StyleSpan>17:27</StyleSpan>
+              {/* 총 게임시간 가공 예정 */}
+              <StyleSpan>{gameDuration}</StyleSpan>
             </div>
             <div className="Record__My__Champ">
               <div className="My__Champ__Img">
