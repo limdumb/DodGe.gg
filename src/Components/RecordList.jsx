@@ -119,13 +119,21 @@ export default function RecordList({ tab, userMatchData }) {
             </div>
             <div className="Game__Result__Information">
               <ul className="Game__Player__List">
-                {userMatchData.redTeamSummonerName.map((el)=>{
-                  return <PlayerList marginBTM="2px">{el}</PlayerList>
+                {userMatchData.redTeamSummonerName.map((el) => {
+                  return (
+                    <PlayerList marginBTM="2px" key={el}>
+                      {el}
+                    </PlayerList>
+                  );
                 })}
               </ul>
               <ul className="Game__Player__List2">
-              {userMatchData.blueTeamSummonerName.map((el)=>{
-                  return <PlayerList marginBTM="2px">{el}</PlayerList>
+                {userMatchData.blueTeamSummonerName.map((el) => {
+                  return (
+                    <PlayerList marginBTM="2px" key={el}>
+                      {el}
+                    </PlayerList>
+                  );
                 })}
               </ul>
             </div>
