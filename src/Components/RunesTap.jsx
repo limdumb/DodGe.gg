@@ -9,9 +9,6 @@ const TitleName = styled.hgroup`
   }
 `;
 
-
-// 현재 해당 컴포넌트는  Api 테스트중
-// profileinfo 임시
 export const RounesTap = ({ profileinfo }) => {
   return (
     <>
