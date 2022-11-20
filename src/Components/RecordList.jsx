@@ -117,6 +117,18 @@ export default function RecordList({ tab, userMatchData }) {
                 </StyleSpan>
               </div>
             </div>
+            <div>
+              {userMatchData.itemSlot.map((el) => {
+                return (
+                  <ChampInforImage
+                    width={30}
+                    key={el}
+                    marginRgt="3px"
+                    src={`http://ddragon.leagueoflegends.com/cdn/12.22.1/img/item/${el}.png`}
+                  ></ChampInforImage>
+                );
+              })}
+            </div>
             <div className="Game__Result__Information">
               <ul className="Game__Player__List">
                 {userMatchData.redTeamSummonerName.map((el) => {
