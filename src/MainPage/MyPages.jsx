@@ -20,7 +20,7 @@ export default function MyPages() {
   useEffect(() => {
     const userInfoData = async () => {
       const response = await SummonerData();
-      setUserProfile(response)
+      setUserProfile(response);
     };
 
     const userTierData = async () => {
@@ -39,7 +39,6 @@ export default function MyPages() {
     userInfoData();
   }, []);
 
-  console.log(userProfile);
   return (
     <>
       <MainHeader />
