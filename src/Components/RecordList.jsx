@@ -47,11 +47,12 @@ export default function RecordList({ tab, userMatchData }) {
   console.log(userMatchData);
   const kdaScore = `${userMatchData.kills}/${userMatchData.deaths}/${userMatchData.assist}`;
 
+  console.log(userMatchData.gameCreation)
   const month_Day = () => {
-    const time = new Date(userMatchData.gameCreation * 1000);
+    const time = new Date(userMatchData.gameCreation);
 
-    let month = ("0" + (time.getMonth() + 1)).slice(-2);
-    let day = ("0" + time.getDate()).slice(-2);
+    let month = ( '0' + ( time.getMonth() + 1 ) ).slice(-2);
+    let day = ( '0' + time.getDate() ).slice(-2);
 
     return `${month}월${day}일`;
   };
