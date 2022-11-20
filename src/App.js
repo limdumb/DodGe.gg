@@ -9,10 +9,11 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/mypage" element={<MyPages />} />
-        <Route path="/championdetail" element={<ChampionDetail />} />
-        <Route path="/championtier" element={<ChampionTier />} />
+        {/* <Route path="/" element={<Home />} /> */}
+        {/* <Route path="/mypage" element={<MyPages />} /> */}
+        {/* <Route path="/championdetail" element={<ChampionDetail championId={"Akali"}/>} /> */}
+        <Route path="/" element={<ChampionDetail championId={"Akali"}/>} />
+        {/* <Route path="/championtier" element={<ChampionTier />} /> */}
       </Routes>
     </BrowserRouter>
   );

@@ -1,8 +1,9 @@
-import MainHeader from "../Components/header";
+import MainHeader from "../Components/Header";
 import Search from "../Components/Search.jsx";
 import Lotation from "../Components/Lotation";
 import "bootstrap/dist/css/bootstrap.css";
-import MainFooter from "../Components/footer";
+import MainFooter from "../Components/Footer";
+import "./Home.css"
 
 export default function Home() {
   return (

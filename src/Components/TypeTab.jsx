@@ -94,9 +94,6 @@ export const RankTab = ({ userSoloTier, userFreeRankTier }) => {
     setRankInfo(index);
   };
 
-  console.log(userSoloTier.tier);
-  console.log(userFreeRankTier);
-
   const userTierArr = [
     {
       id: "1",
@@ -116,9 +113,9 @@ export const RankTab = ({ userSoloTier, userFreeRankTier }) => {
             src={process.env.PUBLIC_URL + "./Image/PlatinumImage.png"}
           />
           <div className="Tab__Tier__Contents">
-            <span className="Tab__Tier__Contents__1">{userSoloTier.tier}</span>
+            <span className="Tab__Tier__Contents__1"></span>
             <span className="Tab__Tier__Contents__2">
-              {userSoloTier.leaguePoints}LP
+              
             </span>
           </div>
         </div>
@@ -143,10 +140,10 @@ export const RankTab = ({ userSoloTier, userFreeRankTier }) => {
           />
           <div className="Tab__Tier__Contents">
             <span className="Tab__Tier__Contents__1">
-              {userFreeRankTier.tier}
+              
             </span>
             <span className="Tab__Tier__Contents__2">
-              {userFreeRankTier.leaguePoints}LP
+              
             </span>
           </div>
         </div>

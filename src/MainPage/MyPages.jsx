@@ -1,4 +1,4 @@
-import MainHeader from "../Components/header";
+import MainHeader from "../Components/Header";
 import "./MyPages.css";
 import { UserInformation } from "../Components/UserInformation";
 import { TypeTab } from "../Components/TypeTab";
