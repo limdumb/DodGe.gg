@@ -1,5 +1,5 @@
 import axios from "axios";
-const apiKey = "RGAPI-97e82b7c-b63e-44ed-ace0-99b8dc767d9a";
+const apiKey = "RGAPI-5cecde9a-be27-42ce-a734-ef7c87628685";
 const apiKrBase = "https://kr.api.riotgames.com";
 const apiAsiaBase = "https://asia.api.riotgames.com";
 
@@ -48,15 +48,32 @@ export async function MatchSummoryData(name) {
     );
     //변수명은 변경 예정(생각중)
     const me = response.data.info.participants.filter(
-      (item) => (item.summonerName === "늑 사 덤")
+      (item) => item.summonerName === "늑 사 덤"
     )[0];
 
-    const spellSlot = [
-      me.spell1Casts,
-      me.spell2Casts,
-      me.spell3Casts,
-      me.spell4Casts,
-    ];
+    const redTeam = response.data.info.participants.filter(
+      (item) => item.teamId === 100
+    );
+
+    const blueTeam = response.data.info.participants.filter(
+      (item) => item.teamId === 200
+    );
+
+    const redTeamSummonerName = [
+      redTeam[0].summonerName,
+      redTeam[1].summonerName,
+      redTeam[2].summonerName,
+      redTeam[3].summonerName,
+      redTeam[4].summonerName
+    ]
+
+    const blueTeamSummonerName = [
+      blueTeam[0].summonerName,
+      blueTeam[1].summonerName,
+      blueTeam[2].summonerName,
+      blueTeam[3].summonerName,
+      blueTeam[4].summonerName,
+    ]
 
     const itemSlot = [
       me.item0,
@@ -77,10 +94,12 @@ export async function MatchSummoryData(name) {
       teamId: response.data.info.participants.map((el) => el.teamId),
       totalMinionsKilled: me.totalMinionsKilled,
       win: me.win,
-      spellSlot: spellSlot,
       summonerName: me.summonerName,
       profileIcon: me.profileIcon,
       championName: me.championName,
+      gameCreation: response.data.info.gameCreation,
+      redTeamSummonerName: redTeamSummonerName,
+      blueTeamSummonerName: blueTeamSummonerName
     };
   } catch (error) {
     console.log(error(error));
