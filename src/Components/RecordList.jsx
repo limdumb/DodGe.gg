@@ -13,7 +13,7 @@ const RecordContents = styled.div`
   margin-top: 10px;
   padding: 10px 18px;
   background-color: ${(props) =>
-    (props.backgroundColor ? "rgba(59, 130, 246, 0.5)" : "#935560")};
+    props.backgroundColor ? "rgba(59, 130, 246, 0.5)" : "#935560"};
   border-radius: 10px;
   display: flex;
   justify-content: space-around;
@@ -46,10 +46,9 @@ export default function RecordList({ tab, userMatchData }) {
   // 데이터 확인용
   console.log(userMatchData);
   const kdaScore = `${userMatchData.kills}/${userMatchData.deaths}/${userMatchData.assist}`;
-  // 시간 노출 가공 예정
-  const gameCreationTime = new Date(
-    userMatchData.gameCreation
-  ).toLocaleString();
+  const gameCreationMonth = new Date(userMatchData.gameCreation).getMonth();
+
+  const gameCreationDay = new Date(userMatchData.gameCreation).getDate();
 
   const getChartList = (tab) => {
     if (tab === "All__Game__Record") {
@@ -58,7 +57,7 @@ export default function RecordList({ tab, userMatchData }) {
           <RecordContents backgroundColor={userMatchData.win}>
             <div className="Record__Information">
               <StyleSpan>{userMatchData.gameMode}</StyleSpan>
-              <StyleSpan marginBtm="12px">{gameCreationTime}</StyleSpan>
+              <StyleSpan marginBtm="12px">{`${gameCreationMonth}월${gameCreationDay}일`}</StyleSpan>
               <StyleSpan
                 fontsize="15px"
                 changeColor={
