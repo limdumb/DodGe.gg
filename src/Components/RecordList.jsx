@@ -13,10 +13,10 @@ const RecordContents = styled.div`
   margin-top: 10px;
   padding: 10px 18px;
   background-color: ${(props) =>
-    props.backgroundColor ? "rgba(59, 130, 246, 0.5)" : "red"};
+    (props.backgroundColor ? "rgba(59, 130, 246, 0.5)" : "#935560")};
   border-radius: 10px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 `;
 
@@ -55,11 +55,7 @@ export default function RecordList({ tab, userMatchData }) {
     if (tab === "All__Game__Record") {
       return (
         <ListContainer>
-          <RecordContents
-            backgroundColor={
-              userMatchData.win ? "red" : "rgba(59, 130, 246, 0.5)"
-            }
-          >
+          <RecordContents backgroundColor={userMatchData.win}>
             <div className="Record__Information">
               <StyleSpan>{userMatchData.gameMode}</StyleSpan>
               <StyleSpan marginBtm="12px">{gameCreationTime}</StyleSpan>
