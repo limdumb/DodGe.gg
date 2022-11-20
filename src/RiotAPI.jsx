@@ -2,7 +2,7 @@ import axios from "axios";
 const apiKey = "RGAPI-e7885024-7a6d-443d-83ce-e98686f13ba4";
 const apiKrBase = "https://kr.api.riotgames.com";
 const apiAsiaBase = "https://asia.api.riotgames.com";
-const UserName = '늑 사 덤'
+const UserName = "늑 사 덤";
 
 export async function SummonerData() {
   try {
@@ -60,6 +60,10 @@ export async function MatchSummoryData(name) {
       (item) => item.teamId === 200
     );
 
+    const userChampionName = response.data.info.participants.map((el) => {
+      return el.championName
+    })
+
     const redTeamSummonerName = redTeam.map((el) => {
       return el.summonerName;
     });
@@ -93,6 +97,7 @@ export async function MatchSummoryData(name) {
       gameCreation: response.data.info.gameCreation,
       redTeamSummonerName: redTeamSummonerName,
       blueTeamSummonerName: blueTeamSummonerName,
+      allChampionName: userChampionName,
     };
   } catch (error) {
     console.log(error(error));
