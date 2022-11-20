@@ -13,7 +13,7 @@ const RecordContents = styled.div`
   margin-top: 10px;
   padding: 10px 18px;
   background-color: ${(props) =>
-    props.backgroundColor ? "red" : "rgba(59, 130, 246, 0.5)"};
+    props.backgroundColor ? "rgba(59, 130, 246, 0.5)" : "red"};
   border-radius: 10px;
   display: flex;
   justify-content: space-between;
@@ -44,19 +44,30 @@ const PlayerList = styled.div`
 
 export default function RecordList({ tab, userMatchData }) {
   // 데이터 확인용
-  console.log(userMatchData)
+  console.log(userMatchData);
   const kdaScore = `${userMatchData.kills}/${userMatchData.deaths}/${userMatchData.assist}`;
+  // 시간 노출 가공 예정
+  const gameCreationTime = new Date(
+    userMatchData.gameCreation
+  ).toLocaleString();
+
   const getChartList = (tab) => {
     if (tab === "All__Game__Record") {
       return (
         <ListContainer>
-          <RecordContents>
+          <RecordContents
+            backgroundColor={
+              userMatchData.win ? "red" : "rgba(59, 130, 246, 0.5)"
+            }
+          >
             <div className="Record__Information">
               <StyleSpan>{userMatchData.gameMode}</StyleSpan>
-              <StyleSpan marginBtm="12px">11/08</StyleSpan>
+              <StyleSpan marginBtm="12px">{gameCreationTime}</StyleSpan>
               <StyleSpan
                 fontsize="15px"
-                changeColor="rgba(49, 141, 239, 0.676)"
+                changeColor={
+                  userMatchData.win ? "rgba(49, 141, 239, 0.676)" : "red"
+                }
                 fontweight="bold"
                 margin="3px"
               >
@@ -76,7 +87,9 @@ export default function RecordList({ tab, userMatchData }) {
               <div className="Spell__Content">
                 <ChampInforImage
                   width={30}
-                  src={"http://ddragon.leagueoflegends.com/cdn/12.22.1/img/spell/SummonerFlash.png"}
+                  src={
+                    "http://ddragon.leagueoflegends.com/cdn/12.22.1/img/spell/SummonerFlash.png"
+                  }
                   marginRgt="2px"
                 />
                 <ChampInforImage
@@ -99,44 +112,21 @@ export default function RecordList({ tab, userMatchData }) {
               </div>
               <div className="KDA__InfoContainer">
                 <StyleSpan fontsize="25px">{kdaScore}</StyleSpan>
-                <StyleSpan fontsize="16px">CS:{userMatchData.totalMinionsKilled}개</StyleSpan>
+                <StyleSpan fontsize="16px">
+                  CS:{userMatchData.totalMinionsKilled}개
+                </StyleSpan>
               </div>
             </div>
             <div className="Game__Result__Information">
-              {/* 데이터로 변경 예정 */}
               <ul className="Game__Player__List">
-                <li>
-                  <PlayerList marginBTM="2px">덤 사 늑</PlayerList>
-                </li>
-                <li>
-                  <PlayerList marginBTM="2px">늑 사 덤</PlayerList>
-                </li>
-                <li>
-                  <PlayerList marginBTM="2px">일하는감자</PlayerList>
-                </li>
-                <li>
-                  <PlayerList marginBTM="2px">민세공주</PlayerList>
-                </li>
-                <li>
-                  <PlayerList>민세왕자</PlayerList>
-                </li>
+                {userMatchData.redTeamSummonerName.map((el)=>{
+                  return <PlayerList marginBTM="2px">{el}</PlayerList>
+                })}
               </ul>
               <ul className="Game__Player__List2">
-                <li>
-                  <PlayerList>정세민</PlayerList>
-                </li>
-                <li>
-                  <PlayerList>바보</PlayerList>
-                </li>
-                <li>
-                  <PlayerList>메롱</PlayerList>
-                </li>
-                <li>
-                  <PlayerList>하하</PlayerList>
-                </li>
-                <li>
-                  <PlayerList>헤헤</PlayerList>
-                </li>
+              {userMatchData.blueTeamSummonerName.map((el)=>{
+                  return <PlayerList marginBTM="2px">{el}</PlayerList>
+                })}
               </ul>
             </div>
             <ul className="Team__List"></ul>
