@@ -59,21 +59,13 @@ export async function MatchSummoryData(name) {
       (item) => item.teamId === 200
     );
 
-    const redTeamSummonerName = [
-      redTeam[0].summonerName,
-      redTeam[1].summonerName,
-      redTeam[2].summonerName,
-      redTeam[3].summonerName,
-      redTeam[4].summonerName
-    ]
+    const redTeamSummonerName = redTeam.map((el) => {
+      return el.summonerName
+    })
 
-    const blueTeamSummonerName = [
-      blueTeam[0].summonerName,
-      blueTeam[1].summonerName,
-      blueTeam[2].summonerName,
-      blueTeam[3].summonerName,
-      blueTeam[4].summonerName,
-    ]
+    const blueTeamSummonerName = blueTeam.map((el) => {
+      return el.summonerName
+    })
 
     const itemSlot = [
       me.item0,
