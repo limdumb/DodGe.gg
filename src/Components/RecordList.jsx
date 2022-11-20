@@ -28,7 +28,7 @@ const StyleSpan = styled.span`
   font-weight: ${(props) => props.fontweight};
 `;
 
-const ChampInforImage = styled.img`
+const GameInfoImage = styled.img`
   width: ${(props) => props.width};
   border-radius: 8px;
   background-color: ${(props) => props.backgroundColor};
@@ -74,32 +74,32 @@ export default function RecordList({ tab, userMatchData }) {
             <div className="Record__My__Champ">
               <div className="My__Champ__Img">
                 {/* 데이터 대체 예정 */}
-                <ChampInforImage
+                <GameInfoImage
                   width={64}
                   src={`http://ddragon.leagueoflegends.com/cdn/12.22.1/img/champion/${userMatchData.championName}.png`}
                   marginRgt="5px"
                 />
               </div>
               <div className="Spell__Content">
-                <ChampInforImage
+                <GameInfoImage
                   width={30}
                   src={
                     "http://ddragon.leagueoflegends.com/cdn/12.22.1/img/spell/SummonerFlash.png"
                   }
                   marginRgt="2px"
                 />
-                <ChampInforImage
+                <GameInfoImage
                   width={30}
                   src={process.env.PUBLIC_URL + "./Image/Exhaust.png"}
                 />
                 <div className="Spell__Content">
-                  <ChampInforImage
+                  <GameInfoImage
                     width={30}
                     src={process.env.PUBLIC_URL + "./Image/DarkHarvest.png"}
                     backgroundColor="black"
                     marginRgt="2px"
                   />
-                  <ChampInforImage
+                  <GameInfoImage
                     width={30}
                     src={process.env.PUBLIC_URL + "./Image/DetailedRun.png"}
                     backgroundColor="black"
@@ -116,12 +116,12 @@ export default function RecordList({ tab, userMatchData }) {
             <div>
               {userMatchData.itemSlot.map((el) => {
                 return (
-                  <ChampInforImage
+                  <GameInfoImage
                     width={30}
                     key={el}
                     marginRgt="3px"
                     src={`http://ddragon.leagueoflegends.com/cdn/12.22.1/img/item/${el}.png`}
-                  ></ChampInforImage>
+                  ></GameInfoImage>
                 );
               })}
             </div>
