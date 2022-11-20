@@ -6,7 +6,6 @@ export const UserInformation = ({
   userFreeRankTier,
   userSoloTier,
 }) => {
-  console.log(name)
   return (
     <section className="User__Information__Container">
       <article className="User__Profil">

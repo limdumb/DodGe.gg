@@ -2,11 +2,12 @@ import axios from "axios";
 const apiKey = "RGAPI-5cecde9a-be27-42ce-a734-ef7c87628685";
 const apiKrBase = "https://kr.api.riotgames.com";
 const apiAsiaBase = "https://asia.api.riotgames.com";
+const UserName = '늑 사 덤'
 
 export async function SummonerData() {
   try {
     const response = await axios.get(
-      `${apiKrBase}/lol/summoner/v4/summoners/by-name/늑 사 덤?api_key=${apiKey}`
+      `${apiKrBase}/lol/summoner/v4/summoners/by-name/${UserName}?api_key=${apiKey}`
     );
 
     return {
@@ -44,11 +45,11 @@ const Uuid = async () => {
 export async function MatchSummoryData(name) {
   try {
     const response = await axios.get(
-      `${apiAsiaBase}/lol/match/v5/matches/KR_6220081519?api_key=${apiKey}`
+      `${apiAsiaBase}/lol/match/v5/matches/KR_6215756465?api_key=${apiKey}`
     );
     //변수명은 변경 예정(생각중)
     const me = response.data.info.participants.filter(
-      (item) => item.summonerName === "늑 사 덤"
+      (item) => item.summonerName === UserName
     )[0];
 
     const redTeam = response.data.info.participants.filter(
@@ -60,12 +61,12 @@ export async function MatchSummoryData(name) {
     );
 
     const redTeamSummonerName = redTeam.map((el) => {
-      return el.summonerName
-    })
+      return el.summonerName;
+    });
 
     const blueTeamSummonerName = blueTeam.map((el) => {
-      return el.summonerName
-    })
+      return el.summonerName;
+    });
 
     const itemSlot = [
       me.item0,
@@ -91,7 +92,7 @@ export async function MatchSummoryData(name) {
       championName: me.championName,
       gameCreation: response.data.info.gameCreation,
       redTeamSummonerName: redTeamSummonerName,
-      blueTeamSummonerName: blueTeamSummonerName
+      blueTeamSummonerName: blueTeamSummonerName,
     };
   } catch (error) {
     console.log(error(error));
