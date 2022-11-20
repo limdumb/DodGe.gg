@@ -43,6 +43,8 @@ const PlayerList = styled.div`
 `;
 
 export default function RecordList({ tab, userMatchData }) {
+  // 데이터 확인용
+  console.log(userMatchData)
   const kdaScore = `${userMatchData.kills}/${userMatchData.deaths}/${userMatchData.assist}`;
   const getChartList = (tab) => {
     if (tab === "All__Game__Record") {
@@ -67,14 +69,14 @@ export default function RecordList({ tab, userMatchData }) {
                 {/* 데이터 대체 예정 */}
                 <ChampInforImage
                   width={64}
-                  src={process.env.PUBLIC_URL + "./Image/kassadin.png"}
+                  src={`http://ddragon.leagueoflegends.com/cdn/12.22.1/img/champion/${userMatchData.championName}.png`}
                   marginRgt="5px"
                 />
               </div>
               <div className="Spell__Content">
                 <ChampInforImage
                   width={30}
-                  src={process.env.PUBLIC_URL + "./Image/Flesh.png"}
+                  src={"http://ddragon.leagueoflegends.com/cdn/12.22.1/img/spell/SummonerFlash.png"}
                   marginRgt="2px"
                 />
                 <ChampInforImage
