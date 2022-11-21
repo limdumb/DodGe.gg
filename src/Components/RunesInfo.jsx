@@ -11,9 +11,18 @@ const Layout = styled.div`
         background-color: gray;
         display: flex;
         flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
 
         & > li{
             flex:1;
+            border: 1px solid black;
+
+            & > img{
+                width: 60px;
+                border-radius: 50%;
+            }
         }
       }
 

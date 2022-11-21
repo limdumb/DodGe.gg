@@ -14,9 +14,13 @@ const TitleName = styled.hgroup`
 const Tapul = styled.ul`
   display:flex;
   text-align:center;
+  margin-bottom: 5px;
+  
 
   li{
     flex:1;
+    border: 1px solid red;
+    background-color: green;
   }
 `
 
