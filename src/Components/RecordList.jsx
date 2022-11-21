@@ -47,25 +47,23 @@ export default function RecordList({ tab, userMatchData }) {
   console.log(userMatchData);
   const kdaScore = `${userMatchData.kills}/${userMatchData.deaths}/${userMatchData.assist}`;
 
-  console.log(userMatchData.gameCreation)
   const month_Day = () => {
     const time = new Date(userMatchData.gameCreation);
 
-    let month = ( '0' + ( time.getMonth() + 1 ) ).slice(-2);
-    let day = ( '0' + time.getDate() ).slice(-2);
+    let month = ("0" + (time.getMonth() + 1)).slice(-2);
+    let day = ("0" + time.getDate()).slice(-2);
 
     return `${month}월${day}일`;
   };
 
   const minute_Second = () => {
-    const time = new Date(userMatchData.gameDuration * 1000)
+    const time = new Date(userMatchData.gameDuration * 1000);
 
-    let minutes = ('0'+ time.getMinutes()).slice(-2);
-    let secounds = ('0' + time.getSeconds()).slice(-2);
+    let minutes = ("0" + time.getMinutes()).slice(-2);
+    let secounds = ("0" + time.getSeconds()).slice(-2);
 
-    return `${minutes}분 ${secounds}초`
-  }
-
+    return `${minutes}분 ${secounds}초`;
+  };
 
   const getChartList = (tab) => {
     if (tab === "All__Game__Record") {
