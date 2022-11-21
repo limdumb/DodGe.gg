@@ -1,5 +1,5 @@
 import axios from "axios";
-const apiKey = "RGAPI-e7885024-7a6d-443d-83ce-e98686f13ba4";
+const apiKey = "RGAPI-8fe9893f-38c9-45d5-a523-3476f362a788";
 const apiKrBase = "https://kr.api.riotgames.com";
 const apiAsiaBase = "https://asia.api.riotgames.com";
 const UserName = "늑 사 덤";
@@ -45,7 +45,7 @@ const Uuid = async () => {
 export async function MatchSummoryData(name) {
   try {
     const response = await axios.get(
-      `${apiAsiaBase}/lol/match/v5/matches/KR_6215756465?api_key=${apiKey}`
+      `${apiAsiaBase}/lol/match/v5/matches/KR_6215527832?api_key=${apiKey}`
     );
     //변수명은 변경 예정(생각중)
     const me = response.data.info.participants.filter(
@@ -98,6 +98,7 @@ export async function MatchSummoryData(name) {
       redTeamSummonerName: redTeamSummonerName,
       blueTeamSummonerName: blueTeamSummonerName,
       allChampionName: userChampionName,
+      gameDuration: response.data.info.gameDuration
     };
   } catch (error) {
     console.log(error(error));

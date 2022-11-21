@@ -127,18 +127,19 @@ export default function RecordList({ tab, userMatchData }) {
                 </StyleSpan>
               </div>
             </div>
-            <div>
+            <ul className="Record__Item__List">
               {userMatchData.itemSlot.map((el) => {
-                return (
-                  <GameInfoImage
-                    width={30}
-                    key={el}
-                    marginRgt="3px"
-                    src={`http://ddragon.leagueoflegends.com/cdn/12.22.1/img/item/${el}.png`}
-                  ></GameInfoImage>
-                );
-              })}
-            </div>
+                return el !== 0 ?
+                  <li>
+                    <GameInfoImage
+                      width={30}
+                      key={el}
+                      marginRgt="3px"
+                      src={`http://ddragon.leagueoflegends.com/cdn/12.22.1/img/item/${el}.png`}
+                    ></GameInfoImage>
+                  </li>
+              : <li className="No__Item__List"></li> })}
+            </ul>
             <div className="Game__Result__Information">
               <ul className="Game__Player__List">
                 {userMatchData.redTeamSummonerName.map((el) => {
