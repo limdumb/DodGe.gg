@@ -22,29 +22,50 @@ const Header = styled.header`
   }
 `;
 
-const SubmitButton = styled.button`
-  width: 54px;
-  height: 35px;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-  background-color: white;
+const StyledButton = styled.button`
+  width: ${(props) => props.width};
+  height: ${(props) => props.height};
+  background-color: ${(props) => props.backgroundColor};
+  border-top-right-radius: ${(props) => props.borderTrRadius};
+  border-bottom-right-radius: ${(props) => props.borderBrRadius};
+  right: ${(props) => props.right};
+  color: ${(props) => props.color};
+  font-size: ${(props) => props.fontsize};
+`;
+
+const TabButton = styled(StyledButton)`
   border: none;
-  font-size: 0px;
+  font-weight: bold;
+`
+
+const SubmitButton = styled(StyledButton)`
+  border: none;
   position: absolute;
-  right: 10px;
-  color: black;
-  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
 `;
 
 function MainHeader() {
   return (
     <Header>
+      <TabButton backgroundColor="rgb(45, 43, 46)" color="white" fontsize="21px">Home</TabButton>
       <StyleSpan changeColor="white" fontsize="30px">
         DodGe.GG
       </StyleSpan>
       <div>
         <input id="Serch__Input" type="text" placeholder="소환사명"></input>
-        <SubmitButton>.GG</SubmitButton>
+        <SubmitButton
+          width="54px"
+          height="35px"
+          backgroundColor="white"
+          borderBrRadius="10px"
+          borderTrRadius="10px"
+          right="10px"
+          fontsize="26px"
+        >
+          .GG
+        </SubmitButton>
       </div>
     </Header>
   );
