@@ -1,5 +1,4 @@
 import axios from "axios";
-const apiKey = "RGAPI-8fe9893f-38c9-45d5-a523-3476f362a788";
 const apiKrBase = "https://kr.api.riotgames.com";
 const apiAsiaBase = "https://asia.api.riotgames.com";
 const UserName = "늑 사 덤";
@@ -45,7 +44,7 @@ const Uuid = async () => {
 export async function MatchSummoryData(name) {
   try {
     const response = await axios.get(
-      `${apiAsiaBase}/lol/match/v5/matches/KR_6215527832?api_key=${apiKey}`
+      `${apiAsiaBase}/lol/match/v5/matches/KR_6227325169?api_key=${apiKey}`
     );
     //변수명은 변경 예정(생각중)
     const me = response.data.info.participants.filter(
@@ -61,8 +60,8 @@ export async function MatchSummoryData(name) {
     );
 
     const userChampionName = response.data.info.participants.map((el) => {
-      return el.championName
-    })
+      return el.championName;
+    });
 
     const redTeamSummonerName = redTeam.map((el) => {
       return el.summonerName;
@@ -98,9 +97,25 @@ export async function MatchSummoryData(name) {
       redTeamSummonerName: redTeamSummonerName,
       blueTeamSummonerName: blueTeamSummonerName,
       allChampionName: userChampionName,
-      gameDuration: response.data.info.gameDuration
+      gameDuration: response.data.info.gameDuration,
+      spellId1: me.summoner1Id,
+      spellId2: me.summoner2Id,
     };
   } catch (error) {
     console.log(error(error));
   }
 }
+
+export async function SummonerSpell() {
+  try {
+    const response = await axios.get(
+      "http://ddragon.leagueoflegends.com/cdn/11.3.1/data/en_US/summoner.json"
+    );
+    
+  } catch (error) {
+    console.log(error(error));
+  }
+}
+//data.key의 정보를 가져온다
+//match Data의 spellId값과 맞는 key의 image.full값을 가져온다
+// 해당 full값을 url에 ${}넣는다
