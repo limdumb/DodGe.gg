@@ -1,4 +1,4 @@
-import MainHeader from "../Components/header";
+import MainHeader from "../Components/Header";
 import "./MyPages.css";
 import { UserInformation } from "../Components/UserInformation";
 import { TypeTab } from "../Components/TypeTab";
@@ -7,23 +7,20 @@ import Footer from "../Components/Footer";
 import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import { useEffect } from "react";
-import { SummonerData, SummonerLeagueData } from "../RiotAPI";
+import { SummonerData, SummonerLeagueData, MatchSummoryData } from "../RiotAPI";
 
 export default function MyPages() {
   const [currentTab, setCurrentTab] = useState("All__Game__Record");
   // 상태값 추후 수정 예정
-  const [profileIconID, setProfilIconId] = useState(null);
-  const [profileName, setProfilName] = useState(null);
-  const [lastRevisionDate, setLastRevisionDate] = useState(null);
+  const [userProfile, setUserProfile] = useState(null);
   const [userSoloTier, setUserSoloTier] = useState(null);
   const [userFreeRankTier, setUserFreeRankTier] = useState(null);
+  const [userMatchData, setUserMatchData] = useState(null);
 
   useEffect(() => {
     const userInfoData = async () => {
       const response = await SummonerData();
-      setProfilIconId(response.data.profileIconId);
-      setProfilName(response.data.name);
-      setLastRevisionDate(response.data.revisionDate);
+      setUserProfile(response);
     };
 
     const userTierData = async () => {
@@ -31,26 +28,30 @@ export default function MyPages() {
       setUserSoloTier(response.data[0]);
       setUserFreeRankTier(response.data[1]);
     };
+
+    const userMatchSummory = async () => {
+      const response = await MatchSummoryData();
+      setUserMatchData(response);
+    };
+
+    userMatchSummory();
     userTierData();
     userInfoData();
   }, []);
-
-  const propsObj = {
-    profileIconID,
-    profileName,
-    lastRevisionDate,
-    userSoloTier,
-    userFreeRankTier,
-  };
 
   return (
     <>
       <MainHeader />
       <div id="Main__Container">
         <main>
-          <UserInformation
-          {...propsObj}
-          />
+          {userProfile && (
+            <UserInformation
+              userSoloTier={userSoloTier}
+              userFreeRankTier={userFreeRankTier}
+              profileIconId={userProfile.profileIconId}
+              name={userProfile.name}
+            />
+          )}
           <div className="Information__transfer__Container">
             <span>혹시 알고 계셨나요?</span>
             <span>협곡의 전령은 바위개의 형이랍니다 응애</span>
@@ -68,7 +69,9 @@ export default function MyPages() {
               }
             }}
           />
-          <RecordList tab={currentTab} />
+          {userMatchData && (
+            <RecordList tab={currentTab} userMatchData={userMatchData} />
+          )}
         </main>
       </div>
       <Footer />

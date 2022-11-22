@@ -5,15 +5,11 @@ import "./BestChampion.css";
 const Card = styled.li`
     height: 300px;
     width: 150px;
-    border: solid 1px; red;
+    border: solid 1px red;
     margin: 0 0.5px;
     cursor: pointer;
 `;
-fetch(
-  "http://ddragon.leagueoflegends.com/cdn/12.22.1/data/en_US/champion.json"
-).then((res) => {
-  console.log(res);
-});
+
 export default function BestChampion() {
   const [card, setCard] = useState(Array(5).fill(false));
 

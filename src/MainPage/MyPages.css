@@ -126,16 +126,14 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding: 0;
-  margin-top: 16px;
+  padding: 10px 5px 10px 5px;
 }
 
 .Game__Player__List2{
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding: 0;
-  margin-top: 16px;
+  padding: 10px 5px 10px 5px;
 }
 
 .Nav__bar{
@@ -144,4 +142,17 @@
 
 .Tab__User__Tier{
   display: flex;
+}
+
+.Record__Item__List{
+  display: flex;
+  align-items: center;
+}
+
+.No__Item__List{
+  width: 30px;
+  height: 30px;
+  background-color: rgba(0, 0, 0, 0.281);
+  border-radius: 10px;
+  margin-right: 3px;
 }

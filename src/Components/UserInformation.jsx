@@ -1,26 +1,21 @@
 import { RankTab } from "./TypeTab";
 
 export const UserInformation = ({
-  lastRevisionDate,
-  profileIconID,
-  profileName,
-  userSoloTier,
+  profileIconId,
+  name,
   userFreeRankTier,
+  userSoloTier,
 }) => {
-  const newLastRevisionDate = new Date(lastRevisionDate);
   return (
     <section className="User__Information__Container">
       <article className="User__Profil">
         <div className="Information__Contents">
           <img
             className="Icon__Image"
-            src={`https://ddragon.leagueoflegends.com/cdn/12.21.1/img/profileicon/${profileIconID}.png`}
+            src={`https://ddragon.leagueoflegends.com/cdn/12.21.1/img/profileicon/${profileIconId}.png`}
           />
           <div>
-            <span className="User__Name">{profileName}</span>
-            <span>
-              마지막 갱신일자:{newLastRevisionDate.toLocaleString()}{" "}
-            </span>
+            <span className="User__Name">{name}</span>
           </div>
         </div>
       </article>
