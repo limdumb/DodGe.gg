@@ -11,7 +11,6 @@ import { SummonerData, SummonerLeagueData, MatchSummoryData } from "../RiotAPI";
 
 export default function MyPages() {
   const [currentTab, setCurrentTab] = useState("All__Game__Record");
-  // 상태값 추후 수정 예정
   const [userProfile, setUserProfile] = useState(null);
   const [userSoloTier, setUserSoloTier] = useState(null);
   const [userFreeRankTier, setUserFreeRankTier] = useState(null);
