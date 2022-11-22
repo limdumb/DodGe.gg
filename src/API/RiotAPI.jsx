@@ -1,4 +1,5 @@
 import axios from "axios";
+const apiKey = "RGAPI-8fe9893f-38c9-45d5-a523-3476f362a788";
 const apiKrBase = "https://kr.api.riotgames.com";
 const apiAsiaBase = "https://asia.api.riotgames.com";
 const UserName = "늑 사 덤";
@@ -41,10 +42,10 @@ const Uuid = async () => {
   }
 };
 
-export async function MatchSummoryData(name) {
+export async function MatchSummoryData() {
   try {
     const response = await axios.get(
-      `${apiAsiaBase}/lol/match/v5/matches/KR_6227325169?api_key=${apiKey}`
+      `${apiAsiaBase}/lol/match/v5/matches/KR_6228206120?api_key=${apiKey}`
     );
     //변수명은 변경 예정(생각중)
     const me = response.data.info.participants.filter(
@@ -116,6 +117,3 @@ export async function SummonerSpell() {
     console.log(error(error));
   }
 }
-//data.key의 정보를 가져온다
-//match Data의 spellId값과 맞는 key의 image.full값을 가져온다
-// 해당 full값을 url에 ${}넣는다
