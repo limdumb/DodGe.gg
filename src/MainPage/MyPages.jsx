@@ -1,13 +1,13 @@
 import MainHeader from "../Components/Header";
 import "./MyPages.css";
-import { UserInformation } from "../Components/UserInformation";
-import { TypeTab } from "../Components/TypeTab";
-import RecordList from "../Components/RecordList";
+import { UserInformation } from "../Components/MyPage/UserInformation";
+import { TypeTab } from "../Components/MyPage/TypeTab";
+import RecordList from "../Components/MyPage/RecordList";
 import Footer from "../Components/Footer";
 import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import { useEffect } from "react";
-import { SummonerData, SummonerLeagueData, MatchSummoryData } from "../RiotAPI";
+import { SummonerData, SummonerLeagueData, MatchSummoryData } from "../API/RiotAPI";
 
 export default function MyPages() {
   const [currentTab, setCurrentTab] = useState("All__Game__Record");
@@ -25,8 +25,8 @@ export default function MyPages() {
 
     const userTierData = async () => {
       const response = await SummonerLeagueData();
-      setUserSoloTier(response.data[0]);
-      setUserFreeRankTier(response.data[1]);
+      setUserSoloTier(response.data[1]);
+      setUserFreeRankTier(response.data[0]);
     };
 
     const userMatchSummory = async () => {
@@ -39,6 +39,7 @@ export default function MyPages() {
     userInfoData();
   }, []);
 
+  console.log(userFreeRankTier)
   return (
     <>
       <MainHeader />

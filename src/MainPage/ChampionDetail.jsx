@@ -1,12 +1,12 @@
 import React from "react";
 import "./ChampionDetail.css";
-import { Profile } from "../Components/Profile";
-import { Skill } from "../Components/Skill";
-import { RounesTap } from "../Components//RunesTap";
-import { Bulid } from "../Components/Bulid";
+import { Profile } from "../Components/ChampionDetail/Profile";
+import { Skill } from "../Components/ChampionDetail/Skill";
+import { RounesTap } from "../Components/ChampionDetail/RunesTap";
+import { Bulid } from "../Components/ChampionDetail/Bulid";
 import { useState, useEffect } from "react";
-import { ItemBulid } from "../Components/ItemBulid";
-import { SkillBulid } from "../Components/SkillBulid";
+import { ItemBulid } from "../Components/ChampionDetail/ItemBulid";
+import { SkillBulid } from "../Components/ChampionDetail/SkillBulid";
 import "bootstrap/dist/css/bootstrap.css";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";

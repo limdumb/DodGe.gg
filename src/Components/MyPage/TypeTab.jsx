@@ -116,7 +116,7 @@ export const RankTab = ({ userSoloTier, userFreeRankTier }) => {
             {userSoloTier && (
               <>
                 <span className="Tab__Tier__Contents__1">
-                  {userSoloTier.tier}
+                  {userSoloTier.tier} {userSoloTier.rank}
                 </span>
                 <span className="Tab__Tier__Contents__2">
                   {userSoloTier.leaguePoints}LP
@@ -148,7 +148,7 @@ export const RankTab = ({ userSoloTier, userFreeRankTier }) => {
             {userFreeRankTier && (
               <>
                 <span className="Tab__Tier__Contents__1">
-                  {userFreeRankTier.tier}
+                  {userFreeRankTier.tier} {userFreeRankTier.rank}
                 </span>
                 <span className="Tab__Tier__Contents__2">
                   {userFreeRankTier.leaguePoints}LP
