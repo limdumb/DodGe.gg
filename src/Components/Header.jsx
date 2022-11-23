@@ -1,11 +1,9 @@
-// import Container from "react-bootstrap/Container";
-// import Nav from "react-bootstrap/Nav";
-// import Navbar from "react-bootstrap/Navbar";
 import styled from "styled-components";
 import { StyleSpan } from "./MyPage/RecordList";
 import "./Header.css";
 
 const Header = styled.header`
+  float: left;
   display: flex;
   width: 100%;
   background-color: black;
@@ -14,6 +12,10 @@ const Header = styled.header`
   justify-content: space-between;
   align-items: center;
   padding: 0 10px 0 10px;
+
+  @media screen and (max-width: 768px){
+    width: 100%;
+  }
 
   div {
     display: flex;
@@ -36,7 +38,7 @@ const StyledButton = styled.button`
 const TabButton = styled(StyledButton)`
   border: none;
   font-weight: bold;
-`
+`;
 
 const SubmitButton = styled(StyledButton)`
   border: none;
@@ -44,25 +46,32 @@ const SubmitButton = styled(StyledButton)`
   font-weight: bold;
   display: flex;
   align-items: center;
+  justify-content: center;
 `;
 
-function MainHeader() {
+export default function MainHeader() {
   return (
     <Header>
-      <TabButton backgroundColor="rgb(45, 43, 46)" color="white" fontsize="21px">Home</TabButton>
-      <StyleSpan changeColor="white" fontsize="30px">
+      <TabButton
+        backgroundColor="rgb(45, 43, 46)"
+        color="white"
+        fontsize="1.2rem"
+      >
+        Home
+      </TabButton>
+      <StyleSpan changeColor="white" fontsize="1.9rem" width="3rem">
         DodGe.GG
       </StyleSpan>
       <div>
         <input id="Serch__Input" type="text" placeholder="소환사명"></input>
         <SubmitButton
-          width="54px"
-          height="35px"
+          width="4.3rem"
+          height="2.9rem"
           backgroundColor="white"
           borderBrRadius="10px"
           borderTrRadius="10px"
           right="10px"
-          fontsize="26px"
+          fontsize="1.4rem"
         >
           .GG
         </SubmitButton>
@@ -70,21 +79,3 @@ function MainHeader() {
     </Header>
   );
 }
-
-export default MainHeader;
-
-// return (
-//   <>
-//     <Navbar className="Nav__bar" bg="dark" variant="dark">
-//       <Container>
-//         <Navbar.Brand href="#home">Dogde.gg</Navbar.Brand>
-//         <Nav className="me-auto">
-//           <Nav.Link href="#home">홈</Nav.Link>
-//           <Nav.Link href="#features">챔피언 티어</Nav.Link>
-//           {/* 로그인은 오른쪽 끝에  */}
-//           <Nav.Link href="#pricing">Log-in</Nav.Link>
-//         </Nav>
-//       </Container>
-//     </Navbar>
-//   </>
-// );

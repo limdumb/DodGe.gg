@@ -1,7 +1,8 @@
 #Serch__Input{
-  height: 35px;
-  width: 240px;
+  height: 3.0rem;
+  width: 11rem;
   border: none;
   border-radius: 10px;
   outline-style: none;
+  padding-left: 1rem;
 }
