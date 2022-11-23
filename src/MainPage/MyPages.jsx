@@ -7,7 +7,7 @@ import Footer from "../Components/Footer";
 import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import { useEffect } from "react";
-import { SummonerData, SummonerLeagueData, MatchSummoryData } from "../API/RiotAPI";
+import { summonerData, summonerLeagueData, matchSummoryData } from "../API/RiotAPI";
 
 export default function MyPages() {
   const [currentTab, setCurrentTab] = useState("All__Game__Record");
@@ -18,18 +18,18 @@ export default function MyPages() {
 
   useEffect(() => {
     const userInfoData = async () => {
-      const response = await SummonerData();
+      const response = await summonerData();
       setUserProfile(response);
     };
 
     const userTierData = async () => {
-      const response = await SummonerLeagueData();
+      const response = await summonerLeagueData();
       setUserSoloTier(response.data[1]);
       setUserFreeRankTier(response.data[0]);
     };
 
     const userMatchSummory = async () => {
-      const response = await MatchSummoryData();
+      const response = await matchSummoryData();
       setUserMatchData(response);
     };
 
