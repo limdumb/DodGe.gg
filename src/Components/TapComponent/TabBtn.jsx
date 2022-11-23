@@ -1,10 +1,10 @@
 import React from "react";
 
-const TabBtn = ({ iconData, index, champCheck, setChampCheck }) => {
-  function btnClick(index) {
-    let newArr = [false, false, false, false, false, false, false];
-    newArr[index] = true;
-    setChampCheck(newArr);
+const TabBtn = ({ iconData, index, linebtnCheck, setLinebtnCheck }) => {
+  function lineBtnChange(index) {
+    let dummyArr = [false, false, false, false, false, false, false];
+    dummyArr[index] = true;
+    setLinebtnCheck(dummyArr);
   }
   return (
     <button
@@ -19,12 +19,12 @@ const TabBtn = ({ iconData, index, champCheck, setChampCheck }) => {
           : "Tab_LineBtncenter")
       }
       onClick={(e) => {
-        btnClick(index);
+        lineBtnChange(index);
       }}
     >
       <img
         src={
-          champCheck[index] ? iconData.icon.icon_wh : iconData.icon.icon_dark
+          linebtnCheck[index] ? iconData.icon.icon_wh : iconData.icon.icon_dark
         }
       />
     </button>

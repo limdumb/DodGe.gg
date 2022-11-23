@@ -1,10 +1,10 @@
 import React, {useState} from "react";
 import "./Tab.css";
-import img from "./imgLink";
+import lineIconImg from "./imgLink";
 import TabBtn from "./TabBtn";
 
 const Tab = () => {
-  const [champCheck, setChampCheck] = useState([
+  const [linebtnCheck, setLinebtnCheck] = useState([
     true,
     false,
     false,
@@ -28,10 +28,9 @@ const Tab = () => {
         />
       </div>
       <div className="Tab_LineBox">
-        {img.map((iconData, index) => {
-          return <TabBtn key={index} iconData={iconData} index={index} champCheck={champCheck} setChampCheck={setChampCheck}/>;
+        {lineIconImg.map((iconData, index) => {
+          return <TabBtn key={index} iconData={iconData} index={index} linebtnCheck={linebtnCheck} setLinebtnCheck={setLinebtnCheck}/>;
         })}
-
       </div>
     </>
   );
