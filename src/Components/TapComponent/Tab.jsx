@@ -17,11 +17,11 @@ const Tab = () => {
     <>
       <div className="Tab__SearchBox">
         <img
-          className="Tab_SearchImg"
+          className="Tab__SearchImg"
           src="https://s-lol-web.op.gg/images/icon/icon-search.svg"
         />
         <input
-          className="Tab_Search"
+          className="Tab__Search"
           type="text"
           placeholder="챔피언 검색"
           autoComplete="off"

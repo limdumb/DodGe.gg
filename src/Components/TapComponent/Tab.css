@@ -8,13 +8,13 @@
   position: relative;
 }
 
-.Tab_SearchImg{
+.Tab__SearchImg{
   position: absolute;
   top: 14px;
   left: 18px;
 }
 
-.Tab_Search{
+.Tab__Search{
   width: 316px;
   height: 36px;
   padding: 8px 16px 8px 40px;
@@ -35,7 +35,7 @@
   padding: 8px;
 }
 
-.Tab_LineBtn{
+.Tab__LineBtn{
   flex-grow: 1;
   height: 40px;
   padding: 8px;
@@ -43,7 +43,7 @@
   background-color: #31313C;
 }
 
-.Tab_LineBtnLeft{
+.Tab__LineBtnLeft{
   border-left: 0.5px solid #424254;
   border-top: 0.5px solid #424254;
   border-bottom: 0.5px solid #424254;
@@ -51,13 +51,13 @@
   border-bottom-left-radius: 4px;
 }
 
-.Tab_LineBtncenter{
+.Tab__LineBtncenter{
   border-left: 0.5px solid #424254;
   border-top: 0.5px solid #424254;
   border-bottom: 0.5px solid #424254;
 }
 
-.Tab_LineBtnRight{
+.Tab__LineBtnRight{
   border: 0.5px solid #424254;
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
