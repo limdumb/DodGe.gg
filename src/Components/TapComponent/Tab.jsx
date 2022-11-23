@@ -15,19 +15,19 @@ const Tab = () => {
   ]);
   return (
     <>
-      <div className="Tab__SearchBox">
+      <div className="Tab_SearchBox">
         <img
-          className="Tab__SearchImg"
+          className="Tab_SearchImg"
           src="https://s-lol-web.op.gg/images/icon/icon-search.svg"
         />
         <input
-          className="Tab__Search"
+          className="Tab_Search"
           type="text"
           placeholder="챔피언 검색"
           autoComplete="off"
         />
       </div>
-      <div className="Tab__LineBox">
+      <div className="Tab_LineBox">
         {img.map((iconData, index) => {
           return <TabBtn key={index} iconData={iconData} index={index} champCheck={champCheck} setChampCheck={setChampCheck}/>;
         })}

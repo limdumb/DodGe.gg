@@ -11,12 +11,12 @@ const TabBtn = ({ iconData, index, champCheck, setChampCheck }) => {
       type="button"
       name={iconData.name}
       className={
-        "Tab__LineBtn " +
+        "Tab_LineBtn " +
         (index === 0
-          ? "Tab__LineBtnLeft"
+          ? "Tab_LineBtnLeft"
           : index === 6
-          ? "Tab__LineBtnRight"
-          : "Tab__LineBtncenter")
+          ? "Tab_LineBtnRight"
+          : "Tab_LineBtncenter")
       }
       onClick={(e) => {
         btnClick(index);
