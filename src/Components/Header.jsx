@@ -63,7 +63,7 @@ export default function MainHeader() {
         DodGe.GG
       </StyleSpan>
       <div>
-        <input id="Serch__Input" type="text" placeholder="소환사명"></input>
+        <input id="Serch_Input" type="text" placeholder="소환사명"></input>
         <SubmitButton
           width="4.3rem"
           height="2.9rem"
