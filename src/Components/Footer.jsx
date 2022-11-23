@@ -27,7 +27,7 @@ export default function MainFooter() {
         />
       </div>
       <div>
-        <a href="https://github.com/limdumb/DodGe.gg">프로젝트 링크</a>
+        <a href="https://github.com/limdumb/DodGe.gg">DodGe.gg GitHub 페이지</a>
         <p>© 2022 DodGe.gg</p>
       </div>
     </footer>

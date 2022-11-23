@@ -15,11 +15,7 @@ export default function Member({ name, git, blog, email }) {
           Blog <FaBlogger />
         </a>
       </p>
-      <p>
-        <a className="Member__Icon" href={email}>
-          E-Mail <AiOutlineMail />
-        </a>
-      </p>
+      <p>{email}</p>
     </div>
   );
 }

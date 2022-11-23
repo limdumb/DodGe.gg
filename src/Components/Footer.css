@@ -4,7 +4,6 @@
   align-items: center;
   background-color: rgba(0, 0, 0, 0.9);
   color: white;
-  text-align: center;
   height: 125px;
 }
 
@@ -19,7 +18,7 @@
   height: 100px;
 }
 
-.Member__Icon {
-  width: 50px;
-  height: 50px;
+.Footer__Wrapper a {
+  color: white;
+  text-decoration: none;
 }
