@@ -1,10 +1,9 @@
 import axios from "axios";
-const apiKey = "RGAPI-8fe9893f-38c9-45d5-a523-3476f362a788";
 const apiKrBase = "https://kr.api.riotgames.com";
 const apiAsiaBase = "https://asia.api.riotgames.com";
 const UserName = "늑 사 덤";
 
-export async function SummonerData() {
+export async function summonerData() {
   try {
     const response = await axios.get(
       `${apiKrBase}/lol/summoner/v4/summoners/by-name/${UserName}?api_key=${apiKey}`
@@ -20,7 +19,7 @@ export async function SummonerData() {
   }
 }
 
-export async function SummonerLeagueData() {
+export async function summonerLeagueData() {
   try {
     const response = await axios.get(
       `${apiKrBase}/lol/league/v4/entries/by-summoner/eNR-W7JuvHIfroVhzz3x8zmjPd26m_l1jCH-gK3s_TwZ08I?api_key=${apiKey}`
@@ -31,7 +30,7 @@ export async function SummonerLeagueData() {
   }
 }
 
-const Uuid = async () => {
+const uuid = async () => {
   try {
     const response = await axios.get(
       `${apiAsiaBase}/lol/match/v5/matches/by-puuid/FOWsldOnkYnYYjsCBC36zudcGlKWr4muJuj8ukhZlAJ6ZPu50O4q_O8fMjNF_6yVSlw_ox2QfwXg3A/ids?start=0&count=20&api_key=${apiKey}`
@@ -42,7 +41,7 @@ const Uuid = async () => {
   }
 };
 
-export async function MatchSummoryData() {
+export async function matchSummoryData() {
   try {
     const response = await axios.get(
       `${apiAsiaBase}/lol/match/v5/matches/KR_6228206120?api_key=${apiKey}`
@@ -107,12 +106,22 @@ export async function MatchSummoryData() {
   }
 }
 
-export async function SummonerSpell() {
+export async function summonerSpell() {
   try {
     const response = await axios.get(
       "http://ddragon.leagueoflegends.com/cdn/11.3.1/data/en_US/summoner.json"
     );
-    
+  } catch (error) {
+    console.log(error(error));
+  }
+}
+
+export async function champInfo() {
+  try {
+    const response = await axios.get(
+      "http://ddragon.leagueoflegends.com/cdn/12.22.1/data/en_US/champion.json"
+    );
+    return Object.keys(response.data.data);
   } catch (error) {
     console.log(error(error));
   }
