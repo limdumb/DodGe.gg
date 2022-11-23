@@ -3,7 +3,7 @@ import "./Footer.css";
 
 export default function MainFooter() {
   return (
-    <footer>
+    <footer className="Footer__Wrapper">
       <div className="Members__Container">
         <Member
           name={"임경인"}
@@ -25,6 +25,10 @@ export default function MainFooter() {
           }
           email={"rlawodn46465@naver.com"}
         />
+      </div>
+      <div>
+        <a href="https://github.com/limdumb/DodGe.gg">프로젝트 링크</a>
+        <p>© 2022 DodGe.gg</p>
       </div>
     </footer>
   );

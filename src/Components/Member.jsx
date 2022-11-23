@@ -1,15 +1,24 @@
+import { AiFillGithub, AiOutlineMail } from "react-icons/ai";
+import { FaBlogger } from "react-icons/fa";
+
 export default function Member({ name, git, blog, email }) {
   return (
-    <div className="Member_Details">
-      <p>이름: {name}</p>
+    <div className="Member">
+      <h6>{name}</h6>
       <p>
-        깃헙: <a href={git}>{git}</a>
+        <a className="Member__Icon" href={git}>
+          GitHub <AiFillGithub />
+        </a>
       </p>
       <p>
-        블로그: <a href={blog}>{blog}</a>
+        <a className="Member__Icon" href={blog}>
+          Blog <FaBlogger />
+        </a>
       </p>
       <p>
-        이메일: <a href={email}>{email}</a>
+        <a className="Member__Icon" href={email}>
+          E-Mail <AiOutlineMail />
+        </a>
       </p>
     </div>
   );

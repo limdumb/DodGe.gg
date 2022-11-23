@@ -1,4 +1,25 @@
+.Footer__Wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: white;
+  text-align: center;
+  height: 125px;
+}
+
 .Members__Container {
   display: flex;
-  height: 150px;
+  justify-content: center;
+  align-items: center;
+}
+
+.Member {
+  width: 250px;
+  height: 100px;
+}
+
+.Member__Icon {
+  width: 50px;
+  height: 50px;
 }
