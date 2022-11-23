@@ -1,4 +1,4 @@
-const img = [
+const lineIconImg = [
   {
     name: 'all',
     icon: {
@@ -56,4 +56,4 @@ const img = [
   },
 ];
 
-export default img;
+export default lineIconImg;
