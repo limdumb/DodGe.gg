@@ -3,11 +3,15 @@ import "./MyPages.css";
 import { UserInformation } from "../Components/MyPage/UserInformation";
 import { TypeTab } from "../Components/MyPage/TypeTab";
 import RecordList from "../Components/MyPage/RecordList";
-import Footer from "../Components/Footer";
+import Footer from "../Components/Footer.jsx";
 import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import { useEffect } from "react";
-import { SummonerData, SummonerLeagueData, MatchSummoryData } from "../API/RiotAPI";
+import {
+  SummonerData,
+  SummonerLeagueData,
+  MatchSummoryData,
+} from "../API/RiotAPI";
 
 export default function MyPages() {
   const [currentTab, setCurrentTab] = useState("All__Game__Record");
@@ -38,7 +42,7 @@ export default function MyPages() {
     userInfoData();
   }, []);
 
-  console.log(userFreeRankTier)
+  console.log(userFreeRankTier);
   return (
     <>
       <MainHeader />
