@@ -1,0 +1,64 @@
+.Tab__SearchBox{
+  width: 332px;
+  height: 44px;
+  background-color: #31313C;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  padding: 8px 8px 0 8px;
+  position: relative;
+}
+
+.Tab_SearchImg{
+  position: absolute;
+  top: 14px;
+  left: 18px;
+}
+
+.Tab_Search{
+  width: 316px;
+  height: 36px;
+  padding: 8px 16px 8px 40px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  background-color: #1C1C1F;
+  font-size: 14px;
+  color: white;
+}
+
+.Tab__LineBox{
+  display: flex;
+  width: 332px;
+  height: 57px;
+  background-color: #31313C;
+  padding: 8px;
+}
+
+.Tab_LineBtn{
+  flex-grow: 1;
+  height: 40px;
+  padding: 8px;
+  border: 0px;
+  background-color: #31313C;
+}
+
+.Tab_LineBtnLeft{
+  border-left: 0.5px solid #424254;
+  border-top: 0.5px solid #424254;
+  border-bottom: 0.5px solid #424254;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.Tab_LineBtncenter{
+  border-left: 0.5px solid #424254;
+  border-top: 0.5px solid #424254;
+  border-bottom: 0.5px solid #424254;
+}
+
+.Tab_LineBtnRight{
+  border: 0.5px solid #424254;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
