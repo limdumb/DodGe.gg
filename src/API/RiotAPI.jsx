@@ -116,13 +116,15 @@ export async function summonerSpell() {
   }
 }
 
-export async function champInfo() {
-  try {
-    const response = await axios.get(
-      "http://ddragon.leagueoflegends.com/cdn/12.22.1/data/en_US/champion.json"
-    );
-    return Object.keys(response.data.data);
-  } catch (error) {
-    console.log(error(error));
-  }
+export async function champName() {
+  let champion = []
+  let ko_name;
+  await axios.get("http://ddragon.leagueoflegends.com/cdn/12.22.1/data/ko_KR/champion.json")
+  .then(res => {
+    let name = Object.keys(res.data.data);
+    ko_name = name.map(data => res.data.data[data].name)
+    ko_name.forEach((data,index) => champion.push({name:data, image:`http://ddragon.leagueoflegends.com/cdn/12.22.1/img/champion/${name[index]}.png`}))
+  })
+
+  return champion
 }
