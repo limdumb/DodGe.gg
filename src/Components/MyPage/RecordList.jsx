@@ -20,12 +20,13 @@ const RecordContents = styled.div`
   align-items: center;
 `;
 
-const StyleSpan = styled.span`
+export const StyleSpan = styled.span`
   font-size: ${(props) => props.fontsize || "12px"};
   display: block;
   margin-bottom: ${(props) => props.marginBtm};
   color: ${(props) => props.changeColor};
   font-weight: ${(props) => props.fontweight};
+  margin-left: ${(props) => props.marginLft};
 `;
 
 const GameInfoImage = styled.img`
