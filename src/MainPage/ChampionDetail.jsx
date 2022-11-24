@@ -8,8 +8,8 @@ import { useState, useEffect } from "react";
 import { ItemBulid } from "../Components/ChampionDetail/ItemBulid";
 import { SkillBulid } from "../Components/ChampionDetail/SkillBulid";
 import "bootstrap/dist/css/bootstrap.css";
-import Header from "../Components/Header";
-import Footer from "../Components/Footer.jsx";
+import Header from "../Components/CommonComponents/Header";
+import Footer from "../Components/CommonComponents/Footer.jsx";
 
 function ChampionDetail({ championId }) {
   const [skilltext, setSkillText] = useState(null);

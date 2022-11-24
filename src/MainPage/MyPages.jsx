@@ -1,9 +1,9 @@
-import MainHeader from "../Components/Header";
+import MainHeader from "../Components/CommonComponents/Header";
 import "./MyPages.css";
 import { UserInformation } from "../Components/MyPage/UserInformation";
 import { TypeTab } from "../Components/MyPage/TypeTab";
 import RecordList from "../Components/MyPage/RecordList";
-import Footer from "../Components/Footer.jsx";
+import Footer from "../Components/CommonComponents/Footer.jsx";
 import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import { useEffect } from "react";
