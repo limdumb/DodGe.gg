@@ -3,9 +3,10 @@ import { StyleSpan } from "./MyPage/RecordList";
 import "./Header.css";
 
 const Header = styled.header`
+  box-sizing: border-box;
   float: left;
   display: flex;
-  width: 100%;
+  width: 300px;
   background-color: black;
   height: 70px;
   background-color: rgb(45, 43, 46);
@@ -13,14 +14,8 @@ const Header = styled.header`
   align-items: center;
   padding: 0 10px 0 10px;
 
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 768px) {
     width: 100%;
-  }
-
-  div {
-    display: flex;
-    height: 80%;
-    align-items: center;
   }
 `;
 
@@ -42,11 +37,13 @@ const TabButton = styled(StyledButton)`
 
 const SubmitButton = styled(StyledButton)`
   border: none;
-  position: absolute;
+  /* position: relative; */
   font-weight: bold;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
+  height: 1px;
+
 `;
 
 export default function MainHeader() {
@@ -55,27 +52,24 @@ export default function MainHeader() {
       <TabButton
         backgroundColor="rgb(45, 43, 46)"
         color="white"
-        fontsize="1.2rem"
+        fontsize="0.8rem"
       >
         Home
       </TabButton>
-      <StyleSpan changeColor="white" fontsize="1.9rem" width="3rem">
+      <StyleSpan changeColor="white" fontsize="1.2rem" fontweight="bold">
         DodGe.GG
       </StyleSpan>
-      <div>
-        <input id="Serch__Input" type="text" placeholder="소환사명"></input>
-        <SubmitButton
-          width="4.3rem"
-          height="2.9rem"
-          backgroundColor="white"
-          borderBrRadius="10px"
-          borderTrRadius="10px"
-          right="10px"
-          fontsize="1.4rem"
-        >
-          .GG
-        </SubmitButton>
-      </div>
+      <SubmitButton
+        width="4rem"
+        height="2rem"
+        backgroundColor="white"
+        borderBrRadius="10px"
+        borderTrRadius="10px"
+        right="1.8rem"
+      >
+        <input id="Serch_Input" type="text" placeholder="소환사명"></input>
+        <span className="Serch_Button_Name">.GG</span>
+      </SubmitButton>
     </Header>
   );
 }

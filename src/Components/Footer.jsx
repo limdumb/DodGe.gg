@@ -1,88 +1,34 @@
+import Member from "./Member";
 import "./Footer.css";
 
 export default function MainFooter() {
   return (
-    <footer>
-      <div className="Footer__Container">
-        <ul>
-          <li>
-            <a href="https://velog.io/@limdumb/%EC%86%94%EC%B0%8D%ED%95%98%EA%B3%A0-%EC%A3%BC%EA%B4%80%EC%A0%81%EC%9D%B8-2022-FECONF-%ED%9B%84%EA%B8%B0">
-              프로젝트 소개
-            </a>
-          </li>
-        </ul>
-        <ul>
-          <li>
-            <a href="https://velog.io/@limdumb/%EC%86%94%EC%B0%8D%ED%95%98%EA%B3%A0-%EC%A3%BC%EA%B4%80%EC%A0%81%EC%9D%B8-2022-FECONF-%ED%9B%84%EA%B8%B0">
-              limdumb
-            </a>
-          </li>
-          <li>
-            <a href="https://velog.io/@limdumb/%EC%86%94%EC%B0%8D%ED%95%98%EA%B3%A0-%EC%A3%BC%EA%B4%80%EC%A0%81%EC%9D%B8-2022-FECONF-%ED%9B%84%EA%B8%B0">
-              junpotatoes
-            </a>
-          </li>
-          <li>
-            <a href="https://velog.io/@limdumb/%EC%86%94%EC%B0%8D%ED%95%98%EA%B3%A0-%EC%A3%BC%EA%B4%80%EC%A0%81%EC%9D%B8-2022-FECONF-%ED%9B%84%EA%B8%B0">
-              MINSE97
-            </a>
-          </li>
-          <li>
-            <a href="https://velog.io/@limdumb/%EC%86%94%EC%B0%8D%ED%95%98%EA%B3%A0-%EC%A3%BC%EA%B4%80%EC%A0%81%EC%9D%B8-2022-FECONF-%ED%9B%84%EA%B8%B0">
-              jangIkIk
-            </a>
-          </li>
-        </ul>
-
-        <ul>
-          <li>
-            <a href="https://velog.io/@limdumb">limdumb Velog</a>
-          </li>
-          <li>
-            <a href="https://velog.io/@wnsgh156a">junpotatoes Velog</a>
-          </li>
-          <li>
-            <a href="https://velog.io/@alsgood4007">MINSE97 Velog</a>
-          </li>
-          <li>
-            <a href="https://www.notion.so/jangss/8b2dc0fdeda44fa0acbf11329758bab3">
-              janIkIk Notion
-            </a>
-          </li>
-        </ul>
-
-        <ul>
-          <li>
-            <a href="https://velog.io/@limdumb">limdumb Velog</a>
-          </li>
-          <li>
-            <a href="https://velog.io/@wnsgh156a">junpotatoes Velog</a>
-          </li>
-          <li>
-            <a href="https://velog.io/@alsgood4007">MINSE97 Velog</a>
-          </li>
-          <li>
-            <a href="https://www.notion.so/jangss/8b2dc0fdeda44fa0acbf11329758bab3">
-              janIkIk Notion
-            </a>
-          </li>
-        </ul>
-        <ul>
-          <li>
-            <a href="https://velog.io/@limdumb">limdumb Velog</a>
-          </li>
-          <li>
-            <a href="https://velog.io/@wnsgh156a">junpotatoes Velog</a>
-          </li>
-          <li>
-            <a href="https://velog.io/@alsgood4007">MINSE97 Velog</a>
-          </li>
-          <li>
-            <a href="https://www.notion.so/jangss/8b2dc0fdeda44fa0acbf11329758bab3">
-              janIkIk Notion
-            </a>
-          </li>
-        </ul>
+    <footer className="Footer__Wrapper">
+      <div className="Members__Container">
+        <Member
+          name={"임경인"}
+          git={"https://github.com/limdumb"}
+          blog={"https://velog.io/@limdumb"}
+          email={"ruddls10@naver.com"}
+        />
+        <Member
+          name={"심민섭"}
+          git={"https://github.com/shim5505"}
+          blog={"https://code-in-law.tistory.com/"}
+          email={"shim5505@gmail.com"}
+        />
+        <Member
+          name={"김재우"}
+          git={"https://github.com/rlawodn46465"}
+          blog={
+            "https://quiet-paste-3d3.notion.site/9930d759c4a64012a2e9abefe20b99e7"
+          }
+          email={"rlawodn46465@naver.com"}
+        />
+      </div>
+      <div className="Project__Link">
+        <a href="https://github.com/limdumb/DodGe.gg">DodGe.gg GitHub 페이지</a>
+        <p>© 2022 DodGe.gg</p>
       </div>
     </footer>
   );
