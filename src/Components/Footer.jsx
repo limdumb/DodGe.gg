@@ -26,7 +26,7 @@ export default function MainFooter() {
           email={"rlawodn46465@naver.com"}
         />
       </div>
-      <div>
+      <div className="Project__Link">
         <a href="https://github.com/limdumb/DodGe.gg">DodGe.gg GitHub 페이지</a>
         <p>© 2022 DodGe.gg</p>
       </div>

@@ -5,17 +5,22 @@ export default function Member({ name, git, blog, email }) {
   return (
     <div className="Member">
       <h6>{name}</h6>
-      <p>
-        <a className="Member__Icon" href={git}>
-          GitHub <AiFillGithub />
-        </a>
-      </p>
-      <p>
-        <a className="Member__Icon" href={blog}>
-          Blog <FaBlogger />
-        </a>
-      </p>
-      <p>{email}</p>
+      <ul className="Member__List">
+        <li className="Member__List__Item">
+          <a href={git}>
+            GitHub <AiFillGithub />
+          </a>
+        </li>
+
+        <li className="Member__List__Item">
+          <a href={blog}>
+            Blog <FaBlogger />
+          </a>
+        </li>
+        <li className="Member__List__Item">
+          <span>{email}</span>
+        </li>
+      </ul>
     </div>
   );
 }
