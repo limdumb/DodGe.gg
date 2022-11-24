@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { StyleSpan } from "./MyPage/RecordList";
+import { StyleSpan } from "../MyPage/RecordList";
 import "./Header.css";
 
 const Header = styled.header`
