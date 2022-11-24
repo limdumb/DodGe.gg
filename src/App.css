@@ -12,37 +12,19 @@ html {
      -webkit-text-size-adjust:none; 
 }
 
-@media screen and (min-device-width: 320px) {
-  html {
-    font-size: 62.5%;
-  }
-}
-
-@media screen and (min-device-width: 360px) {
-  html {
-    font-size: 70.3125%;
-  }
-}
-
-@media screen and (min-device-width: 375px) {
-  html {
-    font-size: 73.2421%;
-  }
-}
-
-@media screen and (min-device-width: 412px) {
+@media screen and (min-device-width: 480px) {
   html {
     font-size: 80.4688%;
   }
 }
 
-@media screen and (min-device-width: 414px) {
+@media screen and (min-device-width: 768px) {
   html {
     font-size: 80.8594%;
   }
 }
 
-@media screen and (min-device-width: 640px) {
+@media screen and (min-device-width: 1024px) {
   html {
     font-size: 125%;
   }
