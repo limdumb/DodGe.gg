@@ -112,7 +112,6 @@ export async function SummonerSpell() {
     const response = await axios.get(
       "http://ddragon.leagueoflegends.com/cdn/11.3.1/data/en_US/summoner.json"
     );
-    
   } catch (error) {
     console.log(error(error));
   }

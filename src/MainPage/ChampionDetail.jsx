@@ -9,7 +9,7 @@ import { ItemBulid } from "../Components/ChampionDetail/ItemBulid";
 import { SkillBulid } from "../Components/ChampionDetail/SkillBulid";
 import "bootstrap/dist/css/bootstrap.css";
 import Header from "../Components/Header";
-import Footer from "../Components/Footer";
+import Footer from "../Components/Footer.jsx";
 
 function ChampionDetail({ championId }) {
   const [skilltext, setSkillText] = useState(null);
@@ -69,29 +69,33 @@ function ChampionDetail({ championId }) {
       <Header />
       <main id="Layout">
         <section className="Detail_Header">
-            <div className="Profile">
-              <Profile profileinfo={profileinfo} setSkillText={setSkillText} />
-            </div>
-            <div className="Skill">
-              <Skill skillinfo={skillinfo} skilltext={skilltext} setSkillText={setSkillText}/>
-            </div>
+          <div className="Profile">
+            <Profile profileinfo={profileinfo} setSkillText={setSkillText} />
+          </div>
+          <div className="Skill">
+            <Skill
+              skillinfo={skillinfo}
+              skilltext={skilltext}
+              setSkillText={setSkillText}
+            />
+          </div>
         </section>
         <div className="Detail_Main">
           <div className="Common__Build">
-              <section className="Runes__Build">
-                  <RounesTap profileinfo={profileinfo} />
-              </section>
-              <aside className="First__Build">
-                  <Bulid profileinfo={profileinfo} />
-              </aside>
+            <section className="Runes__Build">
+              <RounesTap profileinfo={profileinfo} />
+            </section>
+            <aside className="First__Build">
+              <Bulid profileinfo={profileinfo} />
+            </aside>
           </div>
           <div className="Common__Build">
-              <article className="Skill__Bulid">
-                <SkillBulid  profileinfo={profileinfo} />
-              </article>
-              <article className="Item__Bulid">
-                <ItemBulid  profileinfo={profileinfo} />
-              </article>
+            <article className="Skill__Bulid">
+              <SkillBulid profileinfo={profileinfo} />
+            </article>
+            <article className="Item__Bulid">
+              <ItemBulid profileinfo={profileinfo} />
+            </article>
           </div>
         </div>
       </main>

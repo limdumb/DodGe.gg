@@ -1,25 +1,70 @@
-li {
-    list-style: none;
+.Footer__Wrapper {
+  background-color: rgba(0, 0, 0, 0.9);
+  color: white;
+}
+
+.Members__Container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Member {
+  font-size: 0.8rem;
+  width: 100%;
+  padding: 10px;
+  border-bottom: 1px rgba(255, 255, 255, 0.2) solid;
+}
+
+.Member__List__Item {
+  padding-bottom: 5px;
+}
+
+.Footer__Wrapper {
+  font-size: 0.9rem;
+}
+
+.Project__Link {
+  padding: 10px 0 10px 10px;
+}
+
+.Footer__Wrapper a {
+  color: #ecb365;
+  text-decoration: none;
+}
+
+@media only screen and (min-width: 480px) {
+  .Members__Container,
+  .Project__Link {
+    text-align: center;
   }
-  
-  a {
-    text-decoration: none;
-    color: white;
+
+  .Member {
+    font-size: 0.9rem;
   }
-  
-  a:hover {
-    color: rgb(153, 151, 151);
+
+  .Member h6 {
+    font-size: 1.1rem;
   }
-  
-  .Footer {
-    margin-top: 100px;
-    background-color: black;
-    display: flex;
-    justify-content: center;
+}
+
+@media only screen and (min-width: 768px) {
+  .Members__Container {
+    flex-direction: row;
   }
-  
-  .Footer__Container {
-    width: 1200px;
-    display: flex;
-    justify-content: space-around;
+}
+
+@media only screen and (min-width: 1024px) {
+  .Member {
+    font-size: 1.1rem;
   }
+
+  .Member h6 {
+    font-size: 1.35rem;
+  }
+
+  .Footer__Wrapper {
+    font-size: 1.25rem;
+  }
+}
