@@ -1,4 +1,6 @@
 import axios from "axios";
+
+const apiKey=""
 const apiKrBase = "https://kr.api.riotgames.com";
 const apiAsiaBase = "https://asia.api.riotgames.com";
 const UserName = "늑 사 덤";
