@@ -124,9 +124,9 @@ export async function champName() {
   await axios.get("http://ddragon.leagueoflegends.com/cdn/12.22.1/data/ko_KR/champion.json")
   .then(res => {
     let name = Object.keys(res.data.data);
-    ko_name = name.map(data => res.data.data[data].name)
+    ko_name = name.map(data => 
+      res.data.data[data].name)
     ko_name.forEach((data,index) => champion.push({name:data, image:`http://ddragon.leagueoflegends.com/cdn/12.22.1/img/champion/${name[index]}.png`}))
   })
-
   return champion
 }
