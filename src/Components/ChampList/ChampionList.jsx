@@ -4,32 +4,41 @@ import { champName } from "../../API/RiotAPI";
 import { GameInfoImage } from "../MyPage/RecordList";
 import "./ChampionList.css";
 import { StyleSpan } from "../MyPage/RecordList";
+import styled from "styled-components";
 
 export default function ChampionList() {
   const [championName, setChampionName] = useState(null);
 
   useEffect(() => {
     const championData = async () => {
-      const result = await champName();
-      setChampionName(result);
+      const response = await champName();
+      response.forEach((el) => {
+        if(el.name.length > 3){
+          el.name = el.name.substr(0, 3)+"..."
+        }
+      })
+      setChampionName(response);
     };
-
     championData();
   }, []);
 
+  console.log(championName)
   const ChampionList = () => {
     return (
       <>
-        {championName&&championName.map((data, index) => {
-          return (
-            <div className="Champion__List" key={index}>
-               <GameInfoImage width={50} src={data.image} />
-               <div>
-              <StyleSpan fontsize={'13px'} key={index}>{data.name}</StyleSpan>
-               </div>
-            </div>
-          );
-        })}
+        {championName &&
+          championName.map((data, index) => {
+            return (
+              <div className="Champion__List" key={index} onClick={()=> console.log('하이')}>
+                <GameInfoImage width={50} src={data.image} />
+                <div>
+                  <StyleSpan fontsize={"13px"} key={index}>
+                    {data.name}
+                  </StyleSpan>
+                </div>
+              </div>
+            );
+          })}
       </>
     );
   };
