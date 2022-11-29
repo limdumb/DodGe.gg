@@ -1,18 +1,17 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "./Tab.css";
 import lineIconImg from "./imgLink";
 import TabBtn from "./TabBtn";
 
-const Tab = () => {
-  const [linebtnCheck, setLinebtnCheck] = useState([
-    true,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-  ]);
+const Tab = ({ line, setCheckLine }) => {
+  let listLength = line.length;
+  // listLength = 7;
+  const [linebtnCheck, setLinebtnCheck] = useState(
+    listLength === 5
+      ? [true, false, false, false, false]
+      : [true, false, false, false, false, false, false]
+  );
+
   return (
     <>
       <div className="Tab_SearchBox">
@@ -28,8 +27,18 @@ const Tab = () => {
         />
       </div>
       <div className="Tab_LineBox">
-        {lineIconImg.map((iconData, index) => {
-          return <TabBtn key={index} iconData={iconData} index={index} linebtnCheck={linebtnCheck} setLinebtnCheck={setLinebtnCheck}/>;
+        {linebtnCheck.map((iconData, index) => {
+          return (
+            <TabBtn
+              key={index}
+              iconData={listLength === 5 ? lineIconImg[index+1] : lineIconImg[index]}
+              index={index}
+              linebtnCheck={linebtnCheck}
+              setLinebtnCheck={setLinebtnCheck}
+              setCheckLine={setCheckLine}
+              line={line}
+            />
+          );
         })}
       </div>
     </>

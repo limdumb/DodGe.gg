@@ -1,11 +1,14 @@
 import React from "react";
 
-const TabBtn = ({ iconData, index, linebtnCheck, setLinebtnCheck }) => {
+const TabBtn = ({ iconData, index, linebtnCheck, setLinebtnCheck, setCheckLine, line }) => {
+  let lineLength = linebtnCheck.length;
   function lineBtnChange(index) {
-    let dummyArr = [false, false, false, false, false, false, false];
+    let dummyArr = new Array(lineLength).fill(false);
     dummyArr[index] = true;
+    setCheckLine(line[index])
     setLinebtnCheck(dummyArr);
   }
+
   return (
     <button
       type="button"
@@ -14,7 +17,7 @@ const TabBtn = ({ iconData, index, linebtnCheck, setLinebtnCheck }) => {
         "Tab_LineBtn " +
         (index === 0
           ? "Tab_LineBtnLeft"
-          : index === 6
+          : index === lineLength-1
           ? "Tab_LineBtnRight"
           : "Tab_LineBtncenter")
       }
