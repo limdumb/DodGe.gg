@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import QuickGuide from "./QuickGuide";
-import RunesGuide from "./RunesGuide";
+import DetailedGuide from "./DetailedGuide";
 import CountersList from "./CountersList";
 
 const Main__Container = styled.div`
@@ -32,7 +32,7 @@ export default function ChampionGuide() {
     <Main__Container>
       <Guides__Container>
         <QuickGuide />
-        <RunesGuide />
+        <DetailedGuide />
       </Guides__Container>
       <CountersList />
     </Main__Container>
