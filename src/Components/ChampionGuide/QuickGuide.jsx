@@ -8,12 +8,14 @@ const Container = styled.div`
   flex-wrap: wrap;
 
   @media only screen and (min-width: 768px) {
-    width: 40vw;
-    height: 30vh;
-    margin: 2.5vh 1vw;
-    padding: 2.25vw;
-    border: solid green 1px;
-    flex-wrap: wrap;
+    width: 100%;
+    height: 35%;
+    margin-top: 5%;
+  }
+  @media only screen and (min-width: 1024px) {
+    width: 100%;
+    height: 50%;
+    margin-top: 2.5%;
   }
 `;
 
@@ -27,9 +29,7 @@ const Champion__Portrait = styled.div`
   }
 
   @media only screen and (min-width: 768px) {
-    width: 12.5vw;
-    height: 12.5vh;
-    margin-right: 2.5vw;
+    height: 50%;
   }
 `;
 
@@ -37,24 +37,31 @@ const Information = styled.div`
   width: 60%;
   height: 65%;
   text-align: center;
-  border-bottom: 1px violet solid;
+  border-bottom: 1px gray solid;
 
   h2 {
     font-size: 2rem;
+    font-weight: bold;
   }
 
   p {
-    padding: 2px;
-    text-overflow: ellipsis;
+    padding: 1%;
     width: 100%;
     height: 80%;
+    text-overflow: ellipsis;
     overflow: hidden;
   }
 
   @media only screen and (min-width: 768px) {
-    width: 20vw;
-    height: 12.5vh;
-    border: solid black 1px;
+    border: solid rgba(0, 0, 0, 0.2) 1px;
+    height: 50%;
+
+    h2 {
+      font-size: 0.9rem;
+    }
+    p {
+      font-size: 0.6rem;
+    }
   }
 `;
 

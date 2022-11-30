@@ -4,16 +4,18 @@ import RunesGuide from "./RunesGuide";
 
 const Container = styled.div`
   width: 100%;
-  height: 70%;
-  background-color: tan;
+  height: 75%;
 
   @media only screen and (min-width: 768px) {
-    width: 40vw;
-    height: 30vh;
-    margin: 2.5vh 1vw;
-    padding: 2.25vw;
-    border: solid blue 1px;
+    height: 55%;
     display: flex;
+    flex-direction: column;
+  }
+
+  @media only screen and (min-width: 1024px) {
+    height: 75%;
+    display: flex;
+    flex-direction: column;
   }
 `;
 

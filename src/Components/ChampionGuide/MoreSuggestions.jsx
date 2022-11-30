@@ -3,19 +3,16 @@ import styled from "styled-components";
 const Wrapper = styled.div`
   width: 100%;
   height: 50%;
+
+  @media only screen and (min-width: 768px) {
+    height: 45%;
+  }
 `;
 
 const Guide__Container = styled.div`
   width: 100%;
   height: 100%;
   padding: 15px;
-
-  @media only screen and (min-width: 768px) {
-    width: 15vw;
-    height: 12.5vh;
-    border: solid black 1px;
-    margin-bottom: 10px;
-  }
 
   table {
     width: 100%;
@@ -25,28 +22,31 @@ const Guide__Container = styled.div`
     table-layout: fixed;
 
     th {
-      font-size: 1.6rem;
+      font-size: 1.5rem;
     }
 
     th:nth-child(1) {
       width: 30%;
     }
 
-    div {
+    div.Image__Container {
       position: relative;
       display: flex;
-      margin: 5px;
+      justify-content: center;
 
       img {
-        width: 50%;
+        width: 40%;
       }
 
       span {
         position: absolute;
-        height: 3%;
-        top: 50%;
-        right: 5%;
+        font-size: 1.05rem;
+        height: 40%;
+        width: 15%;
+        top: 60%;
+        right: 12.5%;
         color: white;
+        background-color: rgba(0, 0, 0, 0.25);
       }
     }
 
@@ -56,6 +56,28 @@ const Guide__Container = styled.div`
 
     .Red__Flag {
       color: red;
+    }
+  }
+
+  @media only screen and (min-width: 768px) {
+    padding: 1px;
+    border: solid rgba(0, 0, 0, 0.25) 1px;
+
+    table {
+      font-size: 0.85rem;
+
+      th {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  @media only screen and (min-width: 1024px) {
+    div.Image__Container {
+      span {
+        top: 40%;
+        right: 10%;
+      }
     }
   }
 `;
@@ -79,7 +101,7 @@ export default function MoreSuggestions() {
           <tbody>
             <tr>
               <td>
-                <div>
+                <div className="Image__Container">
                   <img
                     src={`${championImagesURL}/spell/SummonerFlash.png`}
                   ></img>
@@ -92,7 +114,7 @@ export default function MoreSuggestions() {
             </tr>
             <tr>
               <td>
-                <div>
+                <div className="Image__Container">
                   <img
                     src={`${championImagesURL}/spell/SummonerFlash.png`}
                   ></img>
@@ -107,7 +129,7 @@ export default function MoreSuggestions() {
             </tr>
             <tr>
               <td>
-                <div>
+                <div className="Image__Container">
                   <img
                     src={`${championImagesURL}/spell/SummonerFlash.png`}
                   ></img>
@@ -136,7 +158,7 @@ export default function MoreSuggestions() {
           <tbody>
             <tr>
               <td>
-                <div>
+                <div className="Image__Container">
                   <img src={`${championImagesURL}/item/3850.png`}></img>
                   <img src={`${championImagesURL}/item/2003.png`}></img>
                   <span>2x</span>
@@ -148,7 +170,7 @@ export default function MoreSuggestions() {
             </tr>
             <tr>
               <td>
-                <div>
+                <div className="Image__Container">
                   <img src={`${championImagesURL}/item/3859.png`}></img>
                   <img src={`${championImagesURL}/item/2003.png`}></img>
                   <span>2x</span>

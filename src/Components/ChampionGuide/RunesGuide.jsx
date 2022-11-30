@@ -4,19 +4,35 @@ const Wrapper = styled.div`
   width: 100%;
   height: 50%;
   background-color: rgba(0, 0, 0, 0.5);
+  padding-top: 2.5%;
   display: flex;
   text-align: center;
+  justify-content: space-evenly;
+
   @media only screen and (min-width: 768px) {
-    width: 25vw;
-    height: 26vh;
-    border: solid black 1px;
-    margin-right: 2vw;
+    width: 100%;
+    height: 45%;
+    border: solid rgba(0, 0, 0, 0.25) 1px;
+    padding-bottom: 2.5%;
+    background-color: transparent;
+
+    h2 {
+      font-size: 0.85rem;
+    }
+  }
+
+  @media only screen and (min-width: 1024px) {
+    height: 100%;
+
+    h2 {
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
   }
 `;
 
 const Main__Runes = styled.div`
   height: 100%;
-  flex: 1;
 `;
 
 const Rune__Wrapper = styled.div`
@@ -36,6 +52,18 @@ const Row = styled.ul`
   .Sub__Size {
     height: 4vh;
   }
+
+  @media only screen and (min-width: 768px) {
+    .Sub__Size {
+      height: 3.25vh;
+    }
+  }
+
+  @media only screen and (min-width: 1024px) {
+    .Sub__Size {
+      height: 5vh;
+    }
+  }
 `;
 
 const Main__Rune = styled.li`
@@ -54,11 +82,23 @@ const Main__Rune = styled.li`
     border: solid 1px rgba(255, 215, 0, 0.5);
     border-radius: 100%;
   }
+
+  @media only screen and (min-width: 768px) {
+    background-color: rgba(0, 0, 0, 0.2);
+    height: 4vh;
+
+    .Selected {
+      border: solid 2px green;
+    }
+  }
+
+  @media only screen and (min-width: 1024px) {
+    height: 6.5vh;
+  }
 `;
 
 const Sub__Runes = styled.div`
   height: 100%;
-  flex: 1;
   display: flex;
   flex-direction: column;
 `;
@@ -79,6 +119,18 @@ const Sub__Rune = styled.li`
     border: solid 1px rgba(255, 215, 0, 0.5);
     border-radius: 100%;
   }
+
+  @media only screen and (min-width: 768px) {
+    height: 3vh;
+
+    .Selected {
+      border: solid 2px green;
+    }
+  }
+
+  @media only screen and (min-width: 1024px) {
+    height: 5vh;
+  }
 `;
 
 const Stat__Wrapper = styled.div`
@@ -89,6 +141,16 @@ const Stat__Wrapper = styled.div`
 
   ul {
     justify-content: center;
+  }
+
+  @media only screen and (min-width: 768px) {
+    ul {
+      align-items: center;
+    }
+  }
+
+  @media only screen and (min-width: 1024px) {
+    padding-top: 10px;
   }
 `;
 
@@ -107,6 +169,21 @@ const Stat__Icon = styled.li`
   .Selected {
     border: solid 1px rgba(255, 215, 0, 0.5);
     border-radius: 100%;
+  }
+
+  @media only screen and (min-width: 768px) {
+    height: 1.5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .Selected {
+      border: solid 2px green;
+    }
+  }
+
+  @media only screen and (min-width: 1024px) {
+    height: 3vh;
   }
 `;
 

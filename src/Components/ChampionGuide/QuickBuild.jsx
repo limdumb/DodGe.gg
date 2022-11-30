@@ -2,13 +2,28 @@ import styled from "styled-components";
 
 const Container = styled.div`
   width: 100%;
-  height: 30%;
+  height: 35%;
   display: flex;
 
+  h6 {
+    font-size: 0.9rem;
+    font-weight: bold;
+  }
+
   @media only screen and (min-width: 768px) {
-    border: solid black 1px;
-    width: 35vw;
-    height: 7.5vh;
+    border: solid rgba(0, 0, 0, 0.2) 1px;
+    width: 100%;
+    height: 45%;
+    padding: 10% 0;
+
+    h6 {
+      font-size: 0.4rem;
+    }
+  }
+
+  @media only screen and (min-width: 1024px) {
+    height: 12.5vh;
+    padding: 0;
   }
 `;
 
@@ -78,11 +93,10 @@ const Start__Item = styled.div`
 const Item__Container = styled.div`
   height: 70%;
   display: flex;
-  justify-content: space-around;
 `;
 
 const Item__Box = styled.div`
-  width: 45%;
+  width: 100%;
   height: 100%;
   text-align: center;
   border: solid gray 1px;
@@ -96,15 +110,25 @@ const Item__Box = styled.div`
   span {
     position: absolute;
     height: 35%;
-    top: 60%;
+    top: 65%;
     right: 0;
     color: white;
-    background-color: rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+
+  @media only screen and (min-width: 768px) {
+    span {
+      width: 60%;
+      top: 55%;
+      right: 15%;
+      font-size: 0.7rem;
+    }
   }
 `;
 
 const Boots = styled.div`
-  flex: 2;
+  flex: 1;
   text-align: center;
   margin: 5px 2.5px;
 `;
