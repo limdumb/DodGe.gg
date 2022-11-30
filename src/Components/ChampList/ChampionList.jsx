@@ -31,9 +31,9 @@ export default function ChampionList() {
                 key={index}
                 onClick={() => console.log("하이")}
               >
-                <GameInfoImage width={50} src={data.image} />
+                <GameInfoImage width={40} src={data.image} />
                 <div>
-                  <StyleSpan fontsize={"13px"} key={index}>
+                  <StyleSpan fontsize={"10px"} key={index}>
                     {data.name}
                   </StyleSpan>
                 </div>
