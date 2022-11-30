@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/DodGe.gg/static/css/main.04614e0f.css",
+    "main.js": "/DodGe.gg/static/js/main.3b1d1b5c.js",
+    "index.html": "/DodGe.gg/index.html",
+    "main.04614e0f.css.map": "/DodGe.gg/static/css/main.04614e0f.css.map",
+    "main.3b1d1b5c.js.map": "/DodGe.gg/static/js/main.3b1d1b5c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.04614e0f.css",
+    "static/js/main.3b1d1b5c.js"
+  ]
+}
