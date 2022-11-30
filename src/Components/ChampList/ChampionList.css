@@ -1,0 +1,32 @@
+.Champion_List_Container {
+  display: grid;
+  grid-template-columns: repeat(41, 1fr);
+  grid-auto-flow: dense;
+  width: 23.438rem;
+  gap: 3px;
+  overflow-x: scroll;
+}
+
+.Right_Aside_Container {
+  background-color: gray;
+  width: 23.4rem;
+  height: 12rem;
+  display: flex;
+  padding-top: 5px;
+  @media screen and (min-device-width: 480px) {
+    height: 4rem;
+  }
+
+  @media screen and (min-device-width: 768px) {
+  }
+
+  @media screen and (min-device-width: 1024px) {
+  }
+}
+
+.Champion__List {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  align-items: center;
+}
