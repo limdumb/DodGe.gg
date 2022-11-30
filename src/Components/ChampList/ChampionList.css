@@ -1,25 +1,13 @@
-.Champion_List_Containor{
+.Champion_List_Containor {
   display: flex;
   flex-wrap: wrap;
   width: 23.438rem;
   gap: 7px;
-  
-  /* @media screen and (min-device-width: 480px) {
-    height: 3rem
-  }
-
-  @media screen and (min-device-width: 768px) {
-    height: 10rem
-  }
-
-  @media screen and (min-device-width: 1024px) {
-    height: 20rem
-  } */
 }
 
-.Right_Aside_Container{
+.Right_Aside_Container {
   background-color: gray;
-  width : 100%;
+  width: 100%;
   display: flex;
   padding-top: 5px;
   border-bottom-left-radius: 5px;
@@ -30,15 +18,13 @@
   }
 
   @media screen and (min-device-width: 768px) {
-
   }
 
   @media screen and (min-device-width: 1024px) {
-
   }
 }
 
-.Champion__List{
+.Champion__List {
   display: flex;
   flex-direction: column;
   cursor: pointer;
