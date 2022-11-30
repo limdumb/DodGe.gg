@@ -5,7 +5,6 @@ import TabBtn from "./TabBtn";
 
 const Tab = ({ line, setCheckLine }) => {
   let listLength = line.length;
-  // listLength = 7;
   const [linebtnCheck, setLinebtnCheck] = useState(
     listLength === 5
       ? [true, false, false, false, false]
