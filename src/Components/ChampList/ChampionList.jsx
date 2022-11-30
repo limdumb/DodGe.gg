@@ -22,7 +22,7 @@ export default function ChampionList() {
 
   return (
     <aside className="Right_Aside_Container">
-      <ul className="Champion_List_Containor">
+      <ul className="Champion_List_Container">
         {championName &&
           championName.map((data, index) => {
             return (

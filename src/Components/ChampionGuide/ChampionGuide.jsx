@@ -6,6 +6,7 @@ import CountersList from "./CountersList";
 const Main_Container = styled.div`
   width: 100%;
   height: 75vh;
+  overflow: hidden;
 
   .Guides_Container {
     width: 100%;
