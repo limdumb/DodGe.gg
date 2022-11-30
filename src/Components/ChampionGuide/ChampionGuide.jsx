@@ -3,9 +3,15 @@ import QuickGuide from "./QuickGuide";
 import DetailedGuide from "./DetailedGuide";
 import CountersList from "./CountersList";
 
-const Main__Container = styled.div`
+const Main_Container = styled.div`
   width: 100%;
   height: 75vh;
+
+  .Guides_Container {
+    width: 100%;
+    height: 100%;
+    background-color: bisque;
+  }
 
   @media only screen and (min-width: 768px) {
     width: 60vw;
@@ -13,28 +19,22 @@ const Main__Container = styled.div`
     margin: auto;
     padding: 10px;
     display: flex;
-  }
-`;
 
-const Guides__Container = styled.div`
-  width: 100%;
-  height: 100%;
-  background-color: bisque;
-
-  @media only screen and (min-width: 768px) {
-    width: 100%;
-    padding: 2.5%;
+    .Guides_Container {
+      width: 100%;
+      padding: 2.5%;
+    }
   }
 `;
 
 export default function ChampionGuide() {
   return (
-    <Main__Container>
-      <Guides__Container>
+    <Main_Container>
+      <div className="Guides_Container">
         <QuickGuide />
         <DetailedGuide />
-      </Guides__Container>
+      </div>
       <CountersList />
-    </Main__Container>
+    </Main_Container>
   );
 }

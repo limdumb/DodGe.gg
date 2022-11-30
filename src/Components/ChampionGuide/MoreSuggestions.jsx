@@ -9,7 +9,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const Guide__Container = styled.div`
+const Guide_Container = styled.div`
   width: 100%;
   height: 100%;
   padding: 15px;
@@ -29,7 +29,7 @@ const Guide__Container = styled.div`
       width: 30%;
     }
 
-    div.Image__Container {
+    div.Image_Container {
       position: relative;
       display: flex;
       justify-content: center;
@@ -50,11 +50,11 @@ const Guide__Container = styled.div`
       }
     }
 
-    .Green__Flag {
+    .Green_Flag {
       color: green;
     }
 
-    .Red__Flag {
+    .Red_Flag {
       color: red;
     }
   }
@@ -73,7 +73,7 @@ const Guide__Container = styled.div`
   }
 
   @media only screen and (min-width: 1024px) {
-    div.Image__Container {
+    div.Image_Container {
       span {
         top: 40%;
         right: 10%;
@@ -88,7 +88,7 @@ export default function MoreSuggestions() {
 
   return (
     <Wrapper>
-      <Guide__Container>
+      <Guide_Container>
         <table>
           <thead>
             <tr>
@@ -101,7 +101,7 @@ export default function MoreSuggestions() {
           <tbody>
             <tr>
               <td>
-                <div className="Image__Container">
+                <div className="Image_Container">
                   <img
                     src={`${championImagesURL}/spell/SummonerFlash.png`}
                   ></img>
@@ -114,7 +114,7 @@ export default function MoreSuggestions() {
             </tr>
             <tr>
               <td>
-                <div className="Image__Container">
+                <div className="Image_Container">
                   <img
                     src={`${championImagesURL}/spell/SummonerFlash.png`}
                   ></img>
@@ -129,7 +129,7 @@ export default function MoreSuggestions() {
             </tr>
             <tr>
               <td>
-                <div className="Image__Container">
+                <div className="Image_Container">
                   <img
                     src={`${championImagesURL}/spell/SummonerFlash.png`}
                   ></img>
@@ -138,14 +138,14 @@ export default function MoreSuggestions() {
                   ></img>
                 </div>
               </td>
-              <td className="Green__Flag">52.08</td>
+              <td className="Green_Flag">52.08</td>
               <td>6.01</td>
               <td>1,273</td>
             </tr>
           </tbody>
         </table>
-      </Guide__Container>
-      <Guide__Container>
+      </Guide_Container>
+      <Guide_Container>
         <table>
           <thead>
             <tr>
@@ -158,7 +158,7 @@ export default function MoreSuggestions() {
           <tbody>
             <tr>
               <td>
-                <div className="Image__Container">
+                <div className="Image_Container">
                   <img src={`${championImagesURL}/item/3850.png`}></img>
                   <img src={`${championImagesURL}/item/2003.png`}></img>
                   <span>2x</span>
@@ -170,19 +170,19 @@ export default function MoreSuggestions() {
             </tr>
             <tr>
               <td>
-                <div className="Image__Container">
+                <div className="Image_Container">
                   <img src={`${championImagesURL}/item/3859.png`}></img>
                   <img src={`${championImagesURL}/item/2003.png`}></img>
                   <span>2x</span>
                 </div>
               </td>
-              <td className="Red__Flag">45.81</td>
+              <td className="Red_Flag">45.81</td>
               <td>7.60</td>
               <td>1,611</td>
             </tr>
           </tbody>
         </table>
-      </Guide__Container>
+      </Guide_Container>
     </Wrapper>
   );
 }

@@ -7,10 +7,56 @@ const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
 
+  .Champion_Portrait {
+    width: 40%;
+    height: 65%;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .Champion_Info {
+    width: 60%;
+    height: 65%;
+    text-align: center;
+    border-bottom: 1px gray solid;
+
+    h2 {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    p {
+      padding: 1%;
+      width: 100%;
+      height: 80%;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+  }
+
   @media only screen and (min-width: 768px) {
     width: 100%;
     height: 35%;
     margin-top: 5%;
+
+    .Champion_Portrait {
+      height: 50%;
+    }
+
+    .Champion_Info {
+      border: solid rgba(0, 0, 0, 0.2) 1px;
+      height: 50%;
+
+      h2 {
+        font-size: 0.9rem;
+      }
+      p {
+        font-size: 0.6rem;
+      }
+    }
   }
   @media only screen and (min-width: 1024px) {
     width: 100%;
@@ -19,61 +65,15 @@ const Container = styled.div`
   }
 `;
 
-const Champion__Portrait = styled.div`
-  width: 40%;
-  height: 65%;
-
-  img {
-    width: 100%;
-    height: 100%;
-  }
-
-  @media only screen and (min-width: 768px) {
-    height: 50%;
-  }
-`;
-
-const Information = styled.div`
-  width: 60%;
-  height: 65%;
-  text-align: center;
-  border-bottom: 1px gray solid;
-
-  h2 {
-    font-size: 2rem;
-    font-weight: bold;
-  }
-
-  p {
-    padding: 1%;
-    width: 100%;
-    height: 80%;
-    text-overflow: ellipsis;
-    overflow: hidden;
-  }
-
-  @media only screen and (min-width: 768px) {
-    border: solid rgba(0, 0, 0, 0.2) 1px;
-    height: 50%;
-
-    h2 {
-      font-size: 0.9rem;
-    }
-    p {
-      font-size: 0.6rem;
-    }
-  }
-`;
-
 export default function QuickGuide() {
   const championImagesURL =
     "http://ddragon.leagueoflegends.com/cdn/12.21.1/img";
   return (
     <Container>
-      <Champion__Portrait>
+      <div className="Champion_Portrait">
         <img src={`${championImagesURL}/champion/Lulu.png`}></img>
-      </Champion__Portrait>
-      <Information>
+      </div>
+      <div className="Champion_Info">
         <h2>룰루, 요정 마법사</h2>
         <p>
           요들 마법사 룰루는 친구인 요정 픽스와 함께 룬테라를 돌아다니며,
@@ -84,7 +84,7 @@ export default function QuickGuide() {
           위험하다고까지 할 수도 있겠지만, 룰루의 신념은 확고하다. 사람들에게
           마법 한 번씩 맛보여 주는 게 뭐 그리...
         </p>
-      </Information>
+      </div>
       <QuickBuild />
     </Container>
   );

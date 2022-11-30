@@ -27,19 +27,19 @@ const Container = styled.div`
   }
 `;
 
-const Skill__Tree__Container = styled.div`
+const Skill_Tree_Container = styled.div`
   flex: 4;
   margin: 5px 2.5px;
 `;
 
-const Skill__Tree = styled.div`
+const Skill_Tree = styled.div`
   height: 70%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 `;
 
-const Skill__Box = styled.div`
+const Skill_Box = styled.div`
   width: 30%;
   height: 100%;
   text-align: center;
@@ -62,18 +62,18 @@ const Skill__Box = styled.div`
   }
 `;
 
-const Recommend__Spell = styled.div`
+const Recommend_Spell = styled.div`
   flex: 2;
   margin: 5px 2.5px;
 `;
 
-const Spell__Container = styled.div`
+const Spell_Container = styled.div`
   height: 70%;
   display: flex;
   justify-content: space-around;
 `;
 
-const Spell__Box = styled.div`
+const Spell_Box = styled.div`
   width: 45%;
   height: 100%;
   text-align: center;
@@ -85,17 +85,17 @@ const Spell__Box = styled.div`
   }
 `;
 
-const Start__Item = styled.div`
+const Start_Item = styled.div`
   flex: 2;
   margin: 5px 2.5px;
 `;
 
-const Item__Container = styled.div`
+const Item_Container = styled.div`
   height: 70%;
   display: flex;
 `;
 
-const Item__Box = styled.div`
+const Item_Box = styled.div`
   width: 100%;
   height: 100%;
   text-align: center;
@@ -133,7 +133,7 @@ const Boots = styled.div`
   margin: 5px 2.5px;
 `;
 
-const Core__Item = styled.div`
+const Core_Item = styled.div`
   flex: 3;
   margin: 5px 2.5px;
 `;
@@ -143,76 +143,76 @@ export default function QuickBuild() {
     "http://ddragon.leagueoflegends.com/cdn/12.21.1/img";
   return (
     <Container>
-      <Skill__Tree__Container>
+      <Skill_Tree_Container>
         <h6>스킬 마스터 추천 순서</h6>
-        <Skill__Tree>
-          <Skill__Box>
+        <Skill_Tree>
+          <Skill_Box>
             <span>E</span>
             <img src={`${championImagesURL}/spell/LuluE.png`}></img>
-          </Skill__Box>
+          </Skill_Box>
           <span> ͢ </span>
-          <Skill__Box>
+          <Skill_Box>
             <span>W</span>
             <img src={`${championImagesURL}/spell/LuluW.png`}></img>
-          </Skill__Box>
+          </Skill_Box>
           <span> ͢ </span>
-          <Skill__Box>
+          <Skill_Box>
             <span>Q</span>
             <img src={`${championImagesURL}/spell/LuluQ.png`}></img>
-          </Skill__Box>
-        </Skill__Tree>
-      </Skill__Tree__Container>
+          </Skill_Box>
+        </Skill_Tree>
+      </Skill_Tree_Container>
 
-      <Recommend__Spell>
+      <Recommend_Spell>
         <h6>추천 스펠</h6>
-        <Spell__Container>
-          <Spell__Box>
+        <Spell_Container>
+          <Spell_Box>
             <img src={`${championImagesURL}/spell/SummonerFlash.png`}></img>
-          </Spell__Box>
-          <Spell__Box>
+          </Spell_Box>
+          <Spell_Box>
             <img src={`${championImagesURL}/spell/SummonerDot.png`}></img>
-          </Spell__Box>
-        </Spell__Container>
-      </Recommend__Spell>
+          </Spell_Box>
+        </Spell_Container>
+      </Recommend_Spell>
 
-      <Start__Item>
+      <Start_Item>
         <h6>시작 아이템</h6>
-        <Item__Container>
-          <Item__Box>
+        <Item_Container>
+          <Item_Box>
             <img src={`${championImagesURL}/item/3850.png`}></img>
-          </Item__Box>
-          <Item__Box>
+          </Item_Box>
+          <Item_Box>
             <img src={`${championImagesURL}/item/2003.png`}></img>
             <span>2x</span>
-          </Item__Box>
-        </Item__Container>
-      </Start__Item>
+          </Item_Box>
+        </Item_Container>
+      </Start_Item>
 
       <Boots>
         <h6>신발</h6>
-        <Item__Container>
-          <Item__Box>
+        <Item_Container>
+          <Item_Box>
             <img src={`${championImagesURL}/item/3158.png`}></img>
-          </Item__Box>
-        </Item__Container>
+          </Item_Box>
+        </Item_Container>
       </Boots>
 
-      <Core__Item>
+      <Core_Item>
         <h6>코어템</h6>
-        <Item__Container>
-          <Item__Box>
+        <Item_Container>
+          <Item_Box>
             <img src={`${championImagesURL}/item/2065.png`}></img>
-          </Item__Box>
+          </Item_Box>
           <span> ͢ </span>
-          <Item__Box>
+          <Item_Box>
             <img src={`${championImagesURL}/item/3011.png`}></img>
-          </Item__Box>
+          </Item_Box>
           <span> ͢ </span>
-          <Item__Box>
+          <Item_Box>
             <img src={`${championImagesURL}/item/3504.png`}></img>
-          </Item__Box>
-        </Item__Container>
-      </Core__Item>
+          </Item_Box>
+        </Item_Container>
+      </Core_Item>
     </Container>
   );
 }

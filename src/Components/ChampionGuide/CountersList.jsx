@@ -2,6 +2,13 @@ import styled from "styled-components";
 
 const Container = styled.div`
   display: none;
+
+  .Counter_List {
+    height: 100%;
+    width: 100%;
+    padding: 0 5px;
+  }
+
   @media only screen and (min-width: 1024px) {
     display: block;
     width: 30%;
@@ -20,13 +27,7 @@ const Container = styled.div`
   }
 `;
 
-const Counter__List = styled.ul`
-  height: 100%;
-  width: 100%;
-  padding: 0 5px;
-`;
-
-const Counter__Item = styled.li`
+const Counter_Item = styled.li`
   width: 100%;
   display: flex;
   align-items: center;
@@ -39,7 +40,7 @@ const Counter__Item = styled.li`
     margin-right: 10px;
   }
 
-  .Win__Rate {
+  .Win_Rate {
     color: red;
   }
 `;
@@ -50,29 +51,29 @@ export default function CountersList() {
   return (
     <Container>
       <div className="Header">카운터</div>
-      <Counter__List>
-        <Counter__Item>
+      <ul className="Counter_List">
+        <Counter_Item>
           <img src={`${championImagesURL}/champion/Sona.png`}></img>
           <div>
-            <p className="Win__Rate"> 45.56%</p>
+            <p className="Win_Rate"> 45.56%</p>
             <p> 2,026 게임 </p>
           </div>
-        </Counter__Item>
-        <Counter__Item>
+        </Counter_Item>
+        <Counter_Item>
           <img src={`${championImagesURL}/champion/Fiddlesticks.png`}></img>
           <div>
-            <p className="Win__Rate"> 45.64%</p>
+            <p className="Win_Rate"> 45.64%</p>
             <p> 390 게임 </p>
           </div>
-        </Counter__Item>
-        <Counter__Item>
+        </Counter_Item>
+        <Counter_Item>
           <img src={`${championImagesURL}/champion/Velkoz.png`}></img>
           <div>
-            <p className="Win__Rate"> 45.7%</p>
+            <p className="Win_Rate"> 45.7%</p>
             <p> 1,140 게임 </p>
           </div>
-        </Counter__Item>
-      </Counter__List>
+        </Counter_Item>
+      </ul>
     </Container>
   );
 }

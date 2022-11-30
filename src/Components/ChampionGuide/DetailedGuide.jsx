@@ -2,7 +2,7 @@ import styled from "styled-components";
 import MoreSuggestions from "./MoreSuggestions";
 import RunesGuide from "./RunesGuide";
 
-const Container = styled.div`
+const Guide_Container = styled.div`
   width: 100%;
   height: 75%;
 
@@ -21,9 +21,9 @@ const Container = styled.div`
 
 export default function DetailedGuide() {
   return (
-    <Container>
+    <Guide_Container>
       <RunesGuide />
       <MoreSuggestions />
-    </Container>
+    </Guide_Container>
   );
 }
