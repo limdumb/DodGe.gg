@@ -96,7 +96,6 @@ const Item_Box = styled.div`
 
   @media only screen and (min-width: 1024px) {
     height: 45px;
-
     span.Item_Count {
       font-size: 15px;
       top: 55%;

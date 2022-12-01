@@ -10,6 +10,11 @@ const Runes_Container = styled.div`
     height: 350px;
     padding: 0 100px;
   }
+
+  @media only screen and (min-width: 1024px) {
+    height: 400px;
+    padding: 25px 75px;
+  }
 `;
 
 const Main_Runes = styled.div`
@@ -28,7 +33,7 @@ const Main_Runes = styled.div`
 
   @media only screen and (min-width: 1024px) {
     h2 {
-      font-size: 32px;
+      font-size: 28px;
     }
   }
 `;
@@ -50,7 +55,7 @@ const Sub_Runes = styled.div`
 
   @media only screen and (min-width: 1024px) {
     h2 {
-      font-size: 32px;
+      font-size: 28px;
     }
   }
 `;

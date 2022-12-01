@@ -3,11 +3,6 @@ import styled from "styled-components";
 const Container = styled.div`
   display: none;
 
-  .Counter_List {
-    height: 100%;
-    width: 100%;
-  }
-
   @media only screen and (min-width: 1024px) {
     display: block;
     background-color: burlywood;
@@ -23,6 +18,11 @@ const Container = styled.div`
       align-items: center;
       justify-content: center;
       background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    .Counter_List {
+      height: 100%;
+      width: 150px;
     }
   }
 `;

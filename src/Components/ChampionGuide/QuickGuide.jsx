@@ -59,6 +59,13 @@ const Container = styled.div`
       }
     }
   }
+
+  @media only screen and (min-width: 1024px) {
+    .Champion_Portrait {
+      width: 200px;
+      height: 200px;
+    }
+  }
 `;
 
 export default function QuickGuide() {

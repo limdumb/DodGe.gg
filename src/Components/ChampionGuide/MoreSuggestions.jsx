@@ -71,6 +71,7 @@ const Guide_Container = styled.div`
     table {
       height: 300px;
       font-size: 18px;
+
       th {
         font-size: 25px;
       }
@@ -93,8 +94,8 @@ const Guide_Container = styled.div`
   }
 
   @media only screen and (min-width: 1024px) {
-    height: 300px;
-    padding: 0 5px;
+    height: 325px;
+    padding: 10px 5px;
 
     &:first-child {
       border-right: 1px solid rgba(0, 0, 0, 0.1);
@@ -108,7 +109,7 @@ const Guide_Container = styled.div`
       }
 
       th {
-        font-size: 18px;
+        font-size: 16px;
       }
 
       .Image_Container {
