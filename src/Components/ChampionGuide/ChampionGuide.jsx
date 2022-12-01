@@ -5,25 +5,14 @@ import CountersList from "./CountersList";
 
 const Main_Container = styled.div`
   width: 100%;
-  height: 75vh;
+  height: 1200px;
 
   .Guides_Container {
-    width: 100%;
     height: 100%;
     background-color: bisque;
   }
 
   @media only screen and (min-width: 768px) {
-    width: 60vw;
-    height: 100vh;
-    margin: auto;
-    padding: 10px;
-    display: flex;
-
-    .Guides_Container {
-      width: 100%;
-      padding: 2.5%;
-    }
   }
 `;
 

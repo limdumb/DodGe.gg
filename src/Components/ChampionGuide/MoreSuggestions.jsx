@@ -1,28 +1,25 @@
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  width: 100%;
-  height: 50%;
+  height: 500px;
 
   @media only screen and (min-width: 768px) {
-    height: 45%;
   }
 `;
 
 const Guide_Container = styled.div`
-  width: 100%;
-  height: 100%;
-  padding: 15px;
+  height: 220px;
+  padding: 10px 0;
 
   table {
     width: 100%;
-    height: 100%;
-    font-size: 1.35rem;
+    height: 200px;
+    font-size: 16px;
     text-align: center;
     table-layout: fixed;
 
     th {
-      font-size: 1.5rem;
+      font-size: 18px;
     }
 
     th:nth-child(1) {
@@ -36,15 +33,16 @@ const Guide_Container = styled.div`
 
       img {
         width: 40%;
+        margin: 1px;
       }
 
       span {
         position: absolute;
-        font-size: 1.05rem;
-        height: 40%;
-        width: 15%;
-        top: 60%;
-        right: 12.5%;
+        font-size: 16px;
+        height: 20px;
+        width: 20px;
+        top: 55%;
+        right: 10%;
         color: white;
         background-color: rgba(0, 0, 0, 0.25);
       }
@@ -60,25 +58,9 @@ const Guide_Container = styled.div`
   }
 
   @media only screen and (min-width: 768px) {
-    padding: 1px;
-    border: solid rgba(0, 0, 0, 0.25) 1px;
-
-    table {
-      font-size: 0.85rem;
-
-      th {
-        font-size: 1rem;
-      }
-    }
   }
 
   @media only screen and (min-width: 1024px) {
-    div.Image_Container {
-      span {
-        top: 40%;
-        right: 10%;
-      }
-    }
   }
 `;
 
