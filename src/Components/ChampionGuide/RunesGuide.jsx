@@ -1,13 +1,14 @@
 import styled from "styled-components";
 
 const Runes_Container = styled.div`
-  height: 300px;
+  height: 250px;
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   text-align: center;
-  justify-content: space-evenly;
 
   @media only screen and (min-width: 768px) {
+    height: 350px;
+    padding: 0 100px;
   }
 
   @media only screen and (min-width: 1024px) {
@@ -15,29 +16,37 @@ const Runes_Container = styled.div`
 `;
 
 const Main_Runes = styled.div`
-  padding: 10px 0;
   flex: 1;
 
   h2 {
-    margin: 10px;
+    margin: 5px;
     color: antiquewhite;
+  }
+
+  @media only screen and (min-width: 768px) {
+    h2 {
+      margin: 10px;
+    }
   }
 `;
 
 const Sub_Runes = styled.div`
-  padding: 10px 0;
   flex: 1;
   display: flex;
   flex-direction: column;
 
   h2 {
-    margin: 10px;
+    margin: 5px;
     color: antiquewhite;
+  }
+  @media only screen and (min-width: 768px) {
+    h2 {
+      margin: 10px;
+    }
   }
 `;
 
 const Rune_Wrapper = styled.div`
-  padding: 10px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -57,6 +66,10 @@ const Row = styled.ul`
   }
 
   @media only screen and (min-width: 768px) {
+    .Sub_Size {
+      height: 50px;
+      margin: 7.5px 10px;
+    }
   }
 
   @media only screen and (min-width: 1024px) {
@@ -81,6 +94,8 @@ const Main_Rune = styled.li`
   }
 
   @media only screen and (min-width: 768px) {
+    height: 65px;
+    margin: 5px 10px;
   }
 
   @media only screen and (min-width: 1024px) {
@@ -105,6 +120,8 @@ const Sub_Rune = styled.li`
   }
 
   @media only screen and (min-width: 768px) {
+    height: 45px;
+    margin: 7.5px;
   }
 
   @media only screen and (min-width: 1024px) {
@@ -143,6 +160,8 @@ const Stat_Icon = styled.li`
   }
 
   @media only screen and (min-width: 768px) {
+    height: 25px;
+    margin: 3px 7.5px;
   }
 
   @media only screen and (min-width: 1024px) {

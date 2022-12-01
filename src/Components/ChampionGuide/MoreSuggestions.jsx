@@ -4,12 +4,14 @@ const Wrapper = styled.div`
   height: 500px;
 
   @media only screen and (min-width: 768px) {
+    display: flex;
+    flex-direction: column;
   }
 `;
 
 const Guide_Container = styled.div`
-  height: 220px;
-  padding: 10px 0;
+  height: 250px;
+  padding: 20px 0;
 
   table {
     width: 100%;
@@ -26,7 +28,7 @@ const Guide_Container = styled.div`
       width: 30%;
     }
 
-    div.Image_Container {
+    .Image_Container {
       position: relative;
       display: flex;
       justify-content: center;
@@ -58,6 +60,32 @@ const Guide_Container = styled.div`
   }
 
   @media only screen and (min-width: 768px) {
+    flex: 1;
+    height: 350px;
+    padding: 25px;
+
+    table {
+      height: 300px;
+      font-size: 18px;
+      th {
+        font-size: 25px;
+      }
+
+      .Image_Container {
+        img {
+          width: 32.5%;
+          margin: 2px;
+        }
+
+        span {
+          font-size: 18px;
+          height: 25px;
+          width: 25px;
+          top: 60%;
+          right: 17.5%;
+        }
+      }
+    }
   }
 
   @media only screen and (min-width: 1024px) {
@@ -65,8 +93,7 @@ const Guide_Container = styled.div`
 `;
 
 export default function MoreSuggestions() {
-  const championImagesURL =
-    "http://ddragon.leagueoflegends.com/cdn/12.21.1/img";
+  const ImagesURL = "http://ddragon.leagueoflegends.com/cdn/12.21.1/img";
 
   return (
     <Wrapper>
@@ -84,10 +111,8 @@ export default function MoreSuggestions() {
             <tr>
               <td>
                 <div className="Image_Container">
-                  <img
-                    src={`${championImagesURL}/spell/SummonerFlash.png`}
-                  ></img>
-                  <img src={`${championImagesURL}/spell/SummonerDot.png`}></img>
+                  <img src={`${ImagesURL}/spell/SummonerFlash.png`}></img>
+                  <img src={`${ImagesURL}/spell/SummonerDot.png`}></img>
                 </div>
               </td>
               <td>49.15</td>
@@ -97,12 +122,8 @@ export default function MoreSuggestions() {
             <tr>
               <td>
                 <div className="Image_Container">
-                  <img
-                    src={`${championImagesURL}/spell/SummonerFlash.png`}
-                  ></img>
-                  <img
-                    src={`${championImagesURL}/spell/SummonerExhaust.png`}
-                  ></img>
+                  <img src={`${ImagesURL}/spell/SummonerFlash.png`}></img>
+                  <img src={`${ImagesURL}/spell/SummonerExhaust.png`}></img>
                 </div>
               </td>
               <td>48.10</td>
@@ -112,12 +133,8 @@ export default function MoreSuggestions() {
             <tr>
               <td>
                 <div className="Image_Container">
-                  <img
-                    src={`${championImagesURL}/spell/SummonerFlash.png`}
-                  ></img>
-                  <img
-                    src={`${championImagesURL}/spell/SummonerHeal.png`}
-                  ></img>
+                  <img src={`${ImagesURL}/spell/SummonerFlash.png`}></img>
+                  <img src={`${ImagesURL}/spell/SummonerHeal.png`}></img>
                 </div>
               </td>
               <td className="Green_Flag">52.08</td>
@@ -141,8 +158,8 @@ export default function MoreSuggestions() {
             <tr>
               <td>
                 <div className="Image_Container">
-                  <img src={`${championImagesURL}/item/3850.png`}></img>
-                  <img src={`${championImagesURL}/item/2003.png`}></img>
+                  <img src={`${ImagesURL}/item/3850.png`}></img>
+                  <img src={`${ImagesURL}/item/2003.png`}></img>
                   <span>2x</span>
                 </div>
               </td>
@@ -153,8 +170,8 @@ export default function MoreSuggestions() {
             <tr>
               <td>
                 <div className="Image_Container">
-                  <img src={`${championImagesURL}/item/3859.png`}></img>
-                  <img src={`${championImagesURL}/item/2003.png`}></img>
+                  <img src={`${ImagesURL}/item/3859.png`}></img>
+                  <img src={`${ImagesURL}/item/2003.png`}></img>
                   <span>2x</span>
                 </div>
               </td>

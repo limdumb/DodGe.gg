@@ -3,13 +3,13 @@ import QuickBuild from "./QuickBuild";
 
 const Container = styled.div`
   width: 100%;
-  height: 300px;
+  height: 250px;
   display: flex;
   flex-wrap: wrap;
 
   .Champion_Portrait {
     width: 150px;
-    height: 175px;
+    height: 150px;
 
     img {
       width: 100%;
@@ -18,8 +18,8 @@ const Container = styled.div`
   }
 
   .Champion_Info {
-    width: 60%;
-    height: 175px;
+    flex: 1;
+    height: 150px;
     text-align: center;
     border-bottom: 1px gray solid;
     text-overflow: ellipsis;
@@ -39,10 +39,24 @@ const Container = styled.div`
 
   @media only screen and (min-width: 768px) {
     height: 350px;
-    margin-top: 25px;
+
+    .Champion_Portrait {
+      width: 200px;
+      height: 200px;
+    }
 
     .Champion_Info {
-      border: solid rgba(0, 0, 0, 0.2) 1px;
+      padding: 15px 10px;
+      height: 200px;
+
+      h2 {
+        font-size: 25px;
+        font-weight: bold;
+      }
+
+      p {
+        font-size: 16px;
+      }
     }
   }
   @media only screen and (min-width: 1024px) {

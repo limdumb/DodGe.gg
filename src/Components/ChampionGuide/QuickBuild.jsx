@@ -2,12 +2,13 @@ import styled from "styled-components";
 
 const Container = styled.div`
   width: 100%;
-  height: 125px;
+  height: 50px;
   display: flex;
   justify-content: space-around;
-  padding: 5px;
 
   @media only screen and (min-width: 768px) {
+    align-items: center;
+    height: 150px;
   }
 
   @media only screen and (min-width: 1024px) {
@@ -22,7 +23,7 @@ const Recommend_Container = styled.div`
   text-align: center;
   margin-right: 1.5px;
 
-  span.arrow {
+  span.Arrow {
     font-size: 20px;
     color: blue;
   }
@@ -31,6 +32,21 @@ const Recommend_Container = styled.div`
     font-size: 10.5px;
     font-weight: bold;
   }
+
+  @media only screen and (min-width: 768px) {
+    height: 100px;
+    width: fit-content;
+
+    span.Arrow {
+      width: 10px;
+      margin: 2.5px;
+    }
+
+    h6 {
+      font-size: 18px;
+      font-weight: bold;
+    }
+  }
 `;
 
 const Box_Container = styled.div`
@@ -38,12 +54,15 @@ const Box_Container = styled.div`
   height: 50px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+
+  @media only screen and (min-width: 768px) {
+    justify-content: space-between;
+  }
 `;
 
 const Item_Box = styled.div`
-  height: 32px;
-  margin: 1px;
+  height: 30px;
+  margin: 0 2.5px;
   position: relative;
 
   img {
@@ -71,6 +90,11 @@ const Item_Box = styled.div`
   }
 
   @media only screen and (min-width: 768px) {
+    height: 55px;
+
+    span.Skill_Key {
+      font-size: 16px;
+    }
   }
 `;
 

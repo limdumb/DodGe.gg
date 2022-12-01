@@ -5,7 +5,7 @@ import CountersList from "./CountersList";
 
 const Main_Container = styled.div`
   width: 100%;
-  height: 1200px;
+  height: 1000px;
 
   .Guides_Container {
     height: 100%;
@@ -13,6 +13,7 @@ const Main_Container = styled.div`
   }
 
   @media only screen and (min-width: 768px) {
+    height: 100%;
   }
 `;
 

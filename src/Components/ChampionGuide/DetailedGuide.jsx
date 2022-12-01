@@ -3,9 +3,10 @@ import MoreSuggestions from "./MoreSuggestions";
 import RunesGuide from "./RunesGuide";
 
 const Guide_Container = styled.div`
-  height: 800px;
+  height: 750px;
 
   @media only screen and (min-width: 768px) {
+    height: 1300px;
   }
 
   @media only screen and (min-width: 1024px) {
