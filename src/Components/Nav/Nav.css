@@ -1,0 +1,81 @@
+.Nav-Body {
+  position: fixed;
+  right: 5vw;
+  top: 55vh;
+  width: 70px;
+  height: 70px;
+  z-index: 10000;
+}
+
+.Nav-Countor {
+  position: relative;
+  width: 70px;
+  height: 70px;
+}
+
+.Nav-Btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  background-color: black;
+}
+
+.Nav-Effect {
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 70px;
+  height: 70px;
+  border-radius: 70px;
+  animation: spin 6s linear infinite;
+}
+
+.Effect-blind1 {
+  clip: rect(0px, 70px, 70px, 35px);
+}
+
+.Effect-blind2 {
+  clip: rect(35px, 70px, 70px, 0px);
+}
+
+.Effect-blind3 {
+  clip: rect(0px, 35px, 70px, 0px);
+}
+
+.Effect-blind4 {
+  clip: rect(0, 70px, 35px, 0);
+}
+
+.quadrant1 {
+  border: 6px solid red;
+  clip: rect(0px, 70px, 35px, 35px);
+}
+
+.quadrant2 {
+  clip: rect(35px, 70px, 70px, 35px);
+  border: 6px solid blue;
+}
+
+.quadrant3 {
+  clip: rect(35px, 35px, 70px, 0px);
+  border: 6px solid green;
+}
+
+.quadrant4 {
+  clip: rect(0, 35px, 35px, 0);
+  border: 6px solid yellow;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
