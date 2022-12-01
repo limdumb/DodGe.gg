@@ -7,6 +7,10 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
   }
+
+  @media only screen and (min-width: 1024px) {
+    flex-direction: row;
+  }
 `;
 
 const Guide_Container = styled.div`
@@ -78,17 +82,42 @@ const Guide_Container = styled.div`
         }
 
         span {
-          font-size: 18px;
-          height: 25px;
-          width: 25px;
-          top: 60%;
-          right: 17.5%;
+          font-size: 16px;
+          height: 20px;
+          width: 20px;
+          top: 47.5%;
+          right: 5%;
         }
       }
     }
   }
 
   @media only screen and (min-width: 1024px) {
+    height: 300px;
+    padding: 0 5px;
+
+    &:first-child {
+      border-right: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    table {
+      padding: 10px;
+
+      tr {
+        height: 75px;
+      }
+
+      th {
+        font-size: 18px;
+      }
+
+      .Image_Container {
+        img {
+          width: 47.5%;
+          margin: 0;
+        }
+      }
+    }
   }
 `;
 

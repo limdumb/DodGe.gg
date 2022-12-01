@@ -4,16 +4,24 @@ import DetailedGuide from "./DetailedGuide";
 import CountersList from "./CountersList";
 
 const Main_Container = styled.div`
+  height: 100%;
   width: 100%;
-  height: 1000px;
 
   .Guides_Container {
-    height: 100%;
     background-color: bisque;
+    @media only screen and (min-width: 1024px) {
+      width: 40vw;
+    }
   }
 
   @media only screen and (min-width: 768px) {
     height: 100%;
+  }
+
+  @media only screen and (min-width: 1024px) {
+    width: 60%;
+    margin: auto;
+    display: flex;
   }
 `;
 

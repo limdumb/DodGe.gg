@@ -10,9 +10,6 @@ const Runes_Container = styled.div`
     height: 350px;
     padding: 0 100px;
   }
-
-  @media only screen and (min-width: 1024px) {
-  }
 `;
 
 const Main_Runes = styled.div`
@@ -26,6 +23,12 @@ const Main_Runes = styled.div`
   @media only screen and (min-width: 768px) {
     h2 {
       margin: 10px;
+    }
+  }
+
+  @media only screen and (min-width: 1024px) {
+    h2 {
+      font-size: 32px;
     }
   }
 `;
@@ -42,6 +45,12 @@ const Sub_Runes = styled.div`
   @media only screen and (min-width: 768px) {
     h2 {
       margin: 10px;
+    }
+  }
+
+  @media only screen and (min-width: 1024px) {
+    h2 {
+      font-size: 32px;
     }
   }
 `;
@@ -71,9 +80,6 @@ const Row = styled.ul`
       margin: 7.5px 10px;
     }
   }
-
-  @media only screen and (min-width: 1024px) {
-  }
 `;
 
 const Main_Rune = styled.li`
@@ -96,9 +102,6 @@ const Main_Rune = styled.li`
   @media only screen and (min-width: 768px) {
     height: 65px;
     margin: 5px 10px;
-  }
-
-  @media only screen and (min-width: 1024px) {
   }
 `;
 
@@ -123,9 +126,6 @@ const Sub_Rune = styled.li`
     height: 45px;
     margin: 7.5px;
   }
-
-  @media only screen and (min-width: 1024px) {
-  }
 `;
 
 const Stat_Wrapper = styled.div`
@@ -133,9 +133,6 @@ const Stat_Wrapper = styled.div`
 
   ul {
     justify-content: center;
-  }
-
-  @media only screen and (min-width: 1024px) {
   }
 `;
 
@@ -162,9 +159,6 @@ const Stat_Icon = styled.li`
   @media only screen and (min-width: 768px) {
     height: 25px;
     margin: 3px 7.5px;
-  }
-
-  @media only screen and (min-width: 1024px) {
   }
 `;
 

@@ -59,11 +59,6 @@ const Container = styled.div`
       }
     }
   }
-  @media only screen and (min-width: 1024px) {
-    width: 100%;
-    height: 50%;
-    margin-top: 2.5%;
-  }
 `;
 
 export default function QuickGuide() {

@@ -10,9 +10,6 @@ const Container = styled.div`
     align-items: center;
     height: 150px;
   }
-
-  @media only screen and (min-width: 1024px) {
-  }
 `;
 
 const Recommend_Container = styled.div`
@@ -94,6 +91,15 @@ const Item_Box = styled.div`
 
     span.Skill_Key {
       font-size: 16px;
+    }
+  }
+
+  @media only screen and (min-width: 1024px) {
+    height: 45px;
+
+    span.Item_Count {
+      font-size: 15px;
+      top: 55%;
     }
   }
 `;

@@ -6,10 +6,11 @@ const Guide_Container = styled.div`
   height: 750px;
 
   @media only screen and (min-width: 768px) {
-    height: 1300px;
+    height: 1050px;
   }
 
   @media only screen and (min-width: 1024px) {
+    height: 650px;
   }
 `;
 
