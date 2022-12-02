@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { StyleSpan } from "../MyPage/RecordList";
 import "./Header.css";
+import SerchInput from "./SerchInput";
 
 const Header = styled.header`
   box-sizing: border-box;
@@ -35,17 +36,6 @@ const TabButton = styled(StyledButton)`
   font-weight: bold;
 `;
 
-const SubmitButton = styled(StyledButton)`
-  border: none;
-  /* position: relative; */
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  height: 1px;
-
-`;
-
 export default function MainHeader() {
   return (
     <Header>
@@ -59,17 +49,7 @@ export default function MainHeader() {
       <StyleSpan changeColor="white" fontsize="1.2rem" fontweight="bold">
         DodGe.GG
       </StyleSpan>
-      <SubmitButton
-        width="4rem"
-        height="2rem"
-        backgroundColor="white"
-        borderBrRadius="10px"
-        borderTrRadius="10px"
-        right="1.8rem"
-      >
-        <input id="Serch_Input" type="text" placeholder="소환사명"></input>
-        <span className="Serch_Button_Name">.GG</span>
-      </SubmitButton>
+      <SerchInput/>
     </Header>
   );
 }
