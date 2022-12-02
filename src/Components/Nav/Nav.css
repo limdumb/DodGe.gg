@@ -1,0 +1,45 @@
+.Effect-blind1 {
+  clip: rect(0px, 60px, 60px, 30px);
+}
+
+.Effect-blind2 {
+  clip: rect(30px, 60px, 60px, 0px);
+}
+
+.Effect-blind3 {
+  clip: rect(0px, 30px, 60px, 0px);
+}
+
+.Effect-blind4 {
+  clip: rect(0, 60px, 30px, 0);
+}
+
+.quadrant1 {
+  border: 5px solid red;
+  clip: rect(0px, 60px, 30px, 30px);
+}
+
+.quadrant2 {
+  clip: rect(30px, 60px, 60px, 30px);
+  border: 5px solid blue;
+}
+
+.quadrant3 {
+  clip: rect(30px, 30px, 60px, 0px);
+  border: 5px solid green;
+  
+}
+
+.quadrant4 {
+  clip: rect(0, 35px, 35px, 0);
+  border: 5px solid yellow;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
