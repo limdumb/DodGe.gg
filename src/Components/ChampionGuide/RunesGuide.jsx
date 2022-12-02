@@ -1,38 +1,65 @@
 import styled from "styled-components";
 
 const Runes_Container = styled.div`
-  width: 100%;
-  height: 50%;
+  height: 250px;
   background-color: rgba(0, 0, 0, 0.5);
-  padding-top: 2.5%;
   display: flex;
   text-align: center;
-  justify-content: space-evenly;
 
   @media only screen and (min-width: 768px) {
-    width: 100%;
-    height: 45%;
-    border: solid rgba(0, 0, 0, 0.25) 1px;
-    padding-bottom: 2.5%;
-    background-color: transparent;
-
-    h2 {
-      font-size: 0.85rem;
-    }
+    height: 350px;
+    padding: 0 100px;
   }
 
   @media only screen and (min-width: 1024px) {
-    height: 100%;
-
-    h2 {
-      font-size: 1rem;
-      margin-bottom: 10px;
-    }
+    height: 400px;
+    padding: 25px 75px;
   }
 `;
 
 const Main_Runes = styled.div`
-  height: 100%;
+  flex: 1;
+
+  h2 {
+    font-size: 24px;
+    margin: 5px;
+    color: antiquewhite;
+  }
+
+  @media only screen and (min-width: 768px) {
+    h2 {
+      margin: 10px;
+    }
+  }
+
+  @media only screen and (min-width: 1024px) {
+    h2 {
+      font-size: 28px;
+    }
+  }
+`;
+
+const Sub_Runes = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+
+  h2 {
+    font-size: 24px;
+    margin: 5px;
+    color: antiquewhite;
+  }
+  @media only screen and (min-width: 768px) {
+    h2 {
+      margin: 10px;
+    }
+  }
+
+  @media only screen and (min-width: 1024px) {
+    h2 {
+      font-size: 28px;
+    }
+  }
 `;
 
 const Rune_Wrapper = styled.div`
@@ -42,36 +69,32 @@ const Rune_Wrapper = styled.div`
 `;
 
 const Row = styled.ul`
+  width: 100%;
   display: flex;
-  flex: 1;
+  justify-content: center;
 
   .Selected {
     opacity: 1;
   }
 
   .Sub_Size {
-    height: 4vh;
+    height: 35px;
   }
 
   @media only screen and (min-width: 768px) {
     .Sub_Size {
-      height: 3.25vh;
-    }
-  }
-
-  @media only screen and (min-width: 1024px) {
-    .Sub_Size {
-      height: 5vh;
+      height: 50px;
+      margin: 7.5px 10px;
     }
   }
 `;
 
 const Main_Rune = styled.li`
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgba(255, 255, 255, 0.1);
   border-radius: 100%;
-  height: 5.5vh;
-  margin: 5px;
-  opacity: 0.6;
+  height: 45px;
+  margin: 7.5px;
+  opacity: 0.4;
 
   img {
     width: 100%;
@@ -84,30 +107,16 @@ const Main_Rune = styled.li`
   }
 
   @media only screen and (min-width: 768px) {
-    background-color: rgba(0, 0, 0, 0.2);
-    height: 4vh;
-
-    .Selected {
-      border: solid 2px green;
-    }
+    height: 65px;
+    margin: 5px 10px;
   }
-
-  @media only screen and (min-width: 1024px) {
-    height: 6.5vh;
-  }
-`;
-
-const Sub_Runes = styled.div`
-  height: 100%;
-  display: flex;
-  flex-direction: column;
 `;
 
 const Sub_Rune = styled.li`
   background-color: rgba(255, 255, 255, 0.05);
   border-radius: 100%;
-  height: 4vh;
-  margin: 2.5px;
+  height: 35px;
+  margin: 5px;
   opacity: 0.3;
 
   img {
@@ -121,45 +130,28 @@ const Sub_Rune = styled.li`
   }
 
   @media only screen and (min-width: 768px) {
-    height: 3vh;
-
-    .Selected {
-      border: solid 2px green;
-    }
-  }
-
-  @media only screen and (min-width: 1024px) {
-    height: 5vh;
+    height: 45px;
+    margin: 7.5px;
   }
 `;
 
 const Stat_Wrapper = styled.div`
-  height: 50%;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
+  height: 50px;
 
   ul {
     justify-content: center;
-  }
-
-  @media only screen and (min-width: 768px) {
-    ul {
-      align-items: center;
-    }
-  }
-
-  @media only screen and (min-width: 1024px) {
-    padding-top: 10px;
   }
 `;
 
 const Stat_Icon = styled.li`
   background-color: rgba(0, 0, 0, 0.3);
   border-radius: 100%;
-  height: 2.25vh;
-  margin: 2.5px;
+  height: 17.5px;
+  margin: 2.5px 5px;
   opacity: 0.3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   img {
     width: 100%;
@@ -172,18 +164,8 @@ const Stat_Icon = styled.li`
   }
 
   @media only screen and (min-width: 768px) {
-    height: 1.5vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    .Selected {
-      border: solid 2px green;
-    }
-  }
-
-  @media only screen and (min-width: 1024px) {
-    height: 3vh;
+    height: 25px;
+    margin: 3px 7.5px;
   }
 `;
 
