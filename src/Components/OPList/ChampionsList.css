@@ -1,0 +1,72 @@
+.OPList_Box {
+  position: relative;
+  width: 332px;
+  height: 400px;
+  background-color: #31313c;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  overflow: auto;
+}
+.OPList_Box::-webkit-scrollbar {
+  width: 10px;
+  background-color: #1c1c1f;
+}
+
+.OPList_Box::-webkit-scrollbar-thumb {
+  width: 10px;
+  background-color: #424254;
+  border-radius: 4px;
+}
+
+.OPList_Box::-webkit-scrollbar {
+  width: 10px;
+  background-color: #282830;
+}
+
+.Champion_HeaderBox {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 32px;
+  background-color: #282830;
+  font-size: 12px;
+  text-align: center;
+  color: #7b7a8e;
+  gap: 2%;
+  position: sticky;
+  overflow: hidden;
+  z-index: 2;
+  left: 0px;
+  top: 0px;
+}
+
+.Champion_Box {
+  display: flex;
+  color: #7b7a8e;
+  height: 37px;
+  font-size: 12px;
+  text-align: center;
+  align-items: center;
+  gap: 5px;
+  border-top: 1px solid #1c1c1f;
+  position: relative;
+}
+
+.Champion_Img {
+  width: 32px;
+  height: 32px;
+}
+
+.Champion_Name {
+  width: 19%;
+  font-weight: 900;
+  color: white;
+}
+
+.Champion_Tier {
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  left: 7%;
+  top: 6%;
+}

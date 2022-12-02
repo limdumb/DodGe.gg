@@ -21,7 +21,7 @@ const RecordContents = styled.div`
 `;
 
 export const StyleSpan = styled.span`
-  font-size: ${(props) => props.fontsize || "12px"};
+  font-size: ${(props) => props.fontsize};
   display: block;
   margin-bottom: ${(props) => props.marginBtm};
   color: ${(props) => props.changeColor};
@@ -29,11 +29,12 @@ export const StyleSpan = styled.span`
   margin-left: ${(props) => props.marginLft};
 `;
 
-const GameInfoImage = styled.img`
+export const GameInfoImage = styled.img`
   width: ${(props) => props.width};
-  border-radius: 8px;
+  border-radius: ${(props) => props.radius};
   background-color: ${(props) => props.backgroundColor};
   margin-right: ${(props) => props.marginRgt};
+  border: ${(props) => props.border};
 `;
 
 const PlayerList = styled.div`
@@ -130,7 +131,7 @@ export default function RecordList({ tab, userMatchData }) {
             </div>
             <ul className="Record__Item__List">
               {userMatchData.itemSlot.map((el) => {
-                return el !== 0 ?
+                return el !== 0 ? (
                   <li>
                     <GameInfoImage
                       width={30}
@@ -139,7 +140,10 @@ export default function RecordList({ tab, userMatchData }) {
                       src={`http://ddragon.leagueoflegends.com/cdn/12.22.1/img/item/${el}.png`}
                     ></GameInfoImage>
                   </li>
-              : <li className="No__Item__List"></li> })}
+                ) : (
+                  <li className="No__Item__List"></li>
+                );
+              })}
             </ul>
             <div className="Game__Result__Information">
               <ul className="Game__Player__List">

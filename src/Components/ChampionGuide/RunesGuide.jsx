@@ -21,6 +21,7 @@ const Main_Runes = styled.div`
   flex: 1;
 
   h2 {
+    font-size: 24px;
     margin: 5px;
     color: antiquewhite;
   }
@@ -44,6 +45,7 @@ const Sub_Runes = styled.div`
   flex-direction: column;
 
   h2 {
+    font-size: 24px;
     margin: 5px;
     color: antiquewhite;
   }
