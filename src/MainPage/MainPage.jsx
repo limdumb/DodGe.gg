@@ -5,6 +5,8 @@ import MainHeader from "../Components/CommonComponents/Header";
 import ChampionGuide from "../Components/ChampionGuide/ChampionGuide";
 import ChampionList from "../Components/ChampList/ChampionList";
 import Tab from "../Components/TapComponent/Tab";
+import Nav from "../Components/Nav/Nav"
+
 export default function MainPage() {
   const line = ["TOP", "JUNGLE", "MID", "ADC", "SUPPORT"];
   const [CheckLine, setCheckLine] = useState("TOP");
@@ -18,7 +20,10 @@ export default function MainPage() {
       <MainHeader />
       <main>
         <div>
-          <Tab line={line} setCheckLine={setCheckLine} />
+          <Nav/>
+        </div>
+        <div>
+        <Tab line={line} setCheckLine={setCheckLine} />
         </div>
         <div>
           <ChampionList />
