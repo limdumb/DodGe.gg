@@ -55,10 +55,16 @@ const SubNavBtn = styled.button`
 
 const Nav = () => {
   const [clickCheck, setClickCheck] = useState(false);
-
   function NavClick() {
     setClickCheck(!clickCheck);
   }
+
+  const TopScroll = () => {
+    window.scroll({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <NavBody clickCheck={clickCheck} onClick={NavClick}>
@@ -102,6 +108,7 @@ const Nav = () => {
         bottom={"-70px"}
         right={"20px"}
         speed={"1s"}
+        onClick={TopScroll}
       />
     </NavBody>
   );
