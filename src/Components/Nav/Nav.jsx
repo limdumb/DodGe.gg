@@ -47,7 +47,7 @@ const SubNavBtn = styled.button`
   border-radius: ${(props) => (props.clickCheck ? "50px" : "30px")};
   transition: ${(props) => props.speed};
   z-index: 999;
-  background-color: ${(props) => props.color};
+  background-color: ${(props) => props.backgroundColor};
   position: absolute;
   bottom: ${(props) => (props.clickCheck ? props.bottom : "30%")};
   right: ${(props) => (props.clickCheck ? props.right : "30%")};
@@ -83,28 +83,28 @@ const Nav = () => {
       </NavEffect>
       <SubNavBtn
         clickCheck={clickCheck}
-        color={"red"}
+        backgroundColor={"red"}
         bottom={"80px"}
         right={"20px"}
         speed={"0.5s"}
       />
       <SubNavBtn
         clickCheck={clickCheck}
-        color={"blue"}
+        backgroundColor={"blue"}
         bottom={"40px"}
         right={"80px"}
         speed={"0.7s"}
       />
       <SubNavBtn
         clickCheck={clickCheck}
-        color={"green"}
+        backgroundColor={"green"}
         bottom={"-30px"}
         right={"80px"}
         speed={"0.9s"}
       />
       <SubNavBtn
         clickCheck={clickCheck}
-        color={"yellow"}
+        backgroundColor={"yellow"}
         bottom={"-70px"}
         right={"20px"}
         speed={"1s"}
