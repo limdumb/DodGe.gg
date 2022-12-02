@@ -9,15 +9,16 @@ export default function MainPage() {
   const line = ["TOP", "JUNGLE", "MID", "ADC", "SUPPORT"];
   const [CheckLine, setCheckLine] = useState("TOP");
   return (
-    <body style={{
-      display:"flex",
-      flexDirection:"column"
-
-    }}>
+    <body
+      style={{
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
       <MainHeader />
       <main>
         <div>
-        <Tab line={line} setCheckLine={setCheckLine} />
+          <Tab line={line} setCheckLine={setCheckLine} />
         </div>
         <div>
           <ChampionList />
