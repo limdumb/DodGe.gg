@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const apiKey=""
+const apiKey = "";
 const apiKrBase = "https://kr.api.riotgames.com";
 const apiAsiaBase = "https://asia.api.riotgames.com";
 const UserName = "늑 사 덤";
@@ -119,15 +119,35 @@ export async function summonerSpell() {
 }
 
 export async function champName() {
-  let champion = []
+  let champion = [];
   let ko_name;
-  await axios.get("http://ddragon.leagueoflegends.com/cdn/12.22.1/data/ko_KR/champion.json")
-  .then(res => {
-    let name = Object.keys(res.data.data);
-    ko_name = name.map(data => 
-      res.data.data[data].name)
-    ko_name.forEach((data,index) => champion.push({name:data, image:`http://ddragon.leagueoflegends.com/cdn/12.22.1/img/champion/${name[index]}.png`}))
-    champion.sort((name, data) => name.name < data.name ? -1 : 1)
-  })
-  return champion
+  await axios
+    .get(
+      "http://ddragon.leagueoflegends.com/cdn/12.22.1/data/ko_KR/champion.json"
+    )
+    .then((res) => {
+      let name = Object.keys(res.data.data);
+      ko_name = name.map((data) => res.data.data[data].name);
+      ko_name.forEach((data, index) =>
+        champion.push({
+          name: data,
+          image: `http://ddragon.leagueoflegends.com/cdn/12.22.1/img/champion/${name[index]}.png`,
+        })
+      );
+      champion.sort((name, data) => (name.name < data.name ? -1 : 1));
+    });
+  return champion;
+}
+
+export async function fetchChampData(champName) {
+  let userData = [];
+  await axios
+    .get(
+      `https://ddragon.leagueoflegends.com/cdn/12.22.1/data/ko_KR/champion/${champName}.json`
+    )
+    .then((res) => {
+      userData.push(res.data.data);
+    });
+
+  return userData;
 }

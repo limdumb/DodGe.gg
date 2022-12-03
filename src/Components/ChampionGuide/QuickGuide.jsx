@@ -80,7 +80,7 @@ export default function QuickGuide({ currentChamp }) {
         <h2>
           {currentChamp.name}, {currentChamp.title}
         </h2>
-        <p>{currentChamp.desc}</p>
+        <p>{currentChamp.lore}</p>
       </div>
       <QuickBuild currentChamp={currentChamp} />
     </Container>

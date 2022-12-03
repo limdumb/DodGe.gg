@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { RiArrowRightSFill } from "react-icons/ri";
+import { champName, fetchChampData } from "../../API/RiotAPI";
 
 const Container = styled.div`
   width: 100%;
@@ -97,7 +98,6 @@ const Item_Box = styled.div`
 export default function QuickBuild({ currentChamp }) {
   // 임시 데이터 설정: 이후 데이터를 props를 통해 받아올 때 삭제 현재 임시 데이터는 삭제
   const startItem = recommendStart(currentChamp);
-
   const ImagesURL = "http://ddragon.leagueoflegends.com/cdn/12.21.1/img";
   return (
     <Container>
@@ -106,17 +106,23 @@ export default function QuickBuild({ currentChamp }) {
         <Box_Container>
           <Item_Box>
             <span className="Skill_Key">Q</span>
-            <img src={`${ImagesURL}/spell/${currentChamp.id}Q.png`}></img>
+            <img
+              src={`${ImagesURL}/spell/${currentChamp.spells[0].image.full}`}
+            ></img>
           </Item_Box>
           <RiArrowRightSFill />
           <Item_Box>
             <span className="Skill_Key">W</span>
-            <img src={`${ImagesURL}/spell/${currentChamp.id}W.png`}></img>
+            <img
+              src={`${ImagesURL}/spell/${currentChamp.spells[1].image.full}`}
+            ></img>
           </Item_Box>
           <RiArrowRightSFill />
           <Item_Box>
             <span className="Skill_Key">E</span>
-            <img src={`${ImagesURL}/spell/${currentChamp.id}E.png`}></img>
+            <img
+              src={`${ImagesURL}/spell/${currentChamp.spells[2].image.full}`}
+            ></img>
           </Item_Box>
         </Box_Container>
       </Recommend_Container>
@@ -174,21 +180,20 @@ export default function QuickBuild({ currentChamp }) {
     </Container>
   );
 }
+
 /**
-입력받은 Tags 배열 안의 직업군을 분석해 해당 직업군에 "걸맞는" 아이템 빌드를 추천해줍니다.
-1. 데이터의 직업군에 서포터가 포함된 경우 : 
-주문도둑검, 유물방패, 영혼의 낫, 강철 어깨 보호대 ("3850", "3858", "3862", "3854") 중 하나
-2. 데이터의 직업군이 서포터가 아닐 때 : 
-도란 쉴드, 도란 검, 도란 링 ("1054", "1055", "1056") 중 하나
-3. 정글이 주요 픽이라면: => 이 부분은 정확히 판단 내릴 지표가 없기 때문에 현재로선 수기로 작성
-화염발톱, 바람돌이, 이끼쿵쿵이 ("1101", "1102", "1103") 중 하나
-
-
-Tags는 2개 이상의 직업군을 포함하지 않음으로 첫번째 직업군 비교 후 추천
-
-암흑의 인장, 여신의 눈물, 수확의 낫 등은 제외
-체력 포션 2개는 고정되어 있다는 전제 하에 진행하기 때문에 첫 추천 아이템이 무엇인지만 결정합니다.
-*/
+ * 입력받은 Tags 배열 안의 직업군을 분석해 해당 직업군에 "걸맞는" 아이템 빌드를 추천해줍니다.
+ * 1. 데이터의 직업군에 서포터가 포함된 경우 :
+ * 주문도둑검, 유물방패, 영혼의 낫, 강철 어깨 보호대 ("3850", "3858", "3862", "3854") 중 하나
+ * 2. 데이터의 직업군이 서포터가 아닐 때 :
+ * 도란 쉴드, 도란 검, 도란 링 ("1054", "1055", "1056") 중 하나
+ * 3. 정글이 주요 픽이라면: => 이 부분은 정확히 판단 내릴 지표가 없기 때문에 현재로선 수기로 작성
+ * 화염발톱, 바람돌이, 이끼쿵쿵이 ("1101", "1102", "1103") 중 하나
+ *
+ * Tags는 2개 이상의 직업군을 포함하지 않음으로 첫번째 직업군 비교 후 추천
+ *
+ * 암흑의 인장, 여신의 눈물, 수확의 낫 등은 제외
+ * 체력 포션 2개는 고정되어 있다는 전제 하에 진행하기 때문에 첫 추천 아이템이 무엇인지만 정합니다. */
 function recommendStart(champion) {
   if (champion.tags[0] === "Support") {
     if (champion.id === "Ivern") {
