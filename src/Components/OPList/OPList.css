@@ -1,0 +1,10 @@
+.Op_List_Container{
+  display: none;
+}
+
+@media screen and (min-device-width: 1024px) {
+  .Op_List_Container{
+    display: flex;
+    flex-direction: column;
+  }
+}

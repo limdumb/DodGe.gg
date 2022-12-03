@@ -10,6 +10,10 @@ const NavBody = styled.div`
   width: 60px;
   height: 60px;
   z-index: 10000;
+
+  @media screen and (min-device-width: 1024px) {
+    display: none;
+  }
 `;
 
 const NavButton = styled.button`

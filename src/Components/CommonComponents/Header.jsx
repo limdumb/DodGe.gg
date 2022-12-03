@@ -1,11 +1,10 @@
 import styled from "styled-components";
 import { StyleSpan } from "../MyPage/RecordList";
 import "./Header.css";
-import SerchInput from "./SerchInput";
+import { SerchInput } from "./SerchInput";
 
 const Header = styled.header`
   box-sizing: border-box;
-  float: left;
   display: flex;
   width: 100%;
   background-color: black;

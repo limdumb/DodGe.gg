@@ -16,7 +16,7 @@ const SubmitSection = styled.div`
   height: 1px;
 `;
 
-export default function SerchInput() {
+export const SerchInput = () => {
   return (
     <SubmitSection
       width="450"

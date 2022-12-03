@@ -1,29 +1,8 @@
-.Champion_List_Container {
-  display: grid;
-  grid-template-columns: repeat(41, 1fr);
-  grid-auto-flow: dense;
-  /* width: 23.438rem; */
-  width: 100%;
-  gap: 3px;
-  overflow-x: scroll;
-}
-
 .Right_Aside_Container {
   background-color: gray;
-  /* width: 23.4rem; */
-  width: 100%;
-  height: 12rem;
   display: flex;
+  width: 100%;
   padding-top: 5px;
-  /* @media screen and (min-device-width: 480px) {
-    height: 4rem;
-  }
-
-  @media screen and (min-device-width: 768px) {
-  }
-
-  @media screen and (min-device-width: 1024px) {
-  } */
 }
 
 .Champion__List {
@@ -32,3 +11,50 @@
   cursor: pointer;
   align-items: center;
 }
+
+.Champion_List_Container {
+  display: grid;
+  grid-template-columns: repeat(41, 1fr);
+  grid-auto-flow: dense;
+  width: 100%;
+  gap: 3px;
+  overflow-x: scroll;
+}
+
+.Champion_List_Name{
+  display: block;
+  font-size: 10px;
+}
+
+.Champ_Image{
+  width: 40px;
+}
+
+  @media screen and (min-device-width: 768px) {
+  }
+
+  @media screen and (min-device-width: 1024px) {
+    .Champion_List_Container {
+      display: flex;
+      flex-wrap: wrap;
+      width: 332px;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .Right_Aside_Container {
+      background-color: gray;
+      display: flex;
+      width: 332px;
+      padding-top: 5px;
+    }
+
+    .Champ_Image{
+      width: 45px;
+    }
+
+    .Champion_List_Name{
+      display: block;
+      font-size: 13px;
+    }
+  }

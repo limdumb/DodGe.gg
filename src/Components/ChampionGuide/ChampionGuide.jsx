@@ -7,6 +7,7 @@ const Main_Container = styled.div`
   height: 100%;
   width: 100%;
 
+
   .Guides_Container {
     background-color: bisque;
   }
@@ -14,6 +15,7 @@ const Main_Container = styled.div`
   @media only screen and (min-width: 1024px) {
     width: 50vw;
     display: flex;
+    margin: 0 auto;
   }
 `;
 
