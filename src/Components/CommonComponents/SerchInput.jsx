@@ -19,7 +19,6 @@ const SubmitSection = styled.div`
 export const SerchInput = () => {
   return (
     <SubmitSection
-      width="450"
       height="2rem"
       right="1.8rem"
       backgroundColor="white"
