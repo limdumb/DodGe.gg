@@ -1,7 +1,7 @@
 import "./SerchInput.css";
 import styled from "styled-components";
 
-const SubmitButton = styled.button`
+const SubmitSection = styled.div`
   width: ${(props) => props.width};
   height: ${(props) => props.height};
   background-color: ${(props) => props.backgroundColor};
@@ -18,16 +18,14 @@ const SubmitButton = styled.button`
 
 export default function SerchInput() {
   return (
-    <SubmitButton
-      width="4rem"
+    <SubmitSection
+      width="450"
       height="2rem"
-      backgroundColor="white"
-      borderBrRadius="10px"
-      borderTrRadius="10px"
       right="1.8rem"
+      backgroundColor="white"
     >
       <input id="Serch_Input" type="text" placeholder="소환사명"></input>
-      <span className="Serch_Button_Name">.GG</span>
-    </SubmitButton>
+      <button className="Serch_Button">.GG</button>
+    </SubmitSection>
   );
 }

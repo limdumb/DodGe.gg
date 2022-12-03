@@ -1,17 +1,31 @@
 #Serch_Input{
   height: 1.0rem;
   border: none;
-  border-radius: 10px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
   outline-style: none;
   padding-left: 0.5rem;
   font-size: 0.6rem;
-  width: 5rem;
+  width: 3.4rem;
   font-weight: bold;
   height: 1.7rem;
+
 }
 
-.Serch_Button_Name{
-  position: absolute;
+@media screen and (min-width: 1024px) {
+  #Serch_Input{
+    width: 250px
+  } 
+}
+
+.Serch_Button{
+  font-weight: bold;
   font-size: 0.9rem;
   padding-right: 0.4rem;
+  background-color: #fff;
+  border-Bottom-right-radius: 10px;
+  border-Top-right-radius: 10px;
+  height: 1.7rem;
+  border: none;
+  margin-left: -1px;
 }
