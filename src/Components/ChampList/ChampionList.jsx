@@ -1,9 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { champName } from "../../API/RiotAPI";
-import { GameInfoImage } from "../MyPage/RecordList";
 import "./ChampionList.css";
-import { StyleSpan } from "../MyPage/RecordList";
 
 export default function ChampionList() {
   const [championName, setChampionName] = useState(null);
