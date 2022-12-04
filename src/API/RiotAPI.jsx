@@ -147,7 +147,8 @@ export async function fetchChampData(champName) {
     )
     .then((res) => {
       userData.push(res.data.data);
-    });
+    })
+    .catch((err) => console.log(err));
 
   return userData;
 }

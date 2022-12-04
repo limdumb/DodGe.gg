@@ -1,4 +1,7 @@
+import { useEffect } from "react";
+import { useState } from "react";
 import styled from "styled-components";
+import { fetchChampData } from "../../API/RiotAPI";
 import QuickBuild from "./QuickBuild";
 
 const Container = styled.div`

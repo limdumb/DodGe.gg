@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { RiArrowRightSFill } from "react-icons/ri";
-import { champName, fetchChampData } from "../../API/RiotAPI";
 
 const Container = styled.div`
   width: 100%;
@@ -199,53 +198,42 @@ function recommendStart(champion) {
     if (champion.id === "Ivern") {
       return "1102";
     }
-
     if (champion.tags[1] === "Mage") {
       return "3850";
     }
-
     if (
       (champion.tags[1] === "Tank" || champion.tags[1] === "Fighter") &&
       champion.attack < champion.magic
     ) {
       return "3858";
     }
-
     if (
       (champion.tags[1] === "Tank" || champion.tags[1] === "Fighter") &&
       champion.attack >= champion.magic
     ) {
       return "3854";
     }
-
     if (champion.tags[1] === "Marksman" || champion.tags[1] === "Assassin") {
       return "3862";
     }
-
     return "3854";
   }
-
   if (champion.tags[0] === "Mage") {
     const exceptions = ["Anivia", "Neeko", "Oriana", "Taliyah", "Zoe"];
-
     if (
       champion.tags[1] === "Support" &&
       exceptions.includes(champion.id) === false
     ) {
       return "3850";
     }
-
     if (champion.id === "Brand") {
       return "3850";
     }
-
     if (champion.id === "Taliyah") {
       return "1102";
     }
-
     return "1056";
   }
-
   if (champion.tags[0] === "Tank") {
     const tankSupports = ["Amumu", "Blitzcrank", "Maokai"];
     const tankJunglers = [
@@ -256,35 +244,27 @@ function recommendStart(champion) {
       "Sejuani",
       "Zac",
     ];
-
     if (champion.tags[1] === "Support" || tankSupports.includes(champion.id)) {
       return "3858";
     }
-
     if (tankJunglers.includes(champion.id)) {
       return "1103";
     }
-
     return "1054";
   }
-
   if (champion.tags[0] === "Assassin") {
     const mageJunglers = ["Evelyn", "Nidalee"];
-
     if (champion.tags[1] === "Fighter") {
       if (champion.id === "Fizz") {
         return "1056";
       } else if (champion.id === "Yone") {
         return "1055";
       }
-
       if (champion.magic >= champion.attack) {
         return "1102";
       }
-
       return "1101";
     }
-
     if (champion.tags[1] === "Mage") {
       if (mageJunglers.includes(champion.id)) {
         return "1102";
@@ -292,23 +272,18 @@ function recommendStart(champion) {
       return "1056";
     }
   }
-
   if (champion.tags[0] === "Marksman") {
     if (champion.tags[1] === "Support") {
       return "3862";
     }
-
     if (champion.id === "Teemo") {
       return "1056";
     }
-
     if (champion.id === "Kindred" || champion.id === "Graves") {
       return "1101";
     }
-
     return "1055";
   }
-
   if (champion.tags[0] === "Fighter") {
     const fighterJunglers = [
       "Belveth",
@@ -326,14 +301,12 @@ function recommendStart(champion) {
       "Warwick",
       "Xinzhao",
     ];
-
     if (fighterJunglers.includes(champion.id)) {
       if (champion.magic > champion.attack) {
         return "1102";
       }
       return "1101";
     }
-
     if (champion.magic >= champion.attack) {
       return "1056";
     }
