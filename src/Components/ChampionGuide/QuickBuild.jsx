@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { RiArrowRightSFill } from "react-icons/ri";
+import DetailedData from "./Json/DetailedData.json";
 
 const Container = styled.div`
   width: 100%;
@@ -97,6 +98,10 @@ const Item_Box = styled.div`
 export default function QuickBuild({ currentChamp }) {
   // 임시 데이터 설정: 이후 데이터를 props를 통해 받아올 때 삭제 현재 임시 데이터는 삭제
   const startItem = recommendStart(currentChamp);
+  const skillImages = getSkillImages(
+    DetailedData[0][currentChamp.id].skill_tree,
+    currentChamp
+  );
   const ImagesURL = "http://ddragon.leagueoflegends.com/cdn/12.21.1/img";
   return (
     <Container>
@@ -104,24 +109,24 @@ export default function QuickBuild({ currentChamp }) {
         <h6>스킬 마스터 추천 순서</h6>
         <Box_Container>
           <Item_Box>
-            <span className="Skill_Key">Q</span>
-            <img
-              src={`${ImagesURL}/spell/${currentChamp.spells[0].image.full}`}
-            ></img>
+            <span className="Skill_Key">
+              {DetailedData[0][currentChamp.id].skill_tree[0]}
+            </span>
+            <img src={`${ImagesURL}/spell/${skillImages[0]}`}></img>
           </Item_Box>
           <RiArrowRightSFill />
           <Item_Box>
-            <span className="Skill_Key">W</span>
-            <img
-              src={`${ImagesURL}/spell/${currentChamp.spells[1].image.full}`}
-            ></img>
+            <span className="Skill_Key">
+              {DetailedData[0][currentChamp.id].skill_tree[1]}
+            </span>
+            <img src={`${ImagesURL}/spell/${skillImages[1]}`}></img>
           </Item_Box>
           <RiArrowRightSFill />
           <Item_Box>
-            <span className="Skill_Key">E</span>
-            <img
-              src={`${ImagesURL}/spell/${currentChamp.spells[2].image.full}`}
-            ></img>
+            <span className="Skill_Key">
+              {DetailedData[0][currentChamp.id].skill_tree[2]}
+            </span>
+            <img src={`${ImagesURL}/spell/${skillImages[2]}`}></img>
           </Item_Box>
         </Box_Container>
       </Recommend_Container>
@@ -164,15 +169,27 @@ export default function QuickBuild({ currentChamp }) {
         <h6>코어템</h6>
         <Box_Container>
           <Item_Box>
-            <img src={`${ImagesURL}/item/2065.png`}></img>
+            <img
+              src={`${ImagesURL}/item/${
+                DetailedData[0][currentChamp.id].core_items[0]
+              }.png`}
+            ></img>
           </Item_Box>
           <RiArrowRightSFill />
           <Item_Box>
-            <img src={`${ImagesURL}/item/3011.png`}></img>
+            <img
+              src={`${ImagesURL}/item/${
+                DetailedData[0][currentChamp.id].core_items[1]
+              }.png`}
+            ></img>
           </Item_Box>
           <RiArrowRightSFill />
           <Item_Box>
-            <img src={`${ImagesURL}/item/3504.png`}></img>
+            <img
+              src={`${ImagesURL}/item/${
+                DetailedData[0][currentChamp.id].core_items[2]
+              }.png`}
+            ></img>
           </Item_Box>
         </Box_Container>
       </Recommend_Container>
@@ -312,4 +329,23 @@ function recommendStart(champion) {
     }
     return "1055";
   }
+}
+
+/**
+ * 제공된 "스킬 마스터 추천 순서" 데이터에 따른 이미지 링크를 불러옵니다.
+ * 해당 과정이 필요한 이유는 특정 챔피언들의 이미지 링크가 API에서
+ * '챔피언이름Q'가 아닌 불규칙적인 링크 이름이 주어졌기 때문입니다.
+ */
+function getSkillImages(skill_tree, currentChamp) {
+  let rtnArr = [];
+  for (let i = 0; i < skill_tree.length; i++) {
+    if (skill_tree[i] === "Q") {
+      rtnArr.push(currentChamp.spells[0].image.full);
+    } else if (skill_tree[i] === "W") {
+      rtnArr.push(currentChamp.spells[1].image.full);
+    } else {
+      rtnArr.push(currentChamp.spells[2].image.full);
+    }
+  }
+  return rtnArr;
 }

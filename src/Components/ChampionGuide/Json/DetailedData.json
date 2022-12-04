@@ -1,0 +1,27 @@
+[
+  {
+    "Anivia": {
+      "win_rate": "52.09%",
+      "pick_rate": "2.61%",
+      "ban_rate": "2.15%",
+      "skill_tree": ["E", "Q", "W"],
+      "core_items": ["6653", "3003", "3157"]
+    },
+
+    "Annie": {
+      "win_rate": "50.54%",
+      "pick_rate": "1.00%",
+      "ban_rate": "0.24%",
+      "skill_tree": ["Q", "W", "E"],
+      "core_items": ["6655", "4645", "3157"]
+    },
+
+    "Nami": {
+      "win_rate": "52.75%",
+      "pick_rate": "13.09%",
+      "ban_rate": "3.94%",
+      "skill_tree": ["W", "E", "Q"],
+      "core_items": ["4005", "3011", "6616"]
+    }
+  }
+]

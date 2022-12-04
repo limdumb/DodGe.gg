@@ -3,6 +3,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import { fetchChampData } from "../../API/RiotAPI";
 import QuickBuild from "./QuickBuild";
+import DetailedData from "./Json/DetailedData.json";
 
 const Container = styled.div`
   width: 100%;
@@ -23,20 +24,46 @@ const Container = styled.div`
   .Champion_Info {
     flex: 1;
     height: 150px;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     border-bottom: 1px gray solid;
-    text-overflow: ellipsis;
-    overflow: hidden;
 
     h2 {
       font-size: 20px;
       font-weight: bold;
+      margin-bottom: 10px;
     }
 
     p {
       padding: 5px;
       font-size: 12px;
       height: 120px;
+    }
+
+    .Skill_Set {
+      width: 100%;
+      display: flex;
+      justify-content: space-evenly;
+    }
+
+    .Rate_Info_Wrapper {
+      height: 75px;
+      width: 100%;
+      font-size: 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .Rate {
+        padding-left: 5px;
+        border-left: solid 1px rgba(0, 0, 0, 0.7);
+
+        span {
+          color: gray;
+        }
+      }
     }
   }
 
@@ -56,10 +83,6 @@ const Container = styled.div`
         font-size: 25px;
         font-weight: bold;
       }
-
-      p {
-        font-size: 16px;
-      }
     }
   }
 
@@ -72,18 +95,44 @@ const Container = styled.div`
 `;
 
 export default function QuickGuide({ currentChamp }) {
-  const championImagesURL =
-    "http://ddragon.leagueoflegends.com/cdn/12.21.1/img";
+  const ImagesURL = "http://ddragon.leagueoflegends.com/cdn/12.21.1/img";
   return (
     <Container>
       <div className="Champion_Portrait">
-        <img src={`${championImagesURL}/champion/${currentChamp.id}.png`}></img>
+        <img src={`${ImagesURL}/champion/${currentChamp.id}.png`}></img>
       </div>
       <div className="Champion_Info">
         <h2>
           {currentChamp.name}, {currentChamp.title}
         </h2>
-        <p>{currentChamp.lore}</p>
+        <div className="Skill_Set">
+          <img
+            src={`${ImagesURL}/passive/${currentChamp.passive.image.full}`}
+          ></img>
+          <img
+            src={`${ImagesURL}/spell/${currentChamp.spells[0].image.full}`}
+          ></img>
+          <img
+            src={`${ImagesURL}/spell/${currentChamp.spells[1].image.full}`}
+          ></img>
+          <img
+            src={`${ImagesURL}/spell/${currentChamp.spells[2].image.full}`}
+          ></img>
+          <img
+            src={`${ImagesURL}/spell/${currentChamp.spells[3].image.full}`}
+          ></img>
+        </div>
+        <div className="Rate_Info_Wrapper">
+          <div className="Rate">
+            승률 <span>{DetailedData[0][currentChamp.id].win_rate}</span>
+          </div>
+          <div className="Rate">
+            픽률 <span>{DetailedData[0][currentChamp.id].pick_rate}</span>
+          </div>
+          <div className="Rate">
+            밴률 <span>{DetailedData[0][currentChamp.id].ban_rate}</span>
+          </div>
+        </div>
       </div>
       <QuickBuild currentChamp={currentChamp} />
     </Container>
