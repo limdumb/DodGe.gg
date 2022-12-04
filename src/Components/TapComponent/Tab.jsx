@@ -12,7 +12,7 @@ const Tab = ({ line, setCheckLine }) => {
   );
 
   return (
-    <>
+    <div>
       <div className="Tab_SearchBox">
         <img
           className="Tab_SearchImg"
@@ -21,6 +21,7 @@ const Tab = ({ line, setCheckLine }) => {
         <input
           className="Tab_Search"
           type="text"
+          
           placeholder="챔피언 검색"
           autoComplete="off"
         />
@@ -40,7 +41,7 @@ const Tab = ({ line, setCheckLine }) => {
           );
         })}
       </div>
-    </>
+    </div>
   );
 };
 

@@ -1,9 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { champName } from "../../API/RiotAPI";
-import { GameInfoImage } from "../MyPage/RecordList";
 import "./ChampionList.css";
-import { StyleSpan } from "../MyPage/RecordList";
 
 export default function ChampionList() {
   const [championName, setChampionName] = useState(null);
@@ -31,11 +29,11 @@ export default function ChampionList() {
                 key={index}
                 onClick={() => console.log("하이")}
               >
-                <GameInfoImage width={40} src={data.image} />
+                <img className="Champ_Image" width={'40px'} src={data.image} />
                 <div>
-                  <StyleSpan fontsize={"10px"} key={index}>
+                  <span className="Champion_List_Name" key={index}>
                     {data.name}
-                  </StyleSpan>
+                  </span>
                 </div>
               </div>
             );
