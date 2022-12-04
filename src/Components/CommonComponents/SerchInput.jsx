@@ -1,7 +1,8 @@
 import "./SerchInput.css";
 import styled from "styled-components";
+import { useState } from "react";
 
-const SubmitButton = styled.button`
+const SubmitSection = styled.div`
   width: ${(props) => props.width};
   height: ${(props) => props.height};
   background-color: ${(props) => props.backgroundColor};
@@ -16,18 +17,39 @@ const SubmitButton = styled.button`
   height: 1px;
 `;
 
-export default function SerchInput() {
+export const SerchInput = () => {
   return (
-    <SubmitButton
-      width="4rem"
+    <SubmitSection
+      width="450"
       height="2rem"
-      backgroundColor="white"
-      borderBrRadius="10px"
-      borderTrRadius="10px"
       right="1.8rem"
+      backgroundColor="white"
     >
       <input id="Serch_Input" type="text" placeholder="소환사명"></input>
-      <span className="Serch_Button_Name">.GG</span>
-    </SubmitButton>
+      <button className="Serch_Button">.GG</button>
+    </SubmitSection>
   );
-}
+};
+
+export const ChampSerchBar = () => {
+  const [championName, setChampionName] = useState("");
+  const onChangeSubmit = (e) => {
+    e.preventDefault()
+    setChampionName(e.target.value)
+  }
+
+  return (
+      <div className="Tab_SearchBox">
+        <img
+          className="Tab_SearchImg"
+          src="https://s-lol-web.op.gg/images/icon/icon-search.svg"
+        />
+        <input
+          className="Tab_Search"
+          type="text"
+          placeholder="챔피언 검색"
+          autoComplete="off"
+        />
+      </div>
+  );
+};
