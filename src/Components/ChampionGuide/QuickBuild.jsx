@@ -98,6 +98,7 @@ const Item_Box = styled.div`
 export default function QuickBuild({ currentChamp }) {
   // 임시 데이터 설정: 이후 데이터를 props를 통해 받아올 때 삭제 현재 임시 데이터는 삭제
   const startItem = recommendStart(currentChamp);
+  const startBoots = recommendBoots(currentChamp);
   const skillImages = getSkillImages(
     DetailedData[0][currentChamp.id].skill_tree,
     currentChamp
@@ -160,7 +161,7 @@ export default function QuickBuild({ currentChamp }) {
         <h6>신발</h6>
         <Box_Container>
           <Item_Box>
-            <img src={`${ImagesURL}/item/3158.png`}></img>
+            <img src={`${ImagesURL}/item/3111.png`}></img>
           </Item_Box>
         </Box_Container>
       </Recommend_Container>
@@ -199,6 +200,7 @@ export default function QuickBuild({ currentChamp }) {
 
 /**
  * 입력받은 Tags 배열 안의 직업군을 분석해 해당 직업군에 "걸맞는" 아이템 빌드를 추천해줍니다.
+ *
  * 1. 데이터의 직업군에 서포터가 포함된 경우 :
  * 주문도둑검, 유물방패, 영혼의 낫, 강철 어깨 보호대 ("3850", "3858", "3862", "3854") 중 하나
  * 2. 데이터의 직업군이 서포터가 아닐 때 :
@@ -208,8 +210,9 @@ export default function QuickBuild({ currentChamp }) {
  *
  * Tags는 2개 이상의 직업군을 포함하지 않음으로 첫번째 직업군 비교 후 추천
  *
- * 암흑의 인장, 여신의 눈물, 수확의 낫 등은 제외
- * 체력 포션 2개는 고정되어 있다는 전제 하에 진행하기 때문에 첫 추천 아이템이 무엇인지만 정합니다. */
+ * 암흑의 인장, 여신의 눈물, 수확의 낫 등은 제외합니다.
+ * 체력 포션 2개는 고정되어 있다는 전제 하에 진행하기 때문에 첫 추천 아이템이 무엇인지만 정합니다.
+ * */
 function recommendStart(champion) {
   if (champion.tags[0] === "Support") {
     if (champion.id === "Ivern") {
@@ -330,6 +333,17 @@ function recommendStart(champion) {
     return "1055";
   }
 }
+
+/**
+ * 챔피언의 성향에 맞춰 추천 신발 이미지의 문자열을 반환합니다.
+ *
+ * 광전사, 신속, 마법사, 판금장화, 헤르메스, 아이오니아, 기동력
+ * ("3006", "3009", "3020", "3047", "3111", "3158", "3117")
+ * 중 하나를 추천합니다.
+ *
+ * 신발 추천의 기준이 다르기 때문에 분류를 달리합니다.
+ */
+function recommendBoots(champion) {}
 
 /**
  * 제공된 "스킬 마스터 추천 순서" 데이터에 따른 이미지 링크를 불러옵니다.

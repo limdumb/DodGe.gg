@@ -1,27 +1,132 @@
 [
   {
-    "Anivia": {
-      "win_rate": "52.09%",
-      "pick_rate": "2.61%",
-      "ban_rate": "2.15%",
+    "Garen": {
+      "line": "Top",
+      "rates": {
+        "win_rate": "50.95%",
+        "pick_rate": "3.89%",
+        "ban_rate": "1.59%"
+      },
       "skill_tree": ["E", "Q", "W"],
-      "core_items": ["6653", "3003", "3157"]
+      "core_items": ["6631", "3033", "3742"],
+      "runes": {
+        "main_rune": ["Precision", 3, 1, 1, 2],
+        "sub_rune": ["Resolve", null, 0, 0],
+        "stat": [0, 0, 1]
+      },
+      "counter_list": [
+        {
+          "name": "Camille",
+          "counter_win_rate": "43.2%",
+          "game_count": "2,350"
+        },
+        {
+          "name": "Urgot",
+          "counter_win_rate": "44.23%",
+          "game_count": "676"
+        },
+        {
+          "name": "Udyr",
+          "counter_win_rate": "45.38%",
+          "game_count": "238"
+        },
+        {
+          "name": "Lillia",
+          "counter_win_rate": "46.05%",
+          "game_count": "254"
+        },
+        {
+          "name": "Quinn",
+          "counter_win_rate": "46.12%",
+          "game_count": "232"
+        }
+      ]
     },
 
-    "Annie": {
-      "win_rate": "50.54%",
-      "pick_rate": "1.00%",
-      "ban_rate": "0.24%",
+    "Galio": {
+      "line": "Mid",
+      "rates": {
+        "win_rate": "51.11%",
+        "pick_rate": "1.82%",
+        "ban_rate": "0.23%"
+      },
       "skill_tree": ["Q", "W", "E"],
-      "core_items": ["6655", "4645", "3157"]
+      "core_items": ["6656", "3157", "4637"],
+      "runes": {
+        "main_rune": ["Resolve", 1, 2, 2, 0],
+        "sub_rune": ["Sorcery", 2, 0, null],
+        "stat": [0, 0, 2]
+      },
+      "counter_list": [
+        {
+          "name": "Gangplank",
+          "counter_win_rate": "36.82%",
+          "game_count": "201"
+        },
+        {
+          "name": "Tristana",
+          "counter_win_rate": "41.05%",
+          "game_count": "95"
+        },
+        {
+          "name": "Garen",
+          "counter_win_rate": "41.1%",
+          "game_count": "73"
+        },
+        {
+          "name": "Swain",
+          "counter_win_rate": "42.86%",
+          "game_count": "336"
+        },
+        {
+          "name": "Oriana",
+          "counter_win_rate": "44.49%",
+          "game_count": "227"
+        }
+      ]
     },
 
-    "Nami": {
-      "win_rate": "52.75%",
-      "pick_rate": "13.09%",
-      "ban_rate": "3.94%",
-      "skill_tree": ["W", "E", "Q"],
-      "core_items": ["4005", "3011", "6616"]
+    "Gangplank": {
+      "line": "Top",
+      "rates": {
+        "win_rate": "50.49%",
+        "pick_rate": "7.68%",
+        "ban_rate": "5.02%"
+      },
+      "skill_tree": ["Q", "E", "W"],
+      "core_items": ["3508", "6693", "6676"],
+      "runes": {
+        "main_rune": ["Inspiration", 2, 1, 2, 0],
+        "sub_rune": ["Domination", 1, null, 0],
+        "stat": [0, 0, 1]
+      },
+      "counter_list": [
+        {
+          "name": "Akshan",
+          "counter_win_rate": "42.95%",
+          "game_count": "780"
+        },
+        {
+          "name": "Olaf",
+          "counter_win_rate": "45.46%",
+          "game_count": "1,641"
+        },
+        {
+          "name": "Tryndamere",
+          "counter_win_rate": "45.57%",
+          "game_count": "1,852"
+        },
+        {
+          "name": "Quinn",
+          "counter_win_rate": "46.88%",
+          "game_count": "642"
+        },
+        {
+          "name": "Rengar",
+          "counter_win_rate": "46.97%",
+          "game_count": "1,024"
+        }
+      ]
     }
   }
 ]

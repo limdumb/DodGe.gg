@@ -124,13 +124,13 @@ export default function QuickGuide({ currentChamp }) {
         </div>
         <div className="Rate_Info_Wrapper">
           <div className="Rate">
-            승률 <span>{DetailedData[0][currentChamp.id].win_rate}</span>
+            승률 <span>{DetailedData[0][currentChamp.id].rates.win_rate}</span>
           </div>
           <div className="Rate">
-            픽률 <span>{DetailedData[0][currentChamp.id].pick_rate}</span>
+            픽률 <span>{DetailedData[0][currentChamp.id].rates.pick_rate}</span>
           </div>
           <div className="Rate">
-            밴률 <span>{DetailedData[0][currentChamp.id].ban_rate}</span>
+            밴률 <span>{DetailedData[0][currentChamp.id].rates.ban_rate}</span>
           </div>
         </div>
       </div>
