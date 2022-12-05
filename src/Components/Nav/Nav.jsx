@@ -63,6 +63,13 @@ const Nav = () => {
     setClickCheck(!clickCheck);
   }
 
+  const ChampionScroll = () => {
+    window.scroll({
+      top: 70,
+      behavior: "smooth",
+    });
+  };
+
   const TopScroll = () => {
     window.scroll({
       top: 0,
@@ -91,6 +98,7 @@ const Nav = () => {
         bottom={"80px"}
         right={"20px"}
         speed={"0.5s"}
+        onClick={ChampionScroll}
       />
       <SubNavBtn
         clickCheck={clickCheck}
