@@ -1,50 +1,54 @@
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  width: 100%;
-  height: 50%;
+  height: 500px;
 
   @media only screen and (min-width: 768px) {
-    height: 45%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media only screen and (min-width: 1024px) {
+    flex-direction: row;
   }
 `;
 
 const Guide_Container = styled.div`
-  width: 100%;
-  height: 100%;
-  padding: 15px;
+  height: 250px;
+  padding: 20px 0;
 
   table {
     width: 100%;
-    height: 100%;
-    font-size: 1.35rem;
+    height: 200px;
+    font-size: 16px;
     text-align: center;
     table-layout: fixed;
 
     th {
-      font-size: 1.5rem;
+      font-size: 18px;
     }
 
     th:nth-child(1) {
       width: 30%;
     }
 
-    div.Image_Container {
+    .Image_Container {
       position: relative;
       display: flex;
       justify-content: center;
 
       img {
         width: 40%;
+        margin: 1px;
       }
 
       span {
         position: absolute;
-        font-size: 1.05rem;
-        height: 40%;
-        width: 15%;
-        top: 60%;
-        right: 12.5%;
+        font-size: 16px;
+        height: 20px;
+        width: 20px;
+        top: 55%;
+        right: 10%;
         color: white;
         background-color: rgba(0, 0, 0, 0.25);
       }
@@ -60,31 +64,66 @@ const Guide_Container = styled.div`
   }
 
   @media only screen and (min-width: 768px) {
-    padding: 1px;
-    border: solid rgba(0, 0, 0, 0.25) 1px;
+    flex: 1;
+    height: 350px;
+    padding: 25px;
 
     table {
-      font-size: 0.85rem;
+      height: 300px;
+      font-size: 18px;
 
       th {
-        font-size: 1rem;
+        font-size: 25px;
+      }
+
+      .Image_Container {
+        img {
+          width: 32.5%;
+          margin: 2px;
+        }
+
+        span {
+          font-size: 16px;
+          height: 20px;
+          width: 20px;
+          top: 47.5%;
+          right: 5%;
+        }
       }
     }
   }
 
   @media only screen and (min-width: 1024px) {
-    div.Image_Container {
-      span {
-        top: 40%;
-        right: 10%;
+    height: 325px;
+    padding: 10px 5px;
+
+    &:first-child {
+      border-right: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    table {
+      padding: 10px;
+
+      tr {
+        height: 75px;
+      }
+
+      th {
+        font-size: 16px;
+      }
+
+      .Image_Container {
+        img {
+          width: 47.5%;
+          margin: 0;
+        }
       }
     }
   }
 `;
 
 export default function MoreSuggestions() {
-  const championImagesURL =
-    "http://ddragon.leagueoflegends.com/cdn/12.21.1/img";
+  const ImagesURL = "http://ddragon.leagueoflegends.com/cdn/12.21.1/img";
 
   return (
     <Wrapper>
@@ -102,10 +141,8 @@ export default function MoreSuggestions() {
             <tr>
               <td>
                 <div className="Image_Container">
-                  <img
-                    src={`${championImagesURL}/spell/SummonerFlash.png`}
-                  ></img>
-                  <img src={`${championImagesURL}/spell/SummonerDot.png`}></img>
+                  <img src={`${ImagesURL}/spell/SummonerFlash.png`}></img>
+                  <img src={`${ImagesURL}/spell/SummonerDot.png`}></img>
                 </div>
               </td>
               <td>49.15</td>
@@ -115,12 +152,8 @@ export default function MoreSuggestions() {
             <tr>
               <td>
                 <div className="Image_Container">
-                  <img
-                    src={`${championImagesURL}/spell/SummonerFlash.png`}
-                  ></img>
-                  <img
-                    src={`${championImagesURL}/spell/SummonerExhaust.png`}
-                  ></img>
+                  <img src={`${ImagesURL}/spell/SummonerFlash.png`}></img>
+                  <img src={`${ImagesURL}/spell/SummonerExhaust.png`}></img>
                 </div>
               </td>
               <td>48.10</td>
@@ -130,12 +163,8 @@ export default function MoreSuggestions() {
             <tr>
               <td>
                 <div className="Image_Container">
-                  <img
-                    src={`${championImagesURL}/spell/SummonerFlash.png`}
-                  ></img>
-                  <img
-                    src={`${championImagesURL}/spell/SummonerHeal.png`}
-                  ></img>
+                  <img src={`${ImagesURL}/spell/SummonerFlash.png`}></img>
+                  <img src={`${ImagesURL}/spell/SummonerHeal.png`}></img>
                 </div>
               </td>
               <td className="Green_Flag">52.08</td>
@@ -159,8 +188,8 @@ export default function MoreSuggestions() {
             <tr>
               <td>
                 <div className="Image_Container">
-                  <img src={`${championImagesURL}/item/3850.png`}></img>
-                  <img src={`${championImagesURL}/item/2003.png`}></img>
+                  <img src={`${ImagesURL}/item/3850.png`}></img>
+                  <img src={`${ImagesURL}/item/2003.png`}></img>
                   <span>2x</span>
                 </div>
               </td>
@@ -171,8 +200,8 @@ export default function MoreSuggestions() {
             <tr>
               <td>
                 <div className="Image_Container">
-                  <img src={`${championImagesURL}/item/3859.png`}></img>
-                  <img src={`${championImagesURL}/item/2003.png`}></img>
+                  <img src={`${ImagesURL}/item/3859.png`}></img>
+                  <img src={`${ImagesURL}/item/2003.png`}></img>
                   <span>2x</span>
                 </div>
               </td>

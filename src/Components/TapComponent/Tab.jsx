@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import "./Tab.css";
 import lineIconImg from "./imgLink";
 import TabBtn from "./TabBtn";
-import {ChampSerchBar} from '../CommonComponents/SerchInput'
+import { ChampSerchBar } from "../CommonComponents/SerchInput";
 
-const Tab = ({ line, setCheckLine }) => {
+const Tab = ({ line, setCheckLine, serchInputValue, setSerchInputValue }) => {
   let listLength = line.length;
   const [linebtnCheck, setLinebtnCheck] = useState(
     listLength === 5
@@ -14,13 +14,18 @@ const Tab = ({ line, setCheckLine }) => {
 
   return (
     <div>
-      <ChampSerchBar/>
+      <ChampSerchBar
+        serchInputValue={serchInputValue}
+        setSerchInputValue={setSerchInputValue}
+      />
       <div className="Tab_LineBox">
         {linebtnCheck.map((iconData, index) => {
           return (
             <TabBtn
               key={index}
-              iconData={listLength === 5 ? lineIconImg[index+1] : lineIconImg[index]}
+              iconData={
+                listLength === 5 ? lineIconImg[index + 1] : lineIconImg[index]
+              }
               index={index}
               linebtnCheck={linebtnCheck}
               setLinebtnCheck={setLinebtnCheck}

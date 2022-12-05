@@ -19,37 +19,28 @@ const SubmitSection = styled.div`
 
 export const SerchInput = () => {
   return (
-    <SubmitSection
-      width="450"
-      height="2rem"
-      right="1.8rem"
-      backgroundColor="white"
-    >
+    <SubmitSection height="2rem" right="1.8rem" backgroundColor="white">
       <input id="Serch_Input" type="text" placeholder="소환사명"></input>
       <button className="Serch_Button">.GG</button>
     </SubmitSection>
   );
 };
 
-export const ChampSerchBar = () => {
-  const [championName, setChampionName] = useState("");
-  const onChangeSubmit = (e) => {
-    e.preventDefault()
-    setChampionName(e.target.value)
-  }
-
+export const ChampSerchBar = ({ serchInputValue, setSerchInputValue }) => {
   return (
-      <div className="Tab_SearchBox">
-        <img
-          className="Tab_SearchImg"
-          src="https://s-lol-web.op.gg/images/icon/icon-search.svg"
-        />
-        <input
-          className="Tab_Search"
-          type="text"
-          placeholder="챔피언 검색"
-          autoComplete="off"
-        />
-      </div>
+    <div className="Tab_SearchBox">
+      <img
+        className="Tab_SearchImg"
+        src="https://s-lol-web.op.gg/images/icon/icon-search.svg"
+      />
+      <input
+        className="Tab_Search"
+        type="text"
+        placeholder="챔피언 검색"
+        autoComplete="off"
+        defaultValue={serchInputValue}
+        onChange={(e) => setSerchInputValue(e.target.value)}
+      />
+    </div>
   );
 };

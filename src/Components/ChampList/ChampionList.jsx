@@ -1,11 +1,9 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { champName } from "../../API/RiotAPI";
-import { GameInfoImage } from "../MyPage/RecordList";
 import "./ChampionList.css";
-import { StyleSpan } from "../MyPage/RecordList";
 
-export default function ChampionList() {
+export default function ChampionList(serchInputValue) {
   const [championName, setChampionName] = useState(null);
   useEffect(() => {
     const championData = async () => {
@@ -19,6 +17,11 @@ export default function ChampionList() {
     };
     championData();
   }, []);
+  console.log(championName)
+
+  // const filterChampion = championName.filter(() => {
+
+  // })
 
   return (
     <aside className="Right_Aside_Container">
@@ -31,11 +34,11 @@ export default function ChampionList() {
                 key={index}
                 onClick={() => console.log("하이")}
               >
-                <GameInfoImage width={40} src={data.image} />
+                <img className="Champ_Image" width={'40px'} src={data.image} />
                 <div>
-                  <StyleSpan fontsize={"10px"} key={index}>
+                  <span className="Champion_List_Name" key={index}>
                     {data.name}
-                  </StyleSpan>
+                  </span>
                 </div>
               </div>
             );

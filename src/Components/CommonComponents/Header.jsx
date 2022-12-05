@@ -5,19 +5,14 @@ import { SerchInput } from "./SerchInput";
 
 const Header = styled.header`
   box-sizing: border-box;
-  float: left;
   display: flex;
-  width: 300px;
+  width: 100%;
   background-color: black;
   height: 70px;
   background-color: rgb(45, 43, 46);
   justify-content: space-between;
   align-items: center;
   padding: 0 10px 0 10px;
-
-  @media screen and (max-width: 768px) {
-    width: 100%;
-  }
 `;
 
 const StyledButton = styled.button`
@@ -46,9 +41,11 @@ export default function MainHeader() {
       >
         Home
       </TabButton>
+      <div className="Logo_Container">
       <StyleSpan changeColor="white" fontsize="1.2rem" fontweight="bold">
         DodGe.GG
       </StyleSpan>
+      </div>
       <SerchInput/>
     </Header>
   );
