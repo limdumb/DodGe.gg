@@ -1,24 +1,21 @@
 import Champion from "./Json/Champion.json";
 
 const useChampions = (line) => {
-  const data = Champion[line].championRankingList;
+  const data = Champion[line];
   const championList = data.map((data) => {
     return {
       positionRank: data.positionRank,
-      img: data.image_url,
+      img: data.img,
       name: data.name,
       positionTier: data.positionTier === 0 ? "op" : data.positionTier,
-      positionWinRate: (data.positionWinRate * 100).toFixed(2) + "%",
-      positionPickRate: (data.positionPickRate * 100).toFixed(2) + "%",
-      positionBanRate: (data.positionBanRate * 100).toFixed(2) + "%",
-      positionCounters: data.positionCounters[0].img_url,
+      positionWinRate: data.positionWinRate,
+      positionPickRate: data.positionPickRate,
+      positionBanRate: data.positionBanRate,
+      positionCounters: data.positionCounters,
     };
   });
-  let listSort = championList.sort(function (a, b) {
-    return a.positionRank - b.positionRank;
-  });
 
-  return listSort;
+  return championList;
 };
 
 export default useChampions;
