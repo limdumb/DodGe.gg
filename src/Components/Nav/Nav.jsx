@@ -57,11 +57,18 @@ const SubNavBtn = styled.button`
   right: ${(props) => (props.clickCheck ? props.right : "30%")};
 `;
 
-const Nav = () => {
+const Nav = ({modalCheck, setModalCheck}) => {
   const [clickCheck, setClickCheck] = useState(false);
   function NavClick() {
     setClickCheck(!clickCheck);
   }
+
+  const ChampionSearchScroll = () => {
+    window.scroll({
+      top: 70,
+      behavior: "smooth",
+    });
+  };
 
   const TopScroll = () => {
     window.scroll({
@@ -69,6 +76,14 @@ const Nav = () => {
       behavior: "smooth",
     });
   };
+
+  const SummonerSerchOpen = () => {
+    setModalCheck([!modalCheck[0],false])
+  }
+
+  const OPListOpen = () => {
+    setModalCheck([false,!modalCheck[1]])
+  }
 
   return (
     <NavBody clickCheck={clickCheck} onClick={NavClick}>
@@ -91,6 +106,7 @@ const Nav = () => {
         bottom={"80px"}
         right={"20px"}
         speed={"0.5s"}
+        onClick={ChampionSearchScroll}
       />
       <SubNavBtn
         clickCheck={clickCheck}
@@ -98,6 +114,7 @@ const Nav = () => {
         bottom={"40px"}
         right={"80px"}
         speed={"0.7s"}
+        onClick={OPListOpen}
       />
       <SubNavBtn
         clickCheck={clickCheck}
@@ -105,6 +122,7 @@ const Nav = () => {
         bottom={"-30px"}
         right={"80px"}
         speed={"0.9s"}
+        onClick={SummonerSerchOpen}
       />
       <SubNavBtn
         clickCheck={clickCheck}

@@ -1,8 +1,8 @@
 import Champion from "./Json/Champion.json";
 
 const useChampions = (line) => {
-  const data = Champion[line];
-  const championList = data.map((data) => {
+  const ChampionData = Champion[line];
+  const ChampionList = ChampionData.map((data) => {
     return {
       positionRank: data.positionRank,
       img: data.img,
@@ -15,7 +15,7 @@ const useChampions = (line) => {
     };
   });
 
-  return championList;
+  return ChampionList;
 };
 
 export default useChampions;
