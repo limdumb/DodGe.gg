@@ -132,7 +132,6 @@ export async function champName() {
         champion.push({
           name: data,
           en_name: name[index],
-          image: `http://ddragon.leagueoflegends.com/cdn/12.22.1/img/champion/${name[index]}.png`,
         })
       );
       champion.sort((name, data) => (name.name < data.name ? -1 : 1));
