@@ -63,7 +63,7 @@ const Nav = ({modalCheck, setModalCheck}) => {
     setClickCheck(!clickCheck);
   }
 
-  const ChampionScroll = () => {
+  const ChampionSerchScroll = () => {
     window.scroll({
       top: 70,
       behavior: "smooth",
@@ -77,7 +77,7 @@ const Nav = ({modalCheck, setModalCheck}) => {
     });
   };
 
-  const SummonerSerch = () => {
+  const SummonerSerchOpen = () => {
     setModalCheck([!modalCheck[0],false])
   }
 
@@ -106,7 +106,7 @@ const Nav = ({modalCheck, setModalCheck}) => {
         bottom={"80px"}
         right={"20px"}
         speed={"0.5s"}
-        onClick={ChampionScroll}
+        onClick={ChampionSerchScroll}
       />
       <SubNavBtn
         clickCheck={clickCheck}
@@ -122,7 +122,7 @@ const Nav = ({modalCheck, setModalCheck}) => {
         bottom={"-30px"}
         right={"80px"}
         speed={"0.9s"}
-        onClick={SummonerSerch}
+        onClick={SummonerSerchOpen}
       />
       <SubNavBtn
         clickCheck={clickCheck}
