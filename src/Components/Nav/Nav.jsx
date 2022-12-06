@@ -63,7 +63,7 @@ const Nav = ({modalCheck, setModalCheck}) => {
     setClickCheck(!clickCheck);
   }
 
-  const ChampionSerchScroll = () => {
+  const ChampionSearchScroll = () => {
     window.scroll({
       top: 70,
       behavior: "smooth",
@@ -106,7 +106,7 @@ const Nav = ({modalCheck, setModalCheck}) => {
         bottom={"80px"}
         right={"20px"}
         speed={"0.5s"}
-        onClick={ChampionSerchScroll}
+        onClick={ChampionSearchScroll}
       />
       <SubNavBtn
         clickCheck={clickCheck}
