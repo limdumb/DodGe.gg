@@ -152,3 +152,17 @@ export async function fetchChampData(champName) {
 
   return userData;
 }
+
+export async function fetchRunesData() {
+  let runes = [];
+  await axios
+    .get(
+      `https://ddragon.leagueoflegends.com/cdn/10.16.1/data/ko_KR/runesReforged.json`
+    )
+    .then((res) => {
+      runes.push(res.data);
+    })
+    .catch((err) => console.log(err));
+
+  return runes;
+}
