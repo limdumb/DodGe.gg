@@ -16,27 +16,32 @@
       },
       "counter_list": [
         {
-          "name": "Camille",
+          "name_en": "Camille",
+          "name_kr": "카밀",
           "counter_win_rate": "43.2%",
           "game_count": "2,350"
         },
         {
-          "name": "Urgot",
+          "name_en": "Urgot",
+          "name_kr": "우르곳",
           "counter_win_rate": "44.23%",
           "game_count": "676"
         },
         {
-          "name": "Udyr",
+          "name_en": "Udyr",
+          "name_kr": "우디르",
           "counter_win_rate": "45.38%",
           "game_count": "238"
         },
         {
-          "name": "Lillia",
+          "name_en": "Lillia",
+          "name_kr": "릴리아",
           "counter_win_rate": "46.05%",
           "game_count": "254"
         },
         {
-          "name": "Quinn",
+          "name_en": "Quinn",
+          "name_kr": "퀸",
           "counter_win_rate": "46.12%",
           "game_count": "232"
         }
@@ -59,27 +64,32 @@
       },
       "counter_list": [
         {
-          "name": "Gangplank",
+          "name_en": "Gangplank",
+          "name_kr": "갱플랭크",
           "counter_win_rate": "36.82%",
           "game_count": "201"
         },
         {
-          "name": "Tristana",
+          "name_en": "Tristana",
+          "name_kr": "트리스타나",
           "counter_win_rate": "41.05%",
           "game_count": "95"
         },
         {
-          "name": "Garen",
+          "name_en": "Garen",
+          "name_kr": "가렌",
           "counter_win_rate": "41.1%",
           "game_count": "73"
         },
         {
-          "name": "Swain",
+          "name_en": "Swain",
+          "name_kr": "스웨인",
           "counter_win_rate": "42.86%",
           "game_count": "336"
         },
         {
-          "name": "Oriana",
+          "name_en": "Oriana",
+          "name_kr": "오리아나",
           "counter_win_rate": "44.49%",
           "game_count": "227"
         }
@@ -102,27 +112,32 @@
       },
       "counter_list": [
         {
-          "name": "Akshan",
+          "name_en": "Akshan",
+          "name_kr": "아크샨",
           "counter_win_rate": "42.95%",
           "game_count": "780"
         },
         {
-          "name": "Olaf",
+          "name_en": "Olaf",
+          "name_kr": "올라프",
           "counter_win_rate": "45.46%",
           "game_count": "1,641"
         },
         {
-          "name": "Tryndamere",
+          "name_en": "Tryndamere",
+          "name_kr": "트린다미어",
           "counter_win_rate": "45.57%",
           "game_count": "1,852"
         },
         {
-          "name": "Quinn",
+          "name_en": "Quinn",
+          "name_kr": "퀸",
           "counter_win_rate": "46.88%",
           "game_count": "642"
         },
         {
-          "name": "Rengar",
+          "name_en": "Rengar",
+          "name_kr": "렝가",
           "counter_win_rate": "46.97%",
           "game_count": "1,024"
         }

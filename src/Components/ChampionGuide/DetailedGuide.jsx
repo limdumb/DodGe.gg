@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import MoreSuggestions from "./MoreSuggestions";
+import CountersList from "./CountersList";
 import RunesGuide from "./RunesGuide";
 
 const Guide_Container = styled.div`
@@ -14,11 +14,11 @@ const Guide_Container = styled.div`
   }
 `;
 
-export default function DetailedGuide() {
+export default function DetailedGuide({ currentChamp }) {
   return (
     <Guide_Container>
-      <RunesGuide />
-      <MoreSuggestions />
+      <RunesGuide currentChamp={currentChamp} />
+      <CountersList currentChamp={currentChamp} />
     </Guide_Container>
   );
 }

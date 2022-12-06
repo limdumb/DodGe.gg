@@ -3,7 +3,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import { fetchChampData } from "../../API/RiotAPI";
 import QuickBuild from "./QuickBuild";
-import DetailedData from "./Json/DetailedData.json";
+import DetailedData from "./Data/DetailedData.json";
 
 const Container = styled.div`
   width: 100%;

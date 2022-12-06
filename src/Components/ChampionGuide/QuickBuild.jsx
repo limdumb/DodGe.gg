@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { RiArrowRightSFill } from "react-icons/ri";
-import DetailedData from "./Json/DetailedData.json";
+import DetailedData from "./Data/DetailedData.json";
 
 const Container = styled.div`
   width: 100%;

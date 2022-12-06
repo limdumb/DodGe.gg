@@ -1,4 +1,6 @@
+import { useEffect } from "react";
 import styled from "styled-components";
+import { fetchRunesData } from "../../API/RiotAPI";
 
 const Runes_Container = styled.div`
   height: 250px;

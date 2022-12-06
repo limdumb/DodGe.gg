@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import QuickGuide from "./QuickGuide";
 import DetailedGuide from "./DetailedGuide";
-import CountersList from "./CountersList";
 import { useState, useEffect } from "react";
 import { fetchChampData } from "../../API/RiotAPI";
 
@@ -39,7 +38,6 @@ export default function ChampionGuide() {
         {currentChamp && <QuickGuide currentChamp={currentChamp} />}
         {currentChamp && <DetailedGuide currentChamp={currentChamp} />}
       </div>
-      {/* <CountersList currentChamp={currentChamp} /> */}
     </Main_Container>
   );
 }
