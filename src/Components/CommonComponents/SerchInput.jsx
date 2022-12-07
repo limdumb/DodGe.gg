@@ -1,6 +1,5 @@
 import "./SerchInput.css";
 import styled from "styled-components";
-import { useState } from "react";
 
 const SubmitSection = styled.div`
   width: ${(props) => props.width};

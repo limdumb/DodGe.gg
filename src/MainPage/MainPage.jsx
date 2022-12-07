@@ -18,7 +18,7 @@ import OpList from "../Components/OPList/OPList";
 export default function MainPage() {
   const line = ["TOP", "JUNGLE", "MID", "ADC", "SUPPORT"];
   const [CheckLine, setCheckLine] = useState("TOP");
-  const [serchInputValue, setSerchInputValue] = useState("");
+  const [serchInputValue, setSerchInputValue] = useState('');
 
   return (
     <div>
