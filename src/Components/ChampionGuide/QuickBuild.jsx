@@ -141,7 +141,7 @@ export default function QuickBuild({ currentChamp }) {
         <h6>신발</h6>
         <div className="Box_Container">
           <div className="Item_Box">
-            <img src={`${ImagesURL}/item/3111.png`}></img>
+            <img src={`${ImagesURL}/item/${startBoots}.png`}></img>
           </div>
         </div>
       </div>
@@ -224,16 +224,19 @@ function recommendStart(champion) {
   }
 
   if (champion.tags[0] === "Mage") {
-    const exceptions = ["Anivia", "Neeko", "Oriana", "Taliyah", "Zoe"];
+    const exceptions = ["Anivia", "Neeko", "Oriana", "Zoe"];
+    const mageSupports = ["Brand", "Xerath"];
     if (
       champion.tags[1] === "Support" &&
       exceptions.includes(champion.id) === false
     ) {
       return "3850";
     }
-    if (champion.id === "Brand") {
+
+    if (mageSupports.includes(champion.id)) {
       return "3850";
     }
+
     if (champion.id === "Taliyah") {
       return "1102";
     }
@@ -341,18 +344,131 @@ function recommendStart(champion) {
  */
 function recommendBoots(champion) {
   if (champion.tags[0] === "Support") {
+    const swiftnessSupports = ["Bard"];
+    const mobilitySupports = ["Pyke", "Thresh"];
+    const tankSupports = ["Braum", "TahmKench", "Taric"];
+
+    if (swiftnessSupports.includes(champion.id)) {
+      return "3009";
+    }
+
+    if (mobilitySupports.includes(champion.id)) {
+      return "3117";
+    }
+
+    if (tankSupports.includes(champion.id)) {
+      return "3020";
+    }
+
+    return "3158";
   }
 
   if (champion.tags[0] === "Mage") {
+    const ionianMages = ["Karma", "Seraphine"];
+
+    if (ionianMages.includes(champion.id)) {
+      return "3158";
+    }
+
+    if (champion.id === "Cassiopeia") {
+      return null;
+    }
+
+    return "3020";
   }
 
   if (champion.tags[0] === "Tank") {
+    const mobilityTanks = ["Alistar", "Blitzcrank"];
+    const mageTanks = ["Galio"];
+    const swiftnessTanks = ["Singed"];
+
+    if (mobilityTanks.includes(champion.id)) {
+      return "3117";
+    }
+
+    if (mageTanks.includes(champion.id)) {
+      return "3020";
+    }
+
+    if (swiftnessTanks.includes(champion.id)) {
+      return "3009";
+    }
+
+    return "3047";
+  }
+
+  if (champion.tags[0] === "Assassin") {
+    const ionianAssassin = ["Qiyana", "Rengar", "Khazix", "Talon", "Zed"];
+    const platedAssassin = ["Viego"];
+
+    if (ionianAssassin.includes(champion.id)) {
+      return "3158";
+    }
+
+    if (platedAssassin.includes(champion.id)) {
+      return "3047";
+    }
+
+    if (champion.magic >= champion.attack) {
+      return "3020";
+    }
+
+    if (champion.magic < champion.attack) {
+      return "3006";
+    }
   }
 
   if (champion.tags[0] === "Marksman") {
+    const ionianMarksman = ["Ezreal"];
+    const swiftnessMarksman = ["Jhin", "Senna"];
+    const mageMarksman = ["Teemo"];
+
+    if (ionianMarksman.includes(champion.id)) {
+      return "3158";
+    }
+
+    if (swiftnessMarksman.includes(champion.id)) {
+      return "3009";
+    }
+
+    if (mageMarksman.includes(champion.id)) {
+      return "3020";
+    }
+
+    return "3006";
   }
 
   if (champion.tags[0] === "Fighter") {
+    const swiftnessFighter = ["Udyr"];
+    const mageFighter = ["Diana", "Rumble", "Shyvana"];
+    const ionianFighter = [
+      "Jayce",
+      "Kayn",
+      "Lillia",
+      "Riven",
+      "Skarner",
+      "Gangplank",
+      "Gragas",
+    ];
+    const berserkerFighter = ["Garen", "Kayle", "Nilah", "Tryndamere", "Yasuo"];
+
+    if (swiftnessFighter.includes(champion.id)) {
+      return "3009";
+    }
+
+    if (mageFighter.includes(champion.id)) {
+      return "3020";
+    }
+
+    if (ionianFighter.includes(champion.id)) {
+      return "3158";
+    }
+
+    if (berserkerFighter.includes(champion.id)) {
+      return "3006";
+    }
+
+    return "3047";
   }
 }
 
