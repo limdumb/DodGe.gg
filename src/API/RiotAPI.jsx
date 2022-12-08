@@ -143,7 +143,7 @@ export async function fetchChampData(champName) {
   let userData = [];
   await axios
     .get(
-      `https://ddragon.leagueoflegends.com/cdn/12.22.1/data/ko_KR/champion/${champName}.json`
+      `https://ddragon.leagueoflegends.com/cdn/12.23.1/data/ko_KR/champion/${champName}.json`
     )
     .then((res) => {
       userData.push(res.data.data);

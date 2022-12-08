@@ -3,7 +3,7 @@ import DetailedData from "./Data/DetailedData.json";
 import { champName } from "../../API/RiotAPI";
 
 const Container = styled.div`
-  background-color: burlywood;
+  background-color: bisque;
   display: flex;
   flex-wrap: wrap;
 
@@ -52,7 +52,6 @@ const Container = styled.div`
 `;
 
 export default function CountersList({ currentChamp }) {
-  const ImagesURL = "http://ddragon.leagueoflegends.com/cdn/12.21.1/img";
   return (
     <Container>
       <div className="Header">카운터 리스트</div>
@@ -89,7 +88,13 @@ function CounterItem(props) {
             .counter_win_rate
         }
       </div>
-      <div className="Flex_Wrapper"> 2,026 게임 </div>
+      <div className="Flex_Wrapper">
+        {
+          DetailedData[0][props.currentChamp.id].counter_list[props.idx]
+            .game_count
+        }{" "}
+        게임
+      </div>
     </li>
   );
 }

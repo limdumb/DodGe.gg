@@ -3,95 +3,75 @@ import { RiArrowRightSFill } from "react-icons/ri";
 import DetailedData from "./Data/DetailedData.json";
 
 const Container = styled.div`
-  width: 100%;
-  height: 50px;
+  height: 225px;
   display: flex;
-  justify-content: space-around;
+  flex-wrap: wrap;
 
-  @media only screen and (min-width: 768px) {
+  .Recommend_Container {
+    display: flex;
+    justify-content: center;
     align-items: center;
-    height: 150px;
-  }
-`;
+    flex-direction: column;
+    width: 33.333%;
+    border-bottom: solid rgba(0, 0, 0, 0.25) 1px;
 
-const Recommend_Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  margin-right: 1.5px;
+    :nth-child(1) {
+      width: 70%;
+    }
 
-  h6 {
-    font-size: 10.5px;
-    font-weight: bold;
-  }
+    :nth-child(2) {
+      width: 30%;
+    }
 
-  @media only screen and (min-width: 768px) {
-    height: 100px;
-    width: fit-content;
+    :nth-child(3) {
+      width: 30%;
+    }
+
+    :nth-child(4) {
+      width: 20%;
+    }
+
+    :nth-child(5) {
+      width: 50%;
+    }
 
     h6 {
-      font-size: 18px;
-      font-weight: bold;
+      font-size: 20px;
+    }
+
+    .Box_Container {
+      display: flex;
+      align-items: center;
+
+      .Item_Box {
+        position: relative;
+
+        .Skill_Key {
+          position: absolute;
+          text-align: center;
+          height: 100%;
+          width: 100%;
+          color: white;
+          font-size: 18px;
+          font-weight: bold;
+          background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .Item_Count {
+          position: absolute;
+          top: 45%;
+          right: 2.5%;
+          height: 25px;
+          width: 25px;
+          color: white;
+          background-color: rgba(0, 0, 0, 0.4);
+        }
+      }
     }
   }
-`;
-
-const Box_Container = styled.div`
-  width: 100%;
-  height: 50px;
-  display: flex;
-  align-items: center;
-
-  @media only screen and (min-width: 768px) {
-    justify-content: space-between;
-  }
-`;
-
-const Item_Box = styled.div`
-  height: 30px;
-  margin: 0 2.5px;
-  position: relative;
 
   img {
-    height: 100%;
-  }
-
-  span.Skill_Key {
-    position: absolute;
-    font-size: 12px;
-    font-weight: bold;
-    color: white;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-  }
-
-  span.Item_Count {
-    position: absolute;
-    height: 10px;
-    top: 50%;
-    right: 5%;
-    color: white;
-    font-weight: bold;
-    background-color: rgba(0, 0, 0, 0.3);
-  }
-
-  @media only screen and (min-width: 768px) {
-    height: 55px;
-
-    span.Skill_Key {
-      font-size: 16px;
-    }
-  }
-
-  @media only screen and (min-width: 1024px) {
-    height: 45px;
-    span.Item_Count {
-      font-size: 15px;
-      top: 55%;
-    }
+    height: 50px;
   }
 `;
 
@@ -103,97 +83,97 @@ export default function QuickBuild({ currentChamp }) {
     DetailedData[0][currentChamp.id].skill_tree,
     currentChamp
   );
-  const ImagesURL = "http://ddragon.leagueoflegends.com/cdn/12.21.1/img";
+  const ImagesURL = "http://ddragon.leagueoflegends.com/cdn/12.23.1/img";
   return (
     <Container>
-      <Recommend_Container>
+      <div className="Recommend_Container">
         <h6>스킬 마스터 추천 순서</h6>
-        <Box_Container>
-          <Item_Box>
+        <div className="Box_Container">
+          <div className="Item_Box">
             <span className="Skill_Key">
               {DetailedData[0][currentChamp.id].skill_tree[0]}
             </span>
             <img src={`${ImagesURL}/spell/${skillImages[0]}`}></img>
-          </Item_Box>
+          </div>
           <RiArrowRightSFill />
-          <Item_Box>
+          <div className="Item_Box">
             <span className="Skill_Key">
               {DetailedData[0][currentChamp.id].skill_tree[1]}
             </span>
             <img src={`${ImagesURL}/spell/${skillImages[1]}`}></img>
-          </Item_Box>
+          </div>
           <RiArrowRightSFill />
-          <Item_Box>
+          <div className="Item_Box">
             <span className="Skill_Key">
               {DetailedData[0][currentChamp.id].skill_tree[2]}
             </span>
             <img src={`${ImagesURL}/spell/${skillImages[2]}`}></img>
-          </Item_Box>
-        </Box_Container>
-      </Recommend_Container>
+          </div>
+        </div>
+      </div>
 
-      <Recommend_Container>
+      <div className="Recommend_Container">
         <h6>추천 스펠</h6>
-        <Box_Container>
-          <Item_Box>
+        <div className="Box_Container">
+          <div className="Item_Box">
             <img src={`${ImagesURL}/spell/SummonerFlash.png`}></img>
-          </Item_Box>
-          <Item_Box>
+          </div>
+          <div className="Item_Box">
             <img src={`${ImagesURL}/spell/SummonerDot.png`}></img>
-          </Item_Box>
-        </Box_Container>
-      </Recommend_Container>
+          </div>
+        </div>
+      </div>
 
-      <Recommend_Container>
+      <div className="Recommend_Container">
         <h6>시작 아이템</h6>
-        <Box_Container>
-          <Item_Box>
+        <div className="Box_Container">
+          <div className="Item_Box">
             <img src={`${ImagesURL}/item/${startItem}.png`}></img>
-          </Item_Box>
-          <Item_Box>
+          </div>
+          <div className="Item_Box">
             <img src={`${ImagesURL}/item/2003.png`}></img>
             <span className="Item_Count">2x</span>
-          </Item_Box>
-        </Box_Container>
-      </Recommend_Container>
+          </div>
+        </div>
+      </div>
 
-      <Recommend_Container>
+      <div className="Recommend_Container">
         <h6>신발</h6>
-        <Box_Container>
-          <Item_Box>
+        <div className="Box_Container">
+          <div className="Item_Box">
             <img src={`${ImagesURL}/item/3111.png`}></img>
-          </Item_Box>
-        </Box_Container>
-      </Recommend_Container>
+          </div>
+        </div>
+      </div>
 
-      <Recommend_Container>
+      <div className="Recommend_Container">
         <h6>코어템</h6>
-        <Box_Container>
-          <Item_Box>
+        <div className="Box_Container">
+          <div className="Item_Box">
             <img
               src={`${ImagesURL}/item/${
                 DetailedData[0][currentChamp.id].core_items[0]
               }.png`}
             ></img>
-          </Item_Box>
+          </div>
           <RiArrowRightSFill />
-          <Item_Box>
+          <div className="Item_Box">
             <img
               src={`${ImagesURL}/item/${
                 DetailedData[0][currentChamp.id].core_items[1]
               }.png`}
             ></img>
-          </Item_Box>
+          </div>
           <RiArrowRightSFill />
-          <Item_Box>
+          <div className="Item_Box">
             <img
               src={`${ImagesURL}/item/${
                 DetailedData[0][currentChamp.id].core_items[2]
               }.png`}
             ></img>
-          </Item_Box>
-        </Box_Container>
-      </Recommend_Container>
+          </div>
+        </div>
+      </div>
     </Container>
   );
 }
@@ -221,23 +201,28 @@ function recommendStart(champion) {
     if (champion.tags[1] === "Mage") {
       return "3850";
     }
+
     if (
       (champion.tags[1] === "Tank" || champion.tags[1] === "Fighter") &&
       champion.attack < champion.magic
     ) {
       return "3858";
     }
+
     if (
       (champion.tags[1] === "Tank" || champion.tags[1] === "Fighter") &&
       champion.attack >= champion.magic
     ) {
       return "3854";
     }
+
     if (champion.tags[1] === "Marksman" || champion.tags[1] === "Assassin") {
       return "3862";
     }
+
     return "3854";
   }
+
   if (champion.tags[0] === "Mage") {
     const exceptions = ["Anivia", "Neeko", "Oriana", "Taliyah", "Zoe"];
     if (
@@ -254,24 +239,33 @@ function recommendStart(champion) {
     }
     return "1056";
   }
+
   if (champion.tags[0] === "Tank") {
     const tankSupports = ["Amumu", "Blitzcrank", "Maokai"];
     const tankJunglers = [
-      "Jarvan",
+      "JarvanIV",
       "Nunu",
       "Poppy",
       "Rammus",
       "Sejuani",
       "Zac",
     ];
+
     if (champion.tags[1] === "Support" || tankSupports.includes(champion.id)) {
       return "3858";
     }
+
+    if (champion.tags[1] === "Mage") {
+      return "1056";
+    }
+
     if (tankJunglers.includes(champion.id)) {
       return "1103";
     }
+
     return "1054";
   }
+
   if (champion.tags[0] === "Assassin") {
     const mageJunglers = ["Evelyn", "Nidalee"];
     if (champion.tags[1] === "Fighter") {
@@ -292,6 +286,7 @@ function recommendStart(champion) {
       return "1056";
     }
   }
+
   if (champion.tags[0] === "Marksman") {
     if (champion.tags[1] === "Support") {
       return "3862";
@@ -304,6 +299,7 @@ function recommendStart(champion) {
     }
     return "1055";
   }
+
   if (champion.tags[0] === "Fighter") {
     const fighterJunglers = [
       "Belveth",
@@ -343,7 +339,22 @@ function recommendStart(champion) {
  *
  * 신발 추천의 기준이 다르기 때문에 분류를 달리합니다.
  */
-function recommendBoots(champion) {}
+function recommendBoots(champion) {
+  if (champion.tags[0] === "Support") {
+  }
+
+  if (champion.tags[0] === "Mage") {
+  }
+
+  if (champion.tags[0] === "Tank") {
+  }
+
+  if (champion.tags[0] === "Marksman") {
+  }
+
+  if (champion.tags[0] === "Fighter") {
+  }
+}
 
 /**
  * 제공된 "스킬 마스터 추천 순서" 데이터에 따른 이미지 링크를 불러옵니다.

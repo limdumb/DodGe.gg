@@ -10,9 +10,11 @@
       "skill_tree": ["E", "Q", "W"],
       "core_items": ["6631", "3033", "3742"],
       "runes": {
-        "main_rune": ["Precision", 3, 1, 1, 2],
-        "sub_rune": ["Resolve", null, 0, 0],
-        "stat": [0, 0, 1]
+        "main_rune_id": 8000,
+        "main_rune_order": [8229, 8226, 8210, 8237],
+        "sub_rune_id": 8100,
+        "sub_rune_order": [8106, 8126],
+        "stat": [5008, 5008, 5003]
       },
       "counter_list": [
         {
@@ -58,9 +60,11 @@
       "skill_tree": ["Q", "W", "E"],
       "core_items": ["6656", "3157", "4637"],
       "runes": {
-        "main_rune": ["Resolve", 1, 2, 2, 0],
-        "sub_rune": ["Sorcery", 2, 0, null],
-        "stat": [0, 0, 2]
+        "main_rune_id": 8000,
+        "main_rune_order": [8229, 8226, 8210, 8237],
+        "sub_rune_id": 8100,
+        "sub_rune_order": [8106, 8126],
+        "stat": [5008, 5008, 5003]
       },
       "counter_list": [
         {
@@ -88,7 +92,7 @@
           "game_count": "336"
         },
         {
-          "name_en": "Oriana",
+          "name_en": "Orianna",
           "name_kr": "오리아나",
           "counter_win_rate": "44.49%",
           "game_count": "227"
@@ -106,7 +110,7 @@
       "skill_tree": ["Q", "E", "W"],
       "core_items": ["3508", "6693", "6676"],
       "runes": {
-        "main_rune_id": 8200,
+        "main_rune_id": 8000,
         "main_rune_order": [8229, 8226, 8210, 8237],
         "sub_rune_id": 8100,
         "sub_rune_order": [8106, 8126],

@@ -3,14 +3,12 @@ import CountersList from "./CountersList";
 import RunesGuide from "./RunesGuide";
 
 const Guide_Container = styled.div`
-  height: 750px;
+  height: 800px;
 
   @media only screen and (min-width: 768px) {
-    height: 1050px;
   }
 
   @media only screen and (min-width: 1024px) {
-    height: 725px;
   }
 `;
 
