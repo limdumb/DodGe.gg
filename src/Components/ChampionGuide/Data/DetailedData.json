@@ -110,10 +110,10 @@
       "skill_tree": ["Q", "E", "W"],
       "core_items": ["3508", "6693", "6676"],
       "runes": {
-        "main_rune_id": 8000,
-        "main_rune_order": [8229, 8226, 8210, 8237],
+        "main_rune_id": 8300,
+        "main_rune_order": [8369, 8304, 8345, 8347],
         "sub_rune_id": 8100,
-        "sub_rune_order": [8106, 8126],
+        "sub_rune_order": [8139, 8135],
         "stat": [5008, 5008, 5003]
       },
       "counter_list": [

@@ -157,7 +157,7 @@ export async function fetchRunesData() {
   let runes = [];
   await axios
     .get(
-      `https://ddragon.leagueoflegends.com/cdn/10.16.1/data/ko_KR/runesReforged.json`
+      `https://ddragon.leagueoflegends.com/cdn/12.23.1/data/ko_KR/runesReforged.json`
     )
     .then((res) => {
       runes.push(res.data);
