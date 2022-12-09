@@ -3,6 +3,7 @@ import { RiArrowRightSFill } from "react-icons/ri";
 import DetailedData from "./Data/DetailedData.json";
 
 const Container = styled.div`
+  padding: 0 5px;
   height: 225px;
   display: flex;
   flex-wrap: wrap;

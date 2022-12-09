@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import DetailedData from "./Data/DetailedData.json";
-import { champName } from "../../API/RiotAPI";
 
 const Container = styled.div`
   background-color: bisque;

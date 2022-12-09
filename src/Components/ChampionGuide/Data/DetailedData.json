@@ -8,13 +8,13 @@
         "ban_rate": "1.59%"
       },
       "skill_tree": ["E", "Q", "W"],
-      "core_items": ["6631", "3033", "3742"],
+      "core_items": [6631, 3033, 3742],
       "runes": {
         "main_rune_id": 8000,
-        "main_rune_order": [8229, 8226, 8210, 8237],
-        "sub_rune_id": 8100,
-        "sub_rune_order": [8106, 8126],
-        "stat": [5008, 5008, 5003]
+        "main_rune_order": [8010, 9111, 9105, 8299],
+        "sub_rune_id": 8400,
+        "sub_rune_order": [8429, 8451],
+        "stat": [5008, 5008, 5002]
       },
       "counter_list": [
         {
@@ -58,12 +58,12 @@
         "ban_rate": "0.23%"
       },
       "skill_tree": ["Q", "W", "E"],
-      "core_items": ["6656", "3157", "4637"],
+      "core_items": [6656, 3157, 4637],
       "runes": {
-        "main_rune_id": 8000,
-        "main_rune_order": [8229, 8226, 8210, 8237],
-        "sub_rune_id": 8100,
-        "sub_rune_order": [8106, 8126],
+        "main_rune_id": 8400,
+        "main_rune_order": [8439, 8401, 8473, 8451],
+        "sub_rune_id": 8200,
+        "sub_rune_order": [8275, 8210],
         "stat": [5008, 5008, 5003]
       },
       "counter_list": [
@@ -108,13 +108,13 @@
         "ban_rate": "5.02%"
       },
       "skill_tree": ["Q", "E", "W"],
-      "core_items": ["3508", "6693", "6676"],
+      "core_items": [3508, 6693, 6676],
       "runes": {
         "main_rune_id": 8300,
         "main_rune_order": [8369, 8304, 8345, 8347],
         "sub_rune_id": 8100,
         "sub_rune_order": [8139, 8135],
-        "stat": [5008, 5008, 5003]
+        "stat": [5008, 5008, 5002]
       },
       "counter_list": [
         {

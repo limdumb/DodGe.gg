@@ -20,7 +20,7 @@ const Runes_Container = styled.div`
     padding-bottom: 15px;
 
     .Runes_Row {
-      width: 450px;
+      width: 350px;
       height: 75px;
       display: flex;
       justify-content: space-evenly;

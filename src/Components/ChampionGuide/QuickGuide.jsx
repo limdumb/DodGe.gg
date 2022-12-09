@@ -1,7 +1,4 @@
-import { useEffect } from "react";
-import { useState } from "react";
 import styled from "styled-components";
-import { fetchChampData } from "../../API/RiotAPI";
 import QuickBuild from "./QuickBuild";
 import DetailedData from "./Data/DetailedData.json";
 
@@ -13,9 +10,12 @@ const Container = styled.div`
   }
 
   .Champion_Portrait {
+    width: 30%;
+    height: 125px;
+
     img {
-      height: 125px;
-      width: 125px;
+      width: 100%;
+      height: 100%;
     }
   }
 
@@ -29,20 +29,19 @@ const Container = styled.div`
 
     h2 {
       color: green;
-      font-size: 22px;
+      font-size: 20px;
       font-weight: bold;
-      margin: 5px 0;
+      margin: 7.5px 0;
     }
 
     .Skill_Set {
-      width: 100%;
       height: 50px;
       display: flex;
       justify-content: space-evenly;
 
       img {
-        width: 50px;
-        height: 50px;
+        width: 17.5%;
+        height: 100%;
       }
     }
 
@@ -51,10 +50,10 @@ const Container = styled.div`
       display: flex;
       justify-content: space-evenly;
       align-items: center;
-      font-size: 15px;
+      font-size: 14px;
 
       .Rate {
-        padding-right: 2.5px;
+        padding-right: 7.5px;
 
         &:not(:last-child) {
           border-right: solid 1px rgba(0, 0, 0, 0.5);
