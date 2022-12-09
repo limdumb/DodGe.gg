@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
+import './TypeTab.css'
 
 const TabButton = styled.button`
   border: none;
@@ -13,6 +14,7 @@ const TabButton = styled.button`
   color: ${(props) => (props.changeColor ? "black" : "rgb(187, 187, 187)")};
   margin-top: ${(props) => props.marginTop};
   margin-bottom: ${(props) => props.marginBtm};
+  margin-left: ${(props)=> props.marginLft};
 `;
 
 export function TypeTab({ onTabChange }) {
@@ -77,8 +79,8 @@ export function TypeTab({ onTabChange }) {
   ];
 
   return (
-    <div className="Record__Tab__Container">
-      <ul className="Tab__Type">
+    <div className="Record_Tab__Container">
+      <ul className="Tab_Type">
         {tabContArr.map((section) => {
           return <li key={section.id}>{section.tabTitle}</li>;
         })}
@@ -89,7 +91,7 @@ export function TypeTab({ onTabChange }) {
 
 export const RankTab = ({ userSoloTier, userFreeRankTier }) => {
   const [rankInfo, setRankInfo] = useState(0);
-
+console.log(userSoloTier)
   const tabHandler = (index) => {
     setRankInfo(index);
   };
@@ -107,18 +109,18 @@ export const RankTab = ({ userSoloTier, userFreeRankTier }) => {
         </TabButton>
       ),
       rankContent: (
-        <div className="Tab__Tier__Container">
+        <div className="Tab_Tier_Container">
           <img
-            className="Icon__Image"
-            src={process.env.PUBLIC_URL + "./Image/PlatinumImage.png"}
+            className="Icon_Image"
+            src={process.env.PUBLIC_URL + "/Image/PlatinumImage.png"}
           />
-          <div className="Tab__Tier__Contents">
+          <div className="Tab_Tier_Contents">
             {userSoloTier && (
               <>
-                <span className="Tab__Tier__Contents__1">
+                <span className="Tab_Tier_Contents_1">
                   {userSoloTier.tier} {userSoloTier.rank}
                 </span>
-                <span className="Tab__Tier__Contents__2">
+                <span className="Tab_Tier_Contents_2">
                   {userSoloTier.leaguePoints}LP
                 </span>
               </>
@@ -132,6 +134,7 @@ export const RankTab = ({ userSoloTier, userFreeRankTier }) => {
       rankTitle: (
         <TabButton
           fontsize="20px"
+          marginLft='5px'
           changeColor={rankInfo === 1}
           onClick={() => tabHandler(1)}
         >
@@ -139,18 +142,18 @@ export const RankTab = ({ userSoloTier, userFreeRankTier }) => {
         </TabButton>
       ),
       rankContent: (
-        <div className="Tab__Tier__Container">
+        <div className="Tab_Tier_Container">
           <img
-            className="Icon__Image"
-            src={process.env.PUBLIC_URL + "./Image/PlatinumImage.png"}
+            className="Icon_Image"
+            src={process.env.PUBLIC_URL + "/Image/PlatinumImage.png"}
           />
-          <div className="Tab__Tier__Contents">
+          <div className="Tab_Tier_Contents">
             {userFreeRankTier && (
               <>
-                <span className="Tab__Tier__Contents__1">
+                <span className="Tab_Tier_Contents_1">
                   {userFreeRankTier.tier} {userFreeRankTier.rank}
                 </span>
-                <span className="Tab__Tier__Contents__2">
+                <span className="Tab_Tier_Contents_2">
                   {userFreeRankTier.leaguePoints}LP
                 </span>
               </>
@@ -163,7 +166,7 @@ export const RankTab = ({ userSoloTier, userFreeRankTier }) => {
 
   return (
     <div>
-      <ul className="Tab__User__Tier">
+      <ul className="Tab_User_Tier">
         {userTierArr.map((section) => {
           return <li key={section.id}>{section.rankTitle}</li>;
         })}

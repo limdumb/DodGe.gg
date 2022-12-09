@@ -5,7 +5,6 @@ import { TypeTab } from "../Components/MyPage/TypeTab";
 import RecordList from "../Components/MyPage/RecordList";
 import Footer from "../Components/CommonComponents/Footer.jsx";
 import { useState } from "react";
-import "bootstrap/dist/css/bootstrap.css";
 import { useEffect } from "react";
 import { summonerData, summonerLeagueData, matchSummoryData } from "../API/RiotAPI";
 
@@ -24,8 +23,8 @@ export default function MyPages() {
 
     const userTierData = async () => {
       const response = await summonerLeagueData();
-      setUserSoloTier(response.data[1]);
-      setUserFreeRankTier(response.data[0]);
+      setUserSoloTier(response.data[0]);
+      setUserFreeRankTier(response.data[1]);
     };
 
     const userMatchSummory = async () => {
@@ -38,11 +37,10 @@ export default function MyPages() {
     userInfoData();
   }, []);
 
-  console.log(userFreeRankTier);
   return (
     <>
       <MainHeader />
-      <div id="Main__Container">
+      <div id="Main_Container">
         <main>
           {userProfile && (
             <UserInformation
@@ -52,20 +50,20 @@ export default function MyPages() {
               name={userProfile.name}
             />
           )}
-          <div className="Information__transfer__Container">
+          <div className="Information_transfer_Container">
             <span>혹시 알고 계셨나요?</span>
             <span>협곡의 전령은 바위개의 형이랍니다 응애</span>
           </div>
           <TypeTab
             onTabChange={(index) => {
               if (index === 0) {
-                setCurrentTab("All__Game__Record");
+                setCurrentTab("All_Game_Record");
               } else if (index === 1) {
-                setCurrentTab("Solo__Rank__Record");
+                setCurrentTab("Solo_Rank_Record");
               } else if (index === 2) {
-                setCurrentTab("Free__Rank__Record");
+                setCurrentTab("Free_Rank_Record");
               } else {
-                setCurrentTab("Normal__Game__Record");
+                setCurrentTab("Normal_Game_Record");
               }
             }}
           />

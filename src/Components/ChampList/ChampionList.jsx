@@ -23,7 +23,7 @@ export default function ChampionList({ serchInputValue }) {
 
   const result =
     champNormalName &&
-    champNormalName.filter((el, index) => {
+    champNormalName.filter((el) => {
       return regex.test(el.name);
     });
 
