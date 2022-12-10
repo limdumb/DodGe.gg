@@ -7,6 +7,13 @@ import Footer from "../Components/CommonComponents/Footer.jsx";
 import { useState } from "react";
 import { useEffect } from "react";
 import { summonerData, summonerLeagueData, matchSummoryData } from "../API/RiotAPI";
+import { StyleSpan } from "../Components/MyPage/RecordList";
+import styled from "styled-components";
+
+const EasterEggSpan = styled(StyleSpan)`
+  display: flex;
+  justify-content: center;
+`
 
 export default function MyPages() {
   const [currentTab, setCurrentTab] = useState("All__Game__Record");
@@ -50,9 +57,9 @@ export default function MyPages() {
               name={userProfile.name}
             />
           )}
-          <div className="Information_transfer_Container">
-            <span>혹시 알고 계셨나요?</span>
-            <span>협곡의 전령은 바위개의 형이랍니다 응애</span>
+          <div>
+            <EasterEggSpan>혹시 알고 계셨나요?</EasterEggSpan>
+            <EasterEggSpan>협곡의 전령은 바위개의 형이랍니다 응애</EasterEggSpan>
           </div>
           <TypeTab
             onTabChange={(index) => {
