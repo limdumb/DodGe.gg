@@ -1,10 +1,13 @@
 function escapeRegExp(string) {
-  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') // $&은 일치한 문자열 전체를 의미
+  console.log("inside of escape reg ex");
+  console.log(string);
+  return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); // $&은 일치한 문자열 전체를 의미
 }
 function unicodeConversion(ch) {
   const offset = 44032; /* '가'의 코드 */
   // 한국어 음절
   if (/[가-힣]/.test(ch)) {
+    console.log("marker0");
     const chCode = ch.charCodeAt(0) - offset;
     // 종성이 있으면 문자 그대로를 찾는다.
     if (chCode % 28 > 0) {
@@ -15,7 +18,8 @@ function unicodeConversion(ch) {
     return `[\\u${begin.toString(16)}-\\u${end.toString(16)}]`;
   }
 
-  if([/[ㄱ-ㅎ]/.test(ch)]){
+  if (/[ㄱ-ㅎ]/.test(ch)) {
+    console.log("marker1");
     const unicodKr = {
       ㄱ: "가".charCodeAt(0),
       ㄲ: "까".charCodeAt(0),
@@ -28,15 +32,20 @@ function unicodeConversion(ch) {
       ㅃ: "빠".charCodeAt(0),
       ㅅ: "사".charCodeAt(0),
     };
-  const begin = unicodKr[ch] || ( ( ch.charCodeAt(0) - 12613 /* 'ㅅ'의 코드 */ ) * 588 + unicodKr['ㅅ'] );
-  const end = begin + 587;
-  return `[${ch}\\u${begin.toString(16)}-\\u${end.toString(16)}]`;
+    const begin =
+      unicodKr[ch] ||
+      (ch.charCodeAt(0) - 12613) /* 'ㅅ'의 코드 */ * 588 + unicodKr["ㅅ"];
+    const end = begin + 587;
+    return `[${ch}\\u${begin.toString(16)}-\\u${end.toString(16)}]`;
   }
 
-  return escapeRegExp(ch)
+  console.log(escapeRegExp(ch));
+
+  return escapeRegExp(ch);
 }
 
 export function filterChampName(input) {
-  const pattern = input.split('').map(unicodeConversion).join('.*?');
+  const pattern = input.split("").map(unicodeConversion).join(".*?");
+  console.log(pattern);
   return new RegExp(pattern);
 }
