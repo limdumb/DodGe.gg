@@ -43,3 +43,22 @@ export const ChampSerchBar = ({ serchInputValue, setSerchInputValue }) => {
     </div>
   );
 };
+
+export const OpListSerchBar = ({ tabSerchInputValue, setTabSerchInputValue }) => {
+  return (
+    <div className="Tab_SearchBox">
+      <img
+        className="Tab_SearchImg"
+        src="https://s-lol-web.op.gg/images/icon/icon-search.svg"
+      />
+      <input
+        className="Tab_Search"
+        type="text"
+        placeholder="챔피언 검색"
+        autoComplete="off"
+        defaultValue={tabSerchInputValue}
+        onChange={(e) => setTabSerchInputValue(e.target.value)}
+      />
+    </div>
+  );
+};

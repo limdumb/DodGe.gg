@@ -3,13 +3,16 @@ import "./ChampionsList.css";
 import Champion from "./Champion";
 import useChampions from "./useChampions";
 import styled from "styled-components";
+import { filterChampName } from "../../Function/Serch";
 
 const HeaderBox = styled.span`
   width: ${(props) => props.width};
 `;
 
-const ChampionsList = ({ CheckLine }) => {
+const ChampionsList = ({ CheckLine, tabSerchInputValue }) => {
+  
   const championsList = useChampions(CheckLine);
+
   return (
     <div className="OPList_Box">
       <div className="Champion_HeaderBox">

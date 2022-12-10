@@ -1,15 +1,19 @@
 import React, { useState } from "react";
-import Tab from "../TapComponent/Tab";
+import { OpListTab } from "../TapComponent/Tab";
 import ChampionsList from "./ChampionsList";
-import "./OPList.css"
+import "./OPList.css";
 
-const OPList = () => {
-  const line = ["TOP", "JUNGLE", "MID", "ADC", "SUPPORT"];
+const OPList = ({ line, tabSerchInputValue, setTabSerchInputValue }) => {
   const [CheckLine, setCheckLine] = useState("TOP");
   return (
     <div className="Op_List_Container">
-      <Tab line={line} setCheckLine={setCheckLine} />
-      <ChampionsList CheckLine={CheckLine} />
+      <OpListTab
+        line={line}
+        setCheckLine={setCheckLine}
+        tabSerchInputValue={tabSerchInputValue}
+        setTabSerchInputValue={setTabSerchInputValue}
+      />
+      <ChampionsList CheckLine={CheckLine} tabSerchInputValue={tabSerchInputValue} />
     </div>
   );
 };

@@ -7,7 +7,6 @@ function unicodeConversion(ch) {
   const offset = 44032; /* '가'의 코드 */
   // 한국어 음절
   if (/[가-힣]/.test(ch)) {
-    console.log("marker0");
     const chCode = ch.charCodeAt(0) - offset;
     // 종성이 있으면 문자 그대로를 찾는다.
     if (chCode % 28 > 0) {
@@ -19,7 +18,6 @@ function unicodeConversion(ch) {
   }
 
   if (/[ㄱ-ㅎ]/.test(ch)) {
-    console.log("marker1");
     const unicodKr = {
       ㄱ: "가".charCodeAt(0),
       ㄲ: "까".charCodeAt(0),
@@ -39,13 +37,10 @@ function unicodeConversion(ch) {
     return `[${ch}\\u${begin.toString(16)}-\\u${end.toString(16)}]`;
   }
 
-  console.log(escapeRegExp(ch));
-
   return escapeRegExp(ch);
 }
 
 export function filterChampName(input) {
   const pattern = input.split("").map(unicodeConversion).join(".*?");
-  console.log(pattern);
   return new RegExp(pattern);
 }

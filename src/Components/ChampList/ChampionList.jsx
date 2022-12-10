@@ -22,11 +22,9 @@ export default function ChampionList({ serchInputValue }) {
 
   const filterChampionName =
     champNormalName &&
-    champNormalName.filter((el, index) => {
+    champNormalName.filter((el) => {
       return regex.test(el.name);
     });
-
-  console.log(filterChampionName);
 
   return (
     <aside className="Right_Aside_Container">

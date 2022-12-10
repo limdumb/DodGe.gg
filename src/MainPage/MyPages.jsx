@@ -5,7 +5,6 @@ import { TypeTab } from "../Components/MyPage/TypeTab";
 import RecordList from "../Components/MyPage/RecordList";
 import Footer from "../Components/CommonComponents/Footer.jsx";
 import { useState } from "react";
-import "bootstrap/dist/css/bootstrap.css";
 import { useEffect } from "react";
 import { summonerData, summonerLeagueData, matchSummoryData } from "../API/RiotAPI";
 
