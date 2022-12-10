@@ -5,7 +5,6 @@ import "./ChampionList.css";
 import { filterChampName } from "../../Function/Serch";
 
 export default function ChampionList({ serchInputValue }) {
-  const [championName, setChampionName] = useState(null);
   const [champNormalName, setChampNormalName] = useState(null);
   useEffect(() => {
     const championNameData = async () => {
@@ -21,24 +20,24 @@ export default function ChampionList({ serchInputValue }) {
 
   const regex = filterChampName(serchInputValue);
 
-  const result =
+  const filterChampionName =
     champNormalName &&
     champNormalName.filter((el, index) => {
       return regex.test(el.name);
     });
 
-  console.log(result);
+  console.log(filterChampionName);
 
   return (
     <aside className="Right_Aside_Container">
       <ul className="Champion_List_Container">
-        {result &&
-          result.map((data, index) => {
+        {filterChampionName &&
+          filterChampionName.map((data, index) => {
             return (
               <div
                 className="Champion__List"
                 key={index}
-                onClick={() => console.log("하이")}
+                onClick={() => data.en_name}
               >
                 <img
                   className="Champ_Image"
