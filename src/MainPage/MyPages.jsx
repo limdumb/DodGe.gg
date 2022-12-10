@@ -10,6 +10,7 @@ import {
   summonerData,
   summonerLeagueData,
   matchSummoryData,
+  gameUuid,
 } from "../API/RiotAPI";
 import { StyleSpan } from "../Components/MyPage/RecordList";
 import styled from "styled-components";
@@ -20,45 +21,42 @@ const EasterEggSpan = styled(StyleSpan)`
 `;
 
 export default function MyPages() {
-  const [currentTab, setCurrentTab] = useState("All__Game__Record");
-  const [userProfile, setUserProfile] = useState(null);
+  const [currentTab, setCurrentTab] = useState("All_Game_Record");
+  const [getUserProfil, setGetUserProfil] = useState(null);
   const [userSoloTier, setUserSoloTier] = useState(null);
   const [userFreeRankTier, setUserFreeRankTier] = useState(null);
-  const [userMatchData, setUserMatchData] = useState(null);
+  const [getUserMatchData, setGetUserMatchData] = useState(null);
+  const [gameUuidData, setGameUuidData] = useState(null);
 
   useEffect(() => {
     const userInfoData = async () => {
-      const response = await summonerData();
-      setUserProfile(response);
+      const userResponse = await summonerData();
+      const gameUuidResponse = await gameUuid(userResponse.puuid);
+      const machResponse = await matchSummoryData(gameUuidResponse.data);
+      const leagueDataResponse = await summonerLeagueData(userResponse.id);
+      setUserSoloTier(leagueDataResponse.data[0]);
+      setUserFreeRankTier(leagueDataResponse.data[1]);
+      setGameUuidData(gameUuidResponse);
+      setGetUserMatchData(machResponse);
+      setGetUserProfil(userResponse);
     };
 
-    const userTierData = async () => {
-      const response = await summonerLeagueData();
-      setUserSoloTier(response.data[0]);
-      setUserFreeRankTier(response.data[1]);
-    };
-
-    const userMatchSummory = async () => {
-      const response = await matchSummoryData();
-      setUserMatchData(response);
-    };
-
-    userMatchSummory();
-    userTierData();
     userInfoData();
   }, []);
+
+  console.log(getUserProfil)
 
   return (
     <>
       <MainHeader />
       <div id="Main_Container">
         <main>
-          {userProfile && (
+          {getUserProfil && (
             <UserInformation
               userSoloTier={userSoloTier}
               userFreeRankTier={userFreeRankTier}
-              profileIconId={userProfile.profileIconId}
-              name={userProfile.name}
+              profileIconId={getUserProfil.profileIconId}
+              name={getUserProfil.name}
             />
           )}
           <div>
@@ -67,22 +65,20 @@ export default function MyPages() {
               협곡의 전령은 바위개의 형이랍니다 응애
             </EasterEggSpan>
           </div>
-            <TypeTab
-              onTabChange={(index) => {
-                if (index === 0) {
-                  setCurrentTab("All_Game_Record");
-                } else if (index === 1) {
-                  setCurrentTab("Solo_Rank_Record");
-                } else if (index === 2) {
-                  setCurrentTab("Free_Rank_Record");
-                } else {
-                  setCurrentTab("Normal_Game_Record");
-                }
-              }}
-            />
-          {userMatchData && (
-            <RecordList tab={currentTab} userMatchData={userMatchData} />
-          )}
+          <TypeTab
+            onTabChange={(index) => {
+              if (index === 0) {
+                setCurrentTab("All_Game_Record");
+              } else if (index === 1) {
+                setCurrentTab("Solo_Rank_Record");
+              } else if (index === 2) {
+                setCurrentTab("Free_Rank_Record");
+              } else {
+                setCurrentTab("Normal_Game_Record");
+              }
+            }}
+          />
+          <RecordList tab={currentTab} getUserMatchData={getUserMatchData}/>
         </main>
       </div>
       <Footer />

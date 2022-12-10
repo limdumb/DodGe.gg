@@ -1,9 +1,8 @@
 import styled from "styled-components";
 import { month_Day, minute_Second } from "../../Function/TimeStemp";
-import './RecordList.css'
+import "./RecordList.css";
 
 const ListContainer = styled.div`
-  height: 120vh;
   margin-top: 10px;
   display: flex;
 `;
@@ -44,90 +43,91 @@ const PlayerList = styled.div`
   font-size: 14px;
 `;
 
-export default function RecordList({ tab, userMatchData }) {
-  const kdaScore = `${userMatchData.kills}/${userMatchData.deaths}/${userMatchData.assist}`;
-
-  const getChartList = (tab) => {
+export default function RecordList({ tab, getUserMatchData }) {
+  
+  return <>{getUserMatchData&&getUserMatchData.map((el,index)=>{
+    const kdaScore = `${el.kills}/${el.deaths}/${el.assist}`;
     if (tab === "All_Game_Record") {
       return (
-        <ListContainer>
-          <RecordContents backgroundColor={userMatchData.win}>
+        <ListContainer key={index}>
+          <RecordContents backgroundColor={el.win}>
             <div className="Record_Information">
-              <StyleSpan>{userMatchData.gameMode}</StyleSpan>
-              <StyleSpan marginBtm="12px">
-                {month_Day(userMatchData.gameCreation)}
+              <StyleSpan fontsize={'10px'}>{el.gameMode}</StyleSpan>
+              <StyleSpan fontsize={'10px'} marginBtm="12px">
+                {month_Day(el.gameCreation)}
               </StyleSpan>
               <StyleSpan
                 fontsize="15px"
                 changeColor={
-                  userMatchData.win ? "rgba(49, 141, 239, 0.676)" : "red"
+                  el.win ? "rgba(49, 141, 239, 0.676)" : "red"
                 }
                 fontweight="bold"
                 margin="3px"
               >
-                {userMatchData.win ? "Win" : "Lose"}
+                {el.win ? "Win" : "Lose"}
               </StyleSpan>
-              <StyleSpan>{minute_Second(userMatchData.gameDuration)}</StyleSpan>
+              <StyleSpan>{minute_Second(el.gameDuration)}</StyleSpan>
             </div>
             <div className="Record_My_Champ">
               <div className="My_Champ_Img">
                 <GameInfoImage
-                  width={64}
-                  src={`http://ddragon.leagueoflegends.com/cdn/12.22.1/img/champion/${userMatchData.championName}.png`}
+                  width={40}
+                  src={`http://ddragon.leagueoflegends.com/cdn/12.22.1/img/champion/${el.championName}.png`}
                   marginRgt="5px"
                 />
               </div>
               <div className="Spell_Content">
                 <GameInfoImage
-                  width={30}
+                  width={20}
                   src={
                     "http://ddragon.leagueoflegends.com/cdn/12.22.1/img/spell/SummonerFlash.png"
                   }
                   marginRgt="2px"
                 />
                 <GameInfoImage
-                  width={30}
-                  src={process.env.PUBLIC_URL + "./Image/Exhaust.png"}
+                  width={20}
+                  src={process.env.PUBLIC_URL + "/Image/Exhaust.png"}
                 />
                 <div className="Spell__Content">
                   <GameInfoImage
-                    width={30}
-                    src={process.env.PUBLIC_URL + "./Image/DarkHarvest.png"}
+                    width={20}
+                    src={process.env.PUBLIC_URL + "/Image/DarkHarvest.png"}
                     backgroundColor="black"
                     marginRgt="2px"
                   />
                   <GameInfoImage
-                    width={30}
-                    src={process.env.PUBLIC_URL + "./Image/DetailedRun.png"}
+                    width={20}
+                    src={process.env.PUBLIC_URL + "/Image/DetailedRun.png"}
                     backgroundColor="black"
                   />
                 </div>
               </div>
               <div className="KDA_InfoContainer">
-                <StyleSpan fontsize="25px">{kdaScore}</StyleSpan>
-                <StyleSpan fontsize="16px">
-                  CS:{userMatchData.totalMinionsKilled}개
+                <StyleSpan fontsize="15px">{kdaScore}</StyleSpan>
+                <StyleSpan fontsize="12px">
+                  CS:{el.totalMinionsKilled}개
                 </StyleSpan>
               </div>
             </div>
             <ul className="Record_Item_List">
-              {userMatchData.itemSlot.map((el) => {
+              {el&&el.itemSlot.map((el,index) => {
                 return el !== 0 ? (
-                  <li >
+                  <li key={index}>
                     <GameInfoImage
                       width={30}
                       marginRgt="3px"
+                      key={index}
                       src={`http://ddragon.leagueoflegends.com/cdn/12.22.1/img/item/${el}.png`}
                     ></GameInfoImage>
                   </li>
                 ) : (
-                  <li className="No_Item_List" key={el[0]}></li>
+                  <li className="No_Item_List" key={index}></li>
                 );
               })}
             </ul>
             <div className="Game_Result_Information">
               <ul className="Game_Player_List">
-                {userMatchData.redTeamSummonerName.map((el) => {
+                {el&&el.redTeamSummonerName.map((el) => {
                   return (
                     <PlayerList marginBTM="2px" key={el}>
                       {el}
@@ -136,7 +136,7 @@ export default function RecordList({ tab, userMatchData }) {
                 })}
               </ul>
               <ul className="Game_Player_List2">
-                {userMatchData.blueTeamSummonerName.map((el) => {
+                {el&&el.blueTeamSummonerName.map((el) => {
                   return (
                     <PlayerList marginBTM="2px" key={el}>
                       {el}
@@ -153,7 +153,7 @@ export default function RecordList({ tab, userMatchData }) {
 
     if (tab === "Solo_Rank_Record") {
       return (
-        <ListContainer>
+        <ListContainer key={index}>
           <RecordContents>솔로랭크</RecordContents>
         </ListContainer>
       );
@@ -161,7 +161,7 @@ export default function RecordList({ tab, userMatchData }) {
 
     if (tab === "Free_Rank_Record") {
       return (
-        <ListContainer>
+        <ListContainer key={index}>
           <RecordContents>자유랭크</RecordContents>
         </ListContainer>
       );
@@ -169,12 +169,10 @@ export default function RecordList({ tab, userMatchData }) {
 
     if (tab === "Normal_Game_Record") {
       return (
-        <ListContainer>
+        <ListContainer key={index}>
           <RecordContents>일반</RecordContents>
         </ListContainer>
       );
     }
-  };
-
-  return <>{getChartList(tab)}</>;
+  })}</>;
 }

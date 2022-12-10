@@ -91,11 +91,13 @@ export function TypeTab({ onTabChange }) {
 
 export const RankTab = ({ userSoloTier, userFreeRankTier }) => {
   const [rankInfo, setRankInfo] = useState(0);
-console.log(userSoloTier)
   const tabHandler = (index) => {
     setRankInfo(index);
   };
-
+  const lowerCaseSoloTierName = userSoloTier.tier.toLowerCase()
+  const lowerCaseFreeTierName = userFreeRankTier.tier.toLowerCase()
+  console.log(lowerCaseSoloTierName)
+console.log(userSoloTier)
   const userTierArr = [
     {
       id: "1",
@@ -109,10 +111,11 @@ console.log(userSoloTier)
         </TabButton>
       ),
       rankContent: (
+      
         <div className="Tab_Tier_Container">
           <img
             className="Icon_Image"
-            src={process.env.PUBLIC_URL + "/Image/PlatinumImage.png"}
+            src={`https://blitz-cdn.blitz.gg/80x0/ranks/2022/${lowerCaseSoloTierName}.webp`}
           />
           <div className="Tab_Tier_Contents">
             {userSoloTier && (
@@ -145,7 +148,7 @@ console.log(userSoloTier)
         <div className="Tab_Tier_Container">
           <img
             className="Icon_Image"
-            src={process.env.PUBLIC_URL + "/Image/PlatinumImage.png"}
+            src={`https://blitz-cdn.blitz.gg/80x0/ranks/2022/${lowerCaseFreeTierName}.webp`}
           />
           <div className="Tab_Tier_Contents">
             {userFreeRankTier && (
