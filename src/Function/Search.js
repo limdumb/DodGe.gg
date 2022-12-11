@@ -1,5 +1,5 @@
 function escapeRegExp(string) {
-  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') // $&은 일치한 문자열 전체를 의미
+  return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); // $&은 일치한 문자열 전체를 의미
 }
 function unicodeConversion(ch) {
   const offset = 44032; /* '가'의 코드 */
@@ -15,7 +15,7 @@ function unicodeConversion(ch) {
     return `[\\u${begin.toString(16)}-\\u${end.toString(16)}]`;
   }
 
-  if([/[ㄱ-ㅎ]/.test(ch)]){
+  if (/[ㄱ-ㅎ]/.test(ch)) {
     const unicodKr = {
       ㄱ: "가".charCodeAt(0),
       ㄲ: "까".charCodeAt(0),
@@ -28,15 +28,17 @@ function unicodeConversion(ch) {
       ㅃ: "빠".charCodeAt(0),
       ㅅ: "사".charCodeAt(0),
     };
-  const begin = unicodKr[ch] || ( ( ch.charCodeAt(0) - 12613 /* 'ㅅ'의 코드 */ ) * 588 + unicodKr['ㅅ'] );
-  const end = begin + 587;
-  return `[${ch}\\u${begin.toString(16)}-\\u${end.toString(16)}]`;
+    const begin =
+      unicodKr[ch] ||
+      (ch.charCodeAt(0) - 12613) /* 'ㅅ'의 코드 */ * 588 + unicodKr["ㅅ"];
+    const end = begin + 587;
+    return `[${ch}\\u${begin.toString(16)}-\\u${end.toString(16)}]`;
   }
 
-  return escapeRegExp(ch)
+  return escapeRegExp(ch);
 }
 
 export function filterChampName(input) {
-  const pattern = input.split('').map(unicodeConversion).join('.*?');
+  const pattern = input.split("").map(unicodeConversion).join(".*?");
   return new RegExp(pattern);
 }

@@ -2,10 +2,9 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { champName } from "../../API/RiotAPI";
 import "./ChampionList.css";
-import { filterChampName } from "../../Function/Serch";
+import { filterChampName } from "../../Function/Search";
 
-export default function ChampionList({ serchInputValue }) {
-  const [championName, setChampionName] = useState(null);
+export default function ChampionList({ searchInputValue }) {
   const [champNormalName, setChampNormalName] = useState(null);
   useEffect(() => {
     const championNameData = async () => {
@@ -19,26 +18,24 @@ export default function ChampionList({ serchInputValue }) {
     championNameData();
   }, []);
 
-  const regex = filterChampName(serchInputValue);
+  const regex = filterChampName(searchInputValue);
 
-  const result =
+  const filterChampionName =
     champNormalName &&
     champNormalName.filter((el) => {
       return regex.test(el.name);
     });
 
-  console.log(result);
-
   return (
     <aside className="Right_Aside_Container">
       <ul className="Champion_List_Container">
-        {result &&
-          result.map((data, index) => {
+        {filterChampionName &&
+          filterChampionName.map((data, index) => {
             return (
               <div
-                className="Champion__List"
+                className="Champion_List"
                 key={index}
-                onClick={() => console.log("하이")}
+                onClick={() => data.en_name}
               >
                 <img
                   className="Champ_Image"

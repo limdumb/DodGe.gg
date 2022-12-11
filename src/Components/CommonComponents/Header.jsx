@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { StyleSpan } from "../MyPage/RecordList";
 import "./Header.css";
-import { SerchInput } from "./SerchInput";
+import { SearchInput } from "./SearchInput";
 
 const Header = styled.header`
   box-sizing: border-box;
@@ -46,7 +46,7 @@ export default function MainHeader() {
         DodGe.GG
       </StyleSpan>
       </div>
-      <SerchInput/>
+      <SearchInput/>
     </Header>
   );
 }
