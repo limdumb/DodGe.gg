@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { RiArrowRightSFill } from "react-icons/ri";
-import DetailedData from "./Data/DetailedData.json";
+import ChampionStatistics from "./Data/ChampionStatistics.json";
 
 const Container = styled.div`
   padding: 0 5px;
@@ -78,13 +78,14 @@ const Container = styled.div`
 
 export default function QuickBuild({ currentChamp }) {
   // 임시 데이터 설정: 이후 데이터를 props를 통해 받아올 때 삭제 현재 임시 데이터는 삭제
-  const startItem = recommendStart(currentChamp);
+  const startItems = recommendStartItems(currentChamp);
   const startBoots = recommendBoots(currentChamp);
+  const summonerSpells = recommendSpells(currentChamp);
   const skillImages = getSkillImages(
-    DetailedData[0][currentChamp.id].skill_tree,
+    ChampionStatistics[0][currentChamp.id].skill_tree,
     currentChamp
   );
-  const ImagesURL = "http://ddragon.leagueoflegends.com/cdn/12.23.1/img";
+  const baseURL = "http://ddragon.leagueoflegends.com/cdn/12.23.1/img";
   return (
     <Container>
       <div className="Recommend_Container">
@@ -92,23 +93,23 @@ export default function QuickBuild({ currentChamp }) {
         <div className="Box_Container">
           <div className="Item_Box">
             <span className="Skill_Key">
-              {DetailedData[0][currentChamp.id].skill_tree[0]}
+              {ChampionStatistics[0][currentChamp.id].skill_tree[0]}
             </span>
-            <img src={`${ImagesURL}/spell/${skillImages[0]}`}></img>
+            <img src={`${baseURL}/spell/${skillImages[0]}`}></img>
           </div>
           <RiArrowRightSFill />
           <div className="Item_Box">
             <span className="Skill_Key">
-              {DetailedData[0][currentChamp.id].skill_tree[1]}
+              {ChampionStatistics[0][currentChamp.id].skill_tree[1]}
             </span>
-            <img src={`${ImagesURL}/spell/${skillImages[1]}`}></img>
+            <img src={`${baseURL}/spell/${skillImages[1]}`}></img>
           </div>
           <RiArrowRightSFill />
           <div className="Item_Box">
             <span className="Skill_Key">
-              {DetailedData[0][currentChamp.id].skill_tree[2]}
+              {ChampionStatistics[0][currentChamp.id].skill_tree[2]}
             </span>
-            <img src={`${ImagesURL}/spell/${skillImages[2]}`}></img>
+            <img src={`${baseURL}/spell/${skillImages[2]}`}></img>
           </div>
         </div>
       </div>
@@ -117,10 +118,10 @@ export default function QuickBuild({ currentChamp }) {
         <h6>추천 스펠</h6>
         <div className="Box_Container">
           <div className="Item_Box">
-            <img src={`${ImagesURL}/spell/SummonerFlash.png`}></img>
+            <img src={`${baseURL}/spell/${summonerSpells[0]}.png`}></img>
           </div>
           <div className="Item_Box">
-            <img src={`${ImagesURL}/spell/SummonerDot.png`}></img>
+            <img src={`${baseURL}/spell/${summonerSpells[1]}.png`}></img>
           </div>
         </div>
       </div>
@@ -129,11 +130,13 @@ export default function QuickBuild({ currentChamp }) {
         <h6>시작 아이템</h6>
         <div className="Box_Container">
           <div className="Item_Box">
-            <img src={`${ImagesURL}/item/${startItem}.png`}></img>
+            <img src={`${baseURL}/item/${startItems[0]}.png`}></img>
           </div>
           <div className="Item_Box">
-            <img src={`${ImagesURL}/item/2003.png`}></img>
-            <span className="Item_Count">2x</span>
+            {startItems[1] ? (
+              <img src={`${baseURL}/item/${startItems[1]}.png`}></img>
+            ) : null}
+            {startItems[1] ? <span className="Item_Count">2x</span> : null}
           </div>
         </div>
       </div>
@@ -142,7 +145,7 @@ export default function QuickBuild({ currentChamp }) {
         <h6>신발</h6>
         <div className="Box_Container">
           <div className="Item_Box">
-            <img src={`${ImagesURL}/item/${startBoots}.png`}></img>
+            <img src={`${baseURL}/item/${startBoots}.png`}></img>
           </div>
         </div>
       </div>
@@ -152,24 +155,24 @@ export default function QuickBuild({ currentChamp }) {
         <div className="Box_Container">
           <div className="Item_Box">
             <img
-              src={`${ImagesURL}/item/${
-                DetailedData[0][currentChamp.id].core_items[0]
+              src={`${baseURL}/item/${
+                ChampionStatistics[0][currentChamp.id].core_items[0]
               }.png`}
             ></img>
           </div>
           <RiArrowRightSFill />
           <div className="Item_Box">
             <img
-              src={`${ImagesURL}/item/${
-                DetailedData[0][currentChamp.id].core_items[1]
+              src={`${baseURL}/item/${
+                ChampionStatistics[0][currentChamp.id].core_items[1]
               }.png`}
             ></img>
           </div>
           <RiArrowRightSFill />
           <div className="Item_Box">
             <img
-              src={`${ImagesURL}/item/${
-                DetailedData[0][currentChamp.id].core_items[2]
+              src={`${baseURL}/item/${
+                ChampionStatistics[0][currentChamp.id].core_items[2]
               }.png`}
             ></img>
           </div>
@@ -180,7 +183,7 @@ export default function QuickBuild({ currentChamp }) {
 }
 
 /**
- * 입력받은 Tags 배열 안의 직업군을 분석해 해당 직업군에 "걸맞는" 아이템 빌드를 추천해줍니다.
+ * 전달인자의 Tags 배열 안의 직업군을 분석해 해당 직업군에 "걸맞는" 아이템 빌드를 추천해줍니다.
  *
  * 1. 데이터의 직업군에 서포터가 포함된 경우 :
  * 주문도둑검, 유물방패, 영혼의 낫, 강철 어깨 보호대 ("3850", "3858", "3862", "3854") 중 하나
@@ -194,144 +197,155 @@ export default function QuickBuild({ currentChamp }) {
  * 암흑의 인장, 여신의 눈물, 수확의 낫 등은 제외합니다.
  * 체력 포션 2개는 고정되어 있다는 전제 하에 진행하기 때문에 첫 추천 아이템이 무엇인지만 정합니다.
  * */
-function recommendStart(champion) {
-  if (champion.tags[0] === "Support") {
-    if (champion.id === "Ivern") {
-      return "1102";
-    }
-    if (champion.tags[1] === "Mage") {
-      return "3850";
-    }
+function recommendStartItems(champion) {
+  if (ChampionStatistics[0][champion.id].line === "jungle") {
+    // prettier-ignore
+    const scorchJunglers = ["Ekko", "Elise", "Evelyn", "Fiddlesticks", "Karthus", "LeeSin", "Nidalee", "Nocturne", "Reksai", "Shaco", "Zed"];
+    // prettier-ignore
+    const gustJunglers = ["Hecarim", "Ivern", "Khazix", "Rengar", "Skarner", "Taliyah", "Talon"];
 
-    if (
-      (champion.tags[1] === "Tank" || champion.tags[1] === "Fighter") &&
-      champion.attack < champion.magic
-    ) {
-      return "3858";
-    }
+    if (scorchJunglers.includes(champion.id)) return [1101, 2003];
+    if (gustJunglers.includes(champion.id)) return [1102, 2003];
 
-    if (
-      (champion.tags[1] === "Tank" || champion.tags[1] === "Fighter") &&
-      champion.attack >= champion.magic
-    ) {
-      return "3854";
-    }
-
-    if (champion.tags[1] === "Marksman" || champion.tags[1] === "Assassin") {
-      return "3862";
-    }
-
-    return "3854";
+    return [1103, 2003];
   }
 
-  if (champion.tags[0] === "Mage") {
-    const exceptions = ["Anivia", "Neeko", "Oriana", "Zoe"];
-    const mageSupports = ["Brand", "Xerath"];
-    if (
-      champion.tags[1] === "Support" &&
-      exceptions.includes(champion.id) === false
-    ) {
-      return "3850";
-    }
+  if (ChampionStatistics[0][champion.id].line === "adc") {
+    if (champion.id === "Jhin") return [1036, 2003];
 
-    if (mageSupports.includes(champion.id)) {
-      return "3850";
-    }
-
-    if (champion.id === "Taliyah") {
-      return "1102";
-    }
-    return "1056";
+    return [1055, 2003];
   }
 
-  if (champion.tags[0] === "Tank") {
-    const tankSupports = ["Amumu", "Blitzcrank", "Maokai"];
-    const tankJunglers = [
-      "JarvanIV",
-      "Nunu",
-      "Poppy",
-      "Rammus",
-      "Sejuani",
-      "Zac",
-    ];
-
-    if (champion.tags[1] === "Support" || tankSupports.includes(champion.id)) {
-      return "3858";
-    }
-
-    if (champion.tags[1] === "Mage") {
-      return "1056";
-    }
-
-    if (tankJunglers.includes(champion.id)) {
-      return "1103";
-    }
-
-    return "1054";
-  }
-
-  if (champion.tags[0] === "Assassin") {
-    const mageJunglers = ["Evelyn", "Nidalee"];
-    if (champion.tags[1] === "Fighter") {
-      if (champion.id === "Fizz") {
-        return "1056";
-      } else if (champion.id === "Yone") {
-        return "1055";
+  if (ChampionStatistics[0][champion.id].line === "support") {
+    if (champion.tags.includes("Tank")) {
+      if (champion.info.attack > champion.info.magic) {
+        return [3854, 2003];
+      } else {
+        return [3858, 2003];
       }
-      if (champion.magic >= champion.attack) {
-        return "1102";
-      }
-      return "1101";
     }
-    if (champion.tags[1] === "Mage") {
-      if (mageJunglers.includes(champion.id)) {
-        return "1102";
-      }
-      return "1056";
+
+    if (champion.info.attack > champion.info.magic) return [3862, 2003];
+
+    return [3850, 2003];
+  }
+
+  if (ChampionStatistics[0][champion.id].line === "top") {
+    // prettier-ignore
+    const dSwordTops = ["Fiora", "Gnar", "Graves", "Irelia", "Jax", "Jayce", "Kayle", "Kennen", "Kled", "Olaf", "Quinn", "Renekton", "Rengar", "Trundle", "Urgot", "Vayne", "Warwick", "Wukong", "Yasuo", "Yone"];
+    // prettier-ignore
+    const dRingTops = ["Gragas", "Gwen", "Heimerdinger", "Lillia", "Rumble", "Swain", "Teemo", "Vladimir", "Volibear"];
+    // prettier-ignore
+    const corruptPotionTops = ["Gangplank", "Illaoi", "Malphite", "Pantheon", "Poppy"];
+
+    if (champion.id === "Riven") return [1036, 2003];
+    if (champion.id === "Ryze") return [3070, 2003];
+
+    if (dSwordTops.includes(champion.id)) return [1055, 2003];
+    if (dRingTops.includes(champion.id)) return [1056, 2003];
+    if (corruptPotionTops.includes(champion.id)) return [2033];
+
+    return [1054, 2003];
+  }
+
+  if (ChampionStatistics[0][champion.id].line === "mid") {
+    // prettier-ignore
+    const dShieldMids = ["Akali", "Garen", "Kassadin", "Sett", "Tryndarmere", "Viego", "Yone"];
+    const togMids = ["Cassiopeia", "Corki", "Ryze"];
+    // prettier-ignore
+    const corruptPotionMids = ["Fizz", "Gangplank", "Malphite", "Pantheon", "TwistedFate"];
+    const sealMids = ["Katarina", "Vladimir"];
+    const swordRefillMids = ["Jayce", "Talon"];
+    const swordPotsMids = ["Qiyana", "Zed"];
+
+    if (corruptPotionMids.includes(champion.id)) return [2033];
+    if (dShieldMids.includes(champion.id)) return [1054, 2003];
+    if (togMids.includes(champion.id)) return [3070, 2003];
+    if (sealMids.includes(champion.id)) return [1082, 2031];
+    if (swordPotsMids.includes(champion.id)) return [1036, 2003];
+    if (swordRefillMids.includes(champion.id)) return [1036, 2031];
+
+    if (champion.info.attack > champion.info.magic) return [1055, 2003];
+    if (champion.info.attack <= champion.info.magic) return [1056, 2003];
+  }
+}
+
+/**
+ * 해당 챔피언에 걸맞는 추천 스펠을 반환합니다.
+ *
+ * 별도의 함수가 필요한 이유는 앞선 이유와 비슷하게 각 챔피언의 성향이 다르고, 일부 챔피언은 유체화가 필요한 등 완벽히 같은 논리 구조를 적용할 수 없기 때문입니다.
+ * ex) 그웬 유체화,텔레포트
+ *`
+ */
+function recommendSpells(champion) {
+  if (ChampionStatistics[0][champion.id].line === "jungle") {
+    const ghostJunglers = ["Hecarim", "Mordekaiser", "Udyr"];
+
+    if (ghostJunglers.includes(champion.id)) {
+      return ["SummonerSmite", "SummonerHaste"];
+    }
+
+    if (champion.id === "Karthus") {
+      return ["SummonerSmite", "SummonerExhaust"];
+    }
+
+    if (champion.id === "Shaco") {
+      return ["SummonerSmite", "SummonerDot"];
+    }
+
+    return ["SummonerSmite", "SummonerFlash"];
+  }
+
+  if (ChampionStatistics[0][champion.id].line === "support") {
+    // prettier-ignore
+    const exhaustSupports = ["Ashe","Janna","Senna","Sona","Soraka","Xerath"];
+
+    if (exhaustSupports.includes(champion.id)) {
+      return ["SummonerExhaust", "SummonerFlash"];
+    }
+
+    if (champion.id === "Yuumi") {
+      return ["SummonerExhaust", "SummonerDot"];
     }
   }
 
-  if (champion.tags[0] === "Marksman") {
-    if (champion.tags[1] === "Support") {
-      return "3862";
+  if (ChampionStatistics[0][champion.id].line === "top") {
+    const igniteTPs = ["Akali", "Camille", "Gwen"];
+    const ghostTPs = ["Nasus"];
+    const ghostTop = ["Darius", "Olaf", "Singed", "Tryndamere"];
+    // prettier-ignore
+    const igniteTop = ["Garen","Kled","Quinn","Renekton","Riven","Sett","Teemo"];
+    if (igniteTPs.includes(champion.id)) {
+      return ["SummonerTeleport", "SummonerDot"];
     }
-    if (champion.id === "Teemo") {
-      return "1056";
+
+    if (ghostTPs.includes(champion.id)) {
+      return ["SummonerTeleport", "SummonerHaste"];
     }
-    if (champion.id === "Kindred" || champion.id === "Graves") {
-      return "1101";
+
+    if (ghostTop.includes(champion.id)) {
+      return ["SummonerFlash", "SummonerHaste"];
     }
-    return "1055";
+
+    if (igniteTop.includes(champion.id)) {
+      return ["SummonerDot", "SummonerFlash"];
+    }
+
+    return ["SummonerTeleport", "SummonerFlash"];
   }
 
-  if (champion.tags[0] === "Fighter") {
-    const fighterJunglers = [
-      "Belveth",
-      "Diana",
-      "Hecarim",
-      "Kayn",
-      "LeeSin",
-      "Lillia",
-      "MonkeyKing",
-      "Shyvana",
-      "Skarner",
-      "Trundle",
-      "Udyr",
-      "Vi",
-      "Warwick",
-      "Xinzhao",
-    ];
-    if (fighterJunglers.includes(champion.id)) {
-      if (champion.magic > champion.attack) {
-        return "1102";
-      }
-      return "1101";
+  if (ChampionStatistics[0][champion.id].line === "mid") {
+    // prettier-ignore
+    const tpMids = ["Anivia","Azir","Cassiopeia","Chogath","Corki","Galio","Kassadin","Lissandra","Malzahar","Orianna","Syndra","TwistedFate","Veigar","Viktor","Ziggs"];
+
+    if (tpMids.includes(champion.id)) {
+      return ["SummonerTeleport", "SummonerFlash"];
     }
-    if (champion.magic >= champion.attack) {
-      return "1056";
-    }
-    return "1055";
+
+    return ["SummonerDot", "SummonerFlash"];
   }
+
+  return ["SummonerDot", "SummonerFlash"];
 }
 
 /**
@@ -410,11 +424,11 @@ function recommendBoots(champion) {
       return "3047";
     }
 
-    if (champion.magic >= champion.attack) {
+    if (champion.info.magic >= champion.info.attack) {
       return "3020";
     }
 
-    if (champion.magic < champion.attack) {
+    if (champion.info.magic < champion.info.attack) {
       return "3006";
     }
   }
@@ -442,32 +456,17 @@ function recommendBoots(champion) {
   if (champion.tags[0] === "Fighter") {
     const swiftnessFighter = ["Udyr"];
     const mageFighter = ["Diana", "Rumble", "Shyvana"];
-    const ionianFighter = [
-      "Jayce",
-      "Kayn",
-      "Lillia",
-      "Riven",
-      "Skarner",
-      "Gangplank",
-      "Gragas",
-    ];
+    // prettier-ignore
+    const ionianFighter = ["Jayce","Kayn","Lillia","Riven","Skarner","Gangplank","Gragas"];
     const berserkerFighter = ["Garen", "Kayle", "Nilah", "Tryndamere", "Yasuo"];
 
-    if (swiftnessFighter.includes(champion.id)) {
-      return "3009";
-    }
+    if (swiftnessFighter.includes(champion.id)) return "3009";
 
-    if (mageFighter.includes(champion.id)) {
-      return "3020";
-    }
+    if (mageFighter.includes(champion.id)) return "3020";
 
-    if (ionianFighter.includes(champion.id)) {
-      return "3158";
-    }
+    if (ionianFighter.includes(champion.id)) return "3158";
 
-    if (berserkerFighter.includes(champion.id)) {
-      return "3006";
-    }
+    if (berserkerFighter.includes(champion.id)) return "3006";
 
     return "3047";
   }

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import QuickBuild from "./QuickBuild";
-import DetailedData from "./Data/DetailedData.json";
+import ChampionStatistics from "./Data/ChampionStatistics.json";
 
 const Container = styled.div`
   height: 350px;
@@ -68,12 +68,12 @@ const Container = styled.div`
 `;
 
 export default function QuickGuide({ currentChamp }) {
-  const ImagesURL = "http://ddragon.leagueoflegends.com/cdn/12.23.1/img";
+  const baseURL = "http://ddragon.leagueoflegends.com/cdn/12.23.1/img";
   return (
     <Container>
       <div className="Champion_Basics">
         <div className="Champion_Portrait">
-          <img src={`${ImagesURL}/champion/${currentChamp.id}.png`}></img>
+          <img src={`${baseURL}/champion/${currentChamp.id}.png`}></img>
         </div>
         <div className="Champion_Info">
           <h2>
@@ -81,33 +81,39 @@ export default function QuickGuide({ currentChamp }) {
           </h2>
           <div className="Skill_Set">
             <img
-              src={`${ImagesURL}/passive/${currentChamp.passive.image.full}`}
+              src={`${baseURL}/passive/${currentChamp.passive.image.full}`}
             ></img>
             <img
-              src={`${ImagesURL}/spell/${currentChamp.spells[0].image.full}`}
+              src={`${baseURL}/spell/${currentChamp.spells[0].image.full}`}
             ></img>
             <img
-              src={`${ImagesURL}/spell/${currentChamp.spells[1].image.full}`}
+              src={`${baseURL}/spell/${currentChamp.spells[1].image.full}`}
             ></img>
             <img
-              src={`${ImagesURL}/spell/${currentChamp.spells[2].image.full}`}
+              src={`${baseURL}/spell/${currentChamp.spells[2].image.full}`}
             ></img>
             <img
-              src={`${ImagesURL}/spell/${currentChamp.spells[3].image.full}`}
+              src={`${baseURL}/spell/${currentChamp.spells[3].image.full}`}
             ></img>
           </div>
           <div className="Rate_Info_Wrapper">
             <div className="Rate">
               승률{" "}
-              <span>{DetailedData[0][currentChamp.id].rates.win_rate}</span>
+              <span>
+                {ChampionStatistics[0][currentChamp.id].rates.win_rate}
+              </span>
             </div>
             <div className="Rate">
               픽률{" "}
-              <span>{DetailedData[0][currentChamp.id].rates.pick_rate}</span>
+              <span>
+                {ChampionStatistics[0][currentChamp.id].rates.pick_rate}
+              </span>
             </div>
             <div className="Rate">
               밴률{" "}
-              <span>{DetailedData[0][currentChamp.id].rates.ban_rate}</span>
+              <span>
+                {ChampionStatistics[0][currentChamp.id].rates.ban_rate}
+              </span>
             </div>
           </div>
         </div>

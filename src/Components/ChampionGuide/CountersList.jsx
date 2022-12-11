@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import DetailedData from "./Data/DetailedData.json";
+import ChampionStatistics from "./Data/ChampionStatistics.json";
 
 const Container = styled.div`
   background-color: bisque;
@@ -55,43 +55,38 @@ export default function CountersList({ currentChamp }) {
     <Container>
       <div className="Header">카운터 리스트</div>
       <ul className="Counter_List">
-        <CounterItem currentChamp={currentChamp} idx={0} />
-        <CounterItem currentChamp={currentChamp} idx={1} />
-        <CounterItem currentChamp={currentChamp} idx={2} />
-        <CounterItem currentChamp={currentChamp} idx={3} />
-        <CounterItem currentChamp={currentChamp} idx={4} />
+        <CounterChampion currentChamp={currentChamp} idx={0} />
+        <CounterChampion currentChamp={currentChamp} idx={1} />
+        <CounterChampion currentChamp={currentChamp} idx={2} />
+        <CounterChampion currentChamp={currentChamp} idx={3} />
+        <CounterChampion currentChamp={currentChamp} idx={4} />
       </ul>
     </Container>
   );
 }
 
-function CounterItem(props) {
-  const ImagesURL = "http://ddragon.leagueoflegends.com/cdn/12.21.1/img";
-
+function CounterChampion({ currentChamp, idx }) {
+  const baseURL = "http://ddragon.leagueoflegends.com/cdn/12.21.1/img";
   return (
-    <li className="Counter_List_Item" key={props.idx}>
-      <div className="Flex_Wrapper">
+    <li className="Counter_List_Item" key={idx}>
+      <div>
         <img
-          src={`${ImagesURL}/champion/${
-            DetailedData[0][props.currentChamp.id].counter_list[props.idx]
-              .name_en
+          src={`${baseURL}/champion/${
+            ChampionStatistics[0][currentChamp.id].counter_list[idx].name_en
           }.png`}
         ></img>
       </div>
-      <div className="Flex_Wrapper">
-        {DetailedData[0][props.currentChamp.id].counter_list[props.idx].name_kr}
+      <div>
+        {ChampionStatistics[0][currentChamp.id].counter_list[idx].name_kr}
       </div>
-      <div className="Flex_Wrapper Counter_Win_Rate">
+      <div className="Counter_Win_Rate">
         {
-          DetailedData[0][props.currentChamp.id].counter_list[props.idx]
+          ChampionStatistics[0][currentChamp.id].counter_list[idx]
             .counter_win_rate
         }
       </div>
-      <div className="Flex_Wrapper">
-        {
-          DetailedData[0][props.currentChamp.id].counter_list[props.idx]
-            .game_count
-        }{" "}
+      <div>
+        {ChampionStatistics[0][currentChamp.id].counter_list[idx].game_count}{" "}
         게임
       </div>
     </li>

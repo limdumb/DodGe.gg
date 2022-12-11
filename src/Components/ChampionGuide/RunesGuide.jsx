@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import styled from "styled-components";
 import { fetchRunesData } from "../../API/RiotAPI";
-import DetailedData from "./Data/DetailedData.json";
+import ChampionStatistics from "./Data/ChampionStatistics.json";
 
 const Runes_Container = styled.div`
   height: 800px;
@@ -70,12 +70,7 @@ const Runes_Container = styled.div`
       justify-content: space-between;
       width: 150px;
       height: 40px;
-
-      img {
-        height: 32.5px;
-        border-radius: 50%;
-        background-color: rgba(0, 0, 0, 0.2);
-      }
+      margin-bottom: 10px;
     }
 
     .Runes_Wrapper {
@@ -105,7 +100,26 @@ const Runes_Container = styled.div`
     justify-content: space-between;
   }
 
+  .Rune_Box {
+    opacity: 0.4;
+  }
+
+  .Stat_Box {
+    height: 32.5px;
+    opacity: 0.4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      height: 100%;
+      border-radius: 50%;
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+  }
+
   .Selected {
+    opacity: 1;
     border-radius: 50%;
     border: solid goldenrod 2.5px;
   }
@@ -129,16 +143,16 @@ export default function RunesGuide({ currentChamp }) {
 
 /**
  *  룬 섹션을 구성하는 컴포넌트입니다.
- *  현재 페이지로부터 props를 전달받아 데이터(DetailedData)에서 현재 챔피언에 알맞는 룬 정보를 가져옵니다.
- * @param {DetailedData, currentChamp, runes} props
+ *  현재 페이지로부터 props를 전달받아 데이터(ChampionStatistics)에서 현재 챔피언에 알맞는 룬 정보를 가져옵니다.
+ * @param { currentChamp, runes }
  * @returns {메인 룬, 서브 룬 섹션을 포함한 Wrapper}
  * @author 심민섭
  */
-function RunesSection(props) {
-  const ImagesURL = "https://ddragon.canisback.com/img/";
+function RunesSection({ currentChamp, runes }) {
+  const baseURL = "https://ddragon.canisback.com/img/";
 
   const mainRuneTitle =
-    DetailedData[0][props.currentChamp.id].runes.main_rune_id;
+    ChampionStatistics[0][currentChamp.id].runes.main_rune_id;
   let mainRunesIdx = 0;
   switch (mainRuneTitle) {
     case 8100:
@@ -162,7 +176,7 @@ function RunesSection(props) {
       break;
   }
 
-  const subRuneTitle = DetailedData[0][props.currentChamp.id].runes.sub_rune_id;
+  const subRuneTitle = ChampionStatistics[0][currentChamp.id].runes.sub_rune_id;
   let subRunesIdx = 0;
   switch (subRuneTitle) {
     case 8100:
@@ -190,19 +204,19 @@ function RunesSection(props) {
     <div className="Runes_Section_Wrapper">
       <div className="Main_Runes">
         <div className="Runes_Header">
-          <h3>{props.runes[0][mainRunesIdx].name}</h3>
-          <img src={`${ImagesURL}/${props.runes[0][mainRunesIdx].icon}`}></img>
+          <h3>{runes[0][mainRunesIdx].name}</h3>
+          <img src={`${baseURL}/${runes[0][mainRunesIdx].icon}`}></img>
         </div>
         <div className="Runes_Wrapper">
-          {props.runes[0][mainRunesIdx].slots.map((row, rowIdx) => {
+          {runes[0][mainRunesIdx].slots.map((row, rowIdx) => {
             return (
               <div className="Runes_Row" key={`row_${rowIdx}`}>
                 {row.runes.map((rune, runeIdx) => {
                   return (
                     <div
                       className={
-                        DetailedData[0][
-                          props.currentChamp.id
+                        ChampionStatistics[0][
+                          currentChamp.id
                         ].runes.main_rune_order.includes(rune.id)
                           ? "Rune_Box Selected"
                           : "Rune_Box"
@@ -210,7 +224,7 @@ function RunesSection(props) {
                       key={`${rune.id}`}
                     >
                       <img
-                        src={`${ImagesURL}/${props.runes[0][mainRunesIdx].slots[rowIdx].runes[runeIdx].icon}`}
+                        src={`${baseURL}/${runes[0][mainRunesIdx].slots[rowIdx].runes[runeIdx].icon}`}
                       ></img>
                     </div>
                   );
@@ -222,11 +236,11 @@ function RunesSection(props) {
       </div>
       <div className="Sub_Runes">
         <div className="Runes_Header">
-          <h3>{props.runes[0][subRunesIdx].name}</h3>
-          <img src={`${ImagesURL}/${props.runes[0][subRunesIdx].icon}`}></img>
+          <h3>{runes[0][subRunesIdx].name}</h3>
+          <img src={`${baseURL}/${runes[0][subRunesIdx].icon}`}></img>
         </div>
         <div className="Runes_Wrapper">
-          {props.runes[0][subRunesIdx].slots.map((row, rowIdx) => {
+          {runes[0][subRunesIdx].slots.map((row, rowIdx) => {
             if (rowIdx !== 0)
               return (
                 <div className="Runes_Row" key={`row_${rowIdx}`}>
@@ -234,8 +248,8 @@ function RunesSection(props) {
                     return (
                       <div
                         className={
-                          DetailedData[0][
-                            props.currentChamp.id
+                          ChampionStatistics[0][
+                            currentChamp.id
                           ].runes.sub_rune_order.includes(rune.id)
                             ? "Rune_Box Selected"
                             : "Rune_Box"
@@ -243,7 +257,7 @@ function RunesSection(props) {
                         key={`${rune.id}`}
                       >
                         <img
-                          src={`${ImagesURL}/${props.runes[0][subRunesIdx].slots[rowIdx].runes[runeIdx].icon}`}
+                          src={`${baseURL}/${runes[0][subRunesIdx].slots[rowIdx].runes[runeIdx].icon}`}
                         ></img>
                       </div>
                     );
@@ -255,82 +269,115 @@ function RunesSection(props) {
 
         <div className="Stats_Wrapper">
           <div className="Stats_Row">
-            <img
+            <div
               className={
-                DetailedData[0][props.currentChamp.id].runes.stat[0] === 5008
-                  ? "Selected"
-                  : null
+                ChampionStatistics[0][currentChamp.id].runes.stat[0] === 5008
+                  ? "Stat_Box Selected"
+                  : "Stat_Box"
               }
-              src={`https://ddragon.canisback.com/img/perk-images/StatMods/StatModsAdaptiveForceIcon.png`}
-            ></img>
-            <img
+            >
+              <img
+                src={`https://ddragon.canisback.com/img/perk-images/StatMods/StatModsAdaptiveForceIcon.png`}
+              ></img>
+            </div>
+
+            <div
               className={
-                DetailedData[0][props.currentChamp.id].runes.stat[0] === 5005
-                  ? "Selected"
-                  : null
+                ChampionStatistics[0][currentChamp.id].runes.stat[0] === 5005
+                  ? "Stat_Box Selected"
+                  : "Stat_Box"
               }
-              src={`https://ddragon.canisback.com/img/perk-images/StatMods/StatModsAttackSpeedIcon.png`}
-            ></img>
-            <img
+            >
+              <img
+                src={`https://ddragon.canisback.com/img/perk-images/StatMods/StatModsAttackSpeedIcon.png`}
+              ></img>
+            </div>
+
+            <div
               className={
-                DetailedData[0][props.currentChamp.id].runes.stat[0] === 5007
-                  ? "Selected"
-                  : null
+                ChampionStatistics[0][currentChamp.id].runes.stat[0] === 5007
+                  ? "Stat_Box Selected"
+                  : "Stat_Box"
               }
-              src={`https://ddragon.canisback.com/img/perk-images/StatMods/StatModsCDRScalingIcon.png`}
-            ></img>
+            >
+              <img
+                src={`https://ddragon.canisback.com/img/perk-images/StatMods/StatModsCDRScalingIcon.png`}
+              ></img>
+            </div>
           </div>
           <div className="Stats_Row">
-            <img
+            <div
               className={
-                DetailedData[0][props.currentChamp.id].runes.stat[1] === 5008
-                  ? "Selected"
-                  : null
+                ChampionStatistics[0][currentChamp.id].runes.stat[1] === 5008
+                  ? "Stat_Box Selected"
+                  : "Stat_Box"
               }
-              src={`https://ddragon.canisback.com/img/perk-images/StatMods/StatModsAdaptiveForceIcon.png`}
-            ></img>
-            <img
+            >
+              <img
+                src={`https://ddragon.canisback.com/img/perk-images/StatMods/StatModsAdaptiveForceIcon.png`}
+              ></img>
+            </div>
+
+            <div
               className={
-                DetailedData[0][props.currentChamp.id].runes.stat[1] === 5002
-                  ? "Selected"
-                  : null
+                ChampionStatistics[0][currentChamp.id].runes.stat[1] === 5002
+                  ? "Stat_Box Selected"
+                  : "Stat_Box"
               }
-              src={`https://ddragon.canisback.com/img/perk-images/StatMods/StatModsArmorIcon.png`}
-            ></img>
-            <img
+            >
+              <img
+                src={`https://ddragon.canisback.com/img/perk-images/StatMods/StatModsArmorIcon.png`}
+              ></img>
+            </div>
+
+            <div
               className={
-                DetailedData[0][props.currentChamp.id].runes.stat[1] === 5003
-                  ? "Selected"
-                  : null
+                ChampionStatistics[0][currentChamp.id].runes.stat[1] === 5003
+                  ? "Stat_Box Selected"
+                  : "Stat_Box"
               }
-              src={`https://ddragon.canisback.com/img/perk-images/StatMods/StatModsMagicResIcon.png`}
-            ></img>
+            >
+              <img
+                src={`https://ddragon.canisback.com/img/perk-images/StatMods/StatModsMagicResIcon.png`}
+              ></img>
+            </div>
           </div>
           <div className="Stats_Row">
-            <img
+            <div
               className={
-                DetailedData[0][props.currentChamp.id].runes.stat[2] === 5001
-                  ? "Selected"
-                  : null
+                ChampionStatistics[0][currentChamp.id].runes.stat[2] === 5001
+                  ? "Stat_Box Selected"
+                  : "Stat_Box"
               }
-              src={`https://ddragon.canisback.com/img/perk-images/StatMods/StatModsHealthScalingIcon.png`}
-            ></img>
-            <img
+            >
+              <img
+                src={`https://ddragon.canisback.com/img/perk-images/StatMods/StatModsHealthScalingIcon.png`}
+              ></img>
+            </div>
+
+            <div
               className={
-                DetailedData[0][props.currentChamp.id].runes.stat[2] === 5002
-                  ? "Selected"
-                  : null
+                ChampionStatistics[0][currentChamp.id].runes.stat[2] === 5002
+                  ? "Stat_Box Selected"
+                  : "Stat_Box"
               }
-              src={`https://ddragon.canisback.com/img/perk-images/StatMods/StatModsArmorIcon.png`}
-            ></img>
-            <img
+            >
+              <img
+                src={`https://ddragon.canisback.com/img/perk-images/StatMods/StatModsArmorIcon.png`}
+              ></img>
+            </div>
+
+            <div
               className={
-                DetailedData[0][props.currentChamp.id].runes.stat[2] === 5003
-                  ? "Selected"
-                  : null
+                ChampionStatistics[0][currentChamp.id].runes.stat[2] === 5003
+                  ? "Stat_Box Selected"
+                  : "Stat_Box"
               }
-              src={`https://ddragon.canisback.com/img/perk-images/StatMods/StatModsMagicResIcon.png`}
-            ></img>
+            >
+              <img
+                src={`https://ddragon.canisback.com/img/perk-images/StatMods/StatModsMagicResIcon.png`}
+              ></img>
+            </div>
           </div>
         </div>
       </div>
