@@ -43,11 +43,18 @@ const PlayerList = styled.div`
   font-size: 14px;
 `;
 
-export default function RecordList({ tab, getUserMatchData, getSpell }) {
+export default function RecordList({
+  tab,
+  getUserMatchData,
+  getSpell,
+  runesData,
+}) {
+  // console.log(getUserMatchData);
   return (
     <>
       {getUserMatchData &&
         getUserMatchData.map((el, index) => {
+          const runes = runeSlot(getUserMatchData, index);
           const redTeam = el.allChampionName.slice(0, 5);
           const blueTeam = el.allChampionName.slice(5, 10);
           const kdaScore = `${el.kills}/${el.deaths}/${el.assist}`;
@@ -102,18 +109,18 @@ export default function RecordList({ tab, getUserMatchData, getSpell }) {
                           <GameInfoImage
                             radius={"5px"}
                             width={20}
-                            src={
-                              process.env.PUBLIC_URL + "/Image/DarkHarvest.png"
-                            }
+                            src={`https://ddragon.canisback.com/img/${
+                              runesData[0][runes[0]].icon
+                            }`}
                             backgroundColor="black"
                             marginRgt="2px"
                           />
                           <GameInfoImage
                             radius={"5px"}
                             width={20}
-                            src={
-                              process.env.PUBLIC_URL + "/Image/DetailedRun.png"
-                            }
+                            src={`https://ddragon.canisback.com/img/${
+                              runesData[0][runes[1]].icon
+                            }`}
                             backgroundColor="black"
                           />
                         </div>
@@ -221,4 +228,60 @@ export default function RecordList({ tab, getUserMatchData, getSpell }) {
         })}
     </>
   );
+}
+
+function runeSlot(summonerData, idx) {
+  const runesArr = [];
+  const runeData_01 = summonerData[idx].runeId1;
+  const runeData_02 = summonerData[idx].runeId2;
+  let runeIdx_01 = 0;
+  let runeIdx_02 = 0;
+
+  switch (runeData_01) {
+    case 8100:
+      runeIdx_01 = 0;
+      break;
+
+    case 8300:
+      runeIdx_01 = 1;
+      break;
+
+    case 8000:
+      runeIdx_01 = 2;
+      break;
+
+    case 8400:
+      runeIdx_01 = 3;
+      break;
+
+    case 8200:
+      runeIdx_01 = 4;
+      break;
+  }
+
+  switch (runeData_02) {
+    case 8100:
+      runeIdx_02 = 0;
+      break;
+
+    case 8300:
+      runeIdx_02 = 1;
+      break;
+
+    case 8000:
+      runeIdx_02 = 2;
+      break;
+
+    case 8400:
+      runeIdx_02 = 3;
+      break;
+
+    case 8200:
+      runeIdx_02 = 4;
+      break;
+  }
+
+  runesArr.push(runeIdx_01, runeIdx_02);
+
+  return runesArr;
 }

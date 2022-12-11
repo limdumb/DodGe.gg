@@ -6,9 +6,10 @@ import { useState, useEffect } from "react";
 import {
   summonerData,
   summonerLeagueData,
-  matchSummoryData,
+  matchSummaryData,
   gameUuid,
-  summonerSpell
+  summonerSpell,
+  fetchRunesData,
 } from "../API/RiotAPI";
 import { StyleSpan } from "../Components/MyPage/RecordList";
 import styled from "styled-components";
@@ -28,24 +29,33 @@ export default function MyPages() {
   const [userFreeRankTier, setUserFreeRankTier] = useState(null);
   const [getUserMatchData, setGetUserMatchData] = useState(null);
   const [getSpell, setGetSpell] = useState(null);
+  const [runesData, setRunesData] = useState(null);
+
   useEffect(() => {
     const userInfoData = async () => {
       const userResponse = await summonerData(summonerName.summoner);
       const gameUuidResponse = await gameUuid(userResponse.puuid);
-      const matchResponse = await matchSummoryData(gameUuidResponse.data,summonerName.summoner);
+      const matchResponse = await matchSummaryData(
+        gameUuidResponse.data,
+        summonerName.summoner
+      );
       const leagueDataResponse = await summonerLeagueData(userResponse.id);
-      const spellDataResponse = await summonerSpell(matchResponse.map((el)=>{
-        return el.spellId1
-      }), matchResponse.map((el)=>{
-        return el.spellId2
-      }))
-      
+      const spellDataResponse = await summonerSpell(
+        matchResponse.map((el) => {
+          return el.spellId1;
+        }),
+        matchResponse.map((el) => {
+          return el.spellId2;
+        })
+      );
+      const runesDataResponse = await fetchRunesData();
 
       setUserSoloTier(leagueDataResponse.data[0]);
       setUserFreeRankTier(leagueDataResponse.data[1]);
       setGetUserMatchData(matchResponse);
       setGetUserProfile(userResponse);
-      setGetSpell(spellDataResponse)
+      setGetSpell(spellDataResponse);
+      setRunesData(runesDataResponse);
     };
     userInfoData();
   }, [summonerName]);
@@ -81,7 +91,12 @@ export default function MyPages() {
               }
             }}
           />
-          <RecordList tab={currentTab} getUserMatchData={getUserMatchData} getSpell={getSpell}/>
+          <RecordList
+            tab={currentTab}
+            getUserMatchData={getUserMatchData}
+            runesData={runesData}
+            getSpell={getSpell}
+          />
         </main>
       </div>
     </>
