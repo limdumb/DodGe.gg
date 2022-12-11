@@ -6,7 +6,7 @@ import { fetchChampData } from "../../API/RiotAPI";
 
 const Main_Container = styled.div`
   height: 1650px;
-  width: 390px;
+  width: 100%;
 
   .Guides_Container {
     background-color: bisque;

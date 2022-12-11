@@ -61,7 +61,6 @@ const Container = styled.div`
 `;
 
 export default function QuickBuild({ currentChamp }) {
-  // 임시 데이터 설정: 이후 데이터를 props를 통해 받아올 때 삭제 현재 임시 데이터는 삭제
   const startItems = recommendStartItems(currentChamp);
   const startBoots = recommendBoots(currentChamp);
   const summonerSpells = recommendSpells(currentChamp);

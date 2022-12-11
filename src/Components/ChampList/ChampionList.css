@@ -33,8 +33,8 @@
 
 .Champ_Image:hover,
 .Champ_Image:focus {
+  border: solid white 1px;
   cursor: pointer;
-  border: whitesmoke 1px solid;
   transition: all 0.7s;
 }
 
