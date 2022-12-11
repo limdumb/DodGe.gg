@@ -13,6 +13,7 @@ import {
 import { StyleSpan } from "../Components/MyPage/RecordList";
 import styled from "styled-components";
 import { useParams } from "react-router-dom";
+import { easterEgg } from "../API/easterEgg";
 
 const EasterEggSpan = styled(StyleSpan)`
   display: flex;
@@ -68,7 +69,7 @@ export default function MyPages() {
           <div>
             <EasterEggSpan>혹시 알고 계셨나요?</EasterEggSpan>
             <EasterEggSpan>
-              협곡의 전령은 바위개의 형이랍니다 응애
+              {easterEgg.data.info[Math.floor(Math.random() * easterEgg.data.info.length)]}
             </EasterEggSpan>
           </div>
           <TypeTab

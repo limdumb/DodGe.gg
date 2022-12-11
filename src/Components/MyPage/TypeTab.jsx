@@ -108,7 +108,7 @@ export const RankTab = ({ userRankTier }) => {
   const tabHandler = (index) => {
     setRankInfo(index);
   };
-  const lowerCaseSoloTierName = soloRankTier[0].tier.toLowerCase();
+  const lowerCaseSoloTierName = soloRankTier.length !== 0 ? soloRankTier[0].tier.toLowerCase() : undefined;
   const lowerCaseFreeTierName =
     FreeRankTier.length !== 0 ? FreeRankTier[0].tier.toLowerCase() : undefined;
   const userTierArr = [

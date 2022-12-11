@@ -164,7 +164,7 @@ export async function champName() {
   let ko_name;
   await axios
     .get(
-      "http://ddragon.leagueoflegends.com/cdn/12.22.1/data/ko_KR/champion.json"
+      "http://ddragon.leagueoflegends.com/cdn/12.23.1/data/ko_KR/champion.json"
     )
     .then((res) => {
       let name = Object.keys(res.data.data);
