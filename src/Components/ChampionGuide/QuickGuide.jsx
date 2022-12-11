@@ -1,15 +1,17 @@
 import styled from "styled-components";
 import QuickBuild from "./QuickBuild";
+import ChampionStatistics from "./Data/ChampionStatistics.json";
 
 const Container = styled.div`
-  width: 100%;
-  height: 250px;
-  display: flex;
-  flex-wrap: wrap;
+  height: 350px;
+
+  .Champion_Basics {
+    display: flex;
+  }
 
   .Champion_Portrait {
-    width: 150px;
-    height: 150px;
+    width: 30%;
+    height: 125px;
 
     img {
       width: 100%;
@@ -18,77 +20,105 @@ const Container = styled.div`
   }
 
   .Champion_Info {
-    flex: 1;
-    height: 150px;
+    width: 70%;
+    height: 125px;
+    display: flex;
+    flex-direction: column;
     text-align: center;
-    border-bottom: 1px gray solid;
-    text-overflow: ellipsis;
-    overflow: hidden;
+    border-bottom: solid rgba(0, 0, 0, 0.2) 1px;
 
     h2 {
+      color: green;
       font-size: 20px;
       font-weight: bold;
+      margin: 7.5px 0;
     }
 
-    p {
-      padding: 5px;
-      font-size: 12px;
-      height: 120px;
-    }
-  }
+    .Skill_Set {
+      height: 50px;
+      display: flex;
+      justify-content: space-evenly;
 
-  @media only screen and (min-width: 768px) {
-    height: 350px;
-
-    .Champion_Portrait {
-      width: 200px;
-      height: 200px;
-    }
-
-    .Champion_Info {
-      padding: 15px 10px;
-      height: 200px;
-
-      h2 {
-        font-size: 25px;
-        font-weight: bold;
-      }
-
-      p {
-        font-size: 16px;
+      img {
+        width: 17.5%;
+        height: 100%;
       }
     }
-  }
 
-  @media only screen and (min-width: 1024px) {
-    .Champion_Portrait {
-      width: 200px;
-      height: 200px;
+    .Rate_Info_Wrapper {
+      height: 50px;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      font-size: 14px;
+
+      .Rate {
+        padding-right: 7.5px;
+
+        &:not(:last-child) {
+          border-right: solid 1px rgba(0, 0, 0, 0.5);
+        }
+
+        span {
+          font-weight: bold;
+        }
+      }
     }
   }
 `;
 
-export default function QuickGuide() {
-  const championImagesURL =
-    "http://ddragon.leagueoflegends.com/cdn/12.21.1/img";
+export default function QuickGuide({ currentChamp }) {
+  const baseURL = "http://ddragon.leagueoflegends.com/cdn/12.23.1/img";
   return (
     <Container>
-      <div className="Champion_Portrait">
-        <img src={`${championImagesURL}/champion/Lulu.png`}></img>
+      <div className="Champion_Basics">
+        <div className="Champion_Portrait">
+          <img src={`${baseURL}/champion/${currentChamp.id}.png`}></img>
+        </div>
+        <div className="Champion_Info">
+          <h2>
+            {currentChamp.name}, {currentChamp.title}
+          </h2>
+          <div className="Skill_Set">
+            <img
+              src={`${baseURL}/passive/${currentChamp.passive.image.full}`}
+            ></img>
+            <img
+              src={`${baseURL}/spell/${currentChamp.spells[0].image.full}`}
+            ></img>
+            <img
+              src={`${baseURL}/spell/${currentChamp.spells[1].image.full}`}
+            ></img>
+            <img
+              src={`${baseURL}/spell/${currentChamp.spells[2].image.full}`}
+            ></img>
+            <img
+              src={`${baseURL}/spell/${currentChamp.spells[3].image.full}`}
+            ></img>
+          </div>
+          <div className="Rate_Info_Wrapper">
+            <div className="Rate">
+              승률{" "}
+              <span>
+                {ChampionStatistics[0][currentChamp.id].rates.win_rate}
+              </span>
+            </div>
+            <div className="Rate">
+              픽률{" "}
+              <span>
+                {ChampionStatistics[0][currentChamp.id].rates.pick_rate}
+              </span>
+            </div>
+            <div className="Rate">
+              밴률{" "}
+              <span>
+                {ChampionStatistics[0][currentChamp.id].rates.ban_rate}
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
-      <div className="Champion_Info">
-        <h2>룰루, 요정 마법사</h2>
-        <p>
-          요들 마법사 룰루는 친구인 요정 픽스와 함께 룬테라를 돌아다니며,
-          꿈결같은 환상과 상상 속에서나 존재할 법한 생명체를 만들어내는 것으로
-          유명하다. 룰루는 내키는 대로 현실을 빚어내고, 세상의 법칙을 비틀어
-          버린다. 룰루가 보기에 이 세상의 물리 법칙에 따르는 제약은 시시하고
-          따분하다. 룰루의 마법은 좋게 본다 해도 비정상적이고 나쁘게 보면
-          위험하다고까지 할 수도 있겠지만, 룰루의 신념은 확고하다. 사람들에게
-          마법 한 번씩 맛보여 주는 게 뭐 그리...
-        </p>
-      </div>
-      <QuickBuild />
+      <QuickBuild currentChamp={currentChamp} />
     </Container>
   );
 }
