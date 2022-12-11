@@ -109,7 +109,7 @@ export async function matchSummoryData(gameUuids, userName) {
         spellId1: summonerFilterName.summoner1Id,
         spellId2: summonerFilterName.summoner2Id,
         runId1: summonerFilterName.perks.styles[0].style,
-        runId2: summonerFilterName.perks.styles[1].style
+        runId2: summonerFilterName.perks.styles[1].style,
       };
     } catch (error) {
       console.log(error(error));
@@ -150,8 +150,8 @@ export async function summonerSpell(spellId1, spellId2) {
         }
       }
     }
-    for(let i=0; i < result.length; i+= 2){
-      twiceArr.push(result.slice(i, i+2))
+    for (let i = 0; i < result.length; i += 2) {
+      twiceArr.push(result.slice(i, i + 2));
     }
     return twiceArr;
   } catch (error) {
