@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import "./Tab.css";
 import lineIconImg from "./imgLink";
 import TabBtn from "./TabBtn";
-import { ChampSerchBar, OpListSerchBar } from "../CommonComponents/SerchInput";
+import { ChampSearchBar, OpListSearchBar } from "../CommonComponents/SearchInput";
 
-export const ChampionTab = ({ line, setCheckLine, serchInputValue, setSerchInputValue ,tabSerchInputValue, setTabSerchInputValue }) => {
+export const ChampionTab = ({ line, setCheckLine, searchInputValue, setSearchInputValue }) => {
   let listLength = line.length;
   const [linebtnCheck, setLinebtnCheck] = useState(
     listLength === 5
@@ -14,9 +14,9 @@ export const ChampionTab = ({ line, setCheckLine, serchInputValue, setSerchInput
 
   return (
     <div>
-      <ChampSerchBar
-        serchInputValue={serchInputValue}
-        setSerchInputValue={setSerchInputValue}
+      <ChampSearchBar
+        searchInputValue={searchInputValue}
+        setSearchInputValue={setSearchInputValue}
       />
       <div className="Tab_LineBox">
         {linebtnCheck.map((iconData, index) => {
@@ -39,7 +39,7 @@ export const ChampionTab = ({ line, setCheckLine, serchInputValue, setSerchInput
   );
 };
 
-export const OpListTab = ({ line, setCheckLine, tabSerchInputValue, setTabSerchInputValue }) => {
+export const OpListTab = ({ line, setCheckLine, tabSearchInputValue, setTabSearchInputValue }) => {
   let listLength = line.length;
   const [linebtnCheck, setLinebtnCheck] = useState(
     listLength === 5
@@ -49,9 +49,9 @@ export const OpListTab = ({ line, setCheckLine, tabSerchInputValue, setTabSerchI
 
   return (
     <div>
-      <OpListSerchBar
-        tabSerchInputValue={tabSerchInputValue}
-        setTabSerchInputValue={setTabSerchInputValue}
+      <OpListSearchBar
+        tabSearchInputValue={tabSearchInputValue}
+        setTabSearchInputValue={setTabSearchInputValue}
       />
       <div className="Tab_LineBox">
         {linebtnCheck.map((iconData, index) => {

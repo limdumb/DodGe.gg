@@ -1,4 +1,4 @@
-#Serch_Input{
+#Search_Input{
   height: 1.0rem;
   border: none;
   border-top-left-radius: 10px;
@@ -12,12 +12,12 @@
 }
 
 @media screen and (min-width: 1024px) {
-  #Serch_Input{
+  #Search_Input{
     width: 250px
   } 
 }
 
-.Serch_Button{
+.Search_Button{
   font-weight: bold;
   font-size: 0.9rem;
   padding-right: 0.4rem;

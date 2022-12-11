@@ -2,9 +2,9 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { champName } from "../../API/RiotAPI";
 import "./ChampionList.css";
-import { filterChampName } from "../../Function/Serch";
+import { filterChampName } from "../../Function/Search";
 
-export default function ChampionList({ serchInputValue }) {
+export default function ChampionList({ searchInputValue }) {
   const [champNormalName, setChampNormalName] = useState(null);
   useEffect(() => {
     const championNameData = async () => {
@@ -18,7 +18,7 @@ export default function ChampionList({ serchInputValue }) {
     championNameData();
   }, []);
 
-  const regex = filterChampName(serchInputValue);
+  const regex = filterChampName(searchInputValue);
 
   const filterChampionName =
     champNormalName &&

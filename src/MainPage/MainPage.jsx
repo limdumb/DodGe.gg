@@ -13,8 +13,8 @@ import Modal from "../Components/CommonComponents/Modal";
 export default function MainPage() {
   const line = ["TOP", "JUNGLE", "MID", "ADC", "SUPPORT"];
   const [CheckLine, setCheckLine] = useState("TOP");
-  const [serchInputValue, setSerchInputValue] = useState("");
-  const [tabSerchInputValue, setTabSerchInputValue] = useState("");
+  const [searchInputValue, setSearchInputValue] = useState("");
+  const [tabSearchInputValue, setTabSearchInputValue] = useState("");
   const [modalCheck, setModalCheck] = useState([false, false]);
 
   return (
@@ -29,17 +29,17 @@ export default function MainPage() {
           <div>
             <ChampionTab
               line={line}
-              setSerchInputValue={setSerchInputValue}
-              serchInputValue={serchInputValue}
+              setSearchInputValue={setSearchInputValue}
+              searchInputValue={searchInputValue}
               setCheckLine={setCheckLine}
             />
-            <ChampionList serchInputValue={serchInputValue} />
+            <ChampionList searchInputValue={searchInputValue} />
           </div>
           <ChampionGuide />
           <OpList
             line={line}
-            tabSerchInputValue={tabSerchInputValue}
-            setTabSerchInputValue={setTabSerchInputValue}
+            tabSearchInputValue={tabSearchInputValue}
+            setTabSearchInputValue={setTabSearchInputValue}
           />
         </div>
       </main>
