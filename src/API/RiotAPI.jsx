@@ -1,14 +1,13 @@
 import axios from "axios";
 
-const apiKey = "";
+const apiKey = process.env.REACT_APP_API_KEY;
 const apiKrBase = "https://kr.api.riotgames.com";
 const apiAsiaBase = "https://asia.api.riotgames.com";
-const UserName = "늑 사 덤";
 
 export async function summonerData(userName) {
   try {
     const response = await axios.get(
-      `${apiKrBase}/lol/summoner/v4/summoners/by-name/${UserName}?api_key=${apiKey}`
+      `${apiKrBase}/lol/summoner/v4/summoners/by-name/${userName}?api_key=${apiKey}`
     );
 
     return {
@@ -45,7 +44,7 @@ export const gameUuid = async (puuid) => {
   }
 };
 
-export async function matchSummoryData(gameUuids) {
+export async function matchSummoryData(gameUuids, userName) {
   const getMatchData = async (uuid) => {
     try {
       const response = await axios.get(
@@ -53,7 +52,7 @@ export async function matchSummoryData(gameUuids) {
       );
       //변수명은 변경 예정(생각중)
       const summonerFilterName = response.data.info.participants.filter(
-        (item) => item.summonerName === UserName
+        (item) => item.summonerName === userName
       )[0];
 
       const redTeam = response.data.info.participants.filter(

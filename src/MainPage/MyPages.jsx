@@ -2,8 +2,7 @@ import "./MyPages.css";
 import { UserInformation } from "../Components/MyPage/UserInformation";
 import { TypeTab } from "../Components/MyPage/TypeTab";
 import RecordList from "../Components/MyPage/RecordList";
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import {
   summonerData,
   summonerLeagueData,
@@ -13,6 +12,7 @@ import {
 } from "../API/RiotAPI";
 import { StyleSpan } from "../Components/MyPage/RecordList";
 import styled from "styled-components";
+import { useParams } from "react-router-dom";
 
 const EasterEggSpan = styled(StyleSpan)`
   display: flex;
@@ -20,18 +20,19 @@ const EasterEggSpan = styled(StyleSpan)`
 `;
 
 export default function MyPages() {
+  let summonerName = useParams();
+
   const [currentTab, setCurrentTab] = useState("All_Game_Record");
   const [getUserProfile, setGetUserProfile] = useState(null);
   const [userSoloTier, setUserSoloTier] = useState(null);
   const [userFreeRankTier, setUserFreeRankTier] = useState(null);
   const [getUserMatchData, setGetUserMatchData] = useState(null);
-  const [getSpell, setGetSpell] = useState(null)
-
+  const [getSpell, setGetSpell] = useState(null);
   useEffect(() => {
     const userInfoData = async () => {
-      const userResponse = await summonerData();
+      const userResponse = await summonerData(summonerName.summoner);
       const gameUuidResponse = await gameUuid(userResponse.puuid);
-      const matchResponse = await matchSummoryData(gameUuidResponse.data);
+      const matchResponse = await matchSummoryData(gameUuidResponse.data,summonerName.summoner);
       const leagueDataResponse = await summonerLeagueData(userResponse.id);
       const spellDataResponse = await summonerSpell(matchResponse.map((el)=>{
         return el.spellId1
@@ -46,9 +47,8 @@ export default function MyPages() {
       setGetUserProfile(userResponse);
       setGetSpell(spellDataResponse)
     };
-
     userInfoData();
-  }, []);
+  }, [summonerName]);
 
   return (
     <>

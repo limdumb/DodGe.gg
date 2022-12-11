@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Tab.css";
 import lineIconImg from "./imgLink";
 import TabBtn from "./TabBtn";
-import { ChampSearchBar, OpListSearchBar } from "../CommonComponents/SearchInput";
+import { ChampSearchBar } from "../CommonComponents/SearchInput";
 
 export const ChampionTab = ({ line, setCheckLine, searchInputValue, setSearchInputValue }) => {
   let listLength = line.length;
@@ -49,10 +49,6 @@ export const OpListTab = ({ line, setCheckLine, tabSearchInputValue, setTabSearc
 
   return (
     <div>
-      <OpListSearchBar
-        tabSearchInputValue={tabSearchInputValue}
-        setTabSearchInputValue={setTabSearchInputValue}
-      />
       <div className="Tab_LineBox">
         {linebtnCheck.map((iconData, index) => {
           return (
