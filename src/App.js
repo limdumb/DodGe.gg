@@ -48,7 +48,7 @@ function App() {
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route
-            path="/champion"
+            path="/champion/:champion"
             element={
               champSelected && <ChampionGuide champSelected={champSelected} />
             }

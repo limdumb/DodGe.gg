@@ -289,6 +289,10 @@ function recommendSpells(champion) {
     if (champion.id === "Yuumi") return ["SummonerExhaust", "SummonerDot"];
   }
 
+  if (ChampionStatistics[0][champion.id].line === "adc") {
+    return ["SummonerHeal", "SummonerFlash"];
+  }
+
   if (ChampionStatistics[0][champion.id].line === "top") {
     const igniteTPs = ["Akali", "Camille", "Gwen"];
     const ghostTPs = ["Nasus"];

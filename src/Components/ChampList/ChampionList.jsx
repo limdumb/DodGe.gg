@@ -3,8 +3,10 @@ import { useState } from "react";
 import { champName } from "../../API/RiotAPI";
 import "./ChampionList.css";
 import { filterChampName } from "../../Function/Search";
+import { useNavigate } from "react-router-dom";
 
 export default function ChampionList({ searchInputValue, setChampSelected }) {
+  let navigate = useNavigate();
   const [champNormalName, setChampNormalName] = useState(null);
   useEffect(() => {
     const championNameData = async () => {
@@ -36,8 +38,10 @@ export default function ChampionList({ searchInputValue, setChampSelected }) {
                 className="Champion_List"
                 key={index}
                 onClick={() => {
-                  if (data.en_name !== "AurelionSol")
+                  if (data.en_name !== "AurelionSol") {
                     setChampSelected(data.en_name);
+                  }
+                  navigate(`/champion/${data.en_name}`);
                 }}
               >
                 <img
