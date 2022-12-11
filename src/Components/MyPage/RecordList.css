@@ -8,7 +8,6 @@
 
 .Record_My_Champ{
   display: flex;
-  align-items: center;
 }
 
 ul{
@@ -19,9 +18,35 @@ ul{
 .Game_Player_List{
   margin: 0;
   padding: 0;
+  display: flex;
 }
 
 .Game_Player_List2{
+  display: flex;
   margin: 0;
   padding: 0;
+}
+
+.Record_Information{
+  width: 60px;
+}
+
+.Rune_Spell_Info{
+  display: flex;
+}
+
+.Runes_Content{
+  width: 23px;
+}
+
+.Spells_Content{
+  width: 30px;
+}
+
+.No_Item_List{
+  width: 20px;
+  height: 20px;
+  margin-right: 3px;
+  background-color: gray;
+  border-radius: 5px;
 }

@@ -1,9 +1,7 @@
-import MainHeader from "../Components/CommonComponents/Header";
 import "./MyPages.css";
 import { UserInformation } from "../Components/MyPage/UserInformation";
 import { TypeTab } from "../Components/MyPage/TypeTab";
 import RecordList from "../Components/MyPage/RecordList";
-import Footer from "../Components/CommonComponents/Footer.jsx";
 import { useState } from "react";
 import { useEffect } from "react";
 import {
@@ -11,6 +9,7 @@ import {
   summonerLeagueData,
   matchSummoryData,
   gameUuid,
+  summonerSpell
 } from "../API/RiotAPI";
 import { StyleSpan } from "../Components/MyPage/RecordList";
 import styled from "styled-components";
@@ -26,7 +25,7 @@ export default function MyPages() {
   const [userSoloTier, setUserSoloTier] = useState(null);
   const [userFreeRankTier, setUserFreeRankTier] = useState(null);
   const [getUserMatchData, setGetUserMatchData] = useState(null);
-  const [gameUuidData, setGameUuidData] = useState(null);
+  const [getSpell, setGetSpell] = useState(null)
 
   useEffect(() => {
     const userInfoData = async () => {
@@ -34,11 +33,18 @@ export default function MyPages() {
       const gameUuidResponse = await gameUuid(userResponse.puuid);
       const matchResponse = await matchSummoryData(gameUuidResponse.data);
       const leagueDataResponse = await summonerLeagueData(userResponse.id);
+      const spellDataResponse = await summonerSpell(matchResponse.map((el)=>{
+        return el.spellId1
+      }), matchResponse.map((el)=>{
+        return el.spellId2
+      }))
+      
+
       setUserSoloTier(leagueDataResponse.data[0]);
       setUserFreeRankTier(leagueDataResponse.data[1]);
-      setGameUuidData(gameUuidResponse);
       setGetUserMatchData(matchResponse);
       setGetUserProfile(userResponse);
+      setGetSpell(spellDataResponse)
     };
 
     userInfoData();
@@ -46,7 +52,6 @@ export default function MyPages() {
 
   return (
     <>
-      <MainHeader />
       <div id="Main_Container">
         <main>
           {getUserProfile && (
@@ -76,10 +81,9 @@ export default function MyPages() {
               }
             }}
           />
-          <RecordList tab={currentTab} getUserMatchData={getUserMatchData}/>
+          <RecordList tab={currentTab} getUserMatchData={getUserMatchData} getSpell={getSpell}/>
         </main>
       </div>
-      <Footer />
     </>
   );
 }
