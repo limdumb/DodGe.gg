@@ -9,7 +9,7 @@ export const UserInformation = ({
 }) => {
   return (
     <section className="User_Information_Container">
-      <article className="User_Profil">
+      <article className="User_Profile">
         <div className="Information_Contents">
           <img
             className="Icon_Image"

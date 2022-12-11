@@ -22,7 +22,7 @@ const EasterEggSpan = styled(StyleSpan)`
 
 export default function MyPages() {
   const [currentTab, setCurrentTab] = useState("All_Game_Record");
-  const [getUserProfil, setGetUserProfil] = useState(null);
+  const [getUserProfile, setGetUserProfile] = useState(null);
   const [userSoloTier, setUserSoloTier] = useState(null);
   const [userFreeRankTier, setUserFreeRankTier] = useState(null);
   const [getUserMatchData, setGetUserMatchData] = useState(null);
@@ -32,31 +32,29 @@ export default function MyPages() {
     const userInfoData = async () => {
       const userResponse = await summonerData();
       const gameUuidResponse = await gameUuid(userResponse.puuid);
-      const machResponse = await matchSummoryData(gameUuidResponse.data);
+      const matchResponse = await matchSummoryData(gameUuidResponse.data);
       const leagueDataResponse = await summonerLeagueData(userResponse.id);
       setUserSoloTier(leagueDataResponse.data[0]);
       setUserFreeRankTier(leagueDataResponse.data[1]);
       setGameUuidData(gameUuidResponse);
-      setGetUserMatchData(machResponse);
-      setGetUserProfil(userResponse);
+      setGetUserMatchData(matchResponse);
+      setGetUserProfile(userResponse);
     };
 
     userInfoData();
   }, []);
-
-  console.log(getUserProfil)
 
   return (
     <>
       <MainHeader />
       <div id="Main_Container">
         <main>
-          {getUserProfil && (
+          {getUserProfile && (
             <UserInformation
               userSoloTier={userSoloTier}
               userFreeRankTier={userFreeRankTier}
-              profileIconId={getUserProfil.profileIconId}
-              name={getUserProfil.name}
+              profileIconId={getUserProfile.profileIconId}
+              name={getUserProfile.name}
             />
           )}
           <div>
