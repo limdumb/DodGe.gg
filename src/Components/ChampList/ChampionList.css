@@ -30,10 +30,10 @@
   width: 40px;
 }
 
-  @media screen and (min-device-width: 768px) {
+  @media screen and (min-width: 768px) {
   }
 
-  @media screen and (min-device-width: 1024px) {
+  @media screen and (min-width: 1024px) {
     .Champion_List_Container {
       display: flex;
       flex-wrap: wrap;

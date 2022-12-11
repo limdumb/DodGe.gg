@@ -12,19 +12,19 @@ html {
      -webkit-text-size-adjust:none; 
 }
 
-@media screen and (min-device-width: 480px) {
+@media screen and (min-width: 480px) {
   html {
     font-size: 80.4688%;
   }
 }
 
-@media screen and (min-device-width: 768px) {
+@media screen and (min-width: 768px) {
   html {
     font-size: 80.8594%;
   }
 }
 
-@media screen and (min-device-width: 1024px) {
+@media screen and (min-width: 1024px) {
   html {
     font-size: 125%;
   }

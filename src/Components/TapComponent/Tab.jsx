@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import "./Tab.css";
 import lineIconImg from "./imgLink";
 import TabBtn from "./TabBtn";
+import { ChampSearchBar, OpListSearchBar } from "../CommonComponents/SearchInput";
 
-const Tab = ({ line, setCheckLine }) => {
+export const ChampionTab = ({ line, setCheckLine, searchInputValue, setSearchInputValue }) => {
   let listLength = line.length;
   const [linebtnCheck, setLinebtnCheck] = useState(
     listLength === 5
@@ -13,25 +14,18 @@ const Tab = ({ line, setCheckLine }) => {
 
   return (
     <div>
-      <div className="Tab_SearchBox">
-        <img
-          className="Tab_SearchImg"
-          src="https://s-lol-web.op.gg/images/icon/icon-search.svg"
-        />
-        <input
-          className="Tab_Search"
-          type="text"
-          
-          placeholder="챔피언 검색"
-          autoComplete="off"
-        />
-      </div>
+      <ChampSearchBar
+        searchInputValue={searchInputValue}
+        setSearchInputValue={setSearchInputValue}
+      />
       <div className="Tab_LineBox">
         {linebtnCheck.map((iconData, index) => {
           return (
             <TabBtn
               key={index}
-              iconData={listLength === 5 ? lineIconImg[index+1] : lineIconImg[index]}
+              iconData={
+                listLength === 5 ? lineIconImg[index + 1] : lineIconImg[index]
+              }
               index={index}
               linebtnCheck={linebtnCheck}
               setLinebtnCheck={setLinebtnCheck}
@@ -45,4 +39,37 @@ const Tab = ({ line, setCheckLine }) => {
   );
 };
 
-export default Tab;
+export const OpListTab = ({ line, setCheckLine, tabSearchInputValue, setTabSearchInputValue }) => {
+  let listLength = line.length;
+  const [linebtnCheck, setLinebtnCheck] = useState(
+    listLength === 5
+      ? [true, false, false, false, false]
+      : [true, false, false, false, false, false, false]
+  );
+
+  return (
+    <div>
+      <OpListSearchBar
+        tabSearchInputValue={tabSearchInputValue}
+        setTabSearchInputValue={setTabSearchInputValue}
+      />
+      <div className="Tab_LineBox">
+        {linebtnCheck.map((iconData, index) => {
+          return (
+            <TabBtn
+              key={index}
+              iconData={
+                listLength === 5 ? lineIconImg[index + 1] : lineIconImg[index]
+              }
+              index={index}
+              linebtnCheck={linebtnCheck}
+              setLinebtnCheck={setLinebtnCheck}
+              setCheckLine={setCheckLine}
+              line={line}
+            />
+          );
+        })}
+      </div>
+    </div>
+  );
+};

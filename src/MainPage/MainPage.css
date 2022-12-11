@@ -3,7 +3,7 @@
   flex-direction: column;
 }
 
-@media screen and (min-device-width: 1024px) {
+@media screen and (min-width: 1024px) {
   .Main_Contents{
     display: flex;
   }

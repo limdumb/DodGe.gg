@@ -1,33 +1,3 @@
-.Tab_SearchBox{
-  /* width: 332px; */
-  width: 100%;
-  height: 44px;
-  background-color: #31313C;
-  /* border-top-left-radius: 4px;
-  border-top-right-radius: 4px; */
-  padding: 8px 8px 0 8px;
-  position: relative;
-}
-
-.Tab_SearchImg{
-  position: absolute;
-  top: 14px;
-  left: 18px;
-}
-
-.Tab_Search{
-  /* width: 316px; */
-  width: 100%;
-  height: 36px;
-  padding: 8px 16px 8px 40px;
-  box-sizing: border-box;
-  border-radius: 4px;
-  border: none;
-  outline: none;
-  background-color: #1C1C1F;
-  font-size: 14px;
-  color: white;
-}
 
 .Tab_LineBox{
   display: flex;

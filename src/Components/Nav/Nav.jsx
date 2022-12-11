@@ -11,7 +11,7 @@ const NavBody = styled.div`
   height: 60px;
   z-index: 10000;
 
-  @media screen and (min-device-width: 1024px) {
+  @media screen and (min-width: 1024px) {
     display: none;
   }
 `;
