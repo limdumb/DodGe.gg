@@ -6,9 +6,10 @@ import { useState, useEffect } from "react";
 import {
   summonerData,
   summonerLeagueData,
-  matchSummoryData,
+  matchSummaryData,
   gameUuid,
   summonerSpell,
+  fetchRunesData,
 } from "../API/RiotAPI";
 import { StyleSpan } from "../Components/MyPage/RecordList";
 import styled from "styled-components";
@@ -25,14 +26,16 @@ export default function MyPages() {
 
   const [currentTab, setCurrentTab] = useState("All_Game_Record");
   const [getUserProfile, setGetUserProfile] = useState(null);
-  const [userRankTier, setUserRankTier] = useState(null)
+  const [userRankTier, setUserRankTier] = useState(null);
   const [getUserMatchData, setGetUserMatchData] = useState(null);
   const [getSpell, setGetSpell] = useState(null);
+  const [runesData, setRunesData] = useState(null);
+
   useEffect(() => {
     const userInfoData = async () => {
       const userResponse = await summonerData(summonerName.summoner);
       const gameUuidResponse = await gameUuid(userResponse.puuid);
-      const matchResponse = await matchSummoryData(
+      const matchResponse = await matchSummaryData(
         gameUuidResponse.data,
         summonerName.summoner
       );
@@ -45,16 +48,18 @@ export default function MyPages() {
           return el.spellId2;
         })
       );
+      const runesDataResponse = await fetchRunesData();
 
       setUserRankTier(leagueDataResponse.data);
       setGetUserMatchData(matchResponse);
       setGetUserProfile(userResponse);
       setGetSpell(spellDataResponse);
+      setRunesData(runesDataResponse);
     };
     userInfoData();
   }, [summonerName]);
 
-  console.log(userRankTier)
+  console.log(userRankTier);
   return (
     <>
       <div id="Main_Container">
@@ -88,6 +93,7 @@ export default function MyPages() {
           <RecordList
             tab={currentTab}
             getUserMatchData={getUserMatchData}
+            runesData={runesData}
             getSpell={getSpell}
           />
         </main>

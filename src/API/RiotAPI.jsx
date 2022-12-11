@@ -44,7 +44,7 @@ export const gameUuid = async (puuid) => {
   }
 };
 
-export async function matchSummoryData(gameUuids, userName) {
+export async function matchSummaryData(gameUuids, userName) {
   const getMatchData = async (uuid) => {
     try {
       const response = await axios.get(
@@ -78,6 +78,7 @@ export async function matchSummoryData(gameUuids, userName) {
       const blueTeamSummonerName = blueTeam.map((el) => {
         return el.summonerName;
       });
+
       const itemSlot = [
         summonerFilterName.item0,
         summonerFilterName.item1,
@@ -108,8 +109,9 @@ export async function matchSummoryData(gameUuids, userName) {
         gameDuration: response.data.info.gameDuration,
         spellId1: summonerFilterName.summoner1Id,
         spellId2: summonerFilterName.summoner2Id,
-        runId1: summonerFilterName.perks.styles[0].style,
-        runId2: summonerFilterName.perks.styles[1].style,
+        runeId1: summonerFilterName.perks.styles[0].style,
+        runeId2: summonerFilterName.perks.styles[1].style,
+        queueId: response.data.info.queueId,
       };
     } catch (error) {
       console.log(error(error));
@@ -118,7 +120,7 @@ export async function matchSummoryData(gameUuids, userName) {
 
   let results;
   if (gameUuids) {
-    const slice = gameUuids.slice(0, 3);
+    const slice = gameUuids.slice(0, 10);
     results = await Promise.all(
       slice.map((gameUuid) => {
         return getMatchData(gameUuid);
