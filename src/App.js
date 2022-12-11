@@ -13,7 +13,6 @@ import OpList from "./Components/OPList/OPList";
 
 function App() {
   const [modalCheck, setModalCheck] = useState([false, false]);
-  const [tabSearchInputValue, setTabSearchInputValue] = useState("");
   const [champSelected, setChampSelected] = useState(null);
   return (
     <BrowserRouter>
@@ -23,10 +22,7 @@ function App() {
       <main>
         <aside>
           <ChampionSearchList setChampSelected={setChampSelected} />
-          <OpList
-            tabSearchInputValue={tabSearchInputValue}
-            setTabSearchInputValue={setTabSearchInputValue}
-          />
+          <OpList/>
         </aside>
 
         <Routes>
