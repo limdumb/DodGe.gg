@@ -3,7 +3,8 @@ import { OpListTab } from "../TapComponent/Tab";
 import ChampionsList from "./ChampionsList";
 import "./OPList.css";
 
-const OPList = ({ line, tabSearchInputValue, setTabSearchInputValue }) => {
+const OPList = ({ tabSearchInputValue, setTabSearchInputValue }) => {
+  const line = ["TOP", "JUNGLE", "MID", "ADC", "SUPPORT"];
   const [CheckLine, setCheckLine] = useState("TOP");
   return (
     <div className="Op_List_Container">

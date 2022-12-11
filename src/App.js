@@ -8,15 +8,11 @@ import MainHeader from "./Components/CommonComponents/Header";
 import MainFooter from "./Components/CommonComponents/Footer";
 import Modal from "./Components/CommonComponents/Modal";
 import Nav from "./Components/Nav/Nav";
-import ChampionList from "./Components/ChampList/ChampionList";
-import { ChampionTab } from "./Components/TapComponent/Tab";
+import ChampionSearchList from "./Components/ChampList/ChampionSearchList";
 import OpList from "./Components/OPList/OPList";
 
 function App() {
   const [modalCheck, setModalCheck] = useState([false, false]);
-  const line = ["TOP", "JUNGLE", "MID", "ADC", "SUPPORT"];
-  const [CheckLine, setCheckLine] = useState("TOP");
-  const [searchInputValue, setSearchInputValue] = useState("");
   const [tabSearchInputValue, setTabSearchInputValue] = useState("");
   const [champSelected, setChampSelected] = useState(null);
   return (
@@ -26,20 +22,8 @@ function App() {
       <MainHeader />
       <main>
         <aside>
-          <div>
-            <ChampionTab
-              line={line}
-              setSearchInputValue={setSearchInputValue}
-              searchInputValue={searchInputValue}
-              setCheckLine={setCheckLine}
-            />
-            <ChampionList
-              searchInputValue={searchInputValue}
-              setChampSelected={setChampSelected}
-            />
-          </div>
+          <ChampionSearchList setChampSelected={setChampSelected} />
           <OpList
-            line={line}
             tabSearchInputValue={tabSearchInputValue}
             setTabSearchInputValue={setTabSearchInputValue}
           />
