@@ -8,7 +8,7 @@ import {
   summonerLeagueData,
   matchSummoryData,
   gameUuid,
-  summonerSpell
+  summonerSpell,
 } from "../API/RiotAPI";
 import { StyleSpan } from "../Components/MyPage/RecordList";
 import styled from "styled-components";
@@ -24,40 +24,43 @@ export default function MyPages() {
 
   const [currentTab, setCurrentTab] = useState("All_Game_Record");
   const [getUserProfile, setGetUserProfile] = useState(null);
-  const [userSoloTier, setUserSoloTier] = useState(null);
-  const [userFreeRankTier, setUserFreeRankTier] = useState(null);
+  const [userRankTier, setUserRankTier] = useState(null)
   const [getUserMatchData, setGetUserMatchData] = useState(null);
   const [getSpell, setGetSpell] = useState(null);
   useEffect(() => {
     const userInfoData = async () => {
       const userResponse = await summonerData(summonerName.summoner);
       const gameUuidResponse = await gameUuid(userResponse.puuid);
-      const matchResponse = await matchSummoryData(gameUuidResponse.data,summonerName.summoner);
+      const matchResponse = await matchSummoryData(
+        gameUuidResponse.data,
+        summonerName.summoner
+      );
       const leagueDataResponse = await summonerLeagueData(userResponse.id);
-      const spellDataResponse = await summonerSpell(matchResponse.map((el)=>{
-        return el.spellId1
-      }), matchResponse.map((el)=>{
-        return el.spellId2
-      }))
-      
+      const spellDataResponse = await summonerSpell(
+        matchResponse.map((el) => {
+          return el.spellId1;
+        }),
+        matchResponse.map((el) => {
+          return el.spellId2;
+        })
+      );
 
-      setUserSoloTier(leagueDataResponse.data[0]);
-      setUserFreeRankTier(leagueDataResponse.data[1]);
+      setUserRankTier(leagueDataResponse.data);
       setGetUserMatchData(matchResponse);
       setGetUserProfile(userResponse);
-      setGetSpell(spellDataResponse)
+      setGetSpell(spellDataResponse);
     };
     userInfoData();
   }, [summonerName]);
 
+  console.log(userRankTier)
   return (
     <>
       <div id="Main_Container">
         <main>
           {getUserProfile && (
             <UserInformation
-              userSoloTier={userSoloTier}
-              userFreeRankTier={userFreeRankTier}
+              userRankTier={userRankTier}
               profileIconId={getUserProfile.profileIconId}
               name={getUserProfile.name}
             />
@@ -81,7 +84,11 @@ export default function MyPages() {
               }
             }}
           />
-          <RecordList tab={currentTab} getUserMatchData={getUserMatchData} getSpell={getSpell}/>
+          <RecordList
+            tab={currentTab}
+            getUserMatchData={getUserMatchData}
+            getSpell={getSpell}
+          />
         </main>
       </div>
     </>

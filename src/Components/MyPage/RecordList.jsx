@@ -36,13 +36,6 @@ export const GameInfoImage = styled.img`
   border: ${(props) => props.border};
 `;
 
-const PlayerList = styled.div`
-  background-color: rgba(255, 255, 255, 0.5);
-  border-radius: 4px;
-  margin-bottom: ${(props) => props.marginBTM};
-  font-size: 14px;
-`;
-
 export default function RecordList({ tab, getUserMatchData, getSpell }) {
   return (
     <>

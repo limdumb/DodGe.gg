@@ -89,13 +89,23 @@ export function TypeTab({ onTabChange }) {
   );
 }
 
-export const RankTab = ({ userSoloTier, userFreeRankTier }) => {
+export const RankTab = ({ userRankTier }) => {
+  const soloRankTier = userRankTier&&userRankTier.filter((el)=>{
+    return el.queueType === "RANKED_SOLO_5x5"
+  })
+
+  const FreeRankTier = userRankTier&&userRankTier.filter((el)=>{
+    return el.queueType === "RANKED_FLEX_SR"
+  })
+
+  console.log(FreeRankTier)
+
   const [rankInfo, setRankInfo] = useState(0);
   const tabHandler = (index) => {
     setRankInfo(index);
   };
-  const lowerCaseSoloTierName = userSoloTier.tier.toLowerCase();
-  const lowerCaseFreeTierName = userFreeRankTier.tier.toLowerCase();
+  const lowerCaseSoloTierName = soloRankTier[0].tier.toLowerCase();
+  const lowerCaseFreeTierName = FreeRankTier.length !== 0 ? FreeRankTier[0].tier.toLowerCase() : undefined;
   const userTierArr = [
     {
       id: "1",
@@ -110,22 +120,24 @@ export const RankTab = ({ userSoloTier, userFreeRankTier }) => {
       ),
       rankContent: (
         <div className="Tab_Tier_Container">
-          <img
-            className="Icon_Image"
-            src={`https://blitz-cdn.blitz.gg/80x0/ranks/2022/${lowerCaseSoloTierName}.webp`}
-          />
-          <div className="Tab_Tier_Contents">
-            {userSoloTier && (
-              <>
-                <span className="Tab_Tier_Contents_1">
-                  {userSoloTier.tier} {userSoloTier.rank}
-                </span>
-                <span className="Tab_Tier_Contents_2">
-                  {userSoloTier.leaguePoints}LP
-                </span>
-              </>
-            )}
-          </div>
+          {soloRankTier.length !== 0 ? (
+            <div className="Tab_Tier_Contents">
+              {soloRankTier && (
+                <>
+                  <img
+                    className="Icon_Image"
+                    src={`https://blitz-cdn.blitz.gg/80x0/ranks/2022/${lowerCaseSoloTierName}.webp`}
+                  />
+                  <span className="Tab_Tier_Contents_1">
+                    {soloRankTier[0].tier} {soloRankTier[0].rank}
+                  </span>
+                  <span className="Tab_Tier_Contents_2">
+                    {soloRankTier[0].leaguePoints}LP
+                  </span>
+                </>
+              )}
+            </div>
+          ) : <div>Un Rank</div>}
         </div>
       ),
     },
@@ -143,22 +155,24 @@ export const RankTab = ({ userSoloTier, userFreeRankTier }) => {
       ),
       rankContent: (
         <div className="Tab_Tier_Container">
+          {FreeRankTier.length !== 0 ? <>
           <img
             className="Icon_Image"
             src={`https://blitz-cdn.blitz.gg/80x0/ranks/2022/${lowerCaseFreeTierName}.webp`}
           />
           <div className="Tab_Tier_Contents">
-            {userFreeRankTier && (
+            {FreeRankTier && (
               <>
                 <span className="Tab_Tier_Contents_1">
-                  {userFreeRankTier.tier} {userFreeRankTier.rank}
+                  {FreeRankTier[0].tier} {FreeRankTier[0].rank}
                 </span>
                 <span className="Tab_Tier_Contents_2">
-                  {userFreeRankTier.leaguePoints}LP
+                  {FreeRankTier[0].leaguePoints}LP
                 </span>
               </>
             )}
           </div>
+          </> : <div>Un Rank</div>}
         </div>
       ),
     },

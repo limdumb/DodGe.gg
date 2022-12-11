@@ -4,8 +4,7 @@ import './UserInformation.css'
 export const UserInformation = ({
   profileIconId,
   name,
-  userFreeRankTier,
-  userSoloTier,
+  userRankTier,
 }) => {
   return (
     <section className="User_Information_Container">
@@ -22,8 +21,7 @@ export const UserInformation = ({
       </article>
       <div className="Tier_InforMation">
         <RankTab
-          userSoloTier={userSoloTier}
-          userFreeRankTier={userFreeRankTier}
+          userRankTier={userRankTier}
         ></RankTab>
       </div>
     </section>
