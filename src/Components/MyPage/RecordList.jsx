@@ -44,7 +44,6 @@ const PlayerList = styled.div`
 `;
 
 export default function RecordList({ tab, getUserMatchData, getSpell }) {
-  const testArr = [1, 2, 3]
   return (
     <>
       {getUserMatchData &&
@@ -85,20 +84,19 @@ export default function RecordList({ tab, getUserMatchData, getSpell }) {
                       </div>
                       <div className="Rune_Spell_Info">
                         <div className="Runes_Content">
-                                <>
-                                  <GameInfoImage
-                                    
-                                    radius={"5px"}
-                                    width={20}
-                                    src={getSpell[index][1]}
-                                    marginRgt="2px"
-                                  />
-                                  <GameInfoImage
-                                    radius={"5px"}
-                                    width={20}
-                                    src={getSpell[index][0]}
-                                  />
-                                </>
+                          <div>
+                            <GameInfoImage
+                              radius={"5px"}
+                              width={20}
+                              src={getSpell[index][1]}
+                              marginRgt="2px"
+                            />
+                            <GameInfoImage
+                              radius={"5px"}
+                              width={20}
+                              src={getSpell[index][0]}
+                            />
+                          </div>
                         </div>
                         <div className="Spells_Content">
                           <GameInfoImage
@@ -148,19 +146,19 @@ export default function RecordList({ tab, getUserMatchData, getSpell }) {
                   </div>
                   <div className="Game_Result_Information">
                     <ul className="Game_Player_List">
-                      {redTeam.map((el, index) => {
+                      {redTeam.map((el) => {
                         if (el === "FiddleSticks") {
-                          return(
-                          <li>
-                          <GameInfoImage
-                            width={15}
-                            src={`https://ddragon.leagueoflegends.com/cdn/12.23.1/img/champion/Fiddlesticks.png`}
-                          />
-                        </li>
-                          )
+                          return (
+                            <li key={el}>
+                              <GameInfoImage
+                                width={15}
+                                src={`https://ddragon.leagueoflegends.com/cdn/12.23.1/img/champion/Fiddlesticks.png`}
+                              />
+                            </li>
+                          );
                         }
                         return (
-                          <li>
+                          <li key={el}>
                             <GameInfoImage
                               width={15}
                               src={`http://ddragon.leagueoflegends.com/cdn/12.23.1/img/champion/${el}.png`}
@@ -172,17 +170,17 @@ export default function RecordList({ tab, getUserMatchData, getSpell }) {
                     <ul className="Game_Player_List2">
                       {blueTeam.map((el) => {
                         if (el === "FiddleSticks") {
-                          return(
-                          <li>
-                          <GameInfoImage
-                            width={15}
-                            src={`https://ddragon.leagueoflegends.com/cdn/12.23.1/img/champion/Fiddlesticks.png`}
-                          />
-                        </li>
-                          )
+                          return (
+                            <li key={el}>
+                              <GameInfoImage
+                                width={15}
+                                src={`https://ddragon.leagueoflegends.com/cdn/12.23.1/img/champion/Fiddlesticks.png`}
+                              />
+                            </li>
+                          );
                         }
                         return (
-                          <li>
+                          <li key={el}>
                             <GameInfoImage
                               width={15}
                               src={`http://ddragon.leagueoflegends.com/cdn/12.23.1/img/champion/${el}.png`}
