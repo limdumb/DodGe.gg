@@ -1,6 +1,4 @@
 function escapeRegExp(string) {
-  console.log("inside of escape reg ex");
-  console.log(string);
   return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); // $&은 일치한 문자열 전체를 의미
 }
 function unicodeConversion(ch) {

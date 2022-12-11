@@ -33,7 +33,7 @@ export default function ChampionList({ serchInputValue }) {
           filterChampionName.map((data, index) => {
             return (
               <div
-                className="Champion__List"
+                className="Champion_List"
                 key={index}
                 onClick={() => data.en_name}
               >
