@@ -39,12 +39,14 @@ export default function MainPage() {
               setChampSelected={setChampSelected}
             />
           </div>
-          {champSelected && <ChampionGuide champSelected={champSelected} />}
-          <OpList
+          {champSelected ? (
+            <ChampionGuide champSelected={champSelected} />
+          ) : null}
+          {/* <OpList
             line={line}
             tabSearchInputValue={tabSearchInputValue}
             setTabSearchInputValue={setTabSearchInputValue}
-          />
+          /> */}
         </div>
       </main>
       <MainFooter />

@@ -5,10 +5,15 @@ import { useState, useEffect } from "react";
 import { fetchChampData } from "../../API/RiotAPI";
 
 const Main_Container = styled.div`
+  height: 1650px;
   width: 100%;
 
   .Guides_Container {
     background-color: bisque;
+  }
+
+  @media only screen and (min-width: 768px) {
+    height: 1150px;
   }
 
   @media only screen and (min-width: 1024px) {

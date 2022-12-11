@@ -3,7 +3,7 @@ import { RiArrowRightSFill } from "react-icons/ri";
 import ChampionStatistics from "./Data/ChampionStatistics.json";
 
 const Container = styled.div`
-  padding: 0 5px;
+  padding: 0 5px 10px 5px;
   height: 225px;
   display: flex;
   flex-wrap: wrap;
@@ -13,11 +13,11 @@ const Container = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin: auto;
-    border-bottom: solid rgba(0, 0, 0, 0.25) 1px;
+    margin: 0 auto;
 
     h6 {
       font-size: 20px;
+      font-weight: bold;
     }
 
     .Box_Container {
@@ -53,6 +53,10 @@ const Container = styled.div`
 
   img {
     height: 50px;
+  }
+
+  @media only screen and (min-width: 768px) {
+    height: 125px;
   }
 `;
 
