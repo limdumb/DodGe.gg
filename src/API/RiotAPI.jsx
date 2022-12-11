@@ -15,7 +15,7 @@ export async function summonerData(userName) {
       name: response.data.name,
       profileIconId: response.data.profileIconId,
       summonerLevel: response.data.summonerLevel,
-      puuid: response.data.puuid
+      puuid: response.data.puuid,
     };
   } catch (error) {
     console.log(error(error));
@@ -63,6 +63,10 @@ export async function matchSummoryData(gameUuids, userName) {
         (item) => item.teamId === 200
       );
 
+      const redTeamChampName = response.data.info.participants.filter(
+        (item) => item.championName
+      );
+
       const userChampionName = response.data.info.participants.map((el) => {
         return el.championName;
       });
@@ -100,6 +104,7 @@ export async function matchSummoryData(gameUuids, userName) {
         redTeamSummonerName: redTeamSummonerName,
         blueTeamSummonerName: blueTeamSummonerName,
         allChampionName: userChampionName,
+        redTeamChampName: redTeamChampName,
         gameDuration: response.data.info.gameDuration,
         spellId1: summonerFilterName.summoner1Id,
         spellId2: summonerFilterName.summoner2Id,
@@ -111,7 +116,7 @@ export async function matchSummoryData(gameUuids, userName) {
 
   let results;
   if (gameUuids) {
-    const slice = gameUuids.slice(0, 9);
+    const slice = gameUuids.slice(0, 3);
     results = await Promise.all(
       slice.map((gameUuid) => {
         return getMatchData(gameUuid);
@@ -123,11 +128,30 @@ export async function matchSummoryData(gameUuids, userName) {
   return results;
 }
 
-export async function summonerSpell() {
+export async function summonerSpell(spellId1, spellId2) {
   try {
     const response = await axios.get(
-      "http://ddragon.leagueoflegends.com/cdn/11.3.1/data/en_US/summoner.json"
+      "http://ddragon.leagueoflegends.com/cdn/12.23.1/data/en_US/summoner.json"
     );
+    const summonerSpellName = response.data.data;
+    const twiceArr = [];
+    const result = [];
+    for (let i = 0; i < spellId1.length; i++) {
+      for (let key of Object.keys(summonerSpellName)) {
+        if (
+          summonerSpellName[key].key === spellId1[i].toString() ||
+          summonerSpellName[key].key === spellId2[i].toString()
+        ) {
+          result.push(
+            `http://ddragon.leagueoflegends.com/cdn/12.23.1/img/spell/${summonerSpellName[key].image.full}`
+          );
+        }
+      }
+    }
+    for(let i=0; i < result.length; i+= 2){
+      twiceArr.push(result.slice(i, i+2))
+    }
+    return twiceArr;
   } catch (error) {
     console.log(error(error));
   }
