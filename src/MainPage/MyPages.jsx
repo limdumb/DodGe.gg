@@ -11,6 +11,7 @@ import {
 } from "../API/RiotAPI";
 import { StyleSpan } from "../Components/MyPage/RecordList";
 import styled from "styled-components";
+import { useParams } from "react-router-dom";
 
 const EasterEggSpan = styled(StyleSpan)`
   display: flex;
@@ -18,18 +19,20 @@ const EasterEggSpan = styled(StyleSpan)`
 `;
 
 export default function MyPages() {
+  let summonerName = useParams();
+
   const [currentTab, setCurrentTab] = useState("All_Game_Record");
   const [getUserProfile, setGetUserProfile] = useState(null);
   const [userSoloTier, setUserSoloTier] = useState(null);
   const [userFreeRankTier, setUserFreeRankTier] = useState(null);
   const [getUserMatchData, setGetUserMatchData] = useState(null);
   const [gameUuidData, setGameUuidData] = useState(null);
-
+  
   useEffect(() => {
     const userInfoData = async () => {
-      const userResponse = await summonerData();
+      const userResponse = await summonerData(summonerName.summoner);
       const gameUuidResponse = await gameUuid(userResponse.puuid);
-      const matchResponse = await matchSummoryData(gameUuidResponse.data);
+      const matchResponse = await matchSummoryData(gameUuidResponse.data,summonerName.summoner);
       const leagueDataResponse = await summonerLeagueData(userResponse.id);
       setUserSoloTier(leagueDataResponse.data[0]);
       setUserFreeRankTier(leagueDataResponse.data[1]);
@@ -37,9 +40,8 @@ export default function MyPages() {
       setGetUserMatchData(matchResponse);
       setGetUserProfile(userResponse);
     };
-
     userInfoData();
-  }, []);
+  }, [summonerName]);
 
   return (
     <>

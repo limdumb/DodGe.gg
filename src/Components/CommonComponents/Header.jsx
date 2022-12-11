@@ -46,7 +46,7 @@ export default function MainHeader() {
         DodGe.GG
       </StyleSpan>
       </div>
-      <SearchInput/>
+      <SearchInput />
     </Header>
   );
 }

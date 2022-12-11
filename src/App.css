@@ -19,6 +19,7 @@ html {
 
 main{
   display: flex;
+  flex-direction: column;
 }
 
 @media screen and (min-width: 480px) {
@@ -36,5 +37,8 @@ main{
 @media screen and (min-width: 1024px) {
   html {
     font-size: 125%;
+  }
+  main{
+    flex-direction: row;
   }
 }
