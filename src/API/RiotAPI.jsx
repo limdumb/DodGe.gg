@@ -3,7 +3,6 @@ import axios from "axios";
 const apiKey = process.env.REACT_APP_API_KEY;
 const apiKrBase = "https://kr.api.riotgames.com";
 const apiAsiaBase = "https://asia.api.riotgames.com";
-const UserName = "늑 사 덤";
 
 export async function summonerData(userName) {
   try {
