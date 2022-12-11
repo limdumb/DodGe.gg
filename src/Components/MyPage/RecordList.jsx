@@ -44,8 +44,6 @@ const PlayerList = styled.div`
 `;
 
 export default function RecordList({ tab, getUserMatchData, getSpell }) {
-  console.log(getUserMatchData)
-  const testArr = [1, 2, 3]
   return (
     <>
       {getUserMatchData &&
@@ -86,20 +84,19 @@ export default function RecordList({ tab, getUserMatchData, getSpell }) {
                       </div>
                       <div className="Rune_Spell_Info">
                         <div className="Runes_Content">
-                                <>
-                                  <GameInfoImage
-                                    
-                                    radius={"5px"}
-                                    width={20}
-                                    src={getSpell[index][1]}
-                                    marginRgt="2px"
-                                  />
-                                  <GameInfoImage
-                                    radius={"5px"}
-                                    width={20}
-                                    src={getSpell[index][0]}
-                                  />
-                                </>
+                          <div>
+                            <GameInfoImage
+                              radius={"5px"}
+                              width={20}
+                              src={getSpell[index][1]}
+                              marginRgt="2px"
+                            />
+                            <GameInfoImage
+                              radius={"5px"}
+                              width={20}
+                              src={getSpell[index][0]}
+                            />
+                          </div>
                         </div>
                         <div className="Spells_Content">
                           <GameInfoImage
@@ -151,14 +148,14 @@ export default function RecordList({ tab, getUserMatchData, getSpell }) {
                     <ul className="Game_Player_List">
                       {redTeam.map((el) => {
                         if (el === "FiddleSticks") {
-                          return(
-                          <li key={el}>
-                          <GameInfoImage
-                            width={15}
-                            src={`https://ddragon.leagueoflegends.com/cdn/12.23.1/img/champion/Fiddlesticks.png`}
-                          />
-                        </li>
-                          )
+                          return (
+                            <li key={el}>
+                              <GameInfoImage
+                                width={15}
+                                src={`https://ddragon.leagueoflegends.com/cdn/12.23.1/img/champion/Fiddlesticks.png`}
+                              />
+                            </li>
+                          );
                         }
                         return (
                           <li key={el}>
@@ -173,14 +170,14 @@ export default function RecordList({ tab, getUserMatchData, getSpell }) {
                     <ul className="Game_Player_List2">
                       {blueTeam.map((el) => {
                         if (el === "FiddleSticks") {
-                          return(
-                          <li key={el}>
-                          <GameInfoImage
-                            width={15}
-                            src={`https://ddragon.leagueoflegends.com/cdn/12.23.1/img/champion/Fiddlesticks.png`}
-                          />
-                        </li>
-                          )
+                          return (
+                            <li key={el}>
+                              <GameInfoImage
+                                width={15}
+                                src={`https://ddragon.leagueoflegends.com/cdn/12.23.1/img/champion/Fiddlesticks.png`}
+                              />
+                            </li>
+                          );
                         }
                         return (
                           <li key={el}>
