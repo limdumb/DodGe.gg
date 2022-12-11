@@ -14,7 +14,7 @@ import {
 import { StyleSpan } from "../Components/MyPage/RecordList";
 import styled from "styled-components";
 import { useParams } from "react-router-dom";
-import { easterEgg } from "../API/easterEgg";
+import { easterEgg } from "../API/easterEgg.js";
 
 const EasterEggSpan = styled(StyleSpan)`
   display: flex;

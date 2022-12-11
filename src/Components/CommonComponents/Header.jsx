@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { StyleSpan } from "../MyPage/RecordList";
 import "./Header.css";
@@ -34,17 +35,19 @@ const TabButton = styled(StyledButton)`
 export default function MainHeader() {
   return (
     <Header>
-      <TabButton
-        backgroundColor="rgb(45, 43, 46)"
-        color="white"
-        fontsize="0.8rem"
-      >
-        Home
-      </TabButton>
+      <Link to={'/'}>
+        <TabButton
+          backgroundColor="rgb(45, 43, 46)"
+          color="white"
+          fontsize="0.8rem"
+        >
+          Home
+        </TabButton>
+      </Link>
       <div className="Logo_Container">
-      <StyleSpan changeColor="white" fontsize="1.2rem" fontweight="bold">
-        DodGe.GG
-      </StyleSpan>
+        <StyleSpan changeColor="white" fontsize="1.2rem" fontweight="bold">
+          DodGe.GG
+        </StyleSpan>
       </div>
       <SearchInput />
     </Header>
