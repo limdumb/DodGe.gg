@@ -23,25 +23,30 @@ function App() {
       <Modal modalCheck={modalCheck} />
       <Nav modalCheck={modalCheck} setModalCheck={setModalCheck} />
       <MainHeader />
-      <div>
-        <ChampionTab
-          line={line}
-          setSearchInputValue={setSearchInputValue}
-          searchInputValue={searchInputValue}
-          setCheckLine={setCheckLine}
-        />
-        <ChampionList searchInputValue={searchInputValue} />
-      </div>
-      <Routes>
-        <Route path="/" element={<MainPage />} />
-        <Route path="/champion" element={<ChampionGuide />}/>
-        <Route path="/mypage" element={<MyPages />} />
-      </Routes>
-      <OpList
-        line={line}
-        tabSearchInputValue={tabSearchInputValue}
-        setTabSearchInputValue={setTabSearchInputValue}
-      />
+      <main>
+        <aside>
+          <div>
+            <ChampionTab
+              line={line}
+              setSearchInputValue={setSearchInputValue}
+              searchInputValue={searchInputValue}
+              setCheckLine={setCheckLine}
+            />
+            <ChampionList searchInputValue={searchInputValue} />
+          </div>
+          <OpList
+            line={line}
+            tabSearchInputValue={tabSearchInputValue}
+            setTabSearchInputValue={setTabSearchInputValue}
+          />
+        </aside>
+
+        <Routes>
+          <Route path="/" element={<MainPage />} />
+          <Route path="/champion" element={<ChampionGuide />} />
+          <Route path="/mypage" element={<MyPages />} />
+        </Routes>
+      </main>
       <MainFooter />
     </BrowserRouter>
   );

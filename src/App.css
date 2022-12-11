@@ -17,6 +17,10 @@ html {
      -webkit-text-size-adjust:none; 
 }
 
+main{
+  display: flex;
+}
+
 @media screen and (min-width: 480px) {
   html {
     font-size: 80.4688%;

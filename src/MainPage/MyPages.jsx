@@ -1,11 +1,8 @@
-import MainHeader from "../Components/CommonComponents/Header";
 import "./MyPages.css";
 import { UserInformation } from "../Components/MyPage/UserInformation";
 import { TypeTab } from "../Components/MyPage/TypeTab";
 import RecordList from "../Components/MyPage/RecordList";
-import Footer from "../Components/CommonComponents/Footer.jsx";
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import {
   summonerData,
   summonerLeagueData,
@@ -46,7 +43,6 @@ export default function MyPages() {
 
   return (
     <>
-      <MainHeader />
       <div id="Main_Container">
         <main>
           {getUserProfile && (
@@ -79,7 +75,6 @@ export default function MyPages() {
           <RecordList tab={currentTab} getUserMatchData={getUserMatchData}/>
         </main>
       </div>
-      <Footer />
     </>
   );
 }

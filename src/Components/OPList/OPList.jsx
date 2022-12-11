@@ -10,8 +10,6 @@ const OPList = ({ line, tabSearchInputValue, setTabSearchInputValue }) => {
       <OpListTab
         line={line}
         setCheckLine={setCheckLine}
-        tabSearchInputValue={tabSearchInputValue}
-        setTabSearchInputValue={setTabSearchInputValue}
       />
       <ChampionsList CheckLine={CheckLine} tabSearchInputValue={tabSearchInputValue} />
     </div>
