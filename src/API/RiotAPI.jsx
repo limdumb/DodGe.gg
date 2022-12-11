@@ -5,26 +5,28 @@ const apiKrBase = "https://kr.api.riotgames.com";
 const apiAsiaBase = "https://asia.api.riotgames.com";
 const UserName = "늑 사 덤";
 
-export async function summonerData() {
+export async function summonerData(userName) {
   try {
     const response = await axios.get(
       `${apiKrBase}/lol/summoner/v4/summoners/by-name/${UserName}?api_key=${apiKey}`
     );
 
     return {
+      id: response.data.id,
       name: response.data.name,
       profileIconId: response.data.profileIconId,
       summonerLevel: response.data.summonerLevel,
+      puuid: response.data.puuid
     };
   } catch (error) {
     console.log(error(error));
   }
 }
 
-export async function summonerLeagueData() {
+export async function summonerLeagueData(id) {
   try {
     const response = await axios.get(
-      `${apiKrBase}/lol/league/v4/entries/by-summoner/eNR-W7JuvHIfroVhzz3x8zmjPd26m_l1jCH-gK3s_TwZ08I?api_key=${apiKey}`
+      `${apiKrBase}/lol/league/v4/entries/by-summoner/${id}?api_key=${apiKey}`
     );
     return response;
   } catch (error) {
@@ -32,10 +34,10 @@ export async function summonerLeagueData() {
   }
 }
 
-const uuid = async () => {
+export const gameUuid = async (puuid) => {
   try {
     const response = await axios.get(
-      `${apiAsiaBase}/lol/match/v5/matches/by-puuid/FOWsldOnkYnYYjsCBC36zudcGlKWr4muJuj8ukhZlAJ6ZPu50O4q_O8fMjNF_6yVSlw_ox2QfwXg3A/ids?start=0&count=20&api_key=${apiKey}`
+      `${apiAsiaBase}/lol/match/v5/matches/by-puuid/${puuid}/ids?api_key=${apiKey}`
     );
     return response;
   } catch (error) {
@@ -43,69 +45,83 @@ const uuid = async () => {
   }
 };
 
-export async function matchSummoryData() {
-  try {
-    const response = await axios.get(
-      `${apiAsiaBase}/lol/match/v5/matches/KR_6228206120?api_key=${apiKey}`
+export async function matchSummoryData(gameUuids) {
+  const getMatchData = async (uuid) => {
+    try {
+      const response = await axios.get(
+        `${apiAsiaBase}/lol/match/v5/matches/${uuid}?api_key=${apiKey}`
+      );
+      //변수명은 변경 예정(생각중)
+      const summonerFilterName = response.data.info.participants.filter(
+        (item) => item.summonerName === UserName
+      )[0];
+
+      const redTeam = response.data.info.participants.filter(
+        (item) => item.teamId === 100
+      );
+
+      const blueTeam = response.data.info.participants.filter(
+        (item) => item.teamId === 200
+      );
+
+      const userChampionName = response.data.info.participants.map((el) => {
+        return el.championName;
+      });
+
+      const redTeamSummonerName = redTeam.map((el) => {
+        return el.summonerName;
+      });
+
+      const blueTeamSummonerName = blueTeam.map((el) => {
+        return el.summonerName;
+      });
+      const itemSlot = [
+        summonerFilterName.item0,
+        summonerFilterName.item1,
+        summonerFilterName.item2,
+        summonerFilterName.item3,
+        summonerFilterName.item4,
+        summonerFilterName.item5,
+        summonerFilterName.item6,
+      ];
+
+      return {
+        gameMode: response.data.info.gameMode,
+        kills: summonerFilterName.kills,
+        deaths: summonerFilterName.deaths,
+        assist: summonerFilterName.assists,
+        itemSlot: itemSlot,
+        teamId: response.data.info.participants.map((el) => el.teamId),
+        totalMinionsKilled: summonerFilterName.totalMinionsKilled,
+        win: summonerFilterName.win,
+        summonerName: summonerFilterName.summonerName,
+        profileIcon: summonerFilterName.profileIcon,
+        championName: summonerFilterName.championName,
+        gameCreation: response.data.info.gameCreation,
+        redTeamSummonerName: redTeamSummonerName,
+        blueTeamSummonerName: blueTeamSummonerName,
+        allChampionName: userChampionName,
+        gameDuration: response.data.info.gameDuration,
+        spellId1: summonerFilterName.summoner1Id,
+        spellId2: summonerFilterName.summoner2Id,
+      };
+    } catch (error) {
+      console.log(error(error));
+    }
+  };
+
+  let results;
+  if (gameUuids) {
+    const slice = gameUuids.slice(0, 9);
+    results = await Promise.all(
+      slice.map((gameUuid) => {
+        return getMatchData(gameUuid);
+      })
     );
-    //변수명은 변경 예정(생각중)
-    const me = response.data.info.participants.filter(
-      (item) => item.summonerName === UserName
-    )[0];
-
-    const redTeam = response.data.info.participants.filter(
-      (item) => item.teamId === 100
-    );
-
-    const blueTeam = response.data.info.participants.filter(
-      (item) => item.teamId === 200
-    );
-
-    const userChampionName = response.data.info.participants.map((el) => {
-      return el.championName;
-    });
-
-    const redTeamSummonerName = redTeam.map((el) => {
-      return el.summonerName;
-    });
-
-    const blueTeamSummonerName = blueTeam.map((el) => {
-      return el.summonerName;
-    });
-
-    const itemSlot = [
-      me.item0,
-      me.item1,
-      me.item2,
-      me.item3,
-      me.item4,
-      me.item5,
-      me.item6,
-    ];
-
-    return {
-      gameMode: response.data.info.gameMode,
-      kills: me.kills,
-      deaths: me.deaths,
-      assist: me.assists,
-      itemSlot: itemSlot,
-      teamId: response.data.info.participants.map((el) => el.teamId),
-      totalMinionsKilled: me.totalMinionsKilled,
-      win: me.win,
-      summonerName: me.summonerName,
-      profileIcon: me.profileIcon,
-      championName: me.championName,
-      gameCreation: response.data.info.gameCreation,
-      redTeamSummonerName: redTeamSummonerName,
-      blueTeamSummonerName: blueTeamSummonerName,
-      allChampionName: userChampionName,
-      gameDuration: response.data.info.gameDuration,
-      spellId1: me.summoner1Id,
-      spellId2: me.summoner2Id,
-    };
-  } catch (error) {
-    console.log(error(error));
+  } else {
+    console.log("gameUuids is invalid");
   }
+  return results;
 }
 
 export async function summonerSpell() {

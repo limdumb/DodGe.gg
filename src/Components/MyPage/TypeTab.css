@@ -1,0 +1,15 @@
+.Tab_User_Tier{
+  display: flex;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.Icon_Image{
+  width: 80px;
+}
+
+.Tab_Type{
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+}

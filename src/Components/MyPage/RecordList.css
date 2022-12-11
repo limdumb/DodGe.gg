@@ -1,0 +1,27 @@
+.Record_Item_List{
+  display: flex;
+  padding-left: 0px;
+  margin-bottom: 0px;
+  flex-wrap: wrap;
+  width: 200px;
+}
+
+.Record_My_Champ{
+  display: flex;
+  align-items: center;
+}
+
+ul{
+  margin: 0px;
+  padding: 0px;
+}
+
+.Game_Player_List{
+  margin: 0;
+  padding: 0;
+}
+
+.Game_Player_List2{
+  margin: 0;
+  padding: 0;
+}

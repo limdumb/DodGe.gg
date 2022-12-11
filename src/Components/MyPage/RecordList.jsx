@@ -1,14 +1,13 @@
 import styled from "styled-components";
+import { month_Day, minute_Second } from "../../Function/TimeStemp";
+import "./RecordList.css";
 
 const ListContainer = styled.div`
-  width: 1200px;
-  height: 120vh;
   margin-top: 10px;
   display: flex;
 `;
 
 const RecordContents = styled.div`
-  width: 1200px;
   height: 120px;
   margin-top: 10px;
   padding: 10px 18px;
@@ -44,110 +43,91 @@ const PlayerList = styled.div`
   font-size: 14px;
 `;
 
-export default function RecordList({ tab, userMatchData }) {
-  // 데이터 확인용
-  console.log(userMatchData);
-  const kdaScore = `${userMatchData.kills}/${userMatchData.deaths}/${userMatchData.assist}`;
-
-  const month_Day = () => {
-    const time = new Date(userMatchData.gameCreation);
-
-    let month = ("0" + (time.getMonth() + 1)).slice(-2);
-    let day = ("0" + time.getDate()).slice(-2);
-
-    return `${month}월${day}일`;
-  };
-
-  const minute_Second = () => {
-    const time = new Date(userMatchData.gameDuration * 1000);
-
-    let minutes = ("0" + time.getMinutes()).slice(-2);
-    let secounds = ("0" + time.getSeconds()).slice(-2);
-
-    return `${minutes}분 ${secounds}초`;
-  };
-
-  const getChartList = (tab) => {
-    if (tab === "All__Game__Record") {
+export default function RecordList({ tab, getUserMatchData }) {
+  
+  return <>{getUserMatchData&&getUserMatchData.map((el,index)=>{
+    const kdaScore = `${el.kills}/${el.deaths}/${el.assist}`;
+    if (tab === "All_Game_Record") {
       return (
-        <ListContainer>
-          <RecordContents backgroundColor={userMatchData.win}>
-            <div className="Record__Information">
-              <StyleSpan>{userMatchData.gameMode}</StyleSpan>
-              <StyleSpan marginBtm="12px">{month_Day()}</StyleSpan>
+        <ListContainer key={index}>
+          <RecordContents backgroundColor={el.win}>
+            <div className="Record_Information">
+              <StyleSpan fontsize={'10px'}>{el.gameMode}</StyleSpan>
+              <StyleSpan fontsize={'10px'} marginBtm="12px">
+                {month_Day(el.gameCreation)}
+              </StyleSpan>
               <StyleSpan
                 fontsize="15px"
                 changeColor={
-                  userMatchData.win ? "rgba(49, 141, 239, 0.676)" : "red"
+                  el.win ? "rgba(49, 141, 239, 0.676)" : "red"
                 }
                 fontweight="bold"
                 margin="3px"
               >
-                {userMatchData.win ? "Win" : "Lose"}
+                {el.win ? "Win" : "Lose"}
               </StyleSpan>
-              <StyleSpan>{minute_Second()}</StyleSpan>
+              <StyleSpan>{minute_Second(el.gameDuration)}</StyleSpan>
             </div>
-            <div className="Record__My__Champ">
-              <div className="My__Champ__Img">
-                {/* 데이터 대체 예정 */}
+            <div className="Record_My_Champ">
+              <div className="My_Champ_Img">
                 <GameInfoImage
-                  width={64}
-                  src={`http://ddragon.leagueoflegends.com/cdn/12.22.1/img/champion/${userMatchData.championName}.png`}
+                  width={40}
+                  src={`http://ddragon.leagueoflegends.com/cdn/12.22.1/img/champion/${el.championName}.png`}
                   marginRgt="5px"
                 />
               </div>
-              <div className="Spell__Content">
+              <div className="Spell_Content">
                 <GameInfoImage
-                  width={30}
+                  width={20}
                   src={
                     "http://ddragon.leagueoflegends.com/cdn/12.22.1/img/spell/SummonerFlash.png"
                   }
                   marginRgt="2px"
                 />
                 <GameInfoImage
-                  width={30}
-                  src={process.env.PUBLIC_URL + "./Image/Exhaust.png"}
+                  width={20}
+                  src={process.env.PUBLIC_URL + "/Image/Exhaust.png"}
                 />
                 <div className="Spell__Content">
                   <GameInfoImage
-                    width={30}
-                    src={process.env.PUBLIC_URL + "./Image/DarkHarvest.png"}
+                    width={20}
+                    src={process.env.PUBLIC_URL + "/Image/DarkHarvest.png"}
                     backgroundColor="black"
                     marginRgt="2px"
                   />
                   <GameInfoImage
-                    width={30}
-                    src={process.env.PUBLIC_URL + "./Image/DetailedRun.png"}
+                    width={20}
+                    src={process.env.PUBLIC_URL + "/Image/DetailedRun.png"}
                     backgroundColor="black"
                   />
                 </div>
               </div>
-              <div className="KDA__InfoContainer">
-                <StyleSpan fontsize="25px">{kdaScore}</StyleSpan>
-                <StyleSpan fontsize="16px">
-                  CS:{userMatchData.totalMinionsKilled}개
+              <div className="KDA_InfoContainer">
+                <StyleSpan fontsize="15px">{kdaScore}</StyleSpan>
+                <StyleSpan fontsize="12px">
+                  CS:{el.totalMinionsKilled}개
                 </StyleSpan>
               </div>
             </div>
-            <ul className="Record__Item__List">
-              {userMatchData.itemSlot.map((el) => {
+            <ul className="Record_Item_List">
+              {el&&el.itemSlot.map((el,index) => {
                 return el !== 0 ? (
-                  <li>
+                  <li key={index}>
                     <GameInfoImage
                       width={30}
-                      key={el}
                       marginRgt="3px"
+                      key={index}
                       src={`http://ddragon.leagueoflegends.com/cdn/12.22.1/img/item/${el}.png`}
                     ></GameInfoImage>
                   </li>
                 ) : (
-                  <li className="No__Item__List"></li>
+                  <li className="No_Item_List" key={index}></li>
                 );
               })}
             </ul>
-            <div className="Game__Result__Information">
-              <ul className="Game__Player__List">
-                {userMatchData.redTeamSummonerName.map((el) => {
+            <div className="Game_Result_Information">
+              <ul className="Game_Player_List">
+                {el&&el.redTeamSummonerName.map((el) => {
                   return (
                     <PlayerList marginBTM="2px" key={el}>
                       {el}
@@ -155,8 +135,8 @@ export default function RecordList({ tab, userMatchData }) {
                   );
                 })}
               </ul>
-              <ul className="Game__Player__List2">
-                {userMatchData.blueTeamSummonerName.map((el) => {
+              <ul className="Game_Player_List2">
+                {el&&el.blueTeamSummonerName.map((el) => {
                   return (
                     <PlayerList marginBTM="2px" key={el}>
                       {el}
@@ -165,36 +145,34 @@ export default function RecordList({ tab, userMatchData }) {
                 })}
               </ul>
             </div>
-            <ul className="Team__List"></ul>
+            <ul className="Team_List"></ul>
           </RecordContents>
         </ListContainer>
       );
     }
 
-    if (tab === "Solo__Rank__Record") {
+    if (tab === "Solo_Rank_Record") {
       return (
-        <ListContainer>
+        <ListContainer key={index}>
           <RecordContents>솔로랭크</RecordContents>
         </ListContainer>
       );
     }
 
-    if (tab === "Free__Rank__Record") {
+    if (tab === "Free_Rank_Record") {
       return (
-        <ListContainer>
+        <ListContainer key={index}>
           <RecordContents>자유랭크</RecordContents>
         </ListContainer>
       );
     }
 
-    if (tab === "Normal__Game__Record") {
+    if (tab === "Normal_Game_Record") {
       return (
-        <ListContainer>
+        <ListContainer key={index}>
           <RecordContents>일반</RecordContents>
         </ListContainer>
       );
     }
-  };
-
-  return <>{getChartList(tab)}</>;
+  })}</>;
 }

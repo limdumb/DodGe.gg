@@ -6,71 +6,77 @@ import RecordList from "../Components/MyPage/RecordList";
 import Footer from "../Components/CommonComponents/Footer.jsx";
 import { useState } from "react";
 import { useEffect } from "react";
-import { summonerData, summonerLeagueData, matchSummoryData } from "../API/RiotAPI";
+import {
+  summonerData,
+  summonerLeagueData,
+  matchSummoryData,
+  gameUuid,
+} from "../API/RiotAPI";
+import { StyleSpan } from "../Components/MyPage/RecordList";
+import styled from "styled-components";
+
+const EasterEggSpan = styled(StyleSpan)`
+  display: flex;
+  justify-content: center;
+`;
 
 export default function MyPages() {
-  const [currentTab, setCurrentTab] = useState("All__Game__Record");
-  const [userProfile, setUserProfile] = useState(null);
+  const [currentTab, setCurrentTab] = useState("All_Game_Record");
+  const [getUserProfile, setGetUserProfile] = useState(null);
   const [userSoloTier, setUserSoloTier] = useState(null);
   const [userFreeRankTier, setUserFreeRankTier] = useState(null);
-  const [userMatchData, setUserMatchData] = useState(null);
+  const [getUserMatchData, setGetUserMatchData] = useState(null);
+  const [gameUuidData, setGameUuidData] = useState(null);
 
   useEffect(() => {
     const userInfoData = async () => {
-      const response = await summonerData();
-      setUserProfile(response);
+      const userResponse = await summonerData();
+      const gameUuidResponse = await gameUuid(userResponse.puuid);
+      const matchResponse = await matchSummoryData(gameUuidResponse.data);
+      const leagueDataResponse = await summonerLeagueData(userResponse.id);
+      setUserSoloTier(leagueDataResponse.data[0]);
+      setUserFreeRankTier(leagueDataResponse.data[1]);
+      setGameUuidData(gameUuidResponse);
+      setGetUserMatchData(matchResponse);
+      setGetUserProfile(userResponse);
     };
 
-    const userTierData = async () => {
-      const response = await summonerLeagueData();
-      setUserSoloTier(response.data[1]);
-      setUserFreeRankTier(response.data[0]);
-    };
-
-    const userMatchSummory = async () => {
-      const response = await matchSummoryData();
-      setUserMatchData(response);
-    };
-
-    userMatchSummory();
-    userTierData();
     userInfoData();
   }, []);
 
-  console.log(userFreeRankTier);
   return (
     <>
       <MainHeader />
-      <div id="Main__Container">
+      <div id="Main_Container">
         <main>
-          {userProfile && (
+          {getUserProfile && (
             <UserInformation
               userSoloTier={userSoloTier}
               userFreeRankTier={userFreeRankTier}
-              profileIconId={userProfile.profileIconId}
-              name={userProfile.name}
+              profileIconId={getUserProfile.profileIconId}
+              name={getUserProfile.name}
             />
           )}
-          <div className="Information__transfer__Container">
-            <span>혹시 알고 계셨나요?</span>
-            <span>협곡의 전령은 바위개의 형이랍니다 응애</span>
+          <div>
+            <EasterEggSpan>혹시 알고 계셨나요?</EasterEggSpan>
+            <EasterEggSpan>
+              협곡의 전령은 바위개의 형이랍니다 응애
+            </EasterEggSpan>
           </div>
           <TypeTab
             onTabChange={(index) => {
               if (index === 0) {
-                setCurrentTab("All__Game__Record");
+                setCurrentTab("All_Game_Record");
               } else if (index === 1) {
-                setCurrentTab("Solo__Rank__Record");
+                setCurrentTab("Solo_Rank_Record");
               } else if (index === 2) {
-                setCurrentTab("Free__Rank__Record");
+                setCurrentTab("Free_Rank_Record");
               } else {
-                setCurrentTab("Normal__Game__Record");
+                setCurrentTab("Normal_Game_Record");
               }
             }}
           />
-          {userMatchData && (
-            <RecordList tab={currentTab} userMatchData={userMatchData} />
-          )}
+          <RecordList tab={currentTab} getUserMatchData={getUserMatchData}/>
         </main>
       </div>
       <Footer />

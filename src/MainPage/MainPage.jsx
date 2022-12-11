@@ -16,7 +16,6 @@ export default function MainPage() {
   const [searchInputValue, setSearchInputValue] = useState("");
   const [tabSearchInputValue, setTabSearchInputValue] = useState("");
   const [modalCheck, setModalCheck] = useState([false, false]);
-
   return (
     <div>
       <Modal modalCheck={modalCheck} />
