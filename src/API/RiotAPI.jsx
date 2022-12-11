@@ -108,6 +108,8 @@ export async function matchSummoryData(gameUuids, userName) {
         gameDuration: response.data.info.gameDuration,
         spellId1: summonerFilterName.summoner1Id,
         spellId2: summonerFilterName.summoner2Id,
+        runId1: summonerFilterName.perks.styles[0].style,
+        runId2: summonerFilterName.perks.styles[1].style
       };
     } catch (error) {
       console.log(error(error));

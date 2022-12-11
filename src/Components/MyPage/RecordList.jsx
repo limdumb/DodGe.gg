@@ -44,6 +44,7 @@ const PlayerList = styled.div`
 `;
 
 export default function RecordList({ tab, getUserMatchData, getSpell }) {
+  console.log(getUserMatchData)
   const testArr = [1, 2, 3]
   return (
     <>
@@ -148,10 +149,10 @@ export default function RecordList({ tab, getUserMatchData, getSpell }) {
                   </div>
                   <div className="Game_Result_Information">
                     <ul className="Game_Player_List">
-                      {redTeam.map((el, index) => {
+                      {redTeam.map((el) => {
                         if (el === "FiddleSticks") {
                           return(
-                          <li>
+                          <li key={el}>
                           <GameInfoImage
                             width={15}
                             src={`https://ddragon.leagueoflegends.com/cdn/12.23.1/img/champion/Fiddlesticks.png`}
@@ -160,7 +161,7 @@ export default function RecordList({ tab, getUserMatchData, getSpell }) {
                           )
                         }
                         return (
-                          <li>
+                          <li key={el}>
                             <GameInfoImage
                               width={15}
                               src={`http://ddragon.leagueoflegends.com/cdn/12.23.1/img/champion/${el}.png`}
@@ -173,7 +174,7 @@ export default function RecordList({ tab, getUserMatchData, getSpell }) {
                       {blueTeam.map((el) => {
                         if (el === "FiddleSticks") {
                           return(
-                          <li>
+                          <li key={el}>
                           <GameInfoImage
                             width={15}
                             src={`https://ddragon.leagueoflegends.com/cdn/12.23.1/img/champion/Fiddlesticks.png`}
@@ -182,7 +183,7 @@ export default function RecordList({ tab, getUserMatchData, getSpell }) {
                           )
                         }
                         return (
-                          <li>
+                          <li key={el}>
                             <GameInfoImage
                               width={15}
                               src={`http://ddragon.leagueoflegends.com/cdn/12.23.1/img/champion/${el}.png`}
