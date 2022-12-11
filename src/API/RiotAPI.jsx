@@ -27,11 +27,6 @@ export async function summonerLeagueData(id) {
     const response = await axios.get(
       `${apiKrBase}/lol/league/v4/entries/by-summoner/${id}?api_key=${apiKey}`
     );
-    // const soloRank = response.filter(
-    //   (el) => el.queueType === "RANKED_SOLO_5x5"
-    // );
-    // const FreeRank = response.filter((el) => el.queueType === "RANKED_FLEX_SR");
-
     return response;
   } catch (error) {
     console.log(error(error));
