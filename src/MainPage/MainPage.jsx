@@ -42,11 +42,11 @@ export default function MainPage() {
           {champSelected ? (
             <ChampionGuide champSelected={champSelected} />
           ) : null}
-          {/* <OpList
+          <OpList
             line={line}
             tabSearchInputValue={tabSearchInputValue}
             setTabSearchInputValue={setTabSearchInputValue}
-          /> */}
+          />
         </div>
       </main>
       <MainFooter />
