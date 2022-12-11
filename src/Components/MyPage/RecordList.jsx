@@ -50,6 +50,7 @@ export default function RecordList({
   runesData,
 }) {
   console.log(getUserMatchData);
+
   return (
     <>
       {getUserMatchData &&
@@ -207,7 +208,149 @@ export default function RecordList({
           if (tab === "Solo_Rank_Record") {
             return (
               <ListContainer key={index}>
-                <RecordContents>솔로랭크</RecordContents>
+                {gameType(getUserMatchData, index) === "솔로랭크" ? (
+                  <RecordContents backgroundColor={el.win}>
+                    <div className="Record_Information">
+                      <StyleSpan fontsize={"12px"}>
+                        {gameType(getUserMatchData, index)}
+                      </StyleSpan>
+                      <StyleSpan fontsize={"10px"}>
+                        {month_Day(el.gameCreation)}
+                      </StyleSpan>
+                      <StyleSpan
+                        fontsize="24px"
+                        changeColor={
+                          el.win ? "rgba(49, 141, 239, 0.676)" : "red"
+                        }
+                        fontweight="bold"
+                        margin="3px"
+                      >
+                        {el.win ? "Win" : "Lose"}
+                      </StyleSpan>
+                      <StyleSpan fontsize="10px">
+                        {minute_Second(el.gameDuration)}
+                      </StyleSpan>
+                    </div>
+                    <div>
+                      <div className="Record_My_Champ">
+                        <div className="My_Champ_Img">
+                          <GameInfoImage
+                            radius={"10px"}
+                            width={44}
+                            src={`http://ddragon.leagueoflegends.com/cdn/12.22.1/img/champion/${el.championName}.png`}
+                            marginRgt="5px"
+                          />
+                        </div>
+                        <div className="Rune_Spell_Info">
+                          <div className="Runes_Content">
+                            <div>
+                              <GameInfoImage
+                                radius={"5px"}
+                                width={20}
+                                src={getSpell[index][1]}
+                                marginRgt="2px"
+                              />
+                              <GameInfoImage
+                                radius={"5px"}
+                                width={20}
+                                src={getSpell[index][0]}
+                              />
+                            </div>
+                          </div>
+                          <div className="Spells_Content">
+                            <GameInfoImage
+                              radius={"5px"}
+                              width={20}
+                              src={`https://ddragon.canisback.com/img/${
+                                runesData[0][runes[0]].icon
+                              }`}
+                              backgroundColor="black"
+                              marginRgt="2px"
+                            />
+                            <GameInfoImage
+                              radius={"5px"}
+                              width={20}
+                              src={`https://ddragon.canisback.com/img/${
+                                runesData[0][runes[1]].icon
+                              }`}
+                              backgroundColor="black"
+                            />
+                          </div>
+                        </div>
+                        <div className="KDA_InfoContainer">
+                          <StyleSpan fontsize="14px">{kdaScore}</StyleSpan>
+                          <StyleSpan fontsize="10px">
+                            CS:{el.totalMinionsKilled}개
+                          </StyleSpan>
+                        </div>
+                      </div>
+                      <ul className="Record_Item_List">
+                        {el &&
+                          el.itemSlot.map((el, index) => {
+                            return el !== 0 ? (
+                              <li key={index}>
+                                <GameInfoImage
+                                  radius={"5px"}
+                                  width={20}
+                                  marginRgt="3px"
+                                  key={index}
+                                  src={`http://ddragon.leagueoflegends.com/cdn/12.22.1/img/item/${el}.png`}
+                                ></GameInfoImage>
+                              </li>
+                            ) : (
+                              <li className="No_Item_List" key={index}></li>
+                            );
+                          })}
+                      </ul>
+                    </div>
+                    <div className="Game_Result_Information">
+                      <ul className="Game_Player_List">
+                        {redTeam.map((el) => {
+                          if (el === "FiddleSticks") {
+                            return (
+                              <li key={el}>
+                                <GameInfoImage
+                                  width={15}
+                                  src={`https://ddragon.leagueoflegends.com/cdn/12.23.1/img/champion/Fiddlesticks.png`}
+                                />
+                              </li>
+                            );
+                          }
+                          return (
+                            <li key={el}>
+                              <GameInfoImage
+                                width={15}
+                                src={`http://ddragon.leagueoflegends.com/cdn/12.23.1/img/champion/${el}.png`}
+                              />
+                            </li>
+                          );
+                        })}
+                      </ul>
+                      <ul className="Game_Player_List2">
+                        {blueTeam.map((el) => {
+                          if (el === "FiddleSticks") {
+                            return (
+                              <li key={el}>
+                                <GameInfoImage
+                                  width={15}
+                                  src={`https://ddragon.leagueoflegends.com/cdn/12.23.1/img/champion/Fiddlesticks.png`}
+                                />
+                              </li>
+                            );
+                          }
+                          return (
+                            <li key={el}>
+                              <GameInfoImage
+                                width={15}
+                                src={`http://ddragon.leagueoflegends.com/cdn/12.23.1/img/champion/${el}.png`}
+                              />
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </div>
+                  </RecordContents>
+                ) : null}
               </ListContainer>
             );
           }
@@ -215,7 +358,149 @@ export default function RecordList({
           if (tab === "Free_Rank_Record") {
             return (
               <ListContainer key={index}>
-                <RecordContents>자유랭크</RecordContents>
+                {gameType(getUserMatchData, index) === "자유랭크" ? (
+                  <RecordContents backgroundColor={el.win}>
+                    <div className="Record_Information">
+                      <StyleSpan fontsize={"12px"}>
+                        {gameType(getUserMatchData, index)}
+                      </StyleSpan>
+                      <StyleSpan fontsize={"10px"}>
+                        {month_Day(el.gameCreation)}
+                      </StyleSpan>
+                      <StyleSpan
+                        fontsize="24px"
+                        changeColor={
+                          el.win ? "rgba(49, 141, 239, 0.676)" : "red"
+                        }
+                        fontweight="bold"
+                        margin="3px"
+                      >
+                        {el.win ? "Win" : "Lose"}
+                      </StyleSpan>
+                      <StyleSpan fontsize="10px">
+                        {minute_Second(el.gameDuration)}
+                      </StyleSpan>
+                    </div>
+                    <div>
+                      <div className="Record_My_Champ">
+                        <div className="My_Champ_Img">
+                          <GameInfoImage
+                            radius={"10px"}
+                            width={44}
+                            src={`http://ddragon.leagueoflegends.com/cdn/12.22.1/img/champion/${el.championName}.png`}
+                            marginRgt="5px"
+                          />
+                        </div>
+                        <div className="Rune_Spell_Info">
+                          <div className="Runes_Content">
+                            <div>
+                              <GameInfoImage
+                                radius={"5px"}
+                                width={20}
+                                src={getSpell[index][1]}
+                                marginRgt="2px"
+                              />
+                              <GameInfoImage
+                                radius={"5px"}
+                                width={20}
+                                src={getSpell[index][0]}
+                              />
+                            </div>
+                          </div>
+                          <div className="Spells_Content">
+                            <GameInfoImage
+                              radius={"5px"}
+                              width={20}
+                              src={`https://ddragon.canisback.com/img/${
+                                runesData[0][runes[0]].icon
+                              }`}
+                              backgroundColor="black"
+                              marginRgt="2px"
+                            />
+                            <GameInfoImage
+                              radius={"5px"}
+                              width={20}
+                              src={`https://ddragon.canisback.com/img/${
+                                runesData[0][runes[1]].icon
+                              }`}
+                              backgroundColor="black"
+                            />
+                          </div>
+                        </div>
+                        <div className="KDA_InfoContainer">
+                          <StyleSpan fontsize="14px">{kdaScore}</StyleSpan>
+                          <StyleSpan fontsize="10px">
+                            CS:{el.totalMinionsKilled}개
+                          </StyleSpan>
+                        </div>
+                      </div>
+                      <ul className="Record_Item_List">
+                        {el &&
+                          el.itemSlot.map((el, index) => {
+                            return el !== 0 ? (
+                              <li key={index}>
+                                <GameInfoImage
+                                  radius={"5px"}
+                                  width={20}
+                                  marginRgt="3px"
+                                  key={index}
+                                  src={`http://ddragon.leagueoflegends.com/cdn/12.22.1/img/item/${el}.png`}
+                                ></GameInfoImage>
+                              </li>
+                            ) : (
+                              <li className="No_Item_List" key={index}></li>
+                            );
+                          })}
+                      </ul>
+                    </div>
+                    <div className="Game_Result_Information">
+                      <ul className="Game_Player_List">
+                        {redTeam.map((el) => {
+                          if (el === "FiddleSticks") {
+                            return (
+                              <li key={el}>
+                                <GameInfoImage
+                                  width={15}
+                                  src={`https://ddragon.leagueoflegends.com/cdn/12.23.1/img/champion/Fiddlesticks.png`}
+                                />
+                              </li>
+                            );
+                          }
+                          return (
+                            <li key={el}>
+                              <GameInfoImage
+                                width={15}
+                                src={`http://ddragon.leagueoflegends.com/cdn/12.23.1/img/champion/${el}.png`}
+                              />
+                            </li>
+                          );
+                        })}
+                      </ul>
+                      <ul className="Game_Player_List2">
+                        {blueTeam.map((el) => {
+                          if (el === "FiddleSticks") {
+                            return (
+                              <li key={el}>
+                                <GameInfoImage
+                                  width={15}
+                                  src={`https://ddragon.leagueoflegends.com/cdn/12.23.1/img/champion/Fiddlesticks.png`}
+                                />
+                              </li>
+                            );
+                          }
+                          return (
+                            <li key={el}>
+                              <GameInfoImage
+                                width={15}
+                                src={`http://ddragon.leagueoflegends.com/cdn/12.23.1/img/champion/${el}.png`}
+                              />
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </div>
+                  </RecordContents>
+                ) : null}
               </ListContainer>
             );
           }
@@ -223,7 +508,150 @@ export default function RecordList({
           if (tab === "Normal_Game_Record") {
             return (
               <ListContainer key={index}>
-                <RecordContents>일반</RecordContents>
+                {gameType(getUserMatchData, index) === "일반게임" ||
+                gameType(getUserMatchData, index) === "무작위 총력전" ? (
+                  <RecordContents backgroundColor={el.win}>
+                    <div className="Record_Information">
+                      <StyleSpan fontsize={"12px"}>
+                        {gameType(getUserMatchData, index)}
+                      </StyleSpan>
+                      <StyleSpan fontsize={"10px"}>
+                        {month_Day(el.gameCreation)}
+                      </StyleSpan>
+                      <StyleSpan
+                        fontsize="24px"
+                        changeColor={
+                          el.win ? "rgba(49, 141, 239, 0.676)" : "red"
+                        }
+                        fontweight="bold"
+                        margin="3px"
+                      >
+                        {el.win ? "Win" : "Lose"}
+                      </StyleSpan>
+                      <StyleSpan fontsize="10px">
+                        {minute_Second(el.gameDuration)}
+                      </StyleSpan>
+                    </div>
+                    <div>
+                      <div className="Record_My_Champ">
+                        <div className="My_Champ_Img">
+                          <GameInfoImage
+                            radius={"10px"}
+                            width={44}
+                            src={`http://ddragon.leagueoflegends.com/cdn/12.22.1/img/champion/${el.championName}.png`}
+                            marginRgt="5px"
+                          />
+                        </div>
+                        <div className="Rune_Spell_Info">
+                          <div className="Runes_Content">
+                            <div>
+                              <GameInfoImage
+                                radius={"5px"}
+                                width={20}
+                                src={getSpell[index][1]}
+                                marginRgt="2px"
+                              />
+                              <GameInfoImage
+                                radius={"5px"}
+                                width={20}
+                                src={getSpell[index][0]}
+                              />
+                            </div>
+                          </div>
+                          <div className="Spells_Content">
+                            <GameInfoImage
+                              radius={"5px"}
+                              width={20}
+                              src={`https://ddragon.canisback.com/img/${
+                                runesData[0][runes[0]].icon
+                              }`}
+                              backgroundColor="black"
+                              marginRgt="2px"
+                            />
+                            <GameInfoImage
+                              radius={"5px"}
+                              width={20}
+                              src={`https://ddragon.canisback.com/img/${
+                                runesData[0][runes[1]].icon
+                              }`}
+                              backgroundColor="black"
+                            />
+                          </div>
+                        </div>
+                        <div className="KDA_InfoContainer">
+                          <StyleSpan fontsize="14px">{kdaScore}</StyleSpan>
+                          <StyleSpan fontsize="10px">
+                            CS:{el.totalMinionsKilled}개
+                          </StyleSpan>
+                        </div>
+                      </div>
+                      <ul className="Record_Item_List">
+                        {el &&
+                          el.itemSlot.map((el, index) => {
+                            return el !== 0 ? (
+                              <li key={index}>
+                                <GameInfoImage
+                                  radius={"5px"}
+                                  width={20}
+                                  marginRgt="3px"
+                                  key={index}
+                                  src={`http://ddragon.leagueoflegends.com/cdn/12.22.1/img/item/${el}.png`}
+                                ></GameInfoImage>
+                              </li>
+                            ) : (
+                              <li className="No_Item_List" key={index}></li>
+                            );
+                          })}
+                      </ul>
+                    </div>
+                    <div className="Game_Result_Information">
+                      <ul className="Game_Player_List">
+                        {redTeam.map((el) => {
+                          if (el === "FiddleSticks") {
+                            return (
+                              <li key={el}>
+                                <GameInfoImage
+                                  width={15}
+                                  src={`https://ddragon.leagueoflegends.com/cdn/12.23.1/img/champion/Fiddlesticks.png`}
+                                />
+                              </li>
+                            );
+                          }
+                          return (
+                            <li key={el}>
+                              <GameInfoImage
+                                width={15}
+                                src={`http://ddragon.leagueoflegends.com/cdn/12.23.1/img/champion/${el}.png`}
+                              />
+                            </li>
+                          );
+                        })}
+                      </ul>
+                      <ul className="Game_Player_List2">
+                        {blueTeam.map((el) => {
+                          if (el === "FiddleSticks") {
+                            return (
+                              <li key={el}>
+                                <GameInfoImage
+                                  width={15}
+                                  src={`https://ddragon.leagueoflegends.com/cdn/12.23.1/img/champion/Fiddlesticks.png`}
+                                />
+                              </li>
+                            );
+                          }
+                          return (
+                            <li key={el}>
+                              <GameInfoImage
+                                width={15}
+                                src={`http://ddragon.leagueoflegends.com/cdn/12.23.1/img/champion/${el}.png`}
+                              />
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </div>
+                  </RecordContents>
+                ) : null}
               </ListContainer>
             );
           }
@@ -289,7 +717,7 @@ function runeSlot(summonerData, idx) {
 }
 
 function gameType(summonerData, idx) {
-  if (summonerData[idx].queueId === 400) {
+  if (summonerData[idx].queueId === 400 || summonerData[idx].queueId === 430) {
     return "일반게임";
   }
 

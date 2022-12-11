@@ -120,7 +120,7 @@ export async function matchSummaryData(gameUuids, userName) {
 
   let results;
   if (gameUuids) {
-    const slice = gameUuids.slice(0, 5);
+    const slice = gameUuids.slice(0, 10);
     results = await Promise.all(
       slice.map((gameUuid) => {
         return getMatchData(gameUuid);

@@ -25,8 +25,7 @@ export default function MyPages() {
 
   const [currentTab, setCurrentTab] = useState("All_Game_Record");
   const [getUserProfile, setGetUserProfile] = useState(null);
-  const [userSoloTier, setUserSoloTier] = useState(null);
-  const [userFreeRankTier, setUserFreeRankTier] = useState(null);
+  const [userRankTier, setUserRankTier] = useState(null);
   const [getUserMatchData, setGetUserMatchData] = useState(null);
   const [getSpell, setGetSpell] = useState(null);
   const [runesData, setRunesData] = useState(null);
@@ -50,8 +49,7 @@ export default function MyPages() {
       );
       const runesDataResponse = await fetchRunesData();
 
-      setUserSoloTier(leagueDataResponse.data[0]);
-      setUserFreeRankTier(leagueDataResponse.data[1]);
+      setUserRankTier(leagueDataResponse.data);
       setGetUserMatchData(matchResponse);
       setGetUserProfile(userResponse);
       setGetSpell(spellDataResponse);
@@ -60,14 +58,14 @@ export default function MyPages() {
     userInfoData();
   }, [summonerName]);
 
+  console.log(userRankTier);
   return (
     <>
       <div id="Main_Container">
         <main>
           {getUserProfile && (
             <UserInformation
-              userSoloTier={userSoloTier}
-              userFreeRankTier={userFreeRankTier}
+              userRankTier={userRankTier}
               profileIconId={getUserProfile.profileIconId}
               name={getUserProfile.name}
             />
