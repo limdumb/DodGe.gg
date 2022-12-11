@@ -3,8 +3,8 @@ import { useState } from "react";
 import ChampionList from "./ChampionList";
 import { ChampionTab } from "../TapComponent/Tab";
 
-const ChampionSearchList = ({setChampSelected}) => {
-  const line = ["ALL","TOP", "JUNGLE", "MID", "ADC", "SUPPORT", "ROTATION"];
+const ChampionSearchList = ({ setChampSelected }) => {
+  const line = ["ALL", "TOP", "JUNGLE", "MID", "ADC", "SUPPORT", "ROTATION"];
   const [CheckLine, setCheckLine] = useState("ALL");
   const [searchInputValue, setSearchInputValue] = useState("");
   return (
@@ -16,6 +16,7 @@ const ChampionSearchList = ({setChampSelected}) => {
         setCheckLine={setCheckLine}
       />
       <ChampionList
+        CheckLine={CheckLine}
         searchInputValue={searchInputValue}
         setChampSelected={setChampSelected}
       />
