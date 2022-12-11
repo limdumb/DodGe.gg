@@ -6,12 +6,12 @@ import "./OPList.css";
 const OPList = ({ line, tabSearchInputValue, setTabSearchInputValue }) => {
   const [CheckLine, setCheckLine] = useState("TOP");
   return (
-    <div className="Op_List_Containear">
-      <OpListTab
-        line={line}
-        setCheckLine={setCheckLine}
+    <div className="Op_List_Container">
+      <OpListTab line={line} setCheckLine={setCheckLine} />
+      <ChampionsList
+        CheckLine={CheckLine}
+        tabSearchInputValue={tabSearchInputValue}
       />
-      <ChampionsList CheckLine={CheckLine} tabSearchInputValue={tabSearchInputValue} />
     </div>
   );
 };

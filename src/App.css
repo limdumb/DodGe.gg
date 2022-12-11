@@ -1,9 +1,9 @@
-*{
+* {
   margin: 0;
   padding: 0;
 }
 
-ul{
+ul {
   margin: 0;
   padding: 0;
 }
@@ -14,10 +14,10 @@ li {
 
 html {
   font-size: 125%;
-     -webkit-text-size-adjust:none; 
+  -webkit-text-size-adjust: none;
 }
 
-main{
+main {
   display: flex;
   flex-direction: column;
 }
@@ -38,7 +38,7 @@ main{
   html {
     font-size: 125%;
   }
-  main{
+  main {
     flex-direction: row;
   }
 }

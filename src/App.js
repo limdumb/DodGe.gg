@@ -18,7 +18,7 @@ function App() {
   const [CheckLine, setCheckLine] = useState("TOP");
   const [searchInputValue, setSearchInputValue] = useState("");
   const [tabSearchInputValue, setTabSearchInputValue] = useState("");
-  
+  const [champSelected, setChampSelected] = useState(null);
   return (
     <BrowserRouter>
       <Modal modalCheck={modalCheck} />
@@ -33,7 +33,10 @@ function App() {
               searchInputValue={searchInputValue}
               setCheckLine={setCheckLine}
             />
-            <ChampionList searchInputValue={searchInputValue} />
+            <ChampionList
+              searchInputValue={searchInputValue}
+              setChampSelected={setChampSelected}
+            />
           </div>
           <OpList
             line={line}
@@ -44,8 +47,13 @@ function App() {
 
         <Routes>
           <Route path="/" element={<MainPage />} />
-          <Route path="/champion" element={<ChampionGuide />} />
-          <Route path="/mypage/:summoner" element={<MyPages/>} />
+          <Route
+            path="/champion"
+            element={
+              champSelected && <ChampionGuide champSelected={champSelected} />
+            }
+          />
+          <Route path="/mypage/:summoner" element={<MyPages />} />
         </Routes>
       </main>
       <MainFooter />
