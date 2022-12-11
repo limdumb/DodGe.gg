@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const apiKey = "";
+const apiKey = "RGAPI-de5e97c1-6845-4fe3-a7b1-002157292e28";
 const apiKrBase = "https://kr.api.riotgames.com";
 const apiAsiaBase = "https://asia.api.riotgames.com";
 const UserName = "늑 사 덤";

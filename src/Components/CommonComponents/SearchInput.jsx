@@ -19,8 +19,8 @@ const SubmitSection = styled.div`
 export const SearchInput = () => {
   return (
     <SubmitSection height="2rem" right="1.8rem" backgroundColor="white">
-      <input id="Sear_Input" type="text" placeholder="소환사명"></input>
-      <button className="Sear_Button">.GG</button>
+      <input id="Search_Input" type="text" placeholder="소환사명"></input>
+      <button className="Search_Button">.GG</button>
     </SubmitSection>
   );
 };
