@@ -18,7 +18,8 @@ const Container = styled.div`
   }
 
   .Counter_List {
-    height: 100%;
+    padding: 0;
+    margin: 0;
     width: 100%;
   }
 

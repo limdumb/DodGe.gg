@@ -3,7 +3,7 @@ import { RiArrowRightSFill } from "react-icons/ri";
 import ChampionStatistics from "./Data/ChampionStatistics.json";
 
 const Container = styled.div`
-  padding: 0 5px;
+  padding: 0 5px 10px 5px;
   height: 225px;
   display: flex;
   flex-wrap: wrap;
@@ -13,31 +13,11 @@ const Container = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 33.333%;
-    border-bottom: solid rgba(0, 0, 0, 0.25) 1px;
-
-    :nth-child(1) {
-      width: 70%;
-    }
-
-    :nth-child(2) {
-      width: 30%;
-    }
-
-    :nth-child(3) {
-      width: 30%;
-    }
-
-    :nth-child(4) {
-      width: 20%;
-    }
-
-    :nth-child(5) {
-      width: 50%;
-    }
+    margin: 0 auto;
 
     h6 {
       font-size: 20px;
+      font-weight: bold;
     }
 
     .Box_Container {
@@ -73,6 +53,10 @@ const Container = styled.div`
 
   img {
     height: 50px;
+  }
+
+  @media only screen and (min-width: 768px) {
+    height: 125px;
   }
 `;
 
@@ -136,19 +120,28 @@ export default function QuickBuild({ currentChamp }) {
             {startItems[1] ? (
               <img src={`${baseURL}/item/${startItems[1]}.png`}></img>
             ) : null}
-            {startItems[1] ? <span className="Item_Count">2x</span> : null}
+            {[1054, 1055, 1101, 1102, 1103, 2033].includes(startItems[0]) ||
+            startItems[1] === 2031 ? null : (
+              <span className="Item_Count">
+                {startItems[0] === 1036 ? "X3" : "X2"}
+              </span>
+            )}
           </div>
         </div>
       </div>
 
-      <div className="Recommend_Container">
-        <h6>신발</h6>
-        <div className="Box_Container">
-          <div className="Item_Box">
-            <img src={`${baseURL}/item/${startBoots}.png`}></img>
+      {startBoots === null ? (
+        <div></div>
+      ) : (
+        <div className="Recommend_Container">
+          <h6>신발</h6>
+          <div className="Box_Container">
+            <div className="Item_Box">
+              <img src={`${baseURL}/item/${startBoots}.png`}></img>
+            </div>
           </div>
         </div>
-      </div>
+      )}
 
       <div className="Recommend_Container">
         <h6>코어템</h6>
@@ -183,20 +176,11 @@ export default function QuickBuild({ currentChamp }) {
 }
 
 /**
- * 전달인자의 Tags 배열 안의 직업군을 분석해 해당 직업군에 "걸맞는" 아이템 빌드를 추천해줍니다.
- *
- * 1. 데이터의 직업군에 서포터가 포함된 경우 :
- * 주문도둑검, 유물방패, 영혼의 낫, 강철 어깨 보호대 ("3850", "3858", "3862", "3854") 중 하나
- * 2. 데이터의 직업군이 서포터가 아닐 때 :
- * 도란 쉴드, 도란 검, 도란 링 ("1054", "1055", "1056") 중 하나
- * 3. 정글이 주요 픽이라면: => 이 부분은 정확히 판단 내릴 지표가 없기 때문에 현재로선 수기로 작성
- * 화염발톱, 바람돌이, 이끼쿵쿵이 ("1101", "1102", "1103") 중 하나
- *
- * Tags는 2개 이상의 직업군을 포함하지 않음으로 첫번째 직업군 비교 후 추천
- *
- * 암흑의 인장, 여신의 눈물, 수확의 낫 등은 제외합니다.
- * 체력 포션 2개는 고정되어 있다는 전제 하에 진행하기 때문에 첫 추천 아이템이 무엇인지만 정합니다.
- * */
+ * 현재 선택된 챔피언의 "line" 속성에 따라 시작 아이템을 추천해줍니다.
+ * 시작 아이템은 정글러, 서포터, 라이너 여부 및 특성에 따라 아이템을 추천해줍니다.
+ * @param {*} currentChamp 현재 선택된 챔피언(props)
+ * @returns 각 아이템 id(Number)를 포함한 배열
+ */
 function recommendStartItems(champion) {
   if (ChampionStatistics[0][champion.id].line === "jungle") {
     // prettier-ignore
@@ -211,12 +195,12 @@ function recommendStartItems(champion) {
   }
 
   if (ChampionStatistics[0][champion.id].line === "adc") {
-    if (champion.id === "Jhin") return [1036, 2003];
-
     return [1055, 2003];
   }
 
   if (ChampionStatistics[0][champion.id].line === "support") {
+    const exceptions = ["Rakan", "Thresh"];
+
     if (champion.tags.includes("Tank")) {
       if (champion.info.attack > champion.info.magic) {
         return [3854, 2003];
@@ -224,6 +208,8 @@ function recommendStartItems(champion) {
         return [3858, 2003];
       }
     }
+
+    if (exceptions.includes(champion.id)) return [3858, 2003];
 
     if (champion.info.attack > champion.info.magic) return [3862, 2003];
 
@@ -258,6 +244,9 @@ function recommendStartItems(champion) {
     const swordRefillMids = ["Jayce", "Talon"];
     const swordPotsMids = ["Qiyana", "Zed"];
 
+    // champion.json 데이터에 자체적 결함으로 분류가 되지 않기 때문에 예외 처리
+    if (champion.id === "Akshan") return [1055, 2003];
+
     if (corruptPotionMids.includes(champion.id)) return [2033];
     if (dShieldMids.includes(champion.id)) return [1054, 2003];
     if (togMids.includes(champion.id)) return [3070, 2003];
@@ -271,27 +260,21 @@ function recommendStartItems(champion) {
 }
 
 /**
- * 해당 챔피언에 걸맞는 추천 스펠을 반환합니다.
- *
- * 별도의 함수가 필요한 이유는 앞선 이유와 비슷하게 각 챔피언의 성향이 다르고, 일부 챔피언은 유체화가 필요한 등 완벽히 같은 논리 구조를 적용할 수 없기 때문입니다.
- * ex) 그웬 유체화,텔레포트
- *`
+ * 현재 선택된 챔피언이 주로 사용하는 소환사 주문을 추천해줍니다.
+ * 정글러는 "강타"를 필수로 가지고 있습니다.
+ * @param {currentChamp} currentChamp 현재 선택된 챔피언(props)
+ * @returns 각 소환사주문의 id(String)를 포함한 배열
  */
 function recommendSpells(champion) {
   if (ChampionStatistics[0][champion.id].line === "jungle") {
     const ghostJunglers = ["Hecarim", "Mordekaiser", "Udyr"];
 
-    if (ghostJunglers.includes(champion.id)) {
+    if (ghostJunglers.includes(champion.id))
       return ["SummonerSmite", "SummonerHaste"];
-    }
 
-    if (champion.id === "Karthus") {
-      return ["SummonerSmite", "SummonerExhaust"];
-    }
+    if (champion.id === "Karthus") return ["SummonerSmite", "SummonerExhaust"];
 
-    if (champion.id === "Shaco") {
-      return ["SummonerSmite", "SummonerDot"];
-    }
+    if (champion.id === "Shaco") return ["SummonerSmite", "SummonerDot"];
 
     return ["SummonerSmite", "SummonerFlash"];
   }
@@ -300,13 +283,10 @@ function recommendSpells(champion) {
     // prettier-ignore
     const exhaustSupports = ["Ashe","Janna","Senna","Sona","Soraka","Xerath"];
 
-    if (exhaustSupports.includes(champion.id)) {
+    if (exhaustSupports.includes(champion.id))
       return ["SummonerExhaust", "SummonerFlash"];
-    }
 
-    if (champion.id === "Yuumi") {
-      return ["SummonerExhaust", "SummonerDot"];
-    }
+    if (champion.id === "Yuumi") return ["SummonerExhaust", "SummonerDot"];
   }
 
   if (ChampionStatistics[0][champion.id].line === "top") {
@@ -315,21 +295,17 @@ function recommendSpells(champion) {
     const ghostTop = ["Darius", "Olaf", "Singed", "Tryndamere"];
     // prettier-ignore
     const igniteTop = ["Garen","Kled","Quinn","Renekton","Riven","Sett","Teemo"];
-    if (igniteTPs.includes(champion.id)) {
+    if (igniteTPs.includes(champion.id))
       return ["SummonerTeleport", "SummonerDot"];
-    }
 
-    if (ghostTPs.includes(champion.id)) {
+    if (ghostTPs.includes(champion.id))
       return ["SummonerTeleport", "SummonerHaste"];
-    }
 
-    if (ghostTop.includes(champion.id)) {
+    if (ghostTop.includes(champion.id))
       return ["SummonerFlash", "SummonerHaste"];
-    }
 
-    if (igniteTop.includes(champion.id)) {
+    if (igniteTop.includes(champion.id))
       return ["SummonerDot", "SummonerFlash"];
-    }
 
     return ["SummonerTeleport", "SummonerFlash"];
   }
@@ -338,9 +314,8 @@ function recommendSpells(champion) {
     // prettier-ignore
     const tpMids = ["Anivia","Azir","Cassiopeia","Chogath","Corki","Galio","Kassadin","Lissandra","Malzahar","Orianna","Syndra","TwistedFate","Veigar","Viktor","Ziggs"];
 
-    if (tpMids.includes(champion.id)) {
+    if (tpMids.includes(champion.id))
       return ["SummonerTeleport", "SummonerFlash"];
-    }
 
     return ["SummonerDot", "SummonerFlash"];
   }
@@ -349,13 +324,11 @@ function recommendSpells(champion) {
 }
 
 /**
- * 챔피언의 성향에 맞춰 추천 신발 이미지의 문자열을 반환합니다.
- *
- * 광전사, 신속, 마법사, 판금장화, 헤르메스, 아이오니아, 기동력
- * ("3006", "3009", "3020", "3047", "3111", "3158", "3117")
- * 중 하나를 추천합니다.
- *
- * 신발 추천의 기준이 다르기 때문에 분류를 달리합니다.
+ * 현재 선택된 챔피언이 주로 사용하는 신발을 추천해줍니다.
+ * 데이터가 가지고 있던 "tags" 속성을 활용해 1차적으로 분류하고
+ * 성향에서 예외성을 가진 챔피언들에 맞춰 신발을 추천해줍니다.
+ * @param {currentChamp} currentChamp 현재 선택된 챔피언(props)
+ * @returns 신발 아이템의 id(Number)
  */
 function recommendBoots(champion) {
   if (champion.tags[0] === "Support") {
@@ -363,33 +336,23 @@ function recommendBoots(champion) {
     const mobilitySupports = ["Pyke", "Thresh"];
     const tankSupports = ["Braum", "TahmKench", "Taric"];
 
-    if (swiftnessSupports.includes(champion.id)) {
-      return "3009";
-    }
+    if (swiftnessSupports.includes(champion.id)) return 3009;
 
-    if (mobilitySupports.includes(champion.id)) {
-      return "3117";
-    }
+    if (mobilitySupports.includes(champion.id)) return 3117;
 
-    if (tankSupports.includes(champion.id)) {
-      return "3020";
-    }
+    if (tankSupports.includes(champion.id)) return 3020;
 
-    return "3158";
+    return 3158;
   }
 
   if (champion.tags[0] === "Mage") {
     const ionianMages = ["Karma", "Seraphine"];
 
-    if (ionianMages.includes(champion.id)) {
-      return "3158";
-    }
+    if (ionianMages.includes(champion.id)) return 3158;
 
-    if (champion.id === "Cassiopeia") {
-      return null;
-    }
+    if (champion.id === "Cassiopeia") return null;
 
-    return "3020";
+    return 3020;
   }
 
   if (champion.tags[0] === "Tank") {
@@ -397,40 +360,26 @@ function recommendBoots(champion) {
     const mageTanks = ["Galio"];
     const swiftnessTanks = ["Singed"];
 
-    if (mobilityTanks.includes(champion.id)) {
-      return "3117";
-    }
+    if (mobilityTanks.includes(champion.id)) return 3117;
 
-    if (mageTanks.includes(champion.id)) {
-      return "3020";
-    }
+    if (mageTanks.includes(champion.id)) return 3020;
 
-    if (swiftnessTanks.includes(champion.id)) {
-      return "3009";
-    }
+    if (swiftnessTanks.includes(champion.id)) return 3009;
 
-    return "3047";
+    return 3047;
   }
 
   if (champion.tags[0] === "Assassin") {
     const ionianAssassin = ["Qiyana", "Rengar", "Khazix", "Talon", "Zed"];
     const platedAssassin = ["Viego"];
 
-    if (ionianAssassin.includes(champion.id)) {
-      return "3158";
-    }
+    if (ionianAssassin.includes(champion.id)) return 3158;
 
-    if (platedAssassin.includes(champion.id)) {
-      return "3047";
-    }
+    if (platedAssassin.includes(champion.id)) return 3047;
 
-    if (champion.info.magic >= champion.info.attack) {
-      return "3020";
-    }
+    if (champion.info.magic >= champion.info.attack) return 3020;
 
-    if (champion.info.magic < champion.info.attack) {
-      return "3006";
-    }
+    if (champion.info.magic < champion.info.attack) return 3006;
   }
 
   if (champion.tags[0] === "Marksman") {
@@ -438,19 +387,13 @@ function recommendBoots(champion) {
     const swiftnessMarksman = ["Jhin", "Senna"];
     const mageMarksman = ["Teemo"];
 
-    if (ionianMarksman.includes(champion.id)) {
-      return "3158";
-    }
+    if (ionianMarksman.includes(champion.id)) return 3158;
 
-    if (swiftnessMarksman.includes(champion.id)) {
-      return "3009";
-    }
+    if (swiftnessMarksman.includes(champion.id)) return 3009;
 
-    if (mageMarksman.includes(champion.id)) {
-      return "3020";
-    }
+    if (mageMarksman.includes(champion.id)) return 3020;
 
-    return "3006";
+    return 3006;
   }
 
   if (champion.tags[0] === "Fighter") {
@@ -460,22 +403,26 @@ function recommendBoots(champion) {
     const ionianFighter = ["Jayce","Kayn","Lillia","Riven","Skarner","Gangplank","Gragas"];
     const berserkerFighter = ["Garen", "Kayle", "Nilah", "Tryndamere", "Yasuo"];
 
-    if (swiftnessFighter.includes(champion.id)) return "3009";
+    if (swiftnessFighter.includes(champion.id)) return 3009;
 
-    if (mageFighter.includes(champion.id)) return "3020";
+    if (mageFighter.includes(champion.id)) return 3020;
 
-    if (ionianFighter.includes(champion.id)) return "3158";
+    if (ionianFighter.includes(champion.id)) return 3158;
 
-    if (berserkerFighter.includes(champion.id)) return "3006";
+    if (berserkerFighter.includes(champion.id)) return 3006;
 
-    return "3047";
+    return 3047;
   }
 }
 
 /**
- * 제공된 "스킬 마스터 추천 순서" 데이터에 따른 이미지 링크를 불러옵니다.
+ * 현재 선택된 챔피언에게 ChamptionStatistics로부터 가져온 데이터를 기반으로
+ * 알맞는 스킬의 이미지의 링크명을 반환합니다.
  * 해당 과정이 필요한 이유는 특정 챔피언들의 이미지 링크가 API에서
  * '챔피언이름Q'가 아닌 불규칙적인 링크 이름이 주어졌기 때문입니다.
+ * @param {*} skill_tree ChamptionStatistics로부터 가져온 데이터
+ * @param {*} currentChamp 현재 선택된 챔피언(props)
+ * @returns
  */
 function getSkillImages(skill_tree, currentChamp) {
   let rtnArr = [];

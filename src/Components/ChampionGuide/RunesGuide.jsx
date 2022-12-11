@@ -5,8 +5,9 @@ import { fetchRunesData } from "../../API/RiotAPI";
 import ChampionStatistics from "./Data/ChampionStatistics.json";
 
 const Runes_Container = styled.div`
-  height: 800px;
+  height: 850px;
   background-color: rgba(0, 0, 0, 0.5);
+  padding-top: 10px;
 
   .Runes_Section_Wrapper {
     display: flex;
@@ -68,6 +69,7 @@ const Runes_Container = styled.div`
       text-align: center;
       display: flex;
       justify-content: space-between;
+      align-items: center;
       width: 150px;
       height: 40px;
       margin-bottom: 10px;
@@ -105,14 +107,14 @@ const Runes_Container = styled.div`
   }
 
   .Stat_Box {
-    height: 32.5px;
     opacity: 0.4;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 0 auto;
 
     img {
-      height: 100%;
+      width: 100%;
       border-radius: 50%;
       background-color: rgba(0, 0, 0, 0.2);
     }
@@ -121,7 +123,55 @@ const Runes_Container = styled.div`
   .Selected {
     opacity: 1;
     border-radius: 50%;
-    border: solid goldenrod 2.5px;
+    border: solid goldenrod 1.25px;
+  }
+
+  @media only screen and (min-width: 768px) {
+    height: 425px;
+    padding: 5px 0;
+
+    .Runes_Section_Wrapper {
+      flex-direction: row;
+    }
+
+    .Runes_Header {
+      h3 {
+        font-size: 30px;
+      }
+
+      img {
+        height: 40px;
+      }
+    }
+
+    .Main_Runes {
+      flex: 1;
+      border: none;
+    }
+
+    .Sub_Runes {
+      flex: 1;
+
+      .Runes_Row {
+        height: 50px;
+        width: 300px;
+        margin-bottom: 10px;
+
+        img {
+          height: 45px;
+        }
+      }
+
+      .Stats_Row {
+        height: 35px;
+      }
+
+      .Stat_Box {
+        img {
+          height: 25px;
+        }
+      }
+    }
   }
 `;
 

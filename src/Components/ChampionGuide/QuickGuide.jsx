@@ -65,6 +65,41 @@ const Container = styled.div`
       }
     }
   }
+
+  @media only screen and (min-width: 768px) {
+    height: 300px;
+
+    .Champion_Portrait {
+      height: 175px;
+    }
+
+    .Champion_Info {
+      height: 175px;
+
+      h2 {
+        font-size: 26px;
+        margin: 15px 0 0 0;
+      }
+
+      .Skill_Set {
+        width: 80%;
+        margin: 15px auto;
+
+        img {
+          height: 65px;
+        }
+      }
+    }
+
+    .Rate_Info_Wrapper {
+      width: 80%;
+      margin: 0 auto;
+
+      .Rate {
+        font-size: 20px;
+      }
+    }
+  }
 `;
 
 export default function QuickGuide({ currentChamp }) {
