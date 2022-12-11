@@ -78,6 +78,7 @@ export async function matchSummaryData(gameUuids, userName) {
       const blueTeamSummonerName = blueTeam.map((el) => {
         return el.summonerName;
       });
+
       const itemSlot = [
         summonerFilterName.item0,
         summonerFilterName.item1,
@@ -110,6 +111,7 @@ export async function matchSummaryData(gameUuids, userName) {
         spellId2: summonerFilterName.summoner2Id,
         runeId1: summonerFilterName.perks.styles[0].style,
         runeId2: summonerFilterName.perks.styles[1].style,
+        queueId: response.data.info.queueId,
       };
     } catch (error) {
       console.log(error(error));

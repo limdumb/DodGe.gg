@@ -49,7 +49,7 @@ export default function RecordList({
   getSpell,
   runesData,
 }) {
-  // console.log(getUserMatchData);
+  console.log(getUserMatchData);
   return (
     <>
       {getUserMatchData &&
@@ -63,7 +63,9 @@ export default function RecordList({
               <ListContainer key={index}>
                 <RecordContents backgroundColor={el.win}>
                   <div className="Record_Information">
-                    <StyleSpan fontsize={"12px"}>{el.gameMode}</StyleSpan>
+                    <StyleSpan fontsize={"12px"}>
+                      {gameType(getUserMatchData, index)}
+                    </StyleSpan>
                     <StyleSpan fontsize={"10px"}>
                       {month_Day(el.gameCreation)}
                     </StyleSpan>
@@ -284,4 +286,22 @@ function runeSlot(summonerData, idx) {
   runesArr.push(runeIdx_01, runeIdx_02);
 
   return runesArr;
+}
+
+function gameType(summonerData, idx) {
+  if (summonerData[idx].queueId === 400) {
+    return "일반게임";
+  }
+
+  if (summonerData[idx].queueId === 420) {
+    return "솔로랭크";
+  }
+
+  if (summonerData[idx].queueId === 440) {
+    return "자유랭크";
+  }
+
+  if (summonerData[idx].queueId === 450) {
+    return "무작위 총력전";
+  }
 }
