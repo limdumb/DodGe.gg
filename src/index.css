@@ -26,8 +26,10 @@ code {
 
 @media screen and (min-width: 1024px) {
   html {
-    width: 1024px;
     font-size: 125%;
+  }
+  body {
+    width: 1024px;
   }
   main {
     flex-direction: row;

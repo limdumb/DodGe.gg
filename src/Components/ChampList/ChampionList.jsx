@@ -1,24 +1,53 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import { champName } from "../../API/RiotAPI";
+import { champName, rotationData } from "../../API/RiotAPI";
 import "./ChampionList.css";
 import { filterChampName } from "../../Function/Search";
 import { useNavigate } from "react-router-dom";
+import ChampionLine from "../OPList/Json/Champion.json";
 
-export default function ChampionList({ searchInputValue, setChampSelected }) {
+export default function ChampionList({ CheckLine, searchInputValue, setChampSelected }) {
   let navigate = useNavigate();
   const [champNormalName, setChampNormalName] = useState(null);
   useEffect(() => {
     const championNameData = async () => {
       const championNames = {};
       const response = await champName();
-      response.forEach((el) => {
-        championNames[el.en_name] = el.name;
-      });
-      setChampNormalName(response);
+      const rotationChamp = await rotationData();
+      let championLine = ChampionLine[CheckLine];
+      const filterChamp = [];
+      if(CheckLine === "ALL"){
+        setChampNormalName(response);
+      } else if(CheckLine === "ROTATION"){
+        response.forEach((el) => {
+          championNames[el.en_name] = el.name;
+          rotationChamp.forEach(data => {
+            let obj = {}
+            if(el.en_name === data){
+              obj["name"] = el.name
+              obj["en_name"] = el.en_name
+              filterChamp.push(obj);
+            }
+          })
+        });
+        setChampNormalName(filterChamp)
+      } else {
+        response.forEach((el) => {
+          championNames[el.en_name] = el.name;
+          championLine.forEach(data => {
+            let obj = {}
+            if(el.name === data.name){
+              obj["name"] = el.name
+              obj["en_name"] = el.en_name
+              filterChamp.push(obj);
+            }
+          })
+        });
+        setChampNormalName(filterChamp);
+      }
     };
     championNameData();
-  }, []);
+  }, [CheckLine]);
 
   const regex = filterChampName(searchInputValue);
 
