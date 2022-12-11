@@ -17,7 +17,7 @@ export default function MainPage() {
   const [tabSearchInputValue, setTabSearchInputValue] = useState("");
   const [modalCheck, setModalCheck] = useState([false, false]);
   const [champSelected, setChampSelected] = useState(null);
-  console.log(champSelected);
+
   return (
     <div>
       <Modal modalCheck={modalCheck} />
@@ -36,7 +36,6 @@ export default function MainPage() {
             />
             <ChampionList
               searchInputValue={searchInputValue}
-              champSelected={champSelected}
               setChampSelected={setChampSelected}
             />
           </div>

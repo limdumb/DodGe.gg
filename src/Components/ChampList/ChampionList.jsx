@@ -4,11 +4,7 @@ import { champName } from "../../API/RiotAPI";
 import "./ChampionList.css";
 import { filterChampName } from "../../Function/Search";
 
-export default function ChampionList({
-  searchInputValue,
-  setChampSelected,
-  champSelected,
-}) {
+export default function ChampionList({ searchInputValue, setChampSelected }) {
   const [champNormalName, setChampNormalName] = useState(null);
   useEffect(() => {
     const championNameData = async () => {
