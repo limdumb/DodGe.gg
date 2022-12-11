@@ -21,40 +21,52 @@
   overflow-x: scroll;
 }
 
-.Champion_List_Name{
+.Champion_List_Name {
   display: block;
   font-size: 10px;
 }
 
-.Champ_Image{
+.Champ_Image {
   width: 40px;
 }
 
-  @media screen and (min-width: 768px) {
+.Champ_Image:hover,
+.Champ_Image:focus {
+  cursor: pointer;
+  border: whitesmoke 1px solid;
+  transition: all 0.7s;
+}
+
+.RIP {
+  width: 40px;
+  opacity: 0.45;
+}
+
+@media screen and (min-width: 768px) {
+}
+
+@media screen and (min-width: 1024px) {
+  .Champion_List_Container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 332px;
+    justify-content: center;
+    gap: 8px;
   }
 
-  @media screen and (min-width: 1024px) {
-    .Champion_List_Container {
-      display: flex;
-      flex-wrap: wrap;
-      width: 332px;
-      justify-content: center;
-      gap: 8px;
-    }
-
-    .Right_Aside_Container {
-      background-color: gray;
-      display: flex;
-      width: 332px;
-      padding-top: 5px;
-    }
-
-    .Champ_Image{
-      width: 45px;
-    }
-
-    .Champion_List_Name{
-      display: block;
-      font-size: 13px;
-    }
+  .Right_Aside_Container {
+    background-color: gray;
+    display: flex;
+    width: 332px;
+    padding-top: 5px;
   }
+
+  .Champ_Image {
+    width: 45px;
+  }
+
+  .Champion_List_Name {
+    display: block;
+    font-size: 13px;
+  }
+}

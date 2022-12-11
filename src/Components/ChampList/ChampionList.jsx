@@ -4,7 +4,11 @@ import { champName } from "../../API/RiotAPI";
 import "./ChampionList.css";
 import { filterChampName } from "../../Function/Search";
 
-export default function ChampionList({ searchInputValue }) {
+export default function ChampionList({
+  searchInputValue,
+  setChampSelected,
+  champSelected,
+}) {
   const [champNormalName, setChampNormalName] = useState(null);
   useEffect(() => {
     const championNameData = async () => {
@@ -35,10 +39,15 @@ export default function ChampionList({ searchInputValue }) {
               <div
                 className="Champion_List"
                 key={index}
-                onClick={() => data.en_name}
+                onClick={() => {
+                  if (data.en_name !== "AurelionSol")
+                    setChampSelected(data.en_name);
+                }}
               >
                 <img
-                  className="Champ_Image"
+                  className={
+                    data.en_name !== "AurelionSol" ? "Champ_Image" : "RIP"
+                  }
                   width={"40px"}
                   src={`http://ddragon.leagueoflegends.com/cdn/12.22.1/img/champion/${data.en_name}.png`}
                 />

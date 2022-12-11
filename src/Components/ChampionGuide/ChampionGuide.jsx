@@ -7,7 +7,6 @@ import { fetchChampData } from "../../API/RiotAPI";
 const Main_Container = styled.div`
   width: 100%;
 
-
   .Guides_Container {
     background-color: bisque;
   }
@@ -15,7 +14,6 @@ const Main_Container = styled.div`
   @media only screen and (min-width: 1024px) {
     width: 50vw;
     display: flex;
-    margin: 0 auto;
   }
 
   .Lack_Of_Data {
@@ -33,26 +31,30 @@ const Main_Container = styled.div`
   }
 `;
 
-export default function ChampionGuide() {
-  // 임시 데이터 설정: 이후 데이터를 props를 통해 받아올 때 삭제 현재 임시 데이터는 삭제
-  const champName = "Brand";
+export default function ChampionGuide({ champSelected }) {
   const [currentChamp, setCurrentChamp] = useState(null);
   const [isPending, setIsPending] = useState(true);
 
   useEffect(() => {
-    fetchChampData(champName).then((val) => {
+    fetchChampData(champSelected).then((val) => {
       setIsPending(false);
-      setCurrentChamp(val[0][champName]);
+      if (champSelected !== "AurelionSol") {
+        setCurrentChamp(val[0][champSelected]);
+      }
     });
-  }, []);
+  }, [champSelected]);
 
   return (
     <Main_Container>
       {isPending && <div> Loading ... </div>}
-      <div className="Guides_Container">
-        {currentChamp && <QuickGuide currentChamp={currentChamp} />}
-        {currentChamp && <DetailedGuide currentChamp={currentChamp} />}
-      </div>
+      {champSelected === "AurelionSol" ? (
+        <div className="Lack_Of_Data">이 챔피언은 데이터가 부족합니다</div>
+      ) : (
+        <div className="Guides_Container">
+          {currentChamp && <QuickGuide currentChamp={currentChamp} />}
+          {currentChamp && <DetailedGuide currentChamp={currentChamp} />}
+        </div>
+      )}
     </Main_Container>
   );
 }
