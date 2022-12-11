@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
-import './TypeTab.css'
+import "./TypeTab.css";
 
 const TabButton = styled.button`
   border: none;
@@ -14,7 +14,7 @@ const TabButton = styled.button`
   color: ${(props) => (props.changeColor ? "black" : "rgb(187, 187, 187)")};
   margin-top: ${(props) => props.marginTop};
   margin-bottom: ${(props) => props.marginBtm};
-  margin-left: ${(props)=> props.marginLft};
+  margin-left: ${(props) => props.marginLft};
 `;
 
 export function TypeTab({ onTabChange }) {
@@ -94,10 +94,8 @@ export const RankTab = ({ userSoloTier, userFreeRankTier }) => {
   const tabHandler = (index) => {
     setRankInfo(index);
   };
-  const lowerCaseSoloTierName = userSoloTier.tier.toLowerCase()
-  const lowerCaseFreeTierName = userFreeRankTier.tier.toLowerCase()
-  console.log(lowerCaseSoloTierName)
-console.log(userSoloTier)
+  const lowerCaseSoloTierName = userSoloTier.tier.toLowerCase();
+  const lowerCaseFreeTierName = userFreeRankTier.tier.toLowerCase();
   const userTierArr = [
     {
       id: "1",
@@ -111,7 +109,6 @@ console.log(userSoloTier)
         </TabButton>
       ),
       rankContent: (
-      
         <div className="Tab_Tier_Container">
           <img
             className="Icon_Image"
@@ -137,7 +134,7 @@ console.log(userSoloTier)
       rankTitle: (
         <TabButton
           fontsize="20px"
-          marginLft='5px'
+          marginLft="5px"
           changeColor={rankInfo === 1}
           onClick={() => tabHandler(1)}
         >
