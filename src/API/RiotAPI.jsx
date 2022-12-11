@@ -138,3 +138,31 @@ export async function champName() {
     });
   return champion;
 }
+
+export async function fetchChampData(champName) {
+  let userData = [];
+  await axios
+    .get(
+      `https://ddragon.leagueoflegends.com/cdn/12.23.1/data/ko_KR/champion/${champName}.json`
+    )
+    .then((res) => {
+      userData.push(res.data.data);
+    })
+    .catch((err) => console.log(err));
+
+  return userData;
+}
+
+export async function fetchRunesData() {
+  let runes = [];
+  await axios
+    .get(
+      `https://ddragon.leagueoflegends.com/cdn/12.23.1/data/ko_KR/runesReforged.json`
+    )
+    .then((res) => {
+      runes.push(res.data);
+    })
+    .catch((err) => console.log(err));
+
+  return runes;
+}
