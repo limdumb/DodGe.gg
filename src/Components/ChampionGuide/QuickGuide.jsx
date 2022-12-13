@@ -57,36 +57,49 @@ const Container = styled.div`
   }
 
   @media only screen and (min-width: 768px) {
+    width: 720px;
     height: 300px;
+    padding: 20px 0 0 0;
+    margin: 0 auto;
 
-    .Champion_Portrait {
-      height: 175px;
-    }
+    .Champion_Basics {
+      height: 150px;
+      width: 100%;
+      justify-content: space-evenly;
+      align-items: center;
+      margin-bottom: 20px;
 
-    .Champion_Info {
-      height: 175px;
-
-      h2 {
-        font-size: 26px;
-        margin: 15px 0 0 0;
-      }
-
-      .Skill_Set {
-        width: 80%;
-        margin: 15px auto;
+      .Champion_Portrait {
+        width: 150px;
+        height: 150px;
 
         img {
-          height: 65px;
+          width: 100%;
+          height: 100%;
         }
       }
-    }
 
-    .Rate_Info_Wrapper {
-      width: 80%;
-      margin: 0 auto;
+      .Champion_Info {
+        height: 100%;
+        width: 65%;
+        justify-content: space-evenly;
 
-      .Rate {
-        font-size: 20px;
+        h2 {
+          font-size: 24px;
+        }
+
+        .Skill_Set {
+          height: 55px;
+
+          img {
+            width: 55px;
+            height: 55px;
+          }
+        }
+
+        .Rate_Info_Wrapper {
+          font-size: 20px;
+        }
       }
     }
   }

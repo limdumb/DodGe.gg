@@ -24,7 +24,10 @@ const Container = styled.div`
     padding: 0;
     margin: 0;
     width: 100%;
-    background-color: rgba(198, 156, 109, 0.2);
+    background-color: ${(props) =>
+      props.isDarkMode
+        ? "rgba(41, 171, 226, 0.2)"
+        : "rgba(198, 156, 109, 0.2)"};
   }
 
   .Trapezoid {
@@ -45,7 +48,10 @@ const Container = styled.div`
     justify-content: space-around;
     align-items: center;
     font-size: 16px;
-    border-bottom: solid 1px rgba(255, 210, 90, 0.5);
+    border-bottom: ${(props) =>
+      props.isDarkMode
+        ? "solid 1px rgba(120, 220, 180, 0.5)"
+        : "solid 1px rgba(255, 210, 90, 0.5)"};
 
     div {
       height: 100%;
@@ -63,6 +69,18 @@ const Container = styled.div`
     .Counter_Win_Rate {
       color: ${(props) =>
         props.isDarkMode ? "rgb(255, 210, 90)" : "rgb(120, 220, 180)"};
+    }
+  }
+
+  @media only screen and (min-width: 768px) {
+    width: 715px;
+
+    .Header {
+      font-size: 28px;
+    }
+
+    .Counter_List_Item {
+      font-size: 22px;
     }
   }
 `;

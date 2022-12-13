@@ -62,7 +62,15 @@ const Container = styled.div`
   }
 
   @media only screen and (min-width: 768px) {
+    margin: 0;
+    padding: 0;
     height: 125px;
+
+    .Recommend_Container {
+      &:first-child {
+        width: 25%;
+      }
+    }
   }
 `;
 

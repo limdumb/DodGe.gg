@@ -3,8 +3,8 @@ import QuickGuide from "./QuickGuide";
 import DetailedGuide from "./DetailedGuide";
 import { useState, useEffect } from "react";
 import { fetchChampData } from "../../API/RiotAPI";
-import lightBG from "./Assets/LightBG.png";
-import darkBG from "./Assets/DarkBG.png";
+import lightBG from "./../Assets/LightBG.png";
+import darkBG from "./../Assets/DarkBG.png";
 
 const Main_Container = styled.div`
   height: 1650px;
@@ -20,7 +20,12 @@ const Main_Container = styled.div`
   }
 
   @media only screen and (min-width: 768px) {
-    height: 1150px;
+    height: 1250px;
+    .Container {
+      height: 100%;
+      background-position: center;
+      background-size: cover;
+    }
   }
 
   @media only screen and (min-width: 1024px) {
@@ -33,7 +38,7 @@ export default function ChampionGuide({ champSelected }) {
   const [currentChamp, setCurrentChamp] = useState(null);
   const [isPending, setIsPending] = useState(true);
   // 더미 데이터 => 이후 수정 전역 상태로 받아올 예정
-  const [isDarkMode, setDarkMode] = useState(true);
+  const [isDarkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
     fetchChampData(champSelected).then((val) => {
@@ -43,7 +48,7 @@ export default function ChampionGuide({ champSelected }) {
   }, [champSelected]);
 
   return (
-    <Main_Container>
+    <Main_Container isDarkMode={isDarkMode}>
       {isPending && <div> Loading ... </div>}
 
       <div className={isDarkMode ? "Container Dark" : "Container Light"}>

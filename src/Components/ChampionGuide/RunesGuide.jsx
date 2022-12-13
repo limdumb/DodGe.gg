@@ -16,7 +16,7 @@ const Runes_Container = styled.div`
   }
 
   .Main_Runes {
-    height: 320px;
+    height: 350px;
     margin-bottom: 25px;
     display: flex;
     flex-direction: column;
@@ -53,7 +53,7 @@ const Runes_Container = styled.div`
     img {
       height: 45px;
       border-radius: 50%;
-      background-color: rgba(255, 255, 255, 0.25);
+      background-color: rgba(0, 0, 0, 0.2);
     }
 
     &:not(:first-child) {
@@ -68,11 +68,11 @@ const Runes_Container = styled.div`
     width: 90%;
     margin: 10px auto 0 auto;
     padding-bottom: 5px;
+    background: transparent;
     border-bottom: ${(props) =>
       props.isDarkMode
         ? "3px solid rgb(120, 220, 180)"
         : "3px solid rgb(255, 210, 90)"};
-    background: transparent;
 
     h3 {
       margin-right: 10px;
@@ -85,7 +85,10 @@ const Runes_Container = styled.div`
   }
 
   .Runes_Wrapper {
-    background-color: rgba(198, 156, 109, 0.2);
+    background-color: ${(props) =>
+      props.isDarkMode
+        ? "rgba(41, 171, 226, 0.2)"
+        : "rgba(198, 156, 109, 0.2)"};
     border-radius: 2px;
     flex: 1;
     display: flex;
@@ -108,7 +111,10 @@ const Runes_Container = styled.div`
   }
 
   .Stats_Wrapper {
-    background-color: rgba(198, 156, 109, 0.2);
+    background-color: ${(props) =>
+      props.isDarkMode
+        ? "rgba(41, 171, 226, 0.2)"
+        : "rgba(198, 156, 109, 0.2)"};
   }
 
   .Stat_Box {
@@ -118,8 +124,7 @@ const Runes_Container = styled.div`
     justify-content: center;
     margin: 0 auto;
     border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.15);
-    height: 25px;
+    height: 24px;
 
     img {
       height: 25px;
@@ -135,50 +140,32 @@ const Runes_Container = styled.div`
   }
 
   @media only screen and (min-width: 768px) {
-    height: 425px;
-    padding: 5px 0;
+    height: 450px;
 
     .Runes_Section_Wrapper {
+      height: 450px;
+      width: 100%;
+      margin: 0;
       flex-direction: row;
+      justify-content: space-evenly;
     }
 
-    .Runes_Header {
-      h3 {
-        font-size: 30px;
-      }
-
-      img {
-        height: 40px;
-      }
+    h3 {
+      font-size: 28px;
     }
 
     .Main_Runes {
-      flex: 1;
-      border: none;
+      width: 45%;
+      height: 425px;
+
+      .Runes_Row {
+        height: 80px;
+      }
     }
 
     .Sub_Runes {
-      flex: 1;
-
-      .Runes_Row {
-        height: 50px;
-        width: 300px;
-        margin-bottom: 10px;
-
-        img {
-          height: 45px;
-        }
-      }
-
-      .Stats_Row {
-        height: 35px;
-      }
-
-      .Stat_Box {
-        img {
-          height: 25px;
-        }
-      }
+      width: 45%;
+      height: 425px;
     }
   }
 `;
