@@ -2,18 +2,16 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { StyleSpan } from "../MyPage/RecordList";
 import "./Header.css";
-import { SearchInput } from "./SearchInput";
 
 const Header = styled.header`
   box-sizing: border-box;
   display: flex;
-  width: 100%;
-  background-color: black;
-  height: 70px;
-  background-color: rgb(45, 43, 46);
-  justify-content: space-between;
+  width: 390px;
+  height: 61px;
+  background-color: #FF6432;
   align-items: center;
   padding: 0 10px 0 10px;
+  position: relative;
 `;
 
 const StyledButton = styled.button`
@@ -30,26 +28,32 @@ const StyledButton = styled.button`
 const TabButton = styled(StyledButton)`
   border: none;
   font-weight: bold;
+  width: 33.9741px;
+  height: 15.5879px;
+  background: none;
+  position: relative;
+  top: 0px;
+  right: 400px;
 `;
 
 export default function MainHeader() {
   return (
     <Header>
-      <Link to={'/'}>
+      <div className="Gradation_Header"/>
+      <img className="Header_Image" src={`${process.env.PUBLIC_URL}/Image/nav1.png`}/>
+      <Link className="Home_Button_Container" to={'/'}>
         <TabButton
-          backgroundColor="rgb(45, 43, 46)"
-          color="white"
-          fontsize="0.8rem"
+          color="#FFD25A"
+          fontsize="12px"
         >
           Home
         </TabButton>
       </Link>
       <div className="Logo_Container">
-        <StyleSpan changeColor="white" fontsize="1.2rem" fontweight="bold">
+        <StyleSpan changeColor="#FFD25A" fontsize="26pt">
           DodGe.GG
         </StyleSpan>
       </div>
-      <SearchInput />
     </Header>
   );
 }

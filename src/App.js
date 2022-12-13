@@ -24,7 +24,6 @@ function App() {
           <ChampionSearchList setChampSelected={setChampSelected} />
           <OpList/>
         </aside>
-
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route

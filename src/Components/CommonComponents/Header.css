@@ -4,3 +4,25 @@
   transform: translateX(-50%);
   margin: auto;
 }
+
+.Gradation_Header{
+  position: absolute;
+  opacity: 0.8;
+  left: 0;
+  width: 390px;
+  height: 61px;
+  background: rgb(180,90,36);
+  background: linear-gradient(90deg, rgba(180,90,36,0.97) 2.991%, rgba(251,176,59,0.5) 51.3966%, rgba(180,90,36,1) 100%);
+}
+
+.Home_Button_Container{
+  z-index: 1;
+  height: 18px;
+  margin-left: 36.499px;
+  text-decoration: none;
+}
+
+.Header_Image{
+  position: relative;
+  right: 16px;
+}
