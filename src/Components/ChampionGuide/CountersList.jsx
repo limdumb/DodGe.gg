@@ -13,19 +13,36 @@ const Container = styled.div`
     text-align: center;
     margin: 0 auto;
     padding-bottom: 10px;
+    background: transparent;
+  }
+
+  .Light {
     border-bottom: 3px solid rgb(255, 210, 90);
+  }
+
+  .Dark {
+    border-bottom: 3px solid rgb(120, 220, 180);
   }
 
   .Counter_List {
     padding: 0;
     margin: 0;
     width: 100%;
+    background-color: rgba(198, 156, 109, 0.2);
   }
 
-  .Trapezoid {
+  .Trapezoid_Light {
     margin: 0 auto;
     width: 40%;
     border-top: 12.5px solid rgb(255, 210, 90);
+    border-left: 7.5px solid transparent;
+    border-right: 7.5px solid transparent;
+  }
+
+  .Trapezoid_Dark {
+    margin: 0 auto;
+    width: 40%;
+    border-top: 12.5px solid rgb(120, 220, 180);
     border-left: 7.5px solid transparent;
     border-right: 7.5px solid transparent;
   }
@@ -52,29 +69,57 @@ const Container = styled.div`
       border-radius: 10%;
     }
 
-    .Counter_Win_Rate {
-      color: #ff9600;
+    .Counter_Win_Rate_Light {
+      color: rgb(120, 220, 180);
+    }
+
+    .Counter_Win_Rate_Dark {
+      color: rgb(255, 210, 90);
     }
   }
 `;
 
-export default function CountersList({ currentChamp }) {
+export default function CountersList({ currentChamp, isDarkMode }) {
   return (
     <Container>
-      <div className="Header">카운터 리스트</div>
+      <div className={isDarkMode ? "Header Dark" : "Header Light"}>
+        카운터 리스트
+      </div>
       <ul className="Counter_List">
-        <div className="Trapezoid"></div>
-        <CounterChampion currentChamp={currentChamp} idx={0} />
-        <CounterChampion currentChamp={currentChamp} idx={1} />
-        <CounterChampion currentChamp={currentChamp} idx={2} />
-        <CounterChampion currentChamp={currentChamp} idx={3} />
-        <CounterChampion currentChamp={currentChamp} idx={4} />
+        <div
+          className={isDarkMode ? "Trapezoid_Dark" : "Trapezoid_Light"}
+        ></div>
+        <CounterChampion
+          currentChamp={currentChamp}
+          isDarkMode={isDarkMode}
+          idx={0}
+        />
+        <CounterChampion
+          currentChamp={currentChamp}
+          isDarkMode={isDarkMode}
+          idx={1}
+        />
+        <CounterChampion
+          currentChamp={currentChamp}
+          isDarkMode={isDarkMode}
+          idx={2}
+        />
+        <CounterChampion
+          currentChamp={currentChamp}
+          isDarkMode={isDarkMode}
+          idx={3}
+        />
+        <CounterChampion
+          currentChamp={currentChamp}
+          isDarkMode={isDarkMode}
+          idx={4}
+        />
       </ul>
     </Container>
   );
 }
 
-function CounterChampion({ currentChamp, idx }) {
+function CounterChampion({ currentChamp, idx, isDarkMode }) {
   const baseURL = "http://ddragon.leagueoflegends.com/cdn/12.21.1/img";
   return (
     <li className="Counter_List_Item" key={idx}>
@@ -88,7 +133,11 @@ function CounterChampion({ currentChamp, idx }) {
       <div>
         {ChampionStatistics[0][currentChamp.id].counter_list[idx].name_kr}
       </div>
-      <div className="Counter_Win_Rate">
+      <div
+        className={
+          isDarkMode ? "Counter_Win_Rate_Dark" : "Counter_Win_Rate_Light"
+        }
+      >
         {
           ChampionStatistics[0][currentChamp.id].counter_list[idx]
             .counter_win_rate

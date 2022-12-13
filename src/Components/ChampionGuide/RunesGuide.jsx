@@ -87,7 +87,7 @@ const Runes_Container = styled.div`
     width: 90%;
     margin: 10px auto 0 auto;
     padding-bottom: 5px;
-    border-bottom: 3px solid rgb(255, 210, 90);
+    background: transparent;
 
     h3 {
       margin-right: 10px;
@@ -99,6 +99,14 @@ const Runes_Container = styled.div`
     }
   }
 
+  .Light {
+    border-bottom: 3px solid rgb(255, 210, 90);
+  }
+
+  .Dark {
+    border-bottom: 3px solid rgb(120, 220, 180);
+  }
+
   .Runes_Wrapper {
     background-color: rgba(198, 156, 109, 0.2);
     border-radius: 2px;
@@ -107,10 +115,18 @@ const Runes_Container = styled.div`
     flex-direction: column;
   }
 
-  .Trapezoid {
+  .Trapezoid_Light {
     margin: 0 auto;
     width: 40%;
     border-top: 12.5px solid rgb(255, 210, 90);
+    border-left: 7.5px solid transparent;
+    border-right: 7.5px solid transparent;
+  }
+
+  .Trapezoid_Dark {
+    margin: 0 auto;
+    width: 40%;
+    border-top: 12.5px solid rgb(120, 220, 180);
     border-left: 7.5px solid transparent;
     border-right: 7.5px solid transparent;
   }
@@ -195,7 +211,7 @@ const Runes_Container = styled.div`
   }
 `;
 
-export default function RunesGuide({ currentChamp }) {
+export default function RunesGuide({ currentChamp, isDarkMode }) {
   const [runes, setRunes] = useState(null);
 
   useEffect(() => {
@@ -206,7 +222,13 @@ export default function RunesGuide({ currentChamp }) {
 
   return (
     <Runes_Container>
-      {runes && <RunesSection currentChamp={currentChamp} runes={runes} />}
+      {runes && (
+        <RunesSection
+          currentChamp={currentChamp}
+          runes={runes}
+          isDarkMode={isDarkMode}
+        />
+      )}
     </Runes_Container>
   );
 }
@@ -218,7 +240,7 @@ export default function RunesGuide({ currentChamp }) {
  * @returns {메인 룬, 서브 룬 섹션을 포함한 Wrapper}
  * @author 심민섭
  */
-function RunesSection({ currentChamp, runes }) {
+function RunesSection({ currentChamp, runes, isDarkMode }) {
   const baseURL = "https://ddragon.canisback.com/img/";
 
   const mainRuneTitle =
@@ -273,12 +295,16 @@ function RunesSection({ currentChamp, runes }) {
   return (
     <div className="Runes_Section_Wrapper">
       <div className="Main_Runes">
-        <div className="Runes_Header">
+        <div
+          className={isDarkMode ? "Runes_Header Dark" : "Runes_Header Light"}
+        >
           <h3>{runes[0][mainRunesIdx].name}</h3>
           <img src={`${baseURL}/${runes[0][mainRunesIdx].icon}`}></img>
         </div>
         <div className="Runes_Wrapper">
-          <div className="Trapezoid"></div>
+          <div
+            className={isDarkMode ? "Trapezoid_Dark" : "Trapezoid_Light"}
+          ></div>
           {runes[0][mainRunesIdx].slots.map((row, rowIdx) => {
             return (
               <div className="Runes_Row" key={`row_${rowIdx}`}>
@@ -306,12 +332,16 @@ function RunesSection({ currentChamp, runes }) {
         </div>
       </div>
       <div className="Sub_Runes">
-        <div className="Runes_Header">
+        <div
+          className={isDarkMode ? "Runes_Header Dark" : "Runes_Header Light"}
+        >
           <h3>{runes[0][subRunesIdx].name}</h3>
           <img src={`${baseURL}/${runes[0][subRunesIdx].icon}`}></img>
         </div>
         <div className="Runes_Wrapper">
-          <div className="Trapezoid"></div>
+          <div
+            className={isDarkMode ? "Trapezoid_Dark" : "Trapezoid_Light"}
+          ></div>
           {runes[0][subRunesIdx].slots.map((row, rowIdx) => {
             if (rowIdx !== 0)
               return (

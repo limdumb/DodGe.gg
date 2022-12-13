@@ -66,7 +66,7 @@ const Container = styled.div`
   }
 `;
 
-export default function QuickBuild({ currentChamp }) {
+export default function QuickBuild({ currentChamp, isDarkMode }) {
   const startItems = recommendStartItems(currentChamp);
   const startBoots = recommendBoots(currentChamp);
   const summonerSpells = recommendSpells(currentChamp);
