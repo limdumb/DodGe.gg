@@ -14,14 +14,10 @@ const Container = styled.div`
     margin: 0 auto;
     padding-bottom: 10px;
     background: transparent;
-  }
-
-  .Light {
-    border-bottom: 3px solid rgb(255, 210, 90);
-  }
-
-  .Dark {
-    border-bottom: 3px solid rgb(120, 220, 180);
+    border-bottom: ${(props) =>
+      props.isDarkMode
+        ? "3px solid rgb(120, 220, 180)"
+        : " 3px solid rgb(255, 210, 90)"};
   }
 
   .Counter_List {
@@ -31,18 +27,13 @@ const Container = styled.div`
     background-color: rgba(198, 156, 109, 0.2);
   }
 
-  .Trapezoid_Light {
+  .Trapezoid {
     margin: 0 auto;
     width: 40%;
-    border-top: 12.5px solid rgb(255, 210, 90);
-    border-left: 7.5px solid transparent;
-    border-right: 7.5px solid transparent;
-  }
-
-  .Trapezoid_Dark {
-    margin: 0 auto;
-    width: 40%;
-    border-top: 12.5px solid rgb(120, 220, 180);
+    border-top: ${(props) =>
+      props.isDarkMode
+        ? "12.5px solid rgb(120, 220, 180)"
+        : "12.5px solid rgb(255, 210, 90)"};
     border-left: 7.5px solid transparent;
     border-right: 7.5px solid transparent;
   }
@@ -69,26 +60,19 @@ const Container = styled.div`
       border-radius: 10%;
     }
 
-    .Counter_Win_Rate_Light {
-      color: rgb(120, 220, 180);
-    }
-
-    .Counter_Win_Rate_Dark {
-      color: rgb(255, 210, 90);
+    .Counter_Win_Rate {
+      color: ${(props) =>
+        props.isDarkMode ? "rgb(255, 210, 90)" : "rgb(120, 220, 180)"};
     }
   }
 `;
 
 export default function CountersList({ currentChamp, isDarkMode }) {
   return (
-    <Container>
-      <div className={isDarkMode ? "Header Dark" : "Header Light"}>
-        카운터 리스트
-      </div>
+    <Container isDarkMode={isDarkMode}>
+      <div className="Header">카운터 리스트</div>
       <ul className="Counter_List">
-        <div
-          className={isDarkMode ? "Trapezoid_Dark" : "Trapezoid_Light"}
-        ></div>
+        <div className="Trapezoid"></div>
         <CounterChampion
           currentChamp={currentChamp}
           isDarkMode={isDarkMode}
@@ -133,11 +117,7 @@ function CounterChampion({ currentChamp, idx, isDarkMode }) {
       <div>
         {ChampionStatistics[0][currentChamp.id].counter_list[idx].name_kr}
       </div>
-      <div
-        className={
-          isDarkMode ? "Counter_Win_Rate_Dark" : "Counter_Win_Rate_Light"
-        }
-      >
+      <div className="Counter_Win_Rate">
         {
           ChampionStatistics[0][currentChamp.id].counter_list[idx]
             .counter_win_rate

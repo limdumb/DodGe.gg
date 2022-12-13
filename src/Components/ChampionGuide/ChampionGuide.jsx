@@ -33,7 +33,7 @@ export default function ChampionGuide({ champSelected }) {
   const [currentChamp, setCurrentChamp] = useState(null);
   const [isPending, setIsPending] = useState(true);
   // 더미 데이터 => 이후 수정 전역 상태로 받아올 예정
-  const [isDarkMode, setDarkMode] = useState(false);
+  const [isDarkMode, setDarkMode] = useState(true);
 
   useEffect(() => {
     fetchChampData(champSelected).then((val) => {

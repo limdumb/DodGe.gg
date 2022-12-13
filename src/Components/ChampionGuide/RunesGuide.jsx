@@ -20,54 +20,12 @@ const Runes_Container = styled.div`
     margin-bottom: 25px;
     display: flex;
     flex-direction: column;
-
-    .Runes_Row {
-      width: 100%;
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
-      margin: 0 auto;
-
-      .Rune_Box {
-        height: 44px;
-      }
-
-      img {
-        height: 45px;
-        border-radius: 50%;
-        background-color: rgba(255, 255, 255, 0.3);
-      }
-
-      &:not(:first-child) {
-        width: 85%;
-        height: 65px;
-      }
-    }
   }
 
   .Sub_Runes {
     height: 360px;
     display: flex;
     flex-direction: column;
-
-    .Runes_Row {
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
-      width: 300px;
-      height: 65px;
-      margin: 0 auto;
-
-      .Rune_Box {
-        height: 45px;
-      }
-
-      img {
-        height: 45px;
-        background-color: rgba(255, 255, 255, 0.1);
-        border-radius: 50%;
-      }
-    }
 
     .Stats_Row {
       margin: auto;
@@ -81,12 +39,39 @@ const Runes_Container = styled.div`
     }
   }
 
+  .Runes_Row {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    .Rune_Box {
+      height: 44px;
+    }
+
+    img {
+      height: 45px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.25);
+    }
+
+    &:not(:first-child) {
+      width: 85%;
+      height: 65px;
+    }
+  }
+
   .Runes_Header {
     display: flex;
     justify-content: center;
     width: 90%;
     margin: 10px auto 0 auto;
     padding-bottom: 5px;
+    border-bottom: ${(props) =>
+      props.isDarkMode
+        ? "3px solid rgb(120, 220, 180)"
+        : "3px solid rgb(255, 210, 90)"};
     background: transparent;
 
     h3 {
@@ -99,14 +84,6 @@ const Runes_Container = styled.div`
     }
   }
 
-  .Light {
-    border-bottom: 3px solid rgb(255, 210, 90);
-  }
-
-  .Dark {
-    border-bottom: 3px solid rgb(120, 220, 180);
-  }
-
   .Runes_Wrapper {
     background-color: rgba(198, 156, 109, 0.2);
     border-radius: 2px;
@@ -115,18 +92,13 @@ const Runes_Container = styled.div`
     flex-direction: column;
   }
 
-  .Trapezoid_Light {
+  .Trapezoid {
     margin: 0 auto;
     width: 40%;
-    border-top: 12.5px solid rgb(255, 210, 90);
-    border-left: 7.5px solid transparent;
-    border-right: 7.5px solid transparent;
-  }
-
-  .Trapezoid_Dark {
-    margin: 0 auto;
-    width: 40%;
-    border-top: 12.5px solid rgb(120, 220, 180);
+    border-top: ${(props) =>
+      props.isDarkMode
+        ? "12.5px solid rgb(120, 220, 180)"
+        : "12.5px solid rgb(255, 210, 90)"};
     border-left: 7.5px solid transparent;
     border-right: 7.5px solid transparent;
   }
@@ -221,7 +193,7 @@ export default function RunesGuide({ currentChamp, isDarkMode }) {
   }, []);
 
   return (
-    <Runes_Container>
+    <Runes_Container isDarkMode={isDarkMode}>
       {runes && (
         <RunesSection
           currentChamp={currentChamp}
@@ -295,16 +267,12 @@ function RunesSection({ currentChamp, runes, isDarkMode }) {
   return (
     <div className="Runes_Section_Wrapper">
       <div className="Main_Runes">
-        <div
-          className={isDarkMode ? "Runes_Header Dark" : "Runes_Header Light"}
-        >
+        <div className="Runes_Header">
           <h3>{runes[0][mainRunesIdx].name}</h3>
           <img src={`${baseURL}/${runes[0][mainRunesIdx].icon}`}></img>
         </div>
         <div className="Runes_Wrapper">
-          <div
-            className={isDarkMode ? "Trapezoid_Dark" : "Trapezoid_Light"}
-          ></div>
+          <div className="Trapezoid"></div>
           {runes[0][mainRunesIdx].slots.map((row, rowIdx) => {
             return (
               <div className="Runes_Row" key={`row_${rowIdx}`}>
@@ -332,16 +300,12 @@ function RunesSection({ currentChamp, runes, isDarkMode }) {
         </div>
       </div>
       <div className="Sub_Runes">
-        <div
-          className={isDarkMode ? "Runes_Header Dark" : "Runes_Header Light"}
-        >
+        <div className="Runes_Header">
           <h3>{runes[0][subRunesIdx].name}</h3>
           <img src={`${baseURL}/${runes[0][subRunesIdx].icon}`}></img>
         </div>
         <div className="Runes_Wrapper">
-          <div
-            className={isDarkMode ? "Trapezoid_Dark" : "Trapezoid_Light"}
-          ></div>
+          <div className="Trapezoid"></div>
           {runes[0][subRunesIdx].slots.map((row, rowIdx) => {
             if (rowIdx !== 0)
               return (
