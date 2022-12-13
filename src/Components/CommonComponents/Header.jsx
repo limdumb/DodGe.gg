@@ -12,6 +12,10 @@ const Header = styled.header`
   align-items: center;
   padding: 0 10px 0 10px;
   position: relative;
+  @media screen and (min-width: 1024px){
+    width: 1024px;
+    height: 69px;
+  }
 `;
 
 const StyledButton = styled.button`
@@ -33,7 +37,11 @@ const TabButton = styled(StyledButton)`
   background: none;
   position: relative;
   top: 0px;
-  right: 400px;
+  right: 980px;
+
+  @media screen and (min-width: 1024px){
+    
+  }
 `;
 
 export default function MainHeader() {
@@ -41,6 +49,7 @@ export default function MainHeader() {
     <Header>
       <div className="Gradation_Header"/>
       <img className="Header_Image" src={`${process.env.PUBLIC_URL}/Image/nav1.png`}/>
+      <img className="Header_Image_Desktop" src={`${process.env.PUBLIC_URL}/Image/desktopHeader.png`}/>
       <Link className="Home_Button_Container" to={'/'}>
         <TabButton
           color="#FFD25A"
@@ -50,8 +59,8 @@ export default function MainHeader() {
         </TabButton>
       </Link>
       <div className="Logo_Container">
-        <StyleSpan changeColor="#FFD25A" fontsize="26pt">
-          DodGe.GG
+        <StyleSpan changeColor="#FFD25A" fontsize="26px">
+          DODGE.GG
         </StyleSpan>
       </div>
     </Header>
