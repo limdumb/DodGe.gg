@@ -36,11 +36,18 @@ const TabButton = styled(StyledButton)`
   height: 15.5879px;
   background: none;
   position: relative;
-  top: 0px;
-  right: 980px;
+  top: 2px;
+  right: 398px;
 
   @media screen and (min-width: 1024px){
-    
+    border: none;
+  font-weight: bold;
+  width: 33.9741px;
+  height: 15.5879px;
+  background: none;
+  position: relative;
+  top: 0px;
+  right: 980px;
   }
 `;
 
