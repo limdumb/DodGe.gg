@@ -5,60 +5,65 @@ import { fetchRunesData } from "../../API/RiotAPI";
 import ChampionStatistics from "./Data/ChampionStatistics.json";
 
 const Runes_Container = styled.div`
-  height: 850px;
-  background-color: rgba(0, 0, 0, 0.5);
+  height: 825px;
   padding-top: 10px;
 
   .Runes_Section_Wrapper {
+    width: 320px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
   }
 
   .Main_Runes {
+    height: 320px;
+    margin-bottom: 25px;
     display: flex;
     flex-direction: column;
-    border-bottom: solid rgba(255, 255, 255, 0.4) 1px;
-    padding-bottom: 15px;
 
     .Runes_Row {
-      width: 350px;
-      height: 75px;
+      width: 100%;
       display: flex;
       justify-content: space-evenly;
       align-items: center;
-      margin: auto;
+      margin: 0 auto;
+
+      .Rune_Box {
+        height: 44px;
+      }
 
       img {
-        height: 60px;
-        background-color: rgba(255, 255, 255, 0.1);
+        height: 45px;
         border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.3);
       }
 
       &:not(:first-child) {
-        width: 300px;
+        width: 85%;
         height: 65px;
-
-        img {
-          height: 45px;
-        }
       }
     }
   }
 
   .Sub_Runes {
+    height: 360px;
     display: flex;
     flex-direction: column;
 
     .Runes_Row {
       display: flex;
-      height: 75px;
       justify-content: space-evenly;
       align-items: center;
       width: 300px;
-      margin: auto;
+      height: 65px;
+      margin: 0 auto;
+
+      .Rune_Box {
+        height: 45px;
+      }
 
       img {
-        height: 50px;
+        height: 45px;
         background-color: rgba(255, 255, 255, 0.1);
         border-radius: 50%;
       }
@@ -74,36 +79,48 @@ const Runes_Container = styled.div`
       height: 40px;
       margin-bottom: 10px;
     }
-
-    .Runes_Wrapper {
-      margin-bottom: 15px;
-    }
   }
 
   .Runes_Header {
     display: flex;
     justify-content: center;
-    padding: 15px 0;
-    color: blanchedalmond;
+    width: 90%;
+    margin: 10px auto 0 auto;
+    padding-bottom: 5px;
+    border-bottom: 3px solid rgb(255, 210, 90);
 
     h3 {
       margin-right: 10px;
+      font-weight: normal;
     }
 
     img {
-      height: 30px;
+      height: 27.5px;
     }
   }
 
   .Runes_Wrapper {
+    background-color: rgba(198, 156, 109, 0.2);
+    border-radius: 2px;
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+  }
+
+  .Trapezoid {
+    margin: 0 auto;
+    width: 40%;
+    border-top: 12.5px solid rgb(255, 210, 90);
+    border-left: 7.5px solid transparent;
+    border-right: 7.5px solid transparent;
   }
 
   .Rune_Box {
     opacity: 0.4;
+  }
+
+  .Stats_Wrapper {
+    background-color: rgba(198, 156, 109, 0.2);
   }
 
   .Stat_Box {
@@ -112,9 +129,12 @@ const Runes_Container = styled.div`
     align-items: center;
     justify-content: center;
     margin: 0 auto;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.15);
+    height: 25px;
 
     img {
-      width: 100%;
+      height: 25px;
       border-radius: 50%;
       background-color: rgba(0, 0, 0, 0.2);
     }
@@ -258,6 +278,7 @@ function RunesSection({ currentChamp, runes }) {
           <img src={`${baseURL}/${runes[0][mainRunesIdx].icon}`}></img>
         </div>
         <div className="Runes_Wrapper">
+          <div className="Trapezoid"></div>
           {runes[0][mainRunesIdx].slots.map((row, rowIdx) => {
             return (
               <div className="Runes_Row" key={`row_${rowIdx}`}>
@@ -290,6 +311,7 @@ function RunesSection({ currentChamp, runes }) {
           <img src={`${baseURL}/${runes[0][subRunesIdx].icon}`}></img>
         </div>
         <div className="Runes_Wrapper">
+          <div className="Trapezoid"></div>
           {runes[0][subRunesIdx].slots.map((row, rowIdx) => {
             if (rowIdx !== 0)
               return (

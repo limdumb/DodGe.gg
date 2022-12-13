@@ -15,9 +15,14 @@ const Container = styled.div`
     flex-direction: column;
     margin: 0 auto;
 
+    &:nth-child(1) {
+      width: 60%;
+    }
+
     h6 {
       font-size: 20px;
-      font-weight: bold;
+      font-weight: normal;
+      margin-bottom: 10px;
     }
 
     .Box_Container {
@@ -52,7 +57,8 @@ const Container = styled.div`
   }
 
   img {
-    height: 50px;
+    width: 44px;
+    height: 44px;
   }
 
   @media only screen and (min-width: 768px) {

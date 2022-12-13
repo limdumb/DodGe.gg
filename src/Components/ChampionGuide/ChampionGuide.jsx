@@ -3,13 +3,20 @@ import QuickGuide from "./QuickGuide";
 import DetailedGuide from "./DetailedGuide";
 import { useState, useEffect } from "react";
 import { fetchChampData } from "../../API/RiotAPI";
+import lightBG from "./Assets/LightBG.png";
+import darkBG from "./Assets/DarkBG.png";
 
 const Main_Container = styled.div`
   height: 1650px;
-  width: 100%;
 
-  .Guides_Container {
-    background-color: bisque;
+  .Light {
+    background-image: url(${lightBG});
+    color: rgb(255, 210, 90);
+  }
+
+  .Dark {
+    background-image: url(${darkBG});
+    color: rgb(255, 0, 255);
   }
 
   @media only screen and (min-width: 768px) {
@@ -26,6 +33,8 @@ export default function ChampionGuide({ champSelected }) {
   const [currentChamp, setCurrentChamp] = useState(null);
   const [isPending, setIsPending] = useState(true);
 
+  const [isDarkMode, setDarkMode] = useState(false);
+
   useEffect(() => {
     fetchChampData(champSelected).then((val) => {
       setIsPending(false);
@@ -37,7 +46,7 @@ export default function ChampionGuide({ champSelected }) {
     <Main_Container>
       {isPending && <div> Loading ... </div>}
 
-      <div className="Guides_Container">
+      <div className={isDarkMode ? "Container Dark" : "Container Light"}>
         {currentChamp && <QuickGuide currentChamp={currentChamp} />}
         {currentChamp && <DetailedGuide currentChamp={currentChamp} />}
       </div>

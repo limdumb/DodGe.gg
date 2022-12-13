@@ -4,34 +4,31 @@ import ChampionStatistics from "./Data/ChampionStatistics.json";
 
 const Container = styled.div`
   height: 350px;
+  padding: 20px 0 0 15px;
 
   .Champion_Basics {
     display: flex;
   }
 
   .Champion_Portrait {
-    width: 30%;
     height: 125px;
 
     img {
-      width: 100%;
-      height: 100%;
+      width: 100px;
+      height: 100px;
     }
   }
 
   .Champion_Info {
-    width: 70%;
-    height: 125px;
+    width: 270px;
+    height: 100px;
     display: flex;
     flex-direction: column;
     text-align: center;
-    border-bottom: solid rgba(0, 0, 0, 0.2) 1px;
 
     h2 {
-      color: green;
-      font-size: 20px;
-      font-weight: bold;
-      margin: 7.5px 0;
+      font-size: 22px;
+      font-weight: normal;
     }
 
     .Skill_Set {
@@ -40,28 +37,21 @@ const Container = styled.div`
       justify-content: space-evenly;
 
       img {
-        width: 17.5%;
-        height: 100%;
+        width: 44px;
+        height: 44px;
       }
     }
 
     .Rate_Info_Wrapper {
-      height: 50px;
+      margin-top: 7.5px;
+      height: 20px;
       display: flex;
       justify-content: space-evenly;
       align-items: center;
-      font-size: 14px;
+      font-size: 15px;
 
       .Rate {
         padding-right: 7.5px;
-
-        &:not(:last-child) {
-          border-right: solid 1px rgba(0, 0, 0, 0.5);
-        }
-
-        span {
-          font-weight: bold;
-        }
       }
     }
   }

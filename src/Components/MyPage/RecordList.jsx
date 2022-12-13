@@ -49,8 +49,6 @@ export default function RecordList({
   getSpell,
   runesData,
 }) {
-  console.log(getUserMatchData);
-
   return (
     <>
       {getUserMatchData &&

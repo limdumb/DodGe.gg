@@ -2,19 +2,18 @@ import styled from "styled-components";
 import ChampionStatistics from "./Data/ChampionStatistics.json";
 
 const Container = styled.div`
-  background-color: bisque;
+  width: 320px;
+  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
 
   .Header {
-    width: 100%;
-    height: 50px;
+    width: 90%;
     font-size: 24px;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(0, 0, 0, 0.2);
+    text-align: center;
+    margin: 0 auto;
+    padding-bottom: 10px;
+    border-bottom: 3px solid rgb(255, 210, 90);
   }
 
   .Counter_List {
@@ -23,14 +22,22 @@ const Container = styled.div`
     width: 100%;
   }
 
+  .Trapezoid {
+    margin: 0 auto;
+    width: 40%;
+    border-top: 12.5px solid rgb(255, 210, 90);
+    border-left: 7.5px solid transparent;
+    border-right: 7.5px solid transparent;
+  }
+
   .Counter_List_Item {
     width: 100%;
     height: 75px;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    font-size: 18px;
-    border-bottom: solid gray 1px;
+    font-size: 16px;
+    border-bottom: solid 1px rgba(255, 210, 90, 0.5);
 
     div {
       height: 100%;
@@ -41,12 +48,12 @@ const Container = styled.div`
     }
 
     img {
-      height: 50px;
-      border-radius: 50%;
+      height: 45px;
+      border-radius: 10%;
     }
 
     .Counter_Win_Rate {
-      color: red;
+      color: #ff9600;
     }
   }
 `;
@@ -56,6 +63,7 @@ export default function CountersList({ currentChamp }) {
     <Container>
       <div className="Header">카운터 리스트</div>
       <ul className="Counter_List">
+        <div className="Trapezoid"></div>
         <CounterChampion currentChamp={currentChamp} idx={0} />
         <CounterChampion currentChamp={currentChamp} idx={1} />
         <CounterChampion currentChamp={currentChamp} idx={2} />
