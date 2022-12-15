@@ -1,55 +1,68 @@
 .OPList_Box {
+  box-sizing: border-box;
   position: relative;
-  width: 332px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 310px;
   height: 400px;
-  background-color: #31313c;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-  overflow: auto;
-}
-.OPList_Box::-webkit-scrollbar {
-  width: 10px;
-  background-color: #1c1c1f;
-}
-
-.OPList_Box::-webkit-scrollbar-thumb {
-  width: 10px;
-  background-color: #424254;
-  border-radius: 4px;
-}
-
-.OPList_Box::-webkit-scrollbar {
-  width: 10px;
-  background-color: #282830;
 }
 
 .Champion_HeaderBox {
   display: flex;
   align-items: center;
-  width: 100%;
+  width: 260px;
   height: 32px;
-  background-color: #282830;
   font-size: 12px;
   text-align: center;
-  color: #7b7a8e;
+  color: #1b1464;
   gap: 2%;
   position: sticky;
-  overflow: hidden;
   z-index: 2;
   left: 0px;
-  top: 0px;
+  top: 10px;
 }
 
+.OPChampion_List {
+  height: 350px;
+  overflow: auto;
+}
+.OPChampion_List::-webkit-scrollbar {
+  display: none;
+}
+
+/* 챔피언 한줄 */
+
 .Champion_Box {
+  position: relative;
+  width: 260px;
   display: flex;
-  color: #7b7a8e;
   height: 37px;
-  font-size: 12px;
+  font-size: 11px;
   text-align: center;
   align-items: center;
-  gap: 5px;
-  border-top: 1px solid #1c1c1f;
-  position: relative;
+  gap: 7px;
+}
+
+.Champion_left_Box {
+  display: flex;
+  align-items: center;
+  width: 220px;
+  height: 34px;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.Champion_right_Box {
+  width: 35px;
+  height: 35px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.Champion_right_Box img {
+  width: 100%;
+  border-radius: 50%;
 }
 
 .Champion_Img {
@@ -58,15 +71,16 @@
 }
 
 .Champion_Name {
-  width: 19%;
+  text-align: center;
+  width: 26%;
   font-weight: 900;
-  color: white;
+  color: #1b1464;
 }
 
 .Champion_Tier {
   width: 15px;
   height: 15px;
   position: absolute;
-  left: 7%;
+  left: 6%;
   top: 6%;
 }

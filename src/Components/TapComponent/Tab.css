@@ -1,26 +1,103 @@
-
 .Tab_LineBox{
   display: flex;
-  /* width: 332px; */
-  width: 100%;
-  height: 57px;
-  background-color: #31313C;
-  padding: 8px;
-  border-bottom: 1px solid #1C1C1F;
+  width: 333px;
+  /* width: 100%; */
+  height: 105px;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+  top: 20px;
+}
+
+.tabLine{
+  position: relative;
+  bottom: 35px;
+  left: 7.5px;
+}
+
+.tabLine2{
+  position: relative;
+  bottom: 0px;
+  left: 45px;
 }
 
 .Tab_LineBtn{
-  flex-grow: 1;
+  border: none;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 40px;
-  padding: 8px;
-  border: 0px;
-  background-color: #31313C;
+  width: 28px;
+  height: calc(10 * 4.8496px);
+  position: relative;
+  background-color: #8f8f8f;
 }
 
-.Tab_LineBtnLeft{
+.Tab_LineBtn::after{
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-60deg);
+}
+
+.Tab_LineBtn::before{
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(60deg);
+}
+
+.Tab_LineBtn:nth-child(1){
+  top: 30px;
+  left: 0.5px;
+}
+
+.Tab_LineBtn:nth-child(2){
+  top: 4px;
+  left: 1px;
+}
+
+.Tab_LineBtn:nth-child(3){
+  top: 30px;
+  left: 1px;
+}
+
+.Tab_LineBtn:nth-child(4){
+  top: 4px;
+  left: 1px;
+}
+
+.Tab_LineBtn:nth-child(5){
+  top: 30px;
+  left: 2px;
+}
+
+.Tab_LineBtn:nth-child(6){
+  top: 4px;
+  left: 1px;
+}
+
+.Tab_LineBtn:nth-child(7){
+  top: 30px;
+  left: 1px;
+}
+
+.Tab_LineBtn img{
+  position: relative;
+  z-index: 100;
+}
+
+/* .Tab_LineBtnLeft{
   border-left: 1px solid #424254;
   border-top: 1px solid #424254;
   border-bottom: 1px solid #424254;
@@ -38,7 +115,7 @@
   border: 1px solid #424254;
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
-}
+} */
 
 @media screen and (min-width: 480px) {
   .Tab_SearchBox{

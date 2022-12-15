@@ -30,11 +30,14 @@
 }
 
 .Tab_SearchBox{
+  display: flex;
+  justify-content: center;
   width: 100%;
   height: 44px;
   background-color: #31313C;
   padding: 8px 8px 0 8px;
   position: relative;
+  color: #FF9600;
 }
 
 .Tab_SearchImg{
@@ -44,14 +47,19 @@
 }
 
 .Tab_Search{
-  width: 100%;
-  height: 36px;
+  width: 342px;
+  height: 42px;
   padding: 8px 16px 8px 40px;
   box-sizing: border-box;
-  border-radius: 4px;
+  border-radius: 42px;
   border: none;
   outline: none;
-  background-color: #1C1C1F;
+  background-color: #FFFFFF;
   font-size: 14px;
-  color: white;
+  color: #FF9600;
+}
+
+.Tab_Search::placeholder{
+  color: #FF9600;
+  font-size: 16px;
 }

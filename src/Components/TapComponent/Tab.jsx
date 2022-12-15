@@ -3,6 +3,9 @@ import "./Tab.css";
 import lineIconImg from "./imgLink";
 import TabBtn from "./TabBtn";
 import { ChampSearchBar } from "../CommonComponents/SearchInput";
+import tabLine from './img/tab_line.png';
+import OPtabLine from './img/OPtab_line.png';
+import OPListLine from './img/OPList_line.png';
 
 export const ChampionTab = ({ line, setCheckLine, searchInputValue, setSearchInputValue }) => {
   let listLength = line.length;
@@ -35,6 +38,7 @@ export const ChampionTab = ({ line, setCheckLine, searchInputValue, setSearchInp
           );
         })}
       </div>
+      <img className="tabLine" src={tabLine}/>
     </div>
   );
 };
@@ -66,6 +70,8 @@ export const OpListTab = ({ line, setCheckLine, tabSearchInputValue, setTabSearc
           );
         })}
       </div>
+      {/* <img className="tabLine2" src={OPtabLine}/> */}
+      <img className="tabLine2" src={OPListLine}/>
     </div>
   );
 };

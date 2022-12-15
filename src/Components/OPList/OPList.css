@@ -1,4 +1,12 @@
 .Op_List_Container{
+  position: relative;
+  width: 310px;
+  height: 540px;
+  border: 1px solid rgba(0, 113, 188, 0.6);
+  background-image: url('./img/OPListBG.png');
+}
+
+.main{
   display: none;
 }
 

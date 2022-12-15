@@ -22,7 +22,7 @@ function App() {
       <main>
         <aside>
           <ChampionSearchList setChampSelected={setChampSelected} />
-          <OpList/>
+          <OpList position={'main'}/>
         </aside>
 
         <Routes>
