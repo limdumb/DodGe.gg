@@ -70,8 +70,7 @@ export const OpListTab = ({ line, setCheckLine, tabSearchInputValue, setTabSearc
           );
         })}
       </div>
-      {/* <img className="tabLine2" src={OPtabLine}/> */}
-      <img className="tabLine2" src={OPListLine}/>
+      <div className="tabLine2"></div>
     </div>
   );
 };

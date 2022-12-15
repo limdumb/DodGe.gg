@@ -14,5 +14,7 @@
   .Op_List_Container{
     display: flex;
     flex-direction: column;
+    background-image: none;
+    border: none;
   }
 }

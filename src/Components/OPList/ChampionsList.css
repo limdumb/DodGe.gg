@@ -84,3 +84,33 @@
   left: 6%;
   top: 6%;
 }
+
+@media screen and (min-width: 480px) {
+  
+}
+
+@media screen and (min-width: 768px) {
+  
+}
+
+@media screen and (min-width: 1024px) {
+  .Champion_HeaderBox {
+    color: #ffd25a;
+  }
+
+  .Champion_Name {
+    color: #ffd25a;
+  }
+
+  .Champion_left_Box {
+    color: #ffd25a;
+    background-color: rgba(0, 0, 0, 0);
+  }
+  
+  .OPChampion_List {
+    height: 350px;
+    overflow: auto;
+    border-top: 2px solid #ffd25a;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+}
