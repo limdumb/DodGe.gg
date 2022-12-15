@@ -6,7 +6,11 @@ import { filterChampName } from "../../Function/Search";
 import { useNavigate } from "react-router-dom";
 import ChampionLine from "../OPList/Json/Champion.json";
 
-export default function ChampionList({ CheckLine, searchInputValue, setChampSelected }) {
+export default function ChampionList({
+  CheckLine,
+  searchInputValue,
+  setChampSelected,
+}) {
   let navigate = useNavigate();
   const [champNormalName, setChampNormalName] = useState(null);
   useEffect(() => {
@@ -16,32 +20,32 @@ export default function ChampionList({ CheckLine, searchInputValue, setChampSele
       const rotationChamp = await rotationData();
       let championLine = ChampionLine[CheckLine];
       const filterChamp = [];
-      if(CheckLine === "ALL"){
+      if (CheckLine === "ALL") {
         setChampNormalName(response);
-      } else if(CheckLine === "ROTATION"){
+      } else if (CheckLine === "ROTATION") {
         response.forEach((el) => {
           championNames[el.en_name] = el.name;
-          rotationChamp.forEach(data => {
-            let obj = {}
-            if(el.en_name === data){
-              obj["name"] = el.name
-              obj["en_name"] = el.en_name
+          rotationChamp.forEach((data) => {
+            let obj = {};
+            if (el.en_name === data) {
+              obj["name"] = el.name;
+              obj["en_name"] = el.en_name;
               filterChamp.push(obj);
             }
-          })
+          });
         });
-        setChampNormalName(filterChamp)
+        setChampNormalName(filterChamp);
       } else {
         response.forEach((el) => {
           championNames[el.en_name] = el.name;
-          championLine.forEach(data => {
-            let obj = {}
-            if(el.name === data.name){
-              obj["name"] = el.name
-              obj["en_name"] = el.en_name
+          championLine.forEach((data) => {
+            let obj = {};
+            if (el.name === data.name) {
+              obj["name"] = el.name;
+              obj["en_name"] = el.en_name;
               filterChamp.push(obj);
             }
-          })
+          });
         });
         setChampNormalName(filterChamp);
       }
@@ -59,38 +63,39 @@ export default function ChampionList({ CheckLine, searchInputValue, setChampSele
 
   return (
     <aside className="Right_Aside_Container">
-      <ul className="Champion_List_Container">
-        {filterChampionName &&
-          filterChampionName.map((data, index) => {
-            return (
-              <div
-                className="Champion_List"
-                key={index}
-                onClick={() => {
-                  if (data.en_name !== "AurelionSol") {
-                    setChampSelected(data.en_name);
-                  }
-                  navigate(`/champion/${data.en_name}`);
-                }}
-              >
-                <img
-                  className={
-                    data.en_name !== "AurelionSol" ? "Champ_Image" : "RIP"
-                  }
-                  width={"40px"}
-                  src={`http://ddragon.leagueoflegends.com/cdn/12.22.1/img/champion/${data.en_name}.png`}
-                />
-                <div>
-                  <span className="Champion_List_Name" key={index}>
-                    {data.name.length > 3
-                      ? data.name.substr(0, 3) + "..."
-                      : data.name}
-                  </span>
+      <div className="Layout_Container">
+        <ul className="Champion_List_Container">
+          {filterChampionName &&
+            filterChampionName.map((data, index) => {
+              return (
+                <div
+                  className="Champion_List"
+                  key={index}
+                  onClick={() => {
+                    if (data.en_name !== "AurelionSol") {
+                      setChampSelected(data.en_name);
+                    }
+                    navigate(`/champion/${data.en_name}`);
+                  }}
+                >
+                  <img
+                    className={
+                      data.en_name !== "AurelionSol" ? "Champ_Image" : "RIP"
+                    }
+                    src={`http://ddragon.leagueoflegends.com/cdn/12.22.1/img/champion/${data.en_name}.png`}
+                  />
+                  <div>
+                    <span className="Champion_List_Name" key={index}>
+                      {data.name.length > 3
+                        ? data.name.substr(0, 3) + "..."
+                        : data.name}
+                    </span>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
-      </ul>
+              );
+            })}
+        </ul>
+      </div>
     </aside>
   );
 }
