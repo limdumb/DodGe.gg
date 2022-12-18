@@ -91,37 +91,17 @@ export default function CountersList({ currentChamp, isDarkMode }) {
       <div className="Header">카운터 리스트</div>
       <ul className="Counter_List">
         <div className="Trapezoid"></div>
-        <CounterChampion
-          currentChamp={currentChamp}
-          isDarkMode={isDarkMode}
-          idx={0}
-        />
-        <CounterChampion
-          currentChamp={currentChamp}
-          isDarkMode={isDarkMode}
-          idx={1}
-        />
-        <CounterChampion
-          currentChamp={currentChamp}
-          isDarkMode={isDarkMode}
-          idx={2}
-        />
-        <CounterChampion
-          currentChamp={currentChamp}
-          isDarkMode={isDarkMode}
-          idx={3}
-        />
-        <CounterChampion
-          currentChamp={currentChamp}
-          isDarkMode={isDarkMode}
-          idx={4}
-        />
+        {ChampionStatistics[0][currentChamp.id].counter_list.map((a, idx) => {
+          return (
+            <CounterChampion key={idx} currentChamp={currentChamp} idx={idx} />
+          );
+        })}
       </ul>
     </Container>
   );
 }
 
-function CounterChampion({ currentChamp, idx, isDarkMode }) {
+function CounterChampion({ currentChamp, idx }) {
   const baseURL = "http://ddragon.leagueoflegends.com/cdn/12.21.1/img";
   return (
     <li className="Counter_List_Item" key={idx}>
