@@ -32,23 +32,22 @@ const NavBody = styled.div`
     mask-composite: exclude;
   }
 
-  .NavButton_top {
+  .NavButton_Base{
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    transition: 1s;
+  }
+
+  .NavButton_top {
     width: ${(props) => (props.clickCheck ? "45.3px" : "58.5px")};
     height: ${(props) => (props.clickCheck ? "45.3px" : "58.5px")};
     background-color: #ffdc6e;
     border-radius: ${(props) => (props.clickCheck ? "45.3px" : "58.5px")};
-    transition: 1s;
     z-index: 10005;
   }
   .NavButton_top2 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     border: none;
     width: ${(props) => (props.clickCheck ? "58.5px" : "71.7px")};
     height: ${(props) => (props.clickCheck ? "58.5px" : "71.7px")};
@@ -58,14 +57,9 @@ const NavBody = styled.div`
       rgba(241, 90, 36, 0) 0%,
       rgba(247, 147, 30, 1) 100%
     );
-    transition: 1s;
     z-index: 10001;
   }
   .NavButton_top3 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     width: ${(props) => (props.clickCheck ? "45.3px" : "58.5px")};
     height: ${(props) => (props.clickCheck ? "45.3px" : "58.5px")};
     background: linear-gradient(
@@ -74,7 +68,6 @@ const NavBody = styled.div`
       rgba(247, 147, 30, 1) 100%
     );
     border-radius: ${(props) => (props.clickCheck ? "45.3px" : "58.5px")};
-    transition: 1s;
     z-index: 10006;
   }
 
@@ -100,19 +93,6 @@ const NavButton = styled.button`
   transition: 1s;
   z-index: 10000;
 `;
-
-// const NavEffect = styled.div`
-//   position: absolute;
-//   left: ${(props) => (props.clickCheck ? "0" : "50%")};
-//   top: ${(props) => (props.clickCheck ? "0" : "50%")};
-//   transform: ${(props) =>
-//     props.clickCheck ? "none" : "translate(-50%, -50%)"};
-//   width: 50px;
-//   height: 50px;
-//   border-radius: 50px;
-//   animation: ${(props) =>
-//     props.clickCheck ? "spin 5s linear infinite" : "none"};
-// `;
 
 const SubNavBtn = styled.button`
   border: none;
@@ -188,25 +168,12 @@ const Nav = ({ modalCheck, setModalCheck }) => {
 
   return (
     <NavBody clickCheck={clickCheck} onClick={NavClick}>
-      <div clickCheck={clickCheck} className="NavButton_top2"></div>
-      <div clickCheck={clickCheck} className="NavButton_top2"></div>
-      <div clickCheck={clickCheck} className="NavButton_top3"></div>
-      <div clickCheck={clickCheck} className="NavButton_top3"></div>
-      <div clickCheck={clickCheck} className="NavButton_top"></div>
+      <div clickCheck={clickCheck} className="NavButton_Base NavButton_top2"></div>
+      <div clickCheck={clickCheck} className="NavButton_Base NavButton_top2"></div>
+      <div clickCheck={clickCheck} className="NavButton_Base NavButton_top3"></div>
+      <div clickCheck={clickCheck} className="NavButton_Base NavButton_top3"></div>
+      <div clickCheck={clickCheck} className="NavButton_Base NavButton_top"></div>
       <NavButton clickCheck={clickCheck} />
-
-      {/* <NavEffect clickCheck={clickCheck} className="Effect-blind1">
-        <NavEffect clickCheck={clickCheck} className="quadrant1" />
-      </NavEffect>
-      <NavEffect clickCheck={clickCheck} className="Effect-blind2">
-        <NavEffect clickCheck={clickCheck} className="quadrant2" />
-      </NavEffect>
-      <NavEffect clickCheck={clickCheck} className="Effect-blind3">
-        <NavEffect clickCheck={clickCheck} className="quadrant3" />
-      </NavEffect>
-      <NavEffect clickCheck={clickCheck} className="Effect-blind4">
-        <NavEffect clickCheck={clickCheck} className="quadrant4" />
-      </NavEffect> */}
       <SubNavBtn
         clickCheck={clickCheck}
         backgroundColor={"red"}
