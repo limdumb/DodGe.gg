@@ -15,9 +15,14 @@ const Container = styled.div`
     flex-direction: column;
     margin: 0 auto;
 
+    &:nth-child(1) {
+      width: 60%;
+    }
+
     h6 {
       font-size: 20px;
-      font-weight: bold;
+      font-weight: normal;
+      margin-bottom: 10px;
     }
 
     .Box_Container {
@@ -52,15 +57,24 @@ const Container = styled.div`
   }
 
   img {
-    height: 50px;
+    width: 44px;
+    height: 44px;
   }
 
   @media only screen and (min-width: 768px) {
+    margin: 0;
+    padding: 0;
     height: 125px;
+
+    .Recommend_Container {
+      &:first-child {
+        width: 25%;
+      }
+    }
   }
 `;
 
-export default function QuickBuild({ currentChamp }) {
+export default function QuickBuild({ currentChamp, isDarkMode }) {
   const startItems = recommendStartItems(currentChamp);
   const startBoots = recommendBoots(currentChamp);
   const summonerSpells = recommendSpells(currentChamp);

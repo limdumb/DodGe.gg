@@ -5,64 +5,27 @@ import { fetchRunesData } from "../../API/RiotAPI";
 import ChampionStatistics from "./Data/ChampionStatistics.json";
 
 const Runes_Container = styled.div`
-  height: 850px;
-  background-color: rgba(0, 0, 0, 0.5);
+  height: 825px;
   padding-top: 10px;
 
   .Runes_Section_Wrapper {
+    width: 320px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
   }
 
   .Main_Runes {
+    height: 350px;
+    margin-bottom: 25px;
     display: flex;
     flex-direction: column;
-    border-bottom: solid rgba(255, 255, 255, 0.4) 1px;
-    padding-bottom: 15px;
-
-    .Runes_Row {
-      width: 350px;
-      height: 75px;
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
-      margin: auto;
-
-      img {
-        height: 60px;
-        background-color: rgba(255, 255, 255, 0.1);
-        border-radius: 50%;
-      }
-
-      &:not(:first-child) {
-        width: 300px;
-        height: 65px;
-
-        img {
-          height: 45px;
-        }
-      }
-    }
   }
 
   .Sub_Runes {
+    height: 360px;
     display: flex;
     flex-direction: column;
-
-    .Runes_Row {
-      display: flex;
-      height: 75px;
-      justify-content: space-evenly;
-      align-items: center;
-      width: 300px;
-      margin: auto;
-
-      img {
-        height: 50px;
-        background-color: rgba(255, 255, 255, 0.1);
-        border-radius: 50%;
-      }
-    }
 
     .Stats_Row {
       margin: auto;
@@ -74,36 +37,84 @@ const Runes_Container = styled.div`
       height: 40px;
       margin-bottom: 10px;
     }
+  }
 
-    .Runes_Wrapper {
-      margin-bottom: 15px;
+  .Runes_Row {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    .Rune_Box {
+      height: 44px;
+    }
+
+    img {
+      height: 45px;
+      border-radius: 50%;
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    &:not(:first-child) {
+      width: 85%;
+      height: 65px;
     }
   }
 
   .Runes_Header {
     display: flex;
     justify-content: center;
-    padding: 15px 0;
-    color: blanchedalmond;
+    width: 90%;
+    margin: 10px auto 0 auto;
+    padding-bottom: 5px;
+    background: transparent;
+    border-bottom: ${(props) =>
+      props.isDarkMode
+        ? "3px solid rgb(120, 220, 180)"
+        : "3px solid rgb(255, 210, 90)"};
 
     h3 {
       margin-right: 10px;
+      font-weight: normal;
     }
 
     img {
-      height: 30px;
+      height: 27.5px;
     }
   }
 
   .Runes_Wrapper {
+    background-color: ${(props) =>
+      props.isDarkMode
+        ? "rgba(41, 171, 226, 0.2)"
+        : "rgba(198, 156, 109, 0.2)"};
+    border-radius: 2px;
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+  }
+
+  .Trapezoid {
+    margin: 0 auto;
+    width: 40%;
+    border-top: ${(props) =>
+      props.isDarkMode
+        ? "12.5px solid rgb(120, 220, 180)"
+        : "12.5px solid rgb(255, 210, 90)"};
+    border-left: 7.5px solid transparent;
+    border-right: 7.5px solid transparent;
   }
 
   .Rune_Box {
     opacity: 0.4;
+  }
+
+  .Stats_Wrapper {
+    background-color: ${(props) =>
+      props.isDarkMode
+        ? "rgba(41, 171, 226, 0.2)"
+        : "rgba(198, 156, 109, 0.2)"};
   }
 
   .Stat_Box {
@@ -112,9 +123,11 @@ const Runes_Container = styled.div`
     align-items: center;
     justify-content: center;
     margin: 0 auto;
+    border-radius: 50%;
+    height: 24px;
 
     img {
-      width: 100%;
+      height: 25px;
       border-radius: 50%;
       background-color: rgba(0, 0, 0, 0.2);
     }
@@ -127,55 +140,37 @@ const Runes_Container = styled.div`
   }
 
   @media only screen and (min-width: 768px) {
-    height: 425px;
-    padding: 5px 0;
+    height: 450px;
 
     .Runes_Section_Wrapper {
+      height: 450px;
+      width: 100%;
+      margin: 0;
       flex-direction: row;
+      justify-content: space-evenly;
     }
 
-    .Runes_Header {
-      h3 {
-        font-size: 30px;
-      }
-
-      img {
-        height: 40px;
-      }
+    h3 {
+      font-size: 28px;
     }
 
     .Main_Runes {
-      flex: 1;
-      border: none;
+      width: 45%;
+      height: 425px;
+
+      .Runes_Row {
+        height: 80px;
+      }
     }
 
     .Sub_Runes {
-      flex: 1;
-
-      .Runes_Row {
-        height: 50px;
-        width: 300px;
-        margin-bottom: 10px;
-
-        img {
-          height: 45px;
-        }
-      }
-
-      .Stats_Row {
-        height: 35px;
-      }
-
-      .Stat_Box {
-        img {
-          height: 25px;
-        }
-      }
+      width: 45%;
+      height: 425px;
     }
   }
 `;
 
-export default function RunesGuide({ currentChamp }) {
+export default function RunesGuide({ currentChamp, isDarkMode }) {
   const [runes, setRunes] = useState(null);
 
   useEffect(() => {
@@ -185,8 +180,14 @@ export default function RunesGuide({ currentChamp }) {
   }, []);
 
   return (
-    <Runes_Container>
-      {runes && <RunesSection currentChamp={currentChamp} runes={runes} />}
+    <Runes_Container isDarkMode={isDarkMode}>
+      {runes && (
+        <RunesSection
+          currentChamp={currentChamp}
+          runes={runes}
+          isDarkMode={isDarkMode}
+        />
+      )}
     </Runes_Container>
   );
 }
@@ -198,7 +199,7 @@ export default function RunesGuide({ currentChamp }) {
  * @returns {메인 룬, 서브 룬 섹션을 포함한 Wrapper}
  * @author 심민섭
  */
-function RunesSection({ currentChamp, runes }) {
+function RunesSection({ currentChamp, runes, isDarkMode }) {
   const baseURL = "https://ddragon.canisback.com/img/";
 
   const mainRuneTitle =
@@ -258,6 +259,7 @@ function RunesSection({ currentChamp, runes }) {
           <img src={`${baseURL}/${runes[0][mainRunesIdx].icon}`}></img>
         </div>
         <div className="Runes_Wrapper">
+          <div className="Trapezoid"></div>
           {runes[0][mainRunesIdx].slots.map((row, rowIdx) => {
             return (
               <div className="Runes_Row" key={`row_${rowIdx}`}>
@@ -290,6 +292,7 @@ function RunesSection({ currentChamp, runes }) {
           <img src={`${baseURL}/${runes[0][subRunesIdx].icon}`}></img>
         </div>
         <div className="Runes_Wrapper">
+          <div className="Trapezoid"></div>
           {runes[0][subRunesIdx].slots.map((row, rowIdx) => {
             if (rowIdx !== 0)
               return (
