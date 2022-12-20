@@ -15,6 +15,8 @@
 }
 
 .Champion_List_Container {
+  position: absolute;
+  top: 211px;
   padding-top: 10px;
   display: flex;
   flex-wrap: wrap;
@@ -54,7 +56,6 @@
 }
 
 .Layout_Container{
-  z-index: 2;
   width: 351px;
   height: 328px;
   display: flex;
@@ -69,22 +70,39 @@
 
 @media screen and (min-width: 1024px) {
   .Champion_List_Container {
+    position: absolute;
     display: flex;
     flex-wrap: wrap;
-    width: 332px;
     justify-content: center;
-    gap: 8px;
+    width: 274px;
+    height: 282px;
+    gap: 0.4em;
+    overflow: scroll;
+    background-color: rgb(198, 156, 109, 0.2);
+    bottom: 19px;
+    top: 204px;
+  }
+
+  .Layout_Container{
+    z-index: 1;
+    position: absolute;
+    width: 280px;
+    height: 297px;
+    display: flex;
+    justify-content: center;
+    background-image: url(../CommonComponents/PcChampionList.png);
+    background-repeat: no-repeat;
   }
 
   .Right_Aside_Container {
     background-color: gray;
     display: flex;
-    width: 332px;
+    width: 333px;
     padding-top: 5px;
   }
 
   .Champ_Image {
-    width: 45px;
+    width: 34px;
   }
 
   .Champion_List_Name {

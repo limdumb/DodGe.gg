@@ -3,7 +3,7 @@ import { useState } from "react";
 import ChampionList from "./ChampionList";
 import { ChampionTab } from "../TapComponent/Tab";
 
-const ChampionSearchList = ({ setChampSelected }) => {
+const ChampionSearchList = ({ setChampSelected, darkMode }) => {
   const line = ["ALL", "TOP", "JUNGLE", "MID", "ADC", "SUPPORT", "ROTATION"];
   const [CheckLine, setCheckLine] = useState("ALL");
   const [searchInputValue, setSearchInputValue] = useState("");
@@ -19,6 +19,7 @@ const ChampionSearchList = ({ setChampSelected }) => {
         CheckLine={CheckLine}
         searchInputValue={searchInputValue}
         setChampSelected={setChampSelected}
+        darkMode={darkMode}
       />
     </div>
   );

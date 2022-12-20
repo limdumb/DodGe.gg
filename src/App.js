@@ -19,10 +19,10 @@ function App() {
     <BrowserRouter>
       <Modal modalCheck={modalCheck} setModalCheck={setModalCheck}/>
       <Nav modalCheck={modalCheck} setModalCheck={setModalCheck} />
-      <MainHeader />
+      <MainHeader darkMode={darkMode}/>
       <main>
         <aside>
-          <ChampionSearchList setChampSelected={setChampSelected} />
+          <ChampionSearchList setChampSelected={setChampSelected} darkMode={darkMode}/>
           <OpList/>
         </aside>
         <Routes>

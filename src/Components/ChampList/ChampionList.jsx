@@ -10,6 +10,7 @@ export default function ChampionList({
   CheckLine,
   searchInputValue,
   setChampSelected,
+  darkMode
 }) {
   let navigate = useNavigate();
   const [champNormalName, setChampNormalName] = useState(null);
@@ -62,9 +63,9 @@ export default function ChampionList({
     });
 
   return (
-    <aside className="Right_Aside_Container">
-      <div className="Layout_Container">
-        <ul className="Champion_List_Container">
+    <aside className={darkMode ? "Dark_Right_Aside_Container" : "Right_Aside_Container"}>
+      <div className={darkMode ? "Dark_Layout_Container": "Layout_Container"}></div>
+        <ul className={darkMode ? "Dark_Champion_List_Container": "Champion_List_Container"}>
           {filterChampionName &&
             filterChampionName.map((data, index) => {
               return (
@@ -95,7 +96,6 @@ export default function ChampionList({
               );
             })}
         </ul>
-      </div>
     </aside>
   );
 }
