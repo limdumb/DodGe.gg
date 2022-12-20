@@ -20,6 +20,7 @@
   height: 18px;
   margin-left: 36.499px;
   text-decoration: none;
+  position: absolute;
 }
 
 .Champion_List{
@@ -90,5 +91,14 @@
 
   .Header_Image{
     display: none;
+  }
+
+  .Home_Button_Container{
+    z-index: 1;
+    height: 18px;
+    margin-left: 36.499px;
+    text-decoration: none;
+    position: absolute;
+    left: 50px;
   }
 }

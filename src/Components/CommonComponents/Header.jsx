@@ -78,7 +78,7 @@ export default function MainHeader({ darkMode }) {
         }
       />
       <Link className="Home_Button_Container" to={"/"}>
-        <HeaderSpan fontsize="12px">
+        <HeaderSpan color={darkMode} fontsize="12px">
           Home
         </HeaderSpan>
       </Link>
