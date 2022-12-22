@@ -12,7 +12,7 @@ import ChampionSearchList from "./Components/ChampList/ChampionSearchList";
 import OpList from "./Components/OPList/OPList";
 
 function App() {
-  const [darkMode, setDarkMode] = useState(true)
+  const [darkMode, setDarkMode] = useState(false)
   const [modalCheck, setModalCheck] = useState([false, false]);
   const [champSelected, setChampSelected] = useState(null);
   return (
