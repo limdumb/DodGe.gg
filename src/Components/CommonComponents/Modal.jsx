@@ -9,7 +9,7 @@ export default function Modal({ modalCheck, setModalCheck }) {
         <div className="Modal_Container">
           <div className="Modal_Contents">
             {modalCheck[0] ? <SearchInput /> : null}
-            {modalCheck[1] ? <OPList /> : null}
+            {modalCheck[1] ? <OPList position={'modal'}/> : null}
           </div>
         </div>
       ) : null}

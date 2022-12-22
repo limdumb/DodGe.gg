@@ -23,7 +23,7 @@ function App() {
       <main>
         <aside>
           <ChampionSearchList setChampSelected={setChampSelected} darkMode={darkMode}/>
-          <OpList/>
+          <OpList position={'main'}/>
         </aside>
         <Routes>
           <Route path="/" element={<MainPage />} />

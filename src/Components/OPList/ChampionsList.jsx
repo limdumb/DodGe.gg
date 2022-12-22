@@ -8,22 +8,25 @@ const HeaderBox = styled.span`
 `;
 
 const ChampionsList = ({ CheckLine }) => {
-  
+   
   const championsList = useChampions(CheckLine);
 
   return (
     <div className="OPList_Box">
       <div className="Champion_HeaderBox">
-        <HeaderBox width="13%">순위</HeaderBox>
+        <HeaderBox width="10%">순위</HeaderBox>
         <HeaderBox width="30%">챔피언</HeaderBox>
         <HeaderBox width="13%">승률</HeaderBox>
         <HeaderBox width="13%">픽률</HeaderBox>
         <HeaderBox width="13%">밴률</HeaderBox>
-        <HeaderBox width="14%">카운터</HeaderBox>
+        <HeaderBox width="15%">카운터</HeaderBox>
       </div>
+      <div className="OPChampion_List">
       {championsList.map((data, index) => {
         return <Champion key={index} data={data} />;
       })}
+      </div>
+      
     </div>
   );
 };

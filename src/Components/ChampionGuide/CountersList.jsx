@@ -2,25 +2,43 @@ import styled from "styled-components";
 import ChampionStatistics from "./Data/ChampionStatistics.json";
 
 const Container = styled.div`
-  background-color: bisque;
+  width: 320px;
+  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
 
   .Header {
-    width: 100%;
-    height: 50px;
+    width: 90%;
     font-size: 24px;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(0, 0, 0, 0.2);
+    text-align: center;
+    margin: 0 auto;
+    padding-bottom: 10px;
+    background: transparent;
+    border-bottom: ${(props) =>
+      props.isDarkMode
+        ? "3px solid rgb(120, 220, 180)"
+        : " 3px solid rgb(255, 210, 90)"};
   }
 
   .Counter_List {
     padding: 0;
     margin: 0;
     width: 100%;
+    background-color: ${(props) =>
+      props.isDarkMode
+        ? "rgba(41, 171, 226, 0.2)"
+        : "rgba(198, 156, 109, 0.2)"};
+  }
+
+  .Trapezoid {
+    margin: 0 auto;
+    width: 40%;
+    border-top: ${(props) =>
+      props.isDarkMode
+        ? "12.5px solid rgb(120, 220, 180)"
+        : "12.5px solid rgb(255, 210, 90)"};
+    border-left: 7.5px solid transparent;
+    border-right: 7.5px solid transparent;
   }
 
   .Counter_List_Item {
@@ -29,8 +47,11 @@ const Container = styled.div`
     display: flex;
     justify-content: space-around;
     align-items: center;
-    font-size: 18px;
-    border-bottom: solid gray 1px;
+    font-size: 16px;
+    border-bottom: ${(props) =>
+      props.isDarkMode
+        ? "solid 1px rgba(120, 220, 180, 0.5)"
+        : "solid 1px rgba(255, 210, 90, 0.5)"};
 
     div {
       height: 100%;
@@ -41,26 +62,40 @@ const Container = styled.div`
     }
 
     img {
-      height: 50px;
-      border-radius: 50%;
+      height: 45px;
+      border-radius: 10%;
     }
 
     .Counter_Win_Rate {
-      color: red;
+      color: ${(props) =>
+        props.isDarkMode ? "rgb(255, 210, 90)" : "rgb(120, 220, 180)"};
+    }
+  }
+
+  @media only screen and (min-width: 768px) {
+    width: 715px;
+
+    .Header {
+      font-size: 28px;
+    }
+
+    .Counter_List_Item {
+      font-size: 22px;
     }
   }
 `;
 
-export default function CountersList({ currentChamp }) {
+export default function CountersList({ currentChamp, isDarkMode }) {
   return (
-    <Container>
+    <Container isDarkMode={isDarkMode}>
       <div className="Header">카운터 리스트</div>
       <ul className="Counter_List">
-        <CounterChampion currentChamp={currentChamp} idx={0} />
-        <CounterChampion currentChamp={currentChamp} idx={1} />
-        <CounterChampion currentChamp={currentChamp} idx={2} />
-        <CounterChampion currentChamp={currentChamp} idx={3} />
-        <CounterChampion currentChamp={currentChamp} idx={4} />
+        <div className="Trapezoid"></div>
+        {ChampionStatistics[0][currentChamp.id].counter_list.map((a, idx) => {
+          return (
+            <CounterChampion key={idx} currentChamp={currentChamp} idx={idx} />
+          );
+        })}
       </ul>
     </Container>
   );

@@ -4,34 +4,31 @@ import ChampionStatistics from "./Data/ChampionStatistics.json";
 
 const Container = styled.div`
   height: 350px;
+  padding: 20px 0 0 15px;
 
   .Champion_Basics {
     display: flex;
   }
 
   .Champion_Portrait {
-    width: 30%;
     height: 125px;
 
     img {
-      width: 100%;
-      height: 100%;
+      width: 100px;
+      height: 100px;
     }
   }
 
   .Champion_Info {
-    width: 70%;
-    height: 125px;
+    width: 270px;
+    height: 100px;
     display: flex;
     flex-direction: column;
     text-align: center;
-    border-bottom: solid rgba(0, 0, 0, 0.2) 1px;
 
     h2 {
-      color: green;
-      font-size: 20px;
-      font-weight: bold;
-      margin: 7.5px 0;
+      font-size: 22px;
+      font-weight: normal;
     }
 
     .Skill_Set {
@@ -40,69 +37,75 @@ const Container = styled.div`
       justify-content: space-evenly;
 
       img {
-        width: 17.5%;
-        height: 100%;
+        width: 44px;
+        height: 44px;
       }
     }
 
     .Rate_Info_Wrapper {
-      height: 50px;
+      margin-top: 7.5px;
+      height: 20px;
       display: flex;
       justify-content: space-evenly;
       align-items: center;
-      font-size: 14px;
+      font-size: 15px;
 
       .Rate {
         padding-right: 7.5px;
-
-        &:not(:last-child) {
-          border-right: solid 1px rgba(0, 0, 0, 0.5);
-        }
-
-        span {
-          font-weight: bold;
-        }
       }
     }
   }
 
   @media only screen and (min-width: 768px) {
+    width: 720px;
     height: 300px;
+    padding: 20px 0 0 0;
+    margin: 0 auto;
 
-    .Champion_Portrait {
-      height: 175px;
-    }
+    .Champion_Basics {
+      height: 150px;
+      width: 100%;
+      justify-content: space-evenly;
+      align-items: center;
+      margin-bottom: 20px;
 
-    .Champion_Info {
-      height: 175px;
-
-      h2 {
-        font-size: 26px;
-        margin: 15px 0 0 0;
-      }
-
-      .Skill_Set {
-        width: 80%;
-        margin: 15px auto;
+      .Champion_Portrait {
+        width: 150px;
+        height: 150px;
 
         img {
-          height: 65px;
+          width: 100%;
+          height: 100%;
         }
       }
-    }
 
-    .Rate_Info_Wrapper {
-      width: 80%;
-      margin: 0 auto;
+      .Champion_Info {
+        height: 100%;
+        width: 65%;
+        justify-content: space-evenly;
 
-      .Rate {
-        font-size: 20px;
+        h2 {
+          font-size: 24px;
+        }
+
+        .Skill_Set {
+          height: 55px;
+
+          img {
+            width: 55px;
+            height: 55px;
+          }
+        }
+
+        .Rate_Info_Wrapper {
+          font-size: 20px;
+        }
       }
     }
   }
 `;
 
-export default function QuickGuide({ currentChamp }) {
+export default function QuickGuide({ currentChamp, isDarkMode }) {
   const baseURL = "http://ddragon.leagueoflegends.com/cdn/12.23.1/img";
   return (
     <Container>
@@ -153,7 +156,7 @@ export default function QuickGuide({ currentChamp }) {
           </div>
         </div>
       </div>
-      <QuickBuild currentChamp={currentChamp} />
+      <QuickBuild currentChamp={currentChamp} isDarkMode={isDarkMode} />
     </Container>
   );
 }
