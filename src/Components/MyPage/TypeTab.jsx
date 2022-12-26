@@ -11,7 +11,7 @@ const TabButton = styled.button`
   font-weight: bold;
   font-size: ${(props) => props.fontsize || "28px"};
   border-bottom: ${(props) => (props.borderBottom ? "2px solid gray" : "none")};
-  color: ${(props) => (props.changeColor ? "white" : "rgb(255, 210, 90)")};
+  color: ${(props) => (props.changeColor ? "white" : "#B2B2B2")};
   margin-top: ${(props) => props.marginTop};
   margin-bottom: ${(props) => props.marginBtm};
   margin-left: ${(props) => props.marginLft};
@@ -134,7 +134,7 @@ export const RankTab = ({ userRankTier }) => {
                     className="Tier_Icon_Image"
                     src={`https://blitz-cdn.blitz.gg/80x0/ranks/2022/${lowerCaseSoloTierName}.webp`}
                   />
-                  <div>
+                  <div className="Tab_Tier_Contents_Wrapper">
                     <p className="Tab_Tier_Contents_1">
                       {soloRankTier[0].tier} {soloRankTier[0].rank}
                     </p>
@@ -174,7 +174,7 @@ export const RankTab = ({ userRankTier }) => {
                       className="Tier_Icon_Image"
                       src={`https://blitz-cdn.blitz.gg/80x0/ranks/2022/${lowerCaseFreeTierName}.webp`}
                     />
-                    <div>
+                    <div className="Tab_Tier_Contents_Wrapper">
                       <p className="Tab_Tier_Contents_1">
                         {FreeRankTier[0].tier} {FreeRankTier[0].rank}
                       </p>
