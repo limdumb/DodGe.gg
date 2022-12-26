@@ -108,7 +108,8 @@ export const RankTab = ({ userRankTier }) => {
   const tabHandler = (index) => {
     setRankInfo(index);
   };
-  const lowerCaseSoloTierName = soloRankTier.length !== 0 ? soloRankTier[0].tier.toLowerCase() : undefined;
+  const lowerCaseSoloTierName =
+    soloRankTier.length !== 0 ? soloRankTier[0].tier.toLowerCase() : undefined;
   const lowerCaseFreeTierName =
     FreeRankTier.length !== 0 ? FreeRankTier[0].tier.toLowerCase() : undefined;
   const userTierArr = [
@@ -130,7 +131,7 @@ export const RankTab = ({ userRankTier }) => {
               {soloRankTier && (
                 <>
                   <img
-                    className="Icon_Image"
+                    className="Tier_Image"
                     src={`https://blitz-cdn.blitz.gg/80x0/ranks/2022/${lowerCaseSoloTierName}.webp`}
                   />
                   <span className="Tab_Tier_Contents_1">

@@ -30,6 +30,8 @@ export default function MyPages() {
   const [getUserMatchData, setGetUserMatchData] = useState(null);
   const [getSpell, setGetSpell] = useState(null);
   const [runesData, setRunesData] = useState(null);
+  // 다크모드 라이트모드 상태 => 추후 삭제 예정
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
     const userInfoData = async () => {
@@ -59,22 +61,26 @@ export default function MyPages() {
     userInfoData();
   }, [summonerName]);
 
-  console.log(userRankTier);
   return (
     <>
       <div id="Main_Container">
-        <main>
+        <main className={isDarkMode ? "Dark_Mode" : "Light_Mode"}>
           {getUserProfile && (
             <UserInformation
               userRankTier={userRankTier}
               profileIconId={getUserProfile.profileIconId}
+              isDarkMode={isDarkMode}
               name={getUserProfile.name}
             />
           )}
           <div>
             <EasterEggSpan>혹시 알고 계셨나요?</EasterEggSpan>
             <EasterEggSpan>
-              {easterEgg.data.info[Math.floor(Math.random() * easterEgg.data.info.length)]}
+              {
+                easterEgg.data.info[
+                  Math.floor(Math.random() * easterEgg.data.info.length)
+                ]
+              }
             </EasterEggSpan>
           </div>
           <TypeTab
