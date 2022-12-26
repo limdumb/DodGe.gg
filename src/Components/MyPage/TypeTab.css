@@ -1,5 +1,8 @@
 .Tab_Tier_Contents {
-  border: solid red 1px;
+  height: 150px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .Tab_User_Tier {
@@ -7,7 +10,19 @@
   justify-content: space-evenly;
 }
 
-.Tier_Image {
+.Tier_Icon_Image {
+  width: 100px;
+  height: 100px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+}
+
+.Tab_Tier_Contents_1 {
+  font-size: 18px;
+}
+
+.Tab_Tier_Contents_2 {
+  font-size: 12px;
 }
 
 .Tab_Type {

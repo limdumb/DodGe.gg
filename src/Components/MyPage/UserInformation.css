@@ -1,21 +1,53 @@
-.User_Information_Container {
-  border: solid green 1px;
+.Dark_User_Information_Container {
   height: 200px;
   display: flex;
-  margin: 25px 0;
+  flex-direction: column;
+  margin: 25px 5px;
+  background-color: rgba(41, 171, 226, 0.2);
 }
 
-.Dark_Mode {
-  background-image: url("./../Assets/DarkBG.png");
+.Light_User_Information_Container {
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  margin: 25px 5px;
+  background-color: rgba(198, 156, 109, 0.2);
 }
 
-.Light_Mode {
-  background-image: url("./../Assets/LightBG.png");
+.Dark_Wrapper_Line {
+  border-bottom: 2.5px solid rgb(120, 220, 180);
+  margin: 0 auto;
+  width: 90%;
+}
+
+.Light_Wrapper_Line {
+  border-bottom: 2.5px solid rgb(255, 210, 90);
+  margin: 0 auto;
+  width: 90%;
+}
+
+.Dark_Trapezoid {
+  margin: 0 auto 10px auto;
+  width: 40%;
+  border-top: 12.5px solid rgb(120, 220, 180);
+  border-left: 7.5px solid transparent;
+  border-right: 7.5px solid transparent;
+}
+
+.Light_Trapezoid {
+  margin: 0 auto 10px auto;
+  width: 40%;
+  border-top: 12.5px solid rgb(255, 210, 90);
+  border-left: 7.5px solid transparent;
+  border-right: 7.5px solid transparent;
+}
+
+.User_Information_Wrapper {
+  display: flex;
 }
 
 .User_Profile {
   width: 40%;
-  height: 200px;
 }
 
 .Information_Contents {
@@ -27,8 +59,8 @@
 }
 
 .Icon_Image {
-  width: 120px;
-  height: 140px;
+  width: 125px;
+  height: 125px;
 }
 
 .User_Name {
@@ -36,5 +68,8 @@
 }
 
 .Tier_Information {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
   width: 60%;
 }

@@ -69,8 +69,8 @@ export default function MyPages() {
             <UserInformation
               userRankTier={userRankTier}
               profileIconId={getUserProfile.profileIconId}
-              isDarkMode={isDarkMode}
               name={getUserProfile.name}
+              isDarkMode={isDarkMode}
             />
           )}
           <div>
