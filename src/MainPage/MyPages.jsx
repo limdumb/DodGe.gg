@@ -73,8 +73,22 @@ export default function MyPages() {
               isDarkMode={isDarkMode}
             />
           )}
-          <div>
-            <EasterEggSpan>혹시 알고 계셨나요?</EasterEggSpan>
+          <div
+            className={isDarkMode ? "Dark_Wrapper_Line" : "Light_Wrapper_Line"}
+          ></div>
+          <div
+            className={
+              isDarkMode
+                ? "Dark_Easter_Egg_Wrapper"
+                : "Light_Easter_Egg_Wrapper"
+            }
+          >
+            <div
+              className={isDarkMode ? "Dark_Trapezoid" : "Light_Trapezoid"}
+            ></div>
+            <EasterEggSpan className="Did_You_Know">
+              혹시 알고 계셨나요?
+            </EasterEggSpan>
             <EasterEggSpan>
               {
                 easterEgg.data.info[
