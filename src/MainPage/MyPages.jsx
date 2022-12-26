@@ -97,25 +97,38 @@ export default function MyPages() {
               }
             </EasterEggSpan>
           </div>
-          <TypeTab
-            onTabChange={(index) => {
-              if (index === 0) {
-                setCurrentTab("All_Game_Record");
-              } else if (index === 1) {
-                setCurrentTab("Solo_Rank_Record");
-              } else if (index === 2) {
-                setCurrentTab("Free_Rank_Record");
-              } else {
-                setCurrentTab("Normal_Game_Record");
-              }
-            }}
-          />
-          <RecordList
-            tab={currentTab}
-            getUserMatchData={getUserMatchData}
-            runesData={runesData}
-            getSpell={getSpell}
-          />
+          <div
+            className={isDarkMode ? "Dark_Wrapper_Line" : "Light_Wrapper_Line"}
+          ></div>
+
+          <div
+            className={
+              isDarkMode ? "Dark_Record_Wrapper" : "Light_Record_Wrapper"
+            }
+          >
+            <div
+              className={isDarkMode ? "Dark_Trapezoid" : "Light_Trapezoid"}
+            ></div>
+            <TypeTab
+              onTabChange={(index) => {
+                if (index === 0) {
+                  setCurrentTab("All_Game_Record");
+                } else if (index === 1) {
+                  setCurrentTab("Solo_Rank_Record");
+                } else if (index === 2) {
+                  setCurrentTab("Free_Rank_Record");
+                } else {
+                  setCurrentTab("Normal_Game_Record");
+                }
+              }}
+            />
+            <RecordList
+              tab={currentTab}
+              getUserMatchData={getUserMatchData}
+              runesData={runesData}
+              getSpell={getSpell}
+            />
+          </div>
         </main>
       </div>
     </>

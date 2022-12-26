@@ -5,13 +5,15 @@ import "./RecordList.css";
 const ListContainer = styled.div`
   margin-top: 10px;
   display: flex;
+  width: 100%;
+  color: white;
 `;
 
 const RecordContents = styled.div`
-  width: 390px;
+  width: 100%;
   height: 100px;
-  margin-top: 10px;
-  padding: 10px 10px;
+  margin: 10px 1px;
+  padding: 5px 2.5px;
   background-color: ${(props) =>
     props.backgroundColor ? "rgba(59, 130, 246, 0.5)" : "#935560"};
   border-radius: 10px;
@@ -69,8 +71,8 @@ export default function RecordList({
                       {month_Day(el.gameCreation)}
                     </StyleSpan>
                     <StyleSpan
-                      fontsize="24px"
-                      changeColor={el.win ? "rgba(49, 141, 239, 0.676)" : "red"}
+                      fontsize="22px"
+                      changeColor={el.win ? "#7DE5ED" : "#850E35"}
                       fontweight="bold"
                       margin="3px"
                     >
@@ -80,45 +82,43 @@ export default function RecordList({
                       {minute_Second(el.gameDuration)}
                     </StyleSpan>
                   </div>
-                  <div>
+                  <div className="Record_Detail">
                     <div className="Record_My_Champ">
                       <div className="My_Champ_Img">
                         <GameInfoImage
                           radius={"10px"}
-                          width={44}
+                          width={55}
                           src={`http://ddragon.leagueoflegends.com/cdn/12.22.1/img/champion/${el.championName}.png`}
                           marginRgt="5px"
                         />
                       </div>
                       <div className="Rune_Spell_Info">
                         <div className="Runes_Content">
-                          <div>
-                            <GameInfoImage
-                              radius={"5px"}
-                              width={20}
-                              src={getSpell[index][1]}
-                              marginRgt="2px"
-                            />
-                            <GameInfoImage
-                              radius={"5px"}
-                              width={20}
-                              src={getSpell[index][0]}
-                            />
-                          </div>
+                          <GameInfoImage
+                            radius={"5px"}
+                            width={25}
+                            src={getSpell[index][1]}
+                            marginRgt="5px"
+                          />
+                          <GameInfoImage
+                            radius={"5px"}
+                            width={25}
+                            src={getSpell[index][0]}
+                          />
                         </div>
                         <div className="Spells_Content">
                           <GameInfoImage
                             radius={"5px"}
-                            width={20}
+                            width={25}
                             src={`https://ddragon.canisback.com/img/${
                               runesData[0][runes[0]].icon
                             }`}
                             backgroundColor="black"
-                            marginRgt="2px"
+                            marginRgt="5px"
                           />
                           <GameInfoImage
                             radius={"5px"}
-                            width={20}
+                            width={25}
                             src={`https://ddragon.canisback.com/img/${
                               runesData[0][runes[1]].icon
                             }`}
@@ -127,8 +127,8 @@ export default function RecordList({
                         </div>
                       </div>
                       <div className="KDA_InfoContainer">
-                        <StyleSpan fontsize="14px">{kdaScore}</StyleSpan>
-                        <StyleSpan fontsize="10px">
+                        <StyleSpan fontsize="16px">{kdaScore}</StyleSpan>
+                        <StyleSpan fontsize="12px">
                           CS:{el.totalMinionsKilled}개
                         </StyleSpan>
                       </div>
@@ -140,8 +140,8 @@ export default function RecordList({
                             <li key={index}>
                               <GameInfoImage
                                 radius={"5px"}
-                                width={20}
-                                marginRgt="3px"
+                                width={25}
+                                marginRgt="2.5px"
                                 key={index}
                                 src={`http://ddragon.leagueoflegends.com/cdn/12.22.1/img/item/${el}.png`}
                               ></GameInfoImage>
@@ -159,7 +159,7 @@ export default function RecordList({
                           return (
                             <li key={el}>
                               <GameInfoImage
-                                width={15}
+                                width={20}
                                 src={`https://ddragon.leagueoflegends.com/cdn/12.23.1/img/champion/Fiddlesticks.png`}
                               />
                             </li>
@@ -168,7 +168,7 @@ export default function RecordList({
                         return (
                           <li key={el}>
                             <GameInfoImage
-                              width={15}
+                              width={20}
                               src={`http://ddragon.leagueoflegends.com/cdn/12.23.1/img/champion/${el}.png`}
                             />
                           </li>
@@ -181,7 +181,7 @@ export default function RecordList({
                           return (
                             <li key={el}>
                               <GameInfoImage
-                                width={15}
+                                width={20}
                                 src={`https://ddragon.leagueoflegends.com/cdn/12.23.1/img/champion/Fiddlesticks.png`}
                               />
                             </li>
@@ -190,7 +190,7 @@ export default function RecordList({
                         return (
                           <li key={el}>
                             <GameInfoImage
-                              width={15}
+                              width={20}
                               src={`http://ddragon.leagueoflegends.com/cdn/12.23.1/img/champion/${el}.png`}
                             />
                           </li>

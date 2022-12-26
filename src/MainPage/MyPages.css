@@ -55,3 +55,13 @@
   font-size: 24px;
   margin-bottom: 10px;
 }
+
+.Dark_Record_Wrapper {
+  padding-bottom: 20px;
+  background-color: rgba(41, 171, 226, 0.2);
+}
+
+.Light_Record_Wrapper {
+  padding-bottom: 20px;
+  background-color: rgba(198, 156, 109, 0.2);
+}
