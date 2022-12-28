@@ -2,7 +2,7 @@ import OPList from "../OPList/OPList";
 import "./Modal.css";
 import { SearchInput } from "./SearchInput";
 
-export default function Modal({ modalCheck }) {
+export default function Modal({ modalCheck, setModalCheck }) {
   return (
     <>
       {modalCheck.includes(true) ? (

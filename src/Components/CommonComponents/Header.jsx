@@ -2,18 +2,20 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { StyleSpan } from "../MyPage/RecordList";
 import "./Header.css";
-import { SearchInput } from "./SearchInput";
 
 const Header = styled.header`
   box-sizing: border-box;
   display: flex;
-  width: 100%;
-  background-color: black;
-  height: 70px;
-  background-color: rgb(45, 43, 46);
-  justify-content: space-between;
+  width: 390px;
+  height: 61px;
+  background-color: ${(props) => props.backgroundColor ? "#1E1E46" : "#ff6432"};
   align-items: center;
   padding: 0 10px 0 10px;
+  position: relative;
+  @media screen and (min-width: 1024px) {
+    width: 1024px;
+    height: 69px;
+  }
 `;
 
 const StyledButton = styled.button`
@@ -27,29 +29,64 @@ const StyledButton = styled.button`
   font-size: ${(props) => props.fontsize};
 `;
 
+const HeaderSpan = styled(StyleSpan)`
+  color: ${(props) => props.color ? "#FF00FF" : "#FFD25A"};
+`
+
 const TabButton = styled(StyledButton)`
   border: none;
   font-weight: bold;
-`;
+  width: 33.9741px;
+  height: 15.5879px;
+  background: none;
+  position: relative;
+  top: 2px;
+  right: 398px;
 
-export default function MainHeader() {
+  @media screen and (min-width: 1024px) {
+    border: none;
+    font-weight: bold;
+    width: 33.9741px;
+    height: 15.5879px;
+    background: none;
+    position: relative;
+    top: 0px;
+    right: 980px;
+  }
+`;
+//FF00FF
+export default function MainHeader({ darkMode }) {
   return (
-    <Header>
-      <Link to={'/'}>
-        <TabButton
-          backgroundColor="rgb(45, 43, 46)"
-          color="white"
-          fontsize="0.8rem"
-        >
+    <Header backgroundColor={darkMode}>
+      <div className={darkMode? "Dark_Gradation_Header" : "Gradation_Header"} />
+      <img
+        className={darkMode ? "Dark_Header_Image" : "Header_Image"}
+        src={
+          darkMode
+            ? `${process.env.PUBLIC_URL}/Image/darkHeader.png`
+            : `${process.env.PUBLIC_URL}/Image/nav1.png`
+        }
+      />
+      <img
+        className={
+          darkMode ? "Dark_Header_Image_Desktop" : "Header_Image_Desktop"
+        }
+        src={
+          darkMode
+            ? `${process.env.PUBLIC_URL}/Image/PCDarkHeader.png`
+            : `${process.env.PUBLIC_URL}/Image/desktopHeader.png`
+        }
+      />
+      <Link className="Home_Button_Container" to={"/"}>
+        <HeaderSpan color={darkMode} fontsize="12px">
           Home
-        </TabButton>
+        </HeaderSpan>
       </Link>
       <div className="Logo_Container">
-        <StyleSpan changeColor="white" fontsize="1.2rem" fontweight="bold">
-          DodGe.GG
+        <StyleSpan changeColor={darkMode ? "#FF00FF" : "#FFD25A"} fontsize="26px" marginLft="30px">
+          DODGE.GG
         </StyleSpan>
       </div>
-      <SearchInput />
     </Header>
   );
 }

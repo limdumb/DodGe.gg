@@ -12,19 +12,19 @@ import ChampionSearchList from "./Components/ChampList/ChampionSearchList";
 import OpList from "./Components/OPList/OPList";
 
 function App() {
+  const [darkMode, setDarkMode] = useState(false)
   const [modalCheck, setModalCheck] = useState([false, false]);
   const [champSelected, setChampSelected] = useState(null);
   return (
     <BrowserRouter>
-      <Modal modalCheck={modalCheck} />
+      <Modal modalCheck={modalCheck} setModalCheck={setModalCheck}/>
       <Nav modalCheck={modalCheck} setModalCheck={setModalCheck} />
-      <MainHeader />
+      <MainHeader darkMode={darkMode}/>
       <main>
         <aside>
-          <ChampionSearchList setChampSelected={setChampSelected} />
+          <ChampionSearchList setChampSelected={setChampSelected} darkMode={darkMode}/>
           <OpList position={'main'}/>
         </aside>
-
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route
