@@ -211,25 +211,25 @@ export async function fetchRunesData() {
 }
 
 export const rotationData = async () => {
-  try{
+  try {
     const response = await axios.get(
       `${apiKrBase}/lol/platform/v3/champion-rotations?api_key=${apiKey}`
     );
     const championData = await axios.get(
-      'http://ddragon.leagueoflegends.com/cdn/12.22.1/data/ko_KR/champion.json'
-    )
-    let champion = championData.data.data
+      "http://ddragon.leagueoflegends.com/cdn/12.22.1/data/ko_KR/champion.json"
+    );
+    let champion = championData.data.data;
     let obj = {};
-    for(let objKey in champion){
-      let dummyObj = {}
-      dummyObj[champion[objKey].key] = objKey
-      obj = {...obj, ...dummyObj}
+    for (let objKey in champion) {
+      let dummyObj = {};
+      dummyObj[champion[objKey].key] = objKey;
+      obj = { ...obj, ...dummyObj };
     }
-    let output = response.data.freeChampionIds.map(data => {
-      return obj[data]
-    })
-    return output
+    let output = response.data.freeChampionIds.map((data) => {
+      return obj[data];
+    });
+    return output;
   } catch (err) {
-    console.log(err)
+    console.log(err);
   }
-}
+};
