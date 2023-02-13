@@ -65,3 +65,16 @@
   padding-bottom: 20px;
   background-color: rgba(198, 156, 109, 0.2);
 }
+
+@media only screen and (min-width: 768px) {
+  .Dark_Mode {
+    background-size: contain;
+  }
+
+  .Light_Mode {
+    background-size: contain;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+}

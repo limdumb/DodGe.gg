@@ -146,7 +146,7 @@ export const RankTab = ({ userRankTier }) => {
               )}
             </div>
           ) : (
-            <div>Un Rank</div>
+            <div>Unranked</div>
           )}
         </div>
       ),
@@ -187,7 +187,7 @@ export const RankTab = ({ userRankTier }) => {
               </div>
             </>
           ) : (
-            <div>Un Rank</div>
+            <div>Unranked</div>
           )}
         </div>
       ),

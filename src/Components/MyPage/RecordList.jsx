@@ -647,12 +647,13 @@ export default function RecordList({
           }
         })}
 
-      {getUserMatchData.length === 0 ? (
-        <div className="No_Games_Found">
-          {" "}
-          최근 게임을 플레이한 기록이 없습니다.
-        </div>
-      ) : null}
+      {getUserMatchData &&
+        (getUserMatchData.length === 0 ? (
+          <div className="No_Games_Found">
+            {" "}
+            최근 게임을 플레이한 기록이 없습니다.
+          </div>
+        ) : null)}
       {tab === "Solo_Rank_Record" &&
       getUserMatchData.filter((match) => match.queueId === 420).length === 0 ? (
         <div className="No_Games_Found">
@@ -704,6 +705,9 @@ function runeSlot(summonerData, idx) {
     case 8200:
       runeIdx_01 = 4;
       break;
+
+    default:
+      runeIdx_01 = 0;
   }
 
   switch (runeData_02) {
@@ -726,6 +730,9 @@ function runeSlot(summonerData, idx) {
     case 8200:
       runeIdx_02 = 4;
       break;
+
+    default:
+      runeIdx_02 = 0;
   }
 
   runesArr.push(runeIdx_01, runeIdx_02);

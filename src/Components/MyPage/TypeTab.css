@@ -18,16 +18,13 @@
 .Tier_Icon_Image {
   width: 100px;
   height: 100px;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.45);
   border-radius: 50%;
-}
-
-.Tab_Tier_Contents_Wrapper {
-  width: 50%;
 }
 
 .Tab_Tier_Contents_1 {
   font-size: 18px;
+  margin-bottom: 2.5px;
 }
 
 .Tab_Tier_Contents_2 {
@@ -38,4 +35,24 @@
   padding: 0;
   display: flex;
   justify-content: space-around;
+}
+
+@media only screen and (min-width: 768px) {
+  .Tab_User_Tier li button {
+    font-size: 26px;
+  }
+
+  .Tier_Icon_Image {
+    width: 125px;
+    height: 125px;
+  }
+
+  .Tab_Tier_Contents_1 {
+    font-size: 24px;
+    margin-bottom: 5px;
+  }
+
+  .Tab_Tier_Contents_2 {
+    font-size: 18px;
+  }
 }

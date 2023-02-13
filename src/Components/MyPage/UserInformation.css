@@ -37,6 +37,14 @@
 
 .User_Name {
   font-size: 30px;
+  background: linear-gradient(
+    90deg,
+    rgba(180, 166, 36, 0.97) 2.991%,
+    rgba(251, 169, 35, 0.7) 51.3966%,
+    rgb(209, 151, 59) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .Tier_Information {
@@ -44,4 +52,32 @@
   flex-direction: column;
   justify-content: space-evenly;
   width: 60%;
+}
+
+@media only screen and (min-width: 768px) {
+  .Dark_User_Information_Container {
+    height: 250px;
+  }
+
+  .Light_User_Information_Container {
+    height: 250px;
+  }
+
+  .User_Information_Wrapper {
+    height: 100%;
+  }
+
+  .User_Profile {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .Icon_Image {
+    width: 150px;
+    height: 150px;
+  }
+
+  .User_Name {
+    font-size: 36px;
+  }
 }
