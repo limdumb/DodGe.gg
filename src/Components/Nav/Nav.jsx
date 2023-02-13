@@ -3,6 +3,14 @@ import "./Nav.css";
 import styled from "styled-components";
 import { useState } from "react";
 
+const NavButton_Base = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: 1s;
+`;
+
 const NavBody = styled.div`
   position: fixed;
   right: 5vw;
@@ -168,11 +176,11 @@ const Nav = ({ modalCheck, setModalCheck }) => {
 
   return (
     <NavBody clickCheck={clickCheck} onClick={NavClick}>
-      <div clickCheck={clickCheck} className="NavButton_Base NavButton_top2"></div>
-      <div clickCheck={clickCheck} className="NavButton_Base NavButton_top2"></div>
-      <div clickCheck={clickCheck} className="NavButton_Base NavButton_top3"></div>
-      <div clickCheck={clickCheck} className="NavButton_Base NavButton_top3"></div>
-      <div clickCheck={clickCheck} className="NavButton_Base NavButton_top"></div>
+      <NavButton_Base clickCheck={clickCheck} className="NavButton_Base NavButton_top2"></NavButton_Base>
+      <NavButton_Base clickCheck={clickCheck} className="NavButton_Base NavButton_top2"></NavButton_Base>
+      <NavButton_Base clickCheck={clickCheck} className="NavButton_Base NavButton_top3"></NavButton_Base>
+      <NavButton_Base clickCheck={clickCheck} className="NavButton_Base NavButton_top3"></NavButton_Base>
+      <NavButton_Base clickCheck={clickCheck} className="NavButton_Base NavButton_top"></NavButton_Base>
       <NavButton clickCheck={clickCheck} />
       <SubNavBtn
         clickCheck={clickCheck}
