@@ -164,9 +164,9 @@ export async function summonerSpell(spellId1, spellId2) {
 export async function champName() {
   let champion = [];
   let ko_name;
-  await axios
+  await ddragonInstance
     .get(
-      "http://ddragon.leagueoflegends.com/cdn/12.23.1/data/ko_KR/champion.json"
+      "/cdn/12.23.1/data/ko_KR/champion.json"
     )
     .then((res) => {
       let name = Object.keys(res.data.data);
@@ -184,9 +184,9 @@ export async function champName() {
 
 export async function fetchChampData(champName) {
   let userData = [];
-  await axios
+  await ddragonInstance
     .get(
-      `https://ddragon.leagueoflegends.com/cdn/12.23.1/data/ko_KR/champion/${champName}.json`
+      `/cdn/12.23.1/data/ko_KR/champion/${champName}.json`
     )
     .then((res) => {
       userData.push(res.data.data);
