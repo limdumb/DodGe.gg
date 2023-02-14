@@ -212,11 +212,11 @@ export async function fetchRunesData() {
 
 export const rotationData = async () => {
   try {
-    const response = await axios.get(
-      `${apiKrBase}/lol/platform/v3/champion-rotations?api_key=${apiKey}`
+    const response = await krInstance.get(
+      `/lol/platform/v3/champion-rotations?api_key=${apiKey}`
     );
-    const championData = await axios.get(
-      "http://ddragon.leagueoflegends.com/cdn/13.3.1/data/ko_KR/champion.json"
+    const championData = await ddragonInstance.get(
+      "/cdn/13.3.1/data/ko_KR/champion.json"
     );
     let champion = championData.data.data;
     let obj = {};
