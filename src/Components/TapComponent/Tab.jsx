@@ -3,11 +3,16 @@ import "./Tab.css";
 import lineIconImg from "./imgLink";
 import TabBtn from "./TabBtn";
 import { ChampSearchBar } from "../CommonComponents/SearchInput";
-import tabLine from './img/tab_line.png';
-import OPtabLine from './img/OPtab_line.png';
-import OPListLine from './img/OPList_line.png';
+import tabLine from "./img/tab_line.png";
+import OPtabLine from "./img/OPtab_line.png";
+import OPListLine from "./img/OPList_line.png";
 
-export const ChampionTab = ({ line, setCheckLine, searchInputValue, setSearchInputValue }) => {
+export const ChampionTab = ({
+  line,
+  setCheckLine,
+  searchInputValue,
+  setSearchInputValue,
+}) => {
   let listLength = line.length;
   const [linebtnCheck, setLinebtnCheck] = useState(
     listLength === 5
@@ -22,28 +27,35 @@ export const ChampionTab = ({ line, setCheckLine, searchInputValue, setSearchInp
         setSearchInputValue={setSearchInputValue}
       />
       <div className="Tab_LineBox">
-        {linebtnCheck.map((iconData, index) => {
-          return (
-            <TabBtn
-              key={index}
-              iconData={
-                listLength === 5 ? lineIconImg[index + 1] : lineIconImg[index]
-              }
-              index={index}
-              linebtnCheck={linebtnCheck}
-              setLinebtnCheck={setLinebtnCheck}
-              setCheckLine={setCheckLine}
-              line={line}
-            />
-          );
-        })}
+        <div className="Tab_LineInnerBox">
+          {linebtnCheck.map((iconData, index) => {
+            return (
+              <TabBtn
+                key={index}
+                iconData={
+                  listLength === 5 ? lineIconImg[index + 1] : lineIconImg[index]
+                }
+                index={index}
+                linebtnCheck={linebtnCheck}
+                setLinebtnCheck={setLinebtnCheck}
+                setCheckLine={setCheckLine}
+                line={line}
+              />
+            );
+          })}
+        </div>
+        <img className="tabLine" src={tabLine} />
       </div>
-      <img className="tabLine" src={tabLine}/>
     </div>
   );
 };
 
-export const OpListTab = ({ line, setCheckLine, tabSearchInputValue, setTabSearchInputValue }) => {
+export const OpListTab = ({
+  line,
+  setCheckLine,
+  tabSearchInputValue,
+  setTabSearchInputValue,
+}) => {
   let listLength = line.length;
   const [linebtnCheck, setLinebtnCheck] = useState(
     listLength === 5
@@ -53,24 +65,26 @@ export const OpListTab = ({ line, setCheckLine, tabSearchInputValue, setTabSearc
 
   return (
     <div>
-      <div className="Tab_LineBox">
-        {linebtnCheck.map((iconData, index) => {
-          return (
-            <TabBtn
-              key={index}
-              iconData={
-                listLength === 5 ? lineIconImg[index + 1] : lineIconImg[index]
-              }
-              index={index}
-              linebtnCheck={linebtnCheck}
-              setLinebtnCheck={setLinebtnCheck}
-              setCheckLine={setCheckLine}
-              line={line}
-            />
-          );
-        })}
+      <div className="Tab_LineBox2">
+        <div className="Tab_LineInnerBox2">
+          {linebtnCheck.map((iconData, index) => {
+            return (
+              <TabBtn
+                key={index}
+                iconData={
+                  listLength === 5 ? lineIconImg[index + 1] : lineIconImg[index]
+                }
+                index={index}
+                linebtnCheck={linebtnCheck}
+                setLinebtnCheck={setLinebtnCheck}
+                setCheckLine={setCheckLine}
+                line={line}
+              />
+            );
+          })}
+        </div>
+        <div className="tabLine2"></div>
       </div>
-      <div className="tabLine2"></div>
     </div>
   );
 };

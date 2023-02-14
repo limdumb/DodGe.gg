@@ -94,6 +94,12 @@
 }
 
 @media screen and (min-width: 1024px) {
+  .OPList_Box {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+  }
+
   .Champion_HeaderBox {
     color: #ffd25a;
   }
@@ -111,6 +117,6 @@
     height: 350px;
     overflow: auto;
     border-top: 2px solid #ffd25a;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.4);
   }
 }
