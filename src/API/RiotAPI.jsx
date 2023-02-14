@@ -198,9 +198,9 @@ export async function fetchChampData(champName) {
 
 export async function fetchRunesData() {
   let runes = [];
-  await axios
+  await ddragonInstance
     .get(
-      `https://ddragon.leagueoflegends.com/cdn/12.23.1/data/ko_KR/runesReforged.json`
+      `/cdn/12.23.1/data/ko_KR/runesReforged.json`
     )
     .then((res) => {
       runes.push(res.data);
