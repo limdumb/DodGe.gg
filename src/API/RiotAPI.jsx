@@ -24,8 +24,8 @@ export async function summonerData(userName) {
 
 export async function summonerLeagueData(id) {
   try {
-    const response = await axios.get(
-      `${apiKrBase}/lol/league/v4/entries/by-summoner/${id}?api_key=${apiKey}`
+    const response = await krInstance.get(
+      `/lol/league/v4/entries/by-summoner/${id}?api_key=${apiKey}`
     );
     return response;
   } catch (error) {
@@ -35,8 +35,8 @@ export async function summonerLeagueData(id) {
 
 export const gameUuid = async (puuid) => {
   try {
-    const response = await axios.get(
-      `${apiAsiaBase}/lol/match/v5/matches/by-puuid/${puuid}/ids?api_key=${apiKey}`
+    const response = await asiaInstance.get(
+      `/lol/match/v5/matches/by-puuid/${puuid}/ids?api_key=${apiKey}`
     );
     return response;
   } catch (error) {
