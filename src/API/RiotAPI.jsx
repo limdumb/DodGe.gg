@@ -134,8 +134,8 @@ export async function matchSummaryData(gameUuids, userName) {
 
 export async function summonerSpell(spellId1, spellId2) {
   try {
-    const response = await axios.get(
-      "http://ddragon.leagueoflegends.com/cdn/12.23.1/data/en_US/summoner.json"
+    const response = await ddragonInstance.get(
+      "/cdn/12.23.1/data/en_US/summoner.json"
     );
     const summonerSpellName = response.data.data;
     const twiceArr = [];
