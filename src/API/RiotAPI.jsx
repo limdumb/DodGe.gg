@@ -1,4 +1,5 @@
 import axios from "axios";
+import { krInstance, asiaInstance, ddragonInstance } from "./instance";
 
 const apiKey = process.env.REACT_APP_API_KEY;
 const apiKrBase = "https://kr.api.riotgames.com";
@@ -9,7 +10,6 @@ export async function summonerData(userName) {
     const response = await axios.get(
       `${apiKrBase}/lol/summoner/v4/summoners/by-name/${userName}?api_key=${apiKey}`
     );
-
     return {
       id: response.data.id,
       name: response.data.name,
@@ -120,7 +120,7 @@ export async function matchSummaryData(gameUuids, userName) {
 
   let results;
   if (gameUuids) {
-    const slice = gameUuids.slice(0, 10);
+    const slice = gameUuids.slice(0, 9);
     results = await Promise.all(
       slice.map((gameUuid) => {
         return getMatchData(gameUuid);
@@ -211,25 +211,25 @@ export async function fetchRunesData() {
 }
 
 export const rotationData = async () => {
-  try{
+  try {
     const response = await axios.get(
       `${apiKrBase}/lol/platform/v3/champion-rotations?api_key=${apiKey}`
     );
     const championData = await axios.get(
-      'http://ddragon.leagueoflegends.com/cdn/12.22.1/data/ko_KR/champion.json'
-    )
-    let champion = championData.data.data
+      "http://ddragon.leagueoflegends.com/cdn/13.3.1/data/ko_KR/champion.json"
+    );
+    let champion = championData.data.data;
     let obj = {};
-    for(let objKey in champion){
-      let dummyObj = {}
-      dummyObj[champion[objKey].key] = objKey
-      obj = {...obj, ...dummyObj}
+    for (let objKey in champion) {
+      let dummyObj = {};
+      dummyObj[champion[objKey].key] = objKey;
+      obj = { ...obj, ...dummyObj };
     }
-    let output = response.data.freeChampionIds.map(data => {
-      return obj[data]
-    })
-    return output
+    let output = response.data.freeChampionIds.map((data) => {
+      return obj[data];
+    });
+    return output;
   } catch (err) {
-    console.log(err)
+    console.log(err);
   }
-}
+};

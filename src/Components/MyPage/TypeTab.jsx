@@ -93,7 +93,8 @@ export const RankTab = ({ userRankTier }) => {
   const soloRankTier =
     userRankTier &&
     userRankTier.filter((el) => {
-      return el.queueType === "RANKED_SOLO_5x5";
+      //Open API에 변경된 값으로 변경 ( 추후 또 변경시 재변경 예정 )
+      return el.queueType === "RANKED_TFT_DOUBLE_UP";
     });
 
   const FreeRankTier =
@@ -102,13 +103,12 @@ export const RankTab = ({ userRankTier }) => {
       return el.queueType === "RANKED_FLEX_SR";
     });
 
-  console.log(FreeRankTier);
-
   const [rankInfo, setRankInfo] = useState(0);
   const tabHandler = (index) => {
     setRankInfo(index);
   };
-  const lowerCaseSoloTierName = soloRankTier.length !== 0 ? soloRankTier[0].tier.toLowerCase() : undefined;
+  const lowerCaseSoloTierName =
+    soloRankTier.length !== 0 ? soloRankTier[0].tier.toLowerCase() : undefined;
   const lowerCaseFreeTierName =
     FreeRankTier.length !== 0 ? FreeRankTier[0].tier.toLowerCase() : undefined;
   const userTierArr = [

@@ -1,11 +1,7 @@
 import { RankTab } from "./TypeTab";
-import './UserInformation.css'
+import "./UserInformation.css";
 
-export const UserInformation = ({
-  profileIconId,
-  name,
-  userRankTier,
-}) => {
+export const UserInformation = ({ profileIconId, name, userRankTier }) => {
   return (
     <section className="User_Information_Container">
       <article className="User_Profile">
@@ -20,9 +16,7 @@ export const UserInformation = ({
         </div>
       </article>
       <div className="Tier_InforMation">
-        <RankTab
-          userRankTier={userRankTier}
-        ></RankTab>
+        <RankTab userRankTier={userRankTier}></RankTab>
       </div>
     </section>
   );

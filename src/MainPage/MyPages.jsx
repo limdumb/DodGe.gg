@@ -22,7 +22,7 @@ const EasterEggSpan = styled(StyleSpan)`
 `;
 
 export default function MyPages() {
-  let summonerName = useParams();
+  const summonerName = useParams();
 
   const [currentTab, setCurrentTab] = useState("All_Game_Record");
   const [getUserProfile, setGetUserProfile] = useState(null);
@@ -30,6 +30,8 @@ export default function MyPages() {
   const [getUserMatchData, setGetUserMatchData] = useState(null);
   const [getSpell, setGetSpell] = useState(null);
   const [runesData, setRunesData] = useState(null);
+
+  console.log(summonerName.summoner)
 
   useEffect(() => {
     const userInfoData = async () => {
@@ -58,8 +60,7 @@ export default function MyPages() {
     };
     userInfoData();
   }, [summonerName]);
-
-  console.log(userRankTier);
+console.log(userRankTier)
   return (
     <>
       <div id="Main_Container">
