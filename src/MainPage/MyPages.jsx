@@ -31,8 +31,6 @@ export default function MyPages() {
   const [getSpell, setGetSpell] = useState(null);
   const [runesData, setRunesData] = useState(null);
 
-  console.log(summonerName.summoner)
-
   useEffect(() => {
     const userInfoData = async () => {
       const userResponse = await summonerData(summonerName.summoner);
@@ -60,7 +58,7 @@ export default function MyPages() {
     };
     userInfoData();
   }, [summonerName]);
-console.log(userRankTier)
+
   return (
     <>
       <div id="Main_Container">
