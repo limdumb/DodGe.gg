@@ -7,8 +7,8 @@ const apiAsiaBase = "https://asia.api.riotgames.com";
 
 export async function summonerData(userName) {
   try {
-    const response = await axios.get(
-      `${apiKrBase}/lol/summoner/v4/summoners/by-name/${userName}?api_key=${apiKey}`
+    const response = await krInstance.get(
+      `/lol/summoner/v4/summoners/by-name/${userName}?api_key=${apiKey}`
     );
     return {
       id: response.data.id,
@@ -47,8 +47,8 @@ export const gameUuid = async (puuid) => {
 export async function matchSummaryData(gameUuids, userName) {
   const getMatchData = async (uuid) => {
     try {
-      const response = await axios.get(
-        `${apiAsiaBase}/lol/match/v5/matches/${uuid}?api_key=${apiKey}`
+      const response = await asiaInstance.get(
+        `/lol/match/v5/matches/${uuid}?api_key=${apiKey}`
       );
       //변수명은 변경 예정(생각중)
       const summonerFilterName = response.data.info.participants.filter(
