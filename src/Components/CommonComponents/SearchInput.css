@@ -19,18 +19,16 @@
 
 .Search_Input_Box input{
   background-color: transparent;
-  color: #ffd25a;
 }
 
 .Search_Input_Box div{
-  background-color: #ff6432;
+  background-color: #a7a7a7;
 }
 
 .Search_Input_Box button{
   position: absolute;
   top: 50%;
   left: 70%;
-  color: #ffd25a;
   transform: translate(-50%, -50%);
 }
 
