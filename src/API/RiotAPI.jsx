@@ -1,14 +1,9 @@
-import axios from "axios";
 import { krInstance, asiaInstance, ddragonInstance } from "./instance";
-
-const apiKey = process.env.REACT_APP_API_KEY;
-const apiKrBase = "https://kr.api.riotgames.com";
-const apiAsiaBase = "https://asia.api.riotgames.com";
 
 export async function summonerData(userName) {
   try {
     const response = await krInstance.get(
-      `/lol/summoner/v4/summoners/by-name/${userName}?api_key=${apiKey}`
+      `/lol/summoner/v4/summoners/by-name/${userName}`
     );
     return {
       id: response.data.id,
@@ -25,7 +20,7 @@ export async function summonerData(userName) {
 export async function summonerLeagueData(id) {
   try {
     const response = await krInstance.get(
-      `/lol/league/v4/entries/by-summoner/${id}?api_key=${apiKey}`
+      `/lol/league/v4/entries/by-summoner/${id}`
     );
     return response;
   } catch (error) {
@@ -36,7 +31,7 @@ export async function summonerLeagueData(id) {
 export const gameUuid = async (puuid) => {
   try {
     const response = await asiaInstance.get(
-      `/lol/match/v5/matches/by-puuid/${puuid}/ids?api_key=${apiKey}`
+      `/lol/match/v5/matches/by-puuid/${puuid}/ids`
     );
     return response;
   } catch (error) {
@@ -48,7 +43,7 @@ export async function matchSummaryData(gameUuids, userName) {
   const getMatchData = async (uuid) => {
     try {
       const response = await asiaInstance.get(
-        `/lol/match/v5/matches/${uuid}?api_key=${apiKey}`
+        `/lol/match/v5/matches/${uuid}`
       );
       //변수명은 변경 예정(생각중)
       const summonerFilterName = response.data.info.participants.filter(
@@ -213,7 +208,7 @@ export async function fetchRunesData() {
 export const rotationData = async () => {
   try {
     const response = await krInstance.get(
-      `/lol/platform/v3/champion-rotations?api_key=${apiKey}`
+      `/lol/platform/v3/champion-rotations`
     );
     const championData = await ddragonInstance.get(
       "/cdn/13.3.1/data/ko_KR/champion.json"

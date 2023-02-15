@@ -2,7 +2,6 @@ import "./App.css";
 import MyPages from "./MainPage/MyPages";
 import { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import MainPage from "./MainPage/MainPage";
 import ChampionGuide from "./Components/ChampionGuide/ChampionGuide";
 import MainHeader from "./Components/CommonComponents/Header";
 import MainFooter from "./Components/CommonComponents/Footer";
@@ -26,7 +25,6 @@ function App() {
           <OpList position={'main'}/>
         </aside>
         <Routes>
-          <Route path="/" element={<MainPage />} />
           <Route
             path="/champion/:champion"
             element={
