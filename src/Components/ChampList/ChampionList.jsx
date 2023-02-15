@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { champName, rotationData } from "../../API/RiotAPI";
-import "./ChampionList.css";
 import { filterChampName } from "../../Function/Search";
 import { useNavigate } from "react-router-dom";
 import ChampionLine from "../OPList/Json/Champion.json";
+import "./ChampionList.css";
 
 export default function ChampionList({
   CheckLine,
