@@ -1,5 +1,5 @@
 .Right_Aside_Container {
-  background-color: gray;
+  /* background-color: gray; */
   display: flex;
   width: 100%;
   height: 555.0781px;
@@ -8,7 +8,7 @@
 }
 
 .Dark_Right_Aside_Container{
-  background-color: gray;
+  /* background-color: gray; */
   display: flex;
   width: 100%;
   height: 555.0781px;
@@ -146,7 +146,7 @@
   }
 
   .Right_Aside_Container {
-    background-color: gray;
+    /* background-color: gray; */
     display: flex;
     width: 333px;
     padding-top: 5px;
