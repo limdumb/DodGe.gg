@@ -23,11 +23,6 @@
   position: absolute;
 }
 
-.Champion_List{
-  position: relative;
-  z-index: 100
-}
-
 .Header_Image{
   position: relative;
   right: 16px;

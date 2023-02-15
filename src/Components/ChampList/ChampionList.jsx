@@ -69,7 +69,7 @@ export default function ChampionList({
           {filterChampionName &&
             filterChampionName.map((data, index) => {
               return (
-                <div
+                <li
                   className="Champion_List"
                   key={index}
                   onClick={() => {
@@ -92,7 +92,7 @@ export default function ChampionList({
                         : data.name}
                     </span>
                   </div>
-                </div>
+                </li>
               );
             })}
         </ul>
