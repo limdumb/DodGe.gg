@@ -1,5 +1,3 @@
-
-
 .Modal_Container {
   background-color: rgba(0, 0, 0, 0.8);
   height: 100vh;
@@ -10,14 +8,27 @@
 
 .Modal_Contents {
   width: 100%;
-  position: absolute;
-  background-image: url('./lightBG.png');
+  display: flex;
   align-items: center;
   justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.Modal_Search_Box{
+  width: 400px;
+  height: 150px;
+  background-image: url('../OPList/img/OPListBG.png');
+  background-color: red;
   padding: 10px;
   border-radius: 5px;
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex-direction: column;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);

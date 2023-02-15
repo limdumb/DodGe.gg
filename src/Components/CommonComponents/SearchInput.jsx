@@ -7,7 +7,7 @@ const ParallelogramShape = styled.div`
   position: relative;
   width: ${(props) => props.width};
   height: ${(props) => props.height};
-  transform: skew(45deg);
+  transform: skew(45deg) translate(-50%, -50%);
   background-color: white;
   top: ${(props) => props.top};
   left: ${(props) => props.left};
@@ -29,23 +29,24 @@ export const SearchInput = () => {
     }
   }
   return (
-    <>
+    <div className="Search_Input_Box">
       <ParallelogramShape
         width={"7.5855px"}
         height={"28.89px"}
-        right={"137px"}
-        top={"26px"}
+        right={"-13%"}
+        top={"50%"}
       />
       <ParallelogramShape
         width={"7.5855px"}
         height={"28.89px"}
-        right={"153px"}
-        bottom={"3px"}
+        right={"-17%"}
+        top={"30%"}
       />
       <ParallelogramShape
         width={"249.668px"}
         height={"28.8904px"}
-        bottom={"32px"}
+        top={"10%"}
+        left={"50%"}
       />
       <input
         id="Search_Input"
@@ -62,16 +63,16 @@ export const SearchInput = () => {
       <ParallelogramShape
         width={"7.5855px"}
         height={"28.89px"}
-        left={"137px"}
-        bottom={"61px"}
+        left={"87%"}
+        top={"-10%"}
       />
       <ParallelogramShape
         width={"7.5855px"}
         height={"28.89px"}
-        left={"153px"}
-        bottom={"90px"}
+        left={"83%"}
+        top={"-30%"}
       />
-    </>
+    </div>
   );
 };
 

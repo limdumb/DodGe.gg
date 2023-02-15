@@ -3,7 +3,35 @@
   border: none;
   width: 220px;
   height: 28.8px;
-  top: 35.6px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#Search_Input:focus{
+  outline: none;
+}
+
+.Search_Input_Box{
+  position: relative;
+  width: 420px;
+}
+
+.Search_Input_Box input{
+  background-color: transparent;
+  color: #ffd25a;
+}
+
+.Search_Input_Box div{
+  background-color: #ff6432;
+}
+
+.Search_Input_Box button{
+  position: absolute;
+  top: 50%;
+  left: 70%;
+  color: #ffd25a;
+  transform: translate(-50%, -50%);
 }
 
 @media screen and (min-width: 1024px) {
