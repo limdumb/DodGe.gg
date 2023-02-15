@@ -54,7 +54,7 @@ const TabButton = styled(StyledButton)`
     right: 980px;
   }
 `;
-//FF00FF
+
 export default function MainHeader({ darkMode }) {
   return (
     <Header backgroundColor={darkMode}>
