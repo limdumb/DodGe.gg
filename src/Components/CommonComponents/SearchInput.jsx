@@ -15,7 +15,7 @@ const ParallelogramShape = styled.div`
   right: ${(props) => props.right};
 `;
 
-export const SearchInput = () => {
+export const SearchInput = ({modalCheck, setModalCheck}) => {
   const navigate = useNavigate();
   const [summonerName, setSummonerName] = useState("");
 
@@ -26,8 +26,14 @@ export const SearchInput = () => {
     if (e.key === "Enter") {
       setSummonerName(e.target.value);
       navigate(`/mypage/${summonerName}`);
+      setModalCheck([false, false]);
     }
   }
+
+  function inputClick(){
+    setModalCheck([false, false]);
+  }
+
   return (
     <div className="Search_Input_Box">
       <ParallelogramShape
@@ -58,7 +64,7 @@ export const SearchInput = () => {
         }}
       ></input>
       <Link to={`/mypage/${summonerName}`}>
-        <button className="Search_Button">.GG</button>
+        <button className="Search_Button" onClick={inputClick}>.GG</button>
       </Link>
       <ParallelogramShape
         width={"7.5855px"}
