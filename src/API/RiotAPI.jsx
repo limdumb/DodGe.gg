@@ -45,7 +45,6 @@ export async function matchSummaryData(gameUuids, userName) {
       const response = await asiaInstance.get(
         `/lol/match/v5/matches/${uuid}`
       );
-      //변수명은 변경 예정(생각중)
       const summonerFilterName = response.data.info.participants.filter(
         (item) => item.summonerName === userName
       )[0];
