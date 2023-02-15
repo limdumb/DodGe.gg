@@ -6,7 +6,7 @@
   justify-content: center;
 }
 
-.Dark_Right_Aside_Container{
+.Dark_Right_Aside_Container {
   display: flex;
   width: 100%;
   height: 377px;
@@ -21,7 +21,7 @@
   align-items: center;
 }
 
-.Champion_List{
+.Champion_List {
   position: relative;
   z-index: 100;
 }
@@ -40,9 +40,9 @@
   background-color: rgb(198, 156, 109, 0.2);
 }
 
-.Dark_Champion_List_Container{
+.Dark_Champion_List_Container {
   position: absolute;
-  top: 211px;
+  top: 242px;
   padding-top: 10px;
   display: flex;
   flex-wrap: wrap;
@@ -54,11 +54,11 @@
   background-color: rgb(198, 156, 109, 0.2);
 }
 
-.Champion_List_Container::-webkit-scrollbar{
+.Champion_List_Container::-webkit-scrollbar {
   display: none;
 }
 
-.Dark_Champion_List_Container::-webkit-scrollbar{
+.Dark_Champion_List_Container::-webkit-scrollbar {
   display: none;
 }
 
@@ -85,7 +85,7 @@
   opacity: 0.45;
 }
 
-.Layout_Container{
+.Layout_Container {
   width: 351px;
   height: 328px;
   display: flex;
@@ -95,7 +95,7 @@
   padding-top: 24px;
 }
 
-.Dark_Layout_Container{
+.Dark_Layout_Container {
   width: 351px;
   height: 328px;
   display: flex;
@@ -111,41 +111,49 @@
 @media screen and (min-width: 1024px) {
   .Champion_List_Container {
     position: absolute;
+    top: 260px;
+    padding-top: 10px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    width: 274px;
-    height: 282px;
+    width: 319px;
+    height: 274px;
     gap: 0.4em;
-    overflow: scroll;
+    overflow-y: scroll;
     background-color: rgb(198, 156, 109, 0.2);
-    bottom: 19px;
-    top: 204px;
-  }
-  
-  .Dark_Champion_List_Container{
-    position: absolute;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 274px;
-    height: 282px;
-    gap: 0.4em;
-    overflow: scroll;
-    background-color: rgb(198, 156, 109, 0.2);
-    bottom: 19px;
-    top: 204px;
   }
 
-  .Layout_Container{
-    z-index: 1;
+  .Right_Aside_Container {
+    display: flex;
+    width: 100%;
+    height: 377px;
+    background-image: url(../CommonComponents/lightBG.png);
+    justify-content: center;
+  }
+
+  .Dark_Champion_List_Container {
     position: absolute;
-    width: 280px;
-    height: 297px;
+    top: 260px;
+    padding-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 319px;
+    height: 274px;
+    gap: 0.4em;
+    overflow-y: scroll;
+    background-color: rgb(198, 156, 109, 0.2);
+  }
+
+  .Layout_Container {
+    margin-top: 10px;
+    width: 351px;
+    height: 328px;
     display: flex;
     justify-content: center;
-    background-image: url(../CommonComponents/PcChampionList.png);
+    background-image: url(../CommonComponents/ChampionSection.png);
     background-repeat: no-repeat;
+    padding-top: 24px;
   }
 
   .Champ_Image {
@@ -158,5 +166,4 @@
     color: white;
     justify-content: center;
   }
-  
 }
