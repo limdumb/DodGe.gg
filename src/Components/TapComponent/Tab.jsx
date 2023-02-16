@@ -9,6 +9,7 @@ export const ChampionTab = ({
   setCheckLine,
   searchInputValue,
   setSearchInputValue,
+  darkMode
 }) => {
   let listLength = line.length;
   const [linebtnCheck, setLinebtnCheck] = useState(
@@ -22,6 +23,7 @@ export const ChampionTab = ({
       <ChampSearchBar
         searchInputValue={searchInputValue}
         setSearchInputValue={setSearchInputValue}
+        darkMode={darkMode}
       />
       <div className="Tab_LineBox">
         <div className="Tab_LineInnerBox">
@@ -37,11 +39,12 @@ export const ChampionTab = ({
                 setLinebtnCheck={setLinebtnCheck}
                 setCheckLine={setCheckLine}
                 line={line}
+                darkMode={darkMode}
               />
             );
           })}
         </div>
-        <img className="tabLine" src={`${process.env.PUBLIC_URL}/Image/Light_Line2.png`} />
+        <img className="tabLine" src={darkMode? `${process.env.PUBLIC_URL}/Image/Dark_Line2.png` : `${process.env.PUBLIC_URL}/Image/Light_Line2.png`} />
       </div>
     </div>
   );
@@ -52,6 +55,7 @@ export const OpListTab = ({
   setCheckLine,
   tabSearchInputValue,
   setTabSearchInputValue,
+  darkMode
 }) => {
   let listLength = line.length;
   const [linebtnCheck, setLinebtnCheck] = useState(
@@ -76,11 +80,12 @@ export const OpListTab = ({
                 setLinebtnCheck={setLinebtnCheck}
                 setCheckLine={setCheckLine}
                 line={line}
+                darkMode={darkMode}
               />
             );
           })}
         </div>
-        <div className="tabLine2"></div>
+        <div className={darkMode ? "Dark_tabLine2" : "tabLine2"}></div>
       </div>
     </div>
   );
