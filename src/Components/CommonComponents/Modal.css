@@ -20,7 +20,7 @@
 .Modal_Search_Box{
   width: 400px;
   height: 150px;
-  background-image: url('../OPList/img/OPListBG.png');
+  background-image: url('/public/Image/Light_OPBG.png');
   background-color: red;
   padding: 10px;
   border-radius: 5px;
