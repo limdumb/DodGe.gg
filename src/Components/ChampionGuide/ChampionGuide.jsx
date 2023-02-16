@@ -25,8 +25,6 @@ const Main_Container = styled.div`
   }
 
   @media only screen and (min-width: 1024px) {
-    width: 50vw;
-    display: flex;
   }
 `;
 

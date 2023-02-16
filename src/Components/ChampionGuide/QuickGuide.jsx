@@ -15,6 +15,9 @@ const Container = styled.div`
 
   .Champion_Portrait {
     height: 125px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     img {
       width: 100px;

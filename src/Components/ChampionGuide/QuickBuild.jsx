@@ -157,7 +157,7 @@ export default function QuickBuild({ currentChamp, darkMode }) {
       )}
 
       <div className="Recommend_Container">
-        <h6>코어템</h6>
+        <h6>핵심 아이템</h6>
         <div className="Box_Container">
           <div className="Item_Box">
             <img
