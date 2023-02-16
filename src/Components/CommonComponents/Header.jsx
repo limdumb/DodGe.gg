@@ -20,7 +20,7 @@ const Header = styled.header`
 `;
 
 const HeaderSpan = styled(StyleSpan)`
-  color: ${(props) => (props.color ? "#FF00FF" : "#FFD25A")};
+  color: ${(props) => (props.darkModecolor ? "#FF00FF" : "#FFD25A")};
 `;
 
 export default function MainHeader({ darkMode }) {
@@ -48,7 +48,7 @@ export default function MainHeader({ darkMode }) {
         }
       />
       <Link className="Home_Button_Container" to={"/"}>
-        <HeaderSpan color={darkMode} fontsize="12px">
+        <HeaderSpan darkModecolor={darkMode} fontsize="12px">
           Home
         </HeaderSpan>
       </Link>

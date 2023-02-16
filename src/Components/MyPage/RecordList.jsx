@@ -38,14 +38,6 @@ export const GameInfoImage = styled.img`
   border: ${(props) => props.border};
 `;
 
-// 해당 스타일드 컴포넌트는 필요 없을 시 삭제하겠습니다. 코드 리뷰 시 확인 부탁드리겠습니다.
-const PlayerList = styled.div`
-  background-color: rgba(255, 255, 255, 0.5);
-  border-radius: 4px;
-  margin-bottom: ${(props) => props.marginBTM};
-  font-size: 14px;
-`;
-
 export default function RecordList({
   tab,
   getUserMatchData,
