@@ -84,6 +84,14 @@
   font-size: 16px;
 }
 
+.Dark_Tab_Search{
+  color: #FF00FF;
+}
+
+.Dark_Tab_Search::placeholder{
+  color: #FF00FF;
+}
+
 @media screen and (min-width: 768px) {
   .Tab_Champ_SearchBox{
     width: 352px

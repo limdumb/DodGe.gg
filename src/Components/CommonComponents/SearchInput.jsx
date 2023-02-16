@@ -85,7 +85,7 @@ export const SearchInput = ({ setModalCheck }) => {
   );
 };
 
-export const ChampSearchBar = ({ searchInputValue, setSearchInputValue }) => {
+export const ChampSearchBar = ({ searchInputValue, setSearchInputValue, darkMode }) => {
   return (
     <div className ="Tab_Champ_SearchBox">
       <div className="Tab_SearchBox">
@@ -94,7 +94,7 @@ export const ChampSearchBar = ({ searchInputValue, setSearchInputValue }) => {
           src="https://s-lol-web.op.gg/images/icon/icon-search.svg"
         />
         <input
-          className="Tab_Search"
+          className={darkMode ? "Dark_Tab_Search Tab_Search" : "Tab_Search"}
           type="text"
           placeholder="챔피언 검색"
           autoComplete="off"

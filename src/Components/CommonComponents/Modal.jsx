@@ -2,7 +2,7 @@ import OPList from "../OPList/OPList";
 import "./Modal.css";
 import { SearchInput } from "./SearchInput";
 
-export default function Modal({ modalCheck, setModalCheck }) {
+export default function Modal({ modalCheck, setModalCheck, darkMode }) {
   return (
     <>
       {modalCheck.includes(true) ? (
@@ -16,7 +16,7 @@ export default function Modal({ modalCheck, setModalCheck }) {
                 />
               </div>
             ) : null}
-            {modalCheck[1] ? <OPList position={"modal"} /> : null}
+            {modalCheck[1] ? <OPList position={"modal"} darkMode={darkMode}/> : null}
           </div>
         </div>
       ) : null}

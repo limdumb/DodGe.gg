@@ -16,21 +16,14 @@ function App() {
   const [champSelected, setChampSelected] = useState(null);
   return (
     <BrowserRouter>
-      <Modal modalCheck={modalCheck} setModalCheck={setModalCheck} />
-      <Nav
-        modalCheck={modalCheck}
-        setModalCheck={setModalCheck}
-        setDarkMode={setDarkMode}
-        darkMode={darkMode}
-      />
-      <MainHeader darkMode={darkMode} />
-      <main>
+      <Modal modalCheck={modalCheck} setModalCheck={setModalCheck} darkMode={darkMode}/>
+      <Nav modalCheck={modalCheck} setModalCheck={setModalCheck} setDarkMode={setDarkMode} darkMode={darkMode}/>
+      <MainHeader darkMode={darkMode}/>
+      <main className={darkMode ? "Dark_BG" : null}>
         <aside>
-          <ChampionSearchList
-            setChampSelected={setChampSelected}
-            darkMode={darkMode}
-          />
-          <OpList position={"main"} />
+          <ChampionSearchList setChampSelected={setChampSelected} darkMode={darkMode}/>
+          <OpList position={'main'} darkMode={darkMode}/>
+
         </aside>
         <Routes>
           <Route

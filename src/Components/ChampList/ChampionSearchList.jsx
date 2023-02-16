@@ -14,6 +14,7 @@ const ChampionSearchList = ({ setChampSelected, darkMode }) => {
         setSearchInputValue={setSearchInputValue}
         searchInputValue={searchInputValue}
         setCheckLine={setCheckLine}
+        darkMode={darkMode}
       />
       <ChampionList
         CheckLine={CheckLine}

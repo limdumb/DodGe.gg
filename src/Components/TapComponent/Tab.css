@@ -49,6 +49,16 @@
   background-image: url(/public/Image/Light_Line3.png);
 }
 
+.Dark_tabLine2 {
+  width: 244px;
+  height: 29px;
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-image: url(/public/Image/Dark_Line3.png);
+}
+
 .Tab_LineBtn {
   border: none;
   display: flex;
@@ -61,8 +71,24 @@
   cursor: pointer;
 }
 
+.Dark_Tab_LineBtn {
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 28px;
+  height: calc(10 * 4.8496px);
+  position: relative;
+  background-color: #80CFAC;
+  cursor: pointer;
+}
+
 .Tab_LineInnerBox2 .Tab_LineBtn {
   background-color: #a7a7a7;
+}
+
+.Tab_LineInnerBox2 .Tab_LineBtn.Dark_Tab_LineBtn {
+  background-color: #1a1a1a;
 }
 
 .Tab_LineBtn::after {
@@ -145,6 +171,11 @@
   .Tab_LineBtn {
     background-color: #ffd25a;
   }
+
+  .Dark_Tab_LineBtn {
+    background-color: #80CFAC;
+  }
+
   .Tab_LineInnerBox2 {
     display: flex;
     width: 100%;
@@ -160,6 +191,10 @@
     background-color: #ffd25a;
   }
 
+  .Tab_LineInnerBox2 .Tab_LineBtn.Dark_Tab_LineBtn {
+    background-color: #80CFAC;
+  }
+
   .tabLine2 {
     width: 280px;
     height: 29px;
@@ -169,6 +204,17 @@
     transform: translate(-50%, -50%);
     background-image: url(/public/Image/Light_Line.png);
   }
+
+  .Dark_tabLine2 {
+    width: 280px;
+    height: 29px;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url(/public/Image/Dark_Line.png);
+  }
+
   .Tab_LineInnerBox2 .Tab_LineBtn:nth-child(1) {
     top: 12px;
   }

@@ -25,6 +25,10 @@ main {
   padding: 13px;
 }
 
+.Dark_BG{
+  background-image: url(/public/Image/Dark_BG.png);
+}
+
 @media screen and (min-width: 480px) {
   html {
     font-size: 80.4688%;

@@ -7,6 +7,7 @@ const TabBtn = ({
   setLinebtnCheck,
   setCheckLine,
   line,
+  darkMode
 }) => {
   let lineLength = linebtnCheck.length;
   function lineBtnChange(index) {
@@ -20,7 +21,7 @@ const TabBtn = ({
     <button
       type="button"
       name={iconData.name}
-      className="Tab_LineBtn "
+      className={darkMode ? "Tab_LineBtn Dark_Tab_LineBtn" : "Tab_LineBtn"}
       onClick={(e) => {
         lineBtnChange(index);
       }}
