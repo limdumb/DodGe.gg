@@ -33,12 +33,6 @@
   cursor: pointer;
 }
 
-@media screen and (min-width: 1024px) {
-  #Search_Input{
-    width: 250px
-  } 
-}
-
 .Search_Button{
   position: absolute;
   top: 36px;
@@ -52,20 +46,24 @@
   margin-left: -1px;
 }
 
-.Tab_SearchBox{
+.Tab_Champ_SearchBox{
   display: flex;
   justify-content: center;
   width: 100%;
+}
+
+.Tab_SearchBox{
+  width: 342px;
   height: 44px;
-  padding: 8px 8px 0 8px;
+  padding-top: 8px;
   position: relative;
   color: #FF9600;
 }
 
 .Tab_SearchImg{
   position: absolute;
-  top: 14px;
-  left: 18px;
+  top: 30%;
+  left: 10px;
 }
 
 .Tab_Search{
@@ -84,4 +82,16 @@
 .Tab_Search::placeholder{
   color: #FF9600;
   font-size: 16px;
+}
+
+@media screen and (min-width: 768px) {
+  .Tab_Champ_SearchBox{
+    width: 352px
+  } 
+}
+
+@media screen and (min-width: 1024px) {
+  #Search_Input{
+    width: 250px
+  } 
 }
