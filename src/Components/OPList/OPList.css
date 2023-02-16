@@ -3,19 +3,51 @@
   width: 310px;
   height: 540px;
   border: 1px solid;
-  border-image: linear-gradient(to bottom, #3A6785 0%, #4C4D74 100%);
+  border-image: linear-gradient(to bottom, #3a6785 0%, #4c4d74 100%);
   border-image-slice: 1;
   background-image: url("/public/Image/Light_OPBG.png");
 }
 
 .Dark_OP_List {
-  border-image: linear-gradient(to bottom, #20CACA 0%, rgba(255, 0, 255, 0.6) 100%);
+  border-image: linear-gradient(
+    to bottom,
+    #20caca 0%,
+    rgba(255, 0, 255, 0.6) 100%
+  );
   border-image-slice: 1;
   background-image: url("/public/Image/Dark_OPBG.png");
 }
 
 .main {
   display: none;
+}
+
+.close {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  opacity: 0.8;
+  top: 0px;
+  right: 0px;
+  cursor: pointer;
+  background-color: none;
+  z-index: 1000000;
+}
+
+.close:before, .close:after {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  content: ' ';
+  height: 30px;
+  width: 5px;
+  background-color: #000000;
+}
+.close:before {
+  transform: rotate(45deg);
+}
+.close:after {
+  transform: rotate(-45deg);
 }
 
 @media screen and (min-width: 1024px) {

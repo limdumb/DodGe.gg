@@ -16,7 +16,7 @@ export default function Modal({ modalCheck, setModalCheck, darkMode }) {
                 />
               </div>
             ) : null}
-            {modalCheck[1] ? <OPList position={"modal"} darkMode={darkMode}/> : null}
+            {modalCheck[1] ? <OPList setModalCheck={setModalCheck} position={"modal"} darkMode={darkMode}/> : null}
           </div>
         </div>
       ) : null}
