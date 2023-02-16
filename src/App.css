@@ -20,6 +20,8 @@ html {
 main {
   display: flex;
   flex-direction: column;
+  background-image: url(/public/Image/Light_BG.png);
+  background-size: cover;
 }
 
 @media screen and (min-width: 480px) {

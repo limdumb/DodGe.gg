@@ -22,7 +22,7 @@ const EasterEggSpan = styled(StyleSpan)`
 `;
 
 export default function MyPages() {
-  let summonerName = useParams();
+  const summonerName = useParams();
 
   const [currentTab, setCurrentTab] = useState("All_Game_Record");
   const [getUserProfile, setGetUserProfile] = useState(null);

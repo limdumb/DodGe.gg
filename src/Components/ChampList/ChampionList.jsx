@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { champName, rotationData } from "../../API/RiotAPI";
-import "./ChampionList.css";
 import { filterChampName } from "../../Function/Search";
 import { useNavigate } from "react-router-dom";
 import ChampionLine from "../OPList/Json/Champion.json";
+import "./ChampionList.css";
 
 export default function ChampionList({
   CheckLine,
@@ -69,7 +69,7 @@ export default function ChampionList({
           {filterChampionName &&
             filterChampionName.map((data, index) => {
               return (
-                <div
+                <li
                   className="Champion_List"
                   key={index}
                   onClick={() => {
@@ -92,7 +92,7 @@ export default function ChampionList({
                         : data.name}
                     </span>
                   </div>
-                </div>
+                </li>
               );
             })}
         </ul>

@@ -1,15 +1,10 @@
-import axios from "axios";
-
-const apiKey = process.env.REACT_APP_API_KEY;
-const apiKrBase = "https://kr.api.riotgames.com";
-const apiAsiaBase = "https://asia.api.riotgames.com";
+import { krInstance, asiaInstance, ddragonInstance } from "./instance";
 
 export async function summonerData(userName) {
   try {
-    const response = await axios.get(
-      `${apiKrBase}/lol/summoner/v4/summoners/by-name/${userName}?api_key=${apiKey}`
+    const response = await krInstance.get(
+      `/lol/summoner/v4/summoners/by-name/${userName}`
     );
-
     return {
       id: response.data.id,
       name: response.data.name,
@@ -24,8 +19,8 @@ export async function summonerData(userName) {
 
 export async function summonerLeagueData(id) {
   try {
-    const response = await axios.get(
-      `${apiKrBase}/lol/league/v4/entries/by-summoner/${id}?api_key=${apiKey}`
+    const response = await krInstance.get(
+      `/lol/league/v4/entries/by-summoner/${id}`
     );
     return response;
   } catch (error) {
@@ -35,8 +30,8 @@ export async function summonerLeagueData(id) {
 
 export const gameUuid = async (puuid) => {
   try {
-    const response = await axios.get(
-      `${apiAsiaBase}/lol/match/v5/matches/by-puuid/${puuid}/ids?api_key=${apiKey}`
+    const response = await asiaInstance.get(
+      `/lol/match/v5/matches/by-puuid/${puuid}/ids`
     );
     return response;
   } catch (error) {
@@ -47,10 +42,7 @@ export const gameUuid = async (puuid) => {
 export async function matchSummaryData(gameUuids, userName) {
   const getMatchData = async (uuid) => {
     try {
-      const response = await axios.get(
-        `${apiAsiaBase}/lol/match/v5/matches/${uuid}?api_key=${apiKey}`
-      );
-      //변수명은 변경 예정(생각중)
+      const response = await asiaInstance.get(`/lol/match/v5/matches/${uuid}`);
       const summonerFilterName = response.data.info.participants.filter(
         (item) => item.summonerName === userName
       )[0];
@@ -120,7 +112,7 @@ export async function matchSummaryData(gameUuids, userName) {
 
   let results;
   if (gameUuids) {
-    const slice = gameUuids.slice(0, 10);
+    const slice = gameUuids.slice(0, 9);
     results = await Promise.all(
       slice.map((gameUuid) => {
         return getMatchData(gameUuid);
@@ -134,8 +126,8 @@ export async function matchSummaryData(gameUuids, userName) {
 
 export async function summonerSpell(spellId1, spellId2) {
   try {
-    const response = await axios.get(
-      "http://ddragon.leagueoflegends.com/cdn/12.23.1/data/en_US/summoner.json"
+    const response = await ddragonInstance.get(
+      "/cdn/12.23.1/data/en_US/summoner.json"
     );
     const summonerSpellName = response.data.data;
     const twiceArr = [];
@@ -164,10 +156,8 @@ export async function summonerSpell(spellId1, spellId2) {
 export async function champName() {
   let champion = [];
   let ko_name;
-  await axios
-    .get(
-      "http://ddragon.leagueoflegends.com/cdn/12.23.1/data/ko_KR/champion.json"
-    )
+  await ddragonInstance
+    .get("/cdn/12.23.1/data/ko_KR/champion.json")
     .then((res) => {
       let name = Object.keys(res.data.data);
       ko_name = name.map((data) => res.data.data[data].name);
@@ -184,10 +174,8 @@ export async function champName() {
 
 export async function fetchChampData(champName) {
   let userData = [];
-  await axios
-    .get(
-      `https://ddragon.leagueoflegends.com/cdn/12.23.1/data/ko_KR/champion/${champName}.json`
-    )
+  await ddragonInstance
+    .get(`/cdn/12.23.1/data/ko_KR/champion/${champName}.json`)
     .then((res) => {
       userData.push(res.data.data);
     })
@@ -198,10 +186,8 @@ export async function fetchChampData(champName) {
 
 export async function fetchRunesData() {
   let runes = [];
-  await axios
-    .get(
-      `https://ddragon.leagueoflegends.com/cdn/12.23.1/data/ko_KR/runesReforged.json`
-    )
+  await ddragonInstance
+    .get(`/cdn/12.23.1/data/ko_KR/runesReforged.json`)
     .then((res) => {
       runes.push(res.data);
     })
@@ -212,11 +198,11 @@ export async function fetchRunesData() {
 
 export const rotationData = async () => {
   try {
-    const response = await axios.get(
-      `${apiKrBase}/lol/platform/v3/champion-rotations?api_key=${apiKey}`
+    const response = await krInstance.get(
+      `/lol/platform/v3/champion-rotations`
     );
-    const championData = await axios.get(
-      "http://ddragon.leagueoflegends.com/cdn/12.22.1/data/ko_KR/champion.json"
+    const championData = await ddragonInstance.get(
+      "/cdn/13.3.1/data/ko_KR/champion.json"
     );
     let champion = championData.data.data;
     let obj = {};

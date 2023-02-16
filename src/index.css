@@ -1,3 +1,19 @@
+@font-face {
+  font-family: 'HeirofLight';
+  font-weight: 400;
+  font-style: normal;
+  src: url('https://cdn.jsdelivr.net/gh/webfontworld/heiroflight/HeirofLightRegular.eot');
+  src: url('https://cdn.jsdelivr.net/gh/webfontworld/heiroflight/HeirofLightRegular.eot?#iefix') format('embedded-opentype'),
+       url('https://cdn.jsdelivr.net/gh/webfontworld/heiroflight/HeirofLightRegular.woff2') format('woff2'),
+       url('https://cdn.jsdelivr.net/gh/webfontworld/heiroflight/HeirofLightRegular.woff') format('woff'),
+       url('https://cdn.jsdelivr.net/gh/webfontworld/heiroflight/HeirofLightRegular.ttf') format("truetype");
+  font-display: swap;
+}
+
+*{
+  font-family: 'HeirofLight';
+}
+
 body {
   margin: 0 auto;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
