@@ -38,8 +38,8 @@ export default function MainHeader({ darkMode }) {
         className={darkMode ? "Dark_Header_Image" : "Header_Image"}
         src={
           darkMode
-            ? `${process.env.PUBLIC_URL}/Image/darkHeader.png`
-            : `${process.env.PUBLIC_URL}/Image/nav1.png`
+            ? `${process.env.PUBLIC_URL}/Image/Dark_Mobile_Header.png`
+            : `${process.env.PUBLIC_URL}/Image/Light_Mobile_Header.png`
         }
       />
       <img
@@ -48,8 +48,8 @@ export default function MainHeader({ darkMode }) {
         }
         src={
           darkMode
-            ? `${process.env.PUBLIC_URL}/Image/PCDarkHeader.png`
-            : `${process.env.PUBLIC_URL}/Image/desktopHeader.png`
+            ? `${process.env.PUBLIC_URL}/Image/Dark_PC_Header.png`
+            : `${process.env.PUBLIC_URL}/Image/Light_PC_Header.png`
         }
       />
       <Link className="Home_Button_Container" to={"/"}>

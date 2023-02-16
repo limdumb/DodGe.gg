@@ -2,7 +2,6 @@
   display: flex;
   width: 100%;
   height: 377px;
-  background-image: url(../CommonComponents/lightBG.png);
   justify-content: center;
 }
 
@@ -28,7 +27,7 @@
 
 .Champion_List_Container {
   position: absolute;
-  top: 242px;
+  top: 252px;
   padding-top: 10px;
   display: flex;
   flex-wrap: wrap;
@@ -42,7 +41,7 @@
 
 .Dark_Champion_List_Container {
   position: absolute;
-  top: 242px;
+  top: 252px;
   padding-top: 10px;
   display: flex;
   flex-wrap: wrap;
@@ -90,7 +89,7 @@
   height: 328px;
   display: flex;
   justify-content: center;
-  background-image: url(../CommonComponents/ChampionSection.png);
+  background-image: url(/public/Image/Light_Border.png);
   background-repeat: no-repeat;
   padding-top: 24px;
 }
@@ -100,18 +99,21 @@
   height: 328px;
   display: flex;
   justify-content: center;
-  background-image: url(../CommonComponents/ChampionSection.png);
+  background-image: url(/public/Image/Dark_Border.png);
   background-repeat: no-repeat;
   padding-top: 24px;
 }
 
 @media screen and (min-width: 768px) {
+  .Right_Aside_Container{
+    width: 352px;
+  }
 }
 
 @media screen and (min-width: 1024px) {
   .Champion_List_Container {
     position: absolute;
-    top: 260px;
+    top: 270px;
     padding-top: 10px;
     display: flex;
     flex-wrap: wrap;
@@ -127,13 +129,12 @@
     display: flex;
     width: 100%;
     height: 377px;
-    background-image: url(../CommonComponents/lightBG.png);
     justify-content: center;
   }
 
   .Dark_Champion_List_Container {
     position: absolute;
-    top: 260px;
+    top: 270px;
     padding-top: 10px;
     display: flex;
     flex-wrap: wrap;
@@ -151,7 +152,7 @@
     height: 328px;
     display: flex;
     justify-content: center;
-    background-image: url(../CommonComponents/ChampionSection.png);
+    background-image: url(/public/Image/Light_Border.png);
     background-repeat: no-repeat;
     padding-top: 24px;
   }

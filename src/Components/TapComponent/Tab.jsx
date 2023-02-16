@@ -3,9 +3,6 @@ import "./Tab.css";
 import lineIconImg from "./imgLink";
 import TabBtn from "./TabBtn";
 import { ChampSearchBar } from "../CommonComponents/SearchInput";
-import tabLine from "./img/tab_line.png";
-import OPtabLine from "./img/OPtab_line.png";
-import OPListLine from "./img/OPList_line.png";
 
 export const ChampionTab = ({
   line,
@@ -44,7 +41,7 @@ export const ChampionTab = ({
             );
           })}
         </div>
-        <img className="tabLine" src={tabLine} />
+        <img className="tabLine" src={`${process.env.PUBLIC_URL}/Image/Light_Line2.png`} />
       </div>
     </div>
   );

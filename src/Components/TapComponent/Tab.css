@@ -46,7 +46,7 @@
   top: 90%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-image: url(./img/OPList_line.png);
+  background-image: url(/public/Image/Light_Line3.png);
 }
 
 .Tab_LineBtn {
@@ -167,7 +167,7 @@
     top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-image: url(./img/OPtab_line.png);
+    background-image: url(/public/Image/Light_Line.png);
   }
   .Tab_LineInnerBox2 .Tab_LineBtn:nth-child(1) {
     top: 12px;
