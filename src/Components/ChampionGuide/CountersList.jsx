@@ -64,9 +64,8 @@ const Container = styled.div`
       border-radius: 10%;
     }
 
-    .Counter_Win_Rate {
-      color: ${(props) =>
-        props.darkMode ? "rgb(255, 210, 90)" : "rgb(120, 220, 180)"};
+    .Counter_Name {
+      color: white;
     }
   }
 
@@ -80,6 +79,10 @@ const Container = styled.div`
     .Counter_List_Item {
       font-size: 22px;
     }
+  }
+
+  @media only screen and (min-width: 768px) {
+    width: 560px;
   }
 `;
 
@@ -110,10 +113,10 @@ function CounterChampion({ currentChamp, idx }) {
           }.png`}
         ></img>
       </div>
-      <div>
+      <div className="Counter_Name">
         {ChampionStatistics[0][currentChamp.id].counter_list[idx].name_kr}
       </div>
-      <div className="Counter_Win_Rate">
+      <div>
         {
           ChampionStatistics[0][currentChamp.id].counter_list[idx]
             .counter_win_rate

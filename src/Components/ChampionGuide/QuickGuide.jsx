@@ -14,7 +14,10 @@ const Container = styled.div`
   }
 
   .Champion_Portrait {
-    height: 100px;
+    height: 125px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     img {
       width: 100px;
@@ -55,6 +58,10 @@ const Container = styled.div`
       .Rate {
         padding-right: 7.5px;
       }
+
+      .Rate_Percent_Indicator {
+        color: white;
+      }
     }
   }
 
@@ -86,7 +93,7 @@ const Container = styled.div`
         width: 65%;
         justify-content: space-evenly;
 
-        h2 {
+        .Champion_Title {
           font-size: 24px;
         }
 
@@ -106,9 +113,10 @@ const Container = styled.div`
     }
   }
   @media only screen and (min-width: 1024px) {
-    width: 550px;
-    margin-left: 83px;
-    padding-top: 10px;
+    width: 560px;
+    height: 350px;
+    padding: 10px 0;
+
     .Champion_Basics {
       margin-bottom: 10px;
       width: 550px;
@@ -147,19 +155,19 @@ export default function QuickGuide({ currentChamp, darkMode }) {
           </div>
           <div className="Rate_Info_Wrapper">
             <div className="Rate">
-              승률{" "}
+              <span className="Rate_Percent_Indicator">승률 </span>
               <span>
                 {ChampionStatistics[0][currentChamp.id].rates.win_rate}
               </span>
             </div>
             <div className="Rate">
-              픽률{" "}
+              <span className="Rate_Percent_Indicator">픽률 </span>
               <span>
                 {ChampionStatistics[0][currentChamp.id].rates.pick_rate}
               </span>
             </div>
             <div className="Rate">
-              밴률{" "}
+              <span className="Rate_Percent_Indicator">밴률 </span>
               <span>
                 {ChampionStatistics[0][currentChamp.id].rates.ban_rate}
               </span>

@@ -17,7 +17,7 @@ const Runes_Container = styled.div`
 
   .Main_Runes {
     height: 350px;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
     display: flex;
     flex-direction: column;
   }
@@ -65,9 +65,10 @@ const Runes_Container = styled.div`
   .Runes_Header {
     display: flex;
     justify-content: center;
+    align-items: center;
     width: 90%;
     margin: 10px auto 0 auto;
-    padding-bottom: 5px;
+    padding-bottom: 15px;
     background: transparent;
     border-bottom: ${(props) =>
       props.darkMode

@@ -14,12 +14,13 @@ const Container = styled.div`
     align-items: center;
     flex-direction: column;
     margin: 0 auto;
+    color: white;
 
     &:nth-child(1) {
       width: 60%;
     }
 
-    h6 {
+    .Recommend_Indicator {
       font-size: 20px;
       font-weight: normal;
       margin-bottom: 10px;
@@ -74,23 +75,19 @@ const Container = styled.div`
   }
 
   @media only screen and (min-width: 1024px) {
-    display:grid;
+    display: grid;
     width: 400px;
     margin: 0 auto;
     grid-template-columns: 1fr 1fr 1fr;
 
-    .Recommend_Container{
-      h6{
-        font-size: 15px;
-        margin: 0;
-      }
-      img{
-        width: 40px;
-        height: 40px;
+    .Recommend_Container {
+      img {
+        width: 50px;
+        height: 50px;
       }
     }
 
-    .Recommend_Container:nth-child(1){
+    .Recommend_Container:nth-child(1) {
       width: 100%;
       grid-column-start: 1;
       grid-column-end: 3;
@@ -110,7 +107,7 @@ export default function QuickBuild({ currentChamp, darkMode }) {
   return (
     <Container>
       <div className="Recommend_Container">
-        <h6>스킬 마스터 추천 순서</h6>
+        <h3 className="Recommend_Indicator">스킬 마스터 추천 순서</h3>
         <div className="Box_Container">
           <div className="Item_Box">
             <span className="Skill_Key">
@@ -136,7 +133,7 @@ export default function QuickBuild({ currentChamp, darkMode }) {
       </div>
 
       <div className="Recommend_Container">
-        <h6>추천 스펠</h6>
+        <h3 className="Recommend_Indicator">추천 스펠</h3>
         <div className="Box_Container">
           <div className="Item_Box">
             <img src={`${baseURL}/spell/${summonerSpells[0]}.png`}></img>
@@ -148,7 +145,7 @@ export default function QuickBuild({ currentChamp, darkMode }) {
       </div>
 
       <div className="Recommend_Container">
-        <h6>시작 아이템</h6>
+        <h3 className="Recommend_Indicator">시작 아이템</h3>
         <div className="Box_Container">
           <div className="Item_Box">
             <img src={`${baseURL}/item/${startItems[0]}.png`}></img>
@@ -171,7 +168,7 @@ export default function QuickBuild({ currentChamp, darkMode }) {
         <div></div>
       ) : (
         <div className="Recommend_Container">
-          <h6>신발</h6>
+          <h3 className="Recommend_Indicator">신발</h3>
           <div className="Box_Container">
             <div className="Item_Box">
               <img src={`${baseURL}/item/${startBoots}.png`}></img>
@@ -181,7 +178,7 @@ export default function QuickBuild({ currentChamp, darkMode }) {
       )}
 
       <div className="Recommend_Container">
-        <h6>코어템</h6>
+        <h3 className="Recommend_Indicator">핵심 아이템</h3>
         <div className="Box_Container">
           <div className="Item_Box">
             <img

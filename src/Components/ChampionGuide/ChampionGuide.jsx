@@ -17,6 +17,7 @@ const Main_Container = styled.div`
 
   @media only screen and (min-width: 768px) {
     height: 1250px;
+
     .Container {
       height: 100%;
       background-position: center;
@@ -25,8 +26,9 @@ const Main_Container = styled.div`
   }
 
   @media only screen and (min-width: 1024px) {
-    width: 50vw;
-    display: flex;
+    height: 1300px;
+    margin-left: 60px;
+    width: 600px;
   }
 `;
 
