@@ -1,17 +1,25 @@
-.Op_List_Container{
+.Op_List_Container {
   position: relative;
   width: 310px;
   height: 540px;
-  border: 1px solid rgba(0, 113, 188, 0.6);
-  background-image: url('/public/Image/Light_OPBG.png');
+  border: 1px solid;
+  border-image: linear-gradient(to bottom, #3A6785 0%, #4C4D74 100%);
+  border-image-slice: 1;
+  background-image: url("/public/Image/Light_OPBG.png");
 }
 
-.main{
+.Dark_OP_List {
+  border-image: linear-gradient(to bottom, #20CACA 0%, rgba(255, 0, 255, 0.6) 100%);
+  border-image-slice: 1;
+  background-image: url("/public/Image/Dark_OPBG.png");
+}
+
+.main {
   display: none;
 }
 
 @media screen and (min-width: 1024px) {
-  .Op_List_Container{
+  .Op_List_Container {
     width: 100%;
     display: flex;
     flex-direction: column;

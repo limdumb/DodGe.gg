@@ -7,13 +7,13 @@ const HeaderBox = styled.span`
   width: ${(props) => props.width};
 `;
 
-const ChampionsList = ({ CheckLine }) => {
+const ChampionsList = ({ CheckLine, darkMode }) => {
    
   const championsList = useChampions(CheckLine);
 
   return (
     <div className="OPList_Box">
-      <div className="Champion_HeaderBox">
+      <div className={darkMode ? "Dark_Champion_HeaderBox Champion_HeaderBox":"Champion_HeaderBox"}>
         <HeaderBox width="10%">순위</HeaderBox>
         <HeaderBox width="30%">챔피언</HeaderBox>
         <HeaderBox width="13%">승률</HeaderBox>
@@ -21,9 +21,9 @@ const ChampionsList = ({ CheckLine }) => {
         <HeaderBox width="13%">밴률</HeaderBox>
         <HeaderBox width="15%">카운터</HeaderBox>
       </div>
-      <div className="OPChampion_List">
+      <div className={darkMode ? "Dark_OPChampion_List OPChampion_List": "OPChampion_List"}>
       {championsList.map((data, index) => {
-        return <Champion key={index} data={data} />;
+        return <Champion key={index} data={data} darkMode={darkMode}/>;
       })}
       </div>
       

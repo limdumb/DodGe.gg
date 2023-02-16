@@ -12,13 +12,13 @@ const ChampionData = styled.span`
   }
 `;
 
-const Champion = ({ data }) => {
+const Champion = ({ data, darkMode }) => {
   return (
     <div className="Champion_Box">
-      <div className="Champion_left_Box">
+      <div className={darkMode ? "Dark_Champion_left_Box Champion_left_Box": "Champion_left_Box"}>
         <ChampionData width="10%">{data.positionRank}</ChampionData>
         <img className="Champion_Img" src={data.img} />
-        <p className="Champion_Name">{data.name}</p>
+        <p className={darkMode ? "Dark_Champion_Name Champion_Name" : "Champion_Name"}>{data.name}</p>
         <img
           className="Champion_Tier"
           src={`https://s-lol-web.op.gg/images/icon/icon-tier-${data.positionTier}.svg`}

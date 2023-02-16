@@ -23,6 +23,10 @@
   top: 10px;
 }
 
+.Dark_Champion_HeaderBox{
+  color: #ff00ff;
+}
+
 .OPChampion_List {
   height: 350px;
   overflow: auto;
@@ -51,6 +55,12 @@
   height: 34px;
   border-radius: 10px;
   background-color: white;
+  color: #1b1464;
+}
+
+.Dark_Champion_left_Box{
+  color: #ff00ff;
+  background-color: rgba(51, 51, 51, 0.8);
 }
 
 .Champion_right_Box {
@@ -75,6 +85,10 @@
   width: 26%;
   font-weight: 900;
   color: #1b1464;
+}
+
+.Dark_Champion_Name {
+  color: #ff00ff;
 }
 
 .Champion_Tier {
@@ -108,15 +122,32 @@
     color: #ffd25a;
   }
 
+  .Dark_Champion_Name {
+    color: #80CFAC;
+  }
+
   .Champion_left_Box {
     color: #ffd25a;
     background-color: rgba(0, 0, 0, 0);
   }
-  
+
+  .Dark_Champion_left_Box{
+    color: #80CFAC;
+  }
+
+  .Dark_Champion_HeaderBox{
+    color: #80CFAC;
+  }
+
   .OPChampion_List {
     height: 350px;
     overflow: auto;
     border-top: 2px solid #ffd25a;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(51, 51, 51, 0.4);
+  }
+
+  .Dark_OPChampion_List{
+    color: #80CFAC;
+    border-top: 2px solid #80CFAC;
   }
 }
