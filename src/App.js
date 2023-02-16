@@ -18,7 +18,7 @@ function App() {
     <BrowserRouter>
       <Modal modalCheck={modalCheck} setModalCheck={setModalCheck} darkMode={darkMode}/>
       <Nav modalCheck={modalCheck} setModalCheck={setModalCheck} setDarkMode={setDarkMode} darkMode={darkMode}/>
-      <MainHeader darkMode={darkMode}/>
+      <MainHeader darkMode={darkMode} setDarkMode={setDarkMode}/>
       <main className={darkMode ? "Dark_BG" : null}>
         <aside>
           <ChampionSearchList setChampSelected={setChampSelected} darkMode={darkMode}/>

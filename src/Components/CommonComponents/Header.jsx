@@ -23,7 +23,11 @@ const HeaderSpan = styled(StyleSpan)`
   color: ${(props) => (props.color ? "#FF00FF" : "#FFD25A")};
 `;
 
-export default function MainHeader({ darkMode }) {
+export default function MainHeader({ darkMode, setDarkMode }) {
+
+  const modeChange = () => {
+    setDarkMode(!darkMode);
+  }
   return (
     <Header backgroundColor={darkMode}>
       <div
@@ -53,6 +57,9 @@ export default function MainHeader({ darkMode }) {
         </HeaderSpan>
       </Link>
       <div className="Logo_Container">
+        <div onClick={modeChange} className={darkMode ? "Header_Icon Dark_Header_Icon" : "Header_Icon"}>
+          <img src={darkMode ? "https://img.icons8.com/ios-filled/512/crescent-moon.png" : "https://img.icons8.com/sf-black-filled/512/sun.png"}/>
+        </div>
         <StyleSpan
           changeColor={darkMode ? "#FF00FF" : "#FFD25A"}
           fontsize="26px"
