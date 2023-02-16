@@ -1,29 +1,85 @@
-.User_Profil{
-  width: 190px;
-  height: 150px;
-  margin-right: 30px;
-}
-
-.Icon_Image{
-  width: 90px;
-  border-radius: 5px;
-}
-
-.Information_Contents{
+.Dark_User_Information_Container {
+  height: 200px;
+  padding-bottom: 10px;
   display: flex;
-  padding-top: 10px;
+  flex-direction: column;
+  margin: 25px 5px;
+  background-color: rgba(41, 171, 226, 0.2);
 }
 
-.User_Information_Container{
-  height: 170px;
+.Light_User_Information_Container {
+  height: 200px;
+  padding-bottom: 10px;
   display: flex;
+  flex-direction: column;
+  margin: 25px 5px;
+  background-color: rgba(198, 156, 109, 0.2);
+}
+
+.User_Information_Wrapper {
+  display: flex;
+}
+
+.User_Profile {
+  width: 40%;
+}
+
+.Information_Contents {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
+  height: 100%;
 }
 
-.User_Name{
+.Icon_Image {
+  width: 125px;
+  height: 125px;
+}
+
+.User_Name {
   font-size: 30px;
+  background: linear-gradient(
+    90deg,
+    rgba(180, 166, 36, 0.97) 2.991%,
+    rgba(251, 169, 35, 0.7) 51.3966%,
+    rgb(209, 151, 59) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.Tier_Information {
   display: flex;
-  align-items: center;
-  margin-top: 10px;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 60%;
+}
+
+@media only screen and (min-width: 768px) {
+  .Dark_User_Information_Container {
+    height: 250px;
+  }
+
+  .Light_User_Information_Container {
+    height: 250px;
+  }
+
+  .User_Information_Wrapper {
+    height: 100%;
+  }
+
+  .User_Profile {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .Icon_Image {
+    width: 150px;
+    height: 150px;
+  }
+
+  .User_Name {
+    font-size: 36px;
+  }
 }

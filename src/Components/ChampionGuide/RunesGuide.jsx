@@ -70,7 +70,7 @@ const Runes_Container = styled.div`
     padding-bottom: 5px;
     background: transparent;
     border-bottom: ${(props) =>
-      props.isDarkMode
+      props.darkMode
         ? "3px solid rgb(120, 220, 180)"
         : "3px solid rgb(255, 210, 90)"};
 
@@ -86,9 +86,7 @@ const Runes_Container = styled.div`
 
   .Runes_Wrapper {
     background-color: ${(props) =>
-      props.isDarkMode
-        ? "rgba(41, 171, 226, 0.2)"
-        : "rgba(198, 156, 109, 0.2)"};
+      props.darkMode ? "rgba(41, 171, 226, 0.2)" : "rgba(198, 156, 109, 0.2)"};
     border-radius: 2px;
     flex: 1;
     display: flex;
@@ -98,8 +96,9 @@ const Runes_Container = styled.div`
   .Trapezoid {
     margin: 0 auto;
     width: 40%;
+
     border-top: ${(props) =>
-      props.isDarkMode
+      props.darkMode
         ? "12.5px solid rgb(120, 220, 180)"
         : "12.5px solid rgb(255, 210, 90)"};
     border-left: 7.5px solid transparent;
@@ -112,9 +111,7 @@ const Runes_Container = styled.div`
 
   .Stats_Wrapper {
     background-color: ${(props) =>
-      props.isDarkMode
-        ? "rgba(41, 171, 226, 0.2)"
-        : "rgba(198, 156, 109, 0.2)"};
+      props.darkMode ? "rgba(41, 171, 226, 0.2)" : "rgba(198, 156, 109, 0.2)"};
   }
 
   .Stat_Box {
@@ -170,7 +167,7 @@ const Runes_Container = styled.div`
   }
 `;
 
-export default function RunesGuide({ currentChamp, isDarkMode }) {
+export default function RunesGuide({ currentChamp, darkMode }) {
   const [runes, setRunes] = useState(null);
 
   useEffect(() => {
@@ -180,12 +177,12 @@ export default function RunesGuide({ currentChamp, isDarkMode }) {
   }, []);
 
   return (
-    <Runes_Container isDarkMode={isDarkMode}>
+    <Runes_Container darkMode={darkMode}>
       {runes && (
         <RunesSection
           currentChamp={currentChamp}
           runes={runes}
-          isDarkMode={isDarkMode}
+          darkMode={darkMode}
         />
       )}
     </Runes_Container>
@@ -199,7 +196,7 @@ export default function RunesGuide({ currentChamp, isDarkMode }) {
  * @returns {메인 룬, 서브 룬 섹션을 포함한 Wrapper}
  * @author 심민섭
  */
-function RunesSection({ currentChamp, runes, isDarkMode }) {
+function RunesSection({ currentChamp, runes, darkMode }) {
   const baseURL = "https://ddragon.canisback.com/img/";
 
   const mainRuneTitle =

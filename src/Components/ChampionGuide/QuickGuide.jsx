@@ -3,10 +3,13 @@ import QuickBuild from "./QuickBuild";
 import ChampionStatistics from "./Data/ChampionStatistics.json";
 
 const Container = styled.div`
-  height: 350px;
-  padding: 20px 0 0 15px;
+  padding: 10px 5px 0px 5px;
+  height: 400px;
+  background-color: ${(props) =>
+    props.darkMode ? "rgba(41, 171, 226, 0.2)" : "rgba(198, 156, 109, 0.2)"};
 
   .Champion_Basics {
+    height: 150px;
     display: flex;
   }
 
@@ -20,15 +23,15 @@ const Container = styled.div`
   }
 
   .Champion_Info {
-    width: 270px;
     height: 100px;
     display: flex;
     flex-direction: column;
     text-align: center;
 
-    h2 {
-      font-size: 22px;
+    .Champion_Title {
+      font-size: 20px;
       font-weight: normal;
+      margin-bottom: 5px;
     }
 
     .Skill_Set {
@@ -37,18 +40,17 @@ const Container = styled.div`
       justify-content: space-evenly;
 
       img {
-        width: 44px;
-        height: 44px;
+        width: 45px;
+        height: 45px;
       }
     }
 
     .Rate_Info_Wrapper {
       margin-top: 7.5px;
-      height: 20px;
       display: flex;
       justify-content: space-evenly;
       align-items: center;
-      font-size: 15px;
+      font-size: 16px;
 
       .Rate {
         padding-right: 7.5px;
@@ -105,16 +107,16 @@ const Container = styled.div`
   }
 `;
 
-export default function QuickGuide({ currentChamp, isDarkMode }) {
-  const baseURL = "http://ddragon.leagueoflegends.com/cdn/12.23.1/img";
+export default function QuickGuide({ currentChamp, darkMode }) {
+  const baseURL = "http://ddragon.leagueoflegends.com/cdn/13.3.1/img";
   return (
-    <Container>
+    <Container darkMode={darkMode}>
       <div className="Champion_Basics">
         <div className="Champion_Portrait">
           <img src={`${baseURL}/champion/${currentChamp.id}.png`}></img>
         </div>
         <div className="Champion_Info">
-          <h2>
+          <h2 className="Champion_Title">
             {currentChamp.name}, {currentChamp.title}
           </h2>
           <div className="Skill_Set">
@@ -156,7 +158,7 @@ export default function QuickGuide({ currentChamp, isDarkMode }) {
           </div>
         </div>
       </div>
-      <QuickBuild currentChamp={currentChamp} isDarkMode={isDarkMode} />
+      <QuickBuild currentChamp={currentChamp} darkMode={darkMode} />
     </Container>
   );
 }

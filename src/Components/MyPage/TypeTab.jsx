@@ -4,14 +4,14 @@ import "./TypeTab.css";
 
 const TabButton = styled.button`
   border: none;
-  background-color: white;
+  background-color: transparent;
   &:hover {
     cursor: pointer;
   }
   font-weight: bold;
   font-size: ${(props) => props.fontsize || "28px"};
   border-bottom: ${(props) => (props.borderBottom ? "2px solid gray" : "none")};
-  color: ${(props) => (props.changeColor ? "black" : "rgb(187, 187, 187)")};
+  color: ${(props) => (props.changeColor ? "white" : "#B2B2B2")};
   margin-top: ${(props) => props.marginTop};
   margin-bottom: ${(props) => props.marginBtm};
   margin-left: ${(props) => props.marginLft};
@@ -130,20 +130,22 @@ export const RankTab = ({ userRankTier }) => {
               {soloRankTier && (
                 <>
                   <img
-                    className="Icon_Image"
+                    className="Tier_Icon_Image"
                     src={`https://blitz-cdn.blitz.gg/80x0/ranks/2022/${lowerCaseSoloTierName}.webp`}
                   />
-                  <span className="Tab_Tier_Contents_1">
-                    {soloRankTier[0].tier} {soloRankTier[0].rank}
-                  </span>
-                  <span className="Tab_Tier_Contents_2">
-                    {soloRankTier[0].leaguePoints}LP
-                  </span>
+                  <div className="Tab_Tier_Contents_Wrapper">
+                    <p className="Tab_Tier_Contents_1">
+                      {soloRankTier[0].tier} {soloRankTier[0].rank}
+                    </p>
+                    <span className="Tab_Tier_Contents_2">
+                      {soloRankTier[0].leaguePoints}LP
+                    </span>
+                  </div>
                 </>
               )}
             </div>
           ) : (
-            <div>Un Rank</div>
+            <div>Unranked</div>
           )}
         </div>
       ),
@@ -164,25 +166,27 @@ export const RankTab = ({ userRankTier }) => {
         <div className="Tab_Tier_Container">
           {FreeRankTier.length !== 0 ? (
             <>
-              <img
-                className="Icon_Image"
-                src={`https://blitz-cdn.blitz.gg/80x0/ranks/2022/${lowerCaseFreeTierName}.webp`}
-              />
               <div className="Tab_Tier_Contents">
                 {FreeRankTier && (
                   <>
-                    <span className="Tab_Tier_Contents_1">
-                      {FreeRankTier[0].tier} {FreeRankTier[0].rank}
-                    </span>
-                    <span className="Tab_Tier_Contents_2">
-                      {FreeRankTier[0].leaguePoints}LP
-                    </span>
+                    <img
+                      className="Tier_Icon_Image"
+                      src={`https://blitz-cdn.blitz.gg/80x0/ranks/2022/${lowerCaseFreeTierName}.webp`}
+                    />
+                    <div className="Tab_Tier_Contents_Wrapper">
+                      <p className="Tab_Tier_Contents_1">
+                        {FreeRankTier[0].tier} {FreeRankTier[0].rank}
+                      </p>
+                      <span className="Tab_Tier_Contents_2">
+                        {FreeRankTier[0].leaguePoints}LP
+                      </span>
+                    </div>
                   </>
                 )}
               </div>
             </>
           ) : (
-            <div>Un Rank</div>
+            <div>Unranked</div>
           )}
         </div>
       ),

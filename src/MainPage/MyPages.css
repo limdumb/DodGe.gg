@@ -1,0 +1,78 @@
+.Dark_Mode {
+  color: rgb(255, 0, 255);
+}
+
+.Light_Mode {
+  color: rgb(255, 210, 90);
+}
+
+.Dark_Wrapper_Line {
+  border-bottom: 2.5px solid rgb(120, 220, 180);
+  margin: 0 auto;
+  width: 90%;
+}
+
+.Light_Wrapper_Line {
+  border-bottom: 2.5px solid rgb(255, 210, 90);
+  margin: 0 auto;
+  width: 90%;
+}
+
+.Dark_Trapezoid {
+  margin: 0 auto 10px auto;
+  width: 40%;
+  border-top: 12.5px solid rgb(120, 220, 180);
+  border-left: 7.5px solid transparent;
+  border-right: 7.5px solid transparent;
+}
+
+.Light_Trapezoid {
+  margin: 0 auto 10px auto;
+  width: 40%;
+  border-top: 12.5px solid rgb(255, 210, 90);
+  border-left: 7.5px solid transparent;
+  border-right: 7.5px solid transparent;
+}
+
+.Dark_Easter_Egg_Wrapper {
+  background-color: rgba(41, 171, 226, 0.2);
+  padding: 0 10px 20px 10px;
+  margin: 0 5px 20px 5px;
+  font-size: 18px;
+}
+
+.Light_Easter_Egg_Wrapper {
+  background-color: rgba(198, 156, 109, 0.2);
+  padding: 0 10px 20px 10px;
+  margin: 0 5px 20px 5px;
+  font-size: 18px;
+}
+
+.Did_You_Know {
+  color: white;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.Dark_Record_Wrapper {
+  padding-bottom: 20px;
+  background-color: rgba(41, 171, 226, 0.2);
+}
+
+.Light_Record_Wrapper {
+  padding-bottom: 20px;
+  background-color: rgba(198, 156, 109, 0.2);
+}
+
+@media only screen and (min-width: 768px) {
+  .Dark_Mode {
+    background-size: contain;
+  }
+
+  .Light_Mode {
+    background-size: contain;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+}
