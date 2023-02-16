@@ -130,7 +130,7 @@ const SubNavBtn = styled.button`
   border-radius: ${(props) => (props.clickCheck ? "50px" : "30px")};
   transition: ${(props) => props.speed};
   z-index: 999;
-  background-color: ${(props) => (props.darkMode ? '#78DCB4' : `#ffdc6e`)};
+  background-color: ${(props) => (props.darkMode ? "#78DCB4" : `#ffdc6e`)};
   position: absolute;
   bottom: ${(props) => (props.clickCheck ? props.bottom : "30%")};
   right: ${(props) => (props.clickCheck ? props.right : "30%")};
@@ -147,12 +147,25 @@ const SubNavBtn = styled.button`
     border-radius: 100%;
     z-index: 1000;
   }
-  .sub_nav2 {
+  .sub_nav img {
     width: 100%;
     height: 100%;
+  }
+
+  .sub_nav p {
+    font-size: 20px;
+    text-align: center;
+    font-weight: 900;
+    line-height: 50px;
+  }
+
+  .sub_small img {
     position: absolute;
-    border-radius: 100%;
-    z-index: 1001;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
   }
 `;
 
@@ -214,11 +227,9 @@ const Nav = ({ modalCheck, setModalCheck, setDarkMode, darkMode }) => {
         darkMode={darkMode}
       >
         <div className="subBox">
-          <div className="sub_nav"></div>
-          <div className="sub_nav2"></div>
-          <div className="sub_nav2"></div>
-          <div className="sub_nav3"></div>
-          <div className="sub_nav3"></div>
+          <div className="sub_nav">
+            <img src="https://img.icons8.com/ios-glyphs/512/circled-up.png" />
+          </div>
         </div>
       </SubNavBtn>
       <SubNavBtn
@@ -231,11 +242,9 @@ const Nav = ({ modalCheck, setModalCheck, setDarkMode, darkMode }) => {
         darkMode={darkMode}
       >
         <div className="subBox">
-          <div className="sub_nav"></div>
-          <div className="sub_nav2"></div>
-          <div className="sub_nav2"></div>
-          <div className="sub_nav3"></div>
-          <div className="sub_nav3"></div>
+          <div className="sub_nav">
+            <p>OP</p>
+          </div>
         </div>
       </SubNavBtn>
       <SubNavBtn
@@ -248,11 +257,9 @@ const Nav = ({ modalCheck, setModalCheck, setDarkMode, darkMode }) => {
         darkMode={darkMode}
       >
         <div className="subBox">
-          <div className="sub_nav"></div>
-          <div className="sub_nav2"></div>
-          <div className="sub_nav2"></div>
-          <div className="sub_nav3"></div>
-          <div className="sub_nav3"></div>
+          <div className="sub_nav sub_small">
+            <img src="https://img.icons8.com/metro/512/witch.png" />
+          </div>
         </div>
       </SubNavBtn>
       <SubNavBtn
@@ -265,11 +272,15 @@ const Nav = ({ modalCheck, setModalCheck, setDarkMode, darkMode }) => {
         onClick={ModeChange}
       >
         <div className="subBox">
-          <div className="sub_nav"></div>
-          <div className="sub_nav2"></div>
-          <div className="sub_nav2"></div>
-          <div className="sub_nav3"></div>
-          <div className="sub_nav3"></div>
+          <div className="sub_nav">
+            <img
+              src={
+                darkMode
+                  ? "https://img.icons8.com/ios-filled/512/crescent-moon.png"
+                  : "https://img.icons8.com/sf-black-filled/512/sun.png"
+              }
+            />
+          </div>
         </div>
       </SubNavBtn>
     </NavBody>
