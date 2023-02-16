@@ -2,15 +2,20 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  margin: auto;
+}
+
+.Home_Button_Container {
+  z-index: 1;
+  height: 18px;
+  text-decoration: none;
+  position: absolute;
+  left: 13.5%;
+  top: 43%;
 }
 
 .Gradation_Header {
-  position: absolute;
-  opacity: 0.8;
-  left: 0;
-  width: 390px;
-  height: 61px;
+  width: 100%;
+  height: 69px;
   background: rgb(180, 90, 36);
   background: linear-gradient(
     90deg,
@@ -18,160 +23,115 @@
     rgba(251, 176, 59, 0.5) 51.3966%,
     rgba(180, 90, 36, 1) 100%
   );
+  position: absolute;
+  opacity: 0.8;
+  left: 0;
 }
 
-.Home_Button_Container {
-  z-index: 1;
-  height: 18px;
-  margin-left: 36.499px;
-  text-decoration: none;
+.Dark_Gradation_Header {
+  width: 100%;
+  height: 69px;
+  background: linear-gradient(
+    90deg,
+    rgba(23, 14, 22, 0.97) 2.991%,
+    rgba(30, 26, 49, 0.5) 51.3966%,
+    rgba(23, 14, 22, 1) 100%
+  );
   position: absolute;
+  opacity: 0.8;
+  left: 0;
 }
 
 .Header_Image {
+  width: 100%;
+  height: 69px;
   position: relative;
-  right: 10px;
-  bottom: 1px;
+  right: 0px;
+  bottom: 0px;
 }
 
 .Dark_Header_Image {
-  position: absolute;
+  width: 100%;
+  height: 69px;
+  position: relative;
   right: 0px;
-  top: 0px;
+  bottom: 0px;
+}
+
+.Header_Image_Desktop {
+  display: none;
+}
+
+.Dark_Header_Image_Desktop {
+  display: none;
 }
 
 @media screen and (max-width: 768px) {
   .Header_Input_Container {
     display: none;
   }
-  .Header_Image_Desktop{
-    display: none;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .Header_Input_Container {
-    display: none;
-  }
 }
 
 @media screen and (min-width: 768px) {
-  .Header_Input_Container {
-    position: fixed;
-    right: 110px;
-    top: 18px;
-  }
-
-  .Header_Image{
-    display: none;
-  }
-  .Logo_Container {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    margin: auto;
-  }
-
-  .Gradation_Header {
-    position: absolute;
-    opacity: 0.8;
-    left: 0;
-    width: 100%;
-    height: 69px;
-    background: rgb(180, 90, 36);
-    background: linear-gradient(
-      90deg,
-      rgba(180, 90, 36, 0.97) 2.991%,
-      rgba(251, 176, 59, 0.5) 51.3966%,
-      rgba(180, 90, 36, 1) 100%
-    );
-  }
-
-  .Home_Button_Container {
-    z-index: 1;
-    height: 18px;
-    margin-left: 36.499px;
-    text-decoration: none;
-    position: absolute;
-  }
-
-  .Header_Image_Desktop {
-    position: relative;
-    width: 103.5%;
-    height: 100%;
-    right: 16px;
-    bottom: 1px;
-  }
-
-  .Dark_Header_Image {
-    position: absolute;
-    right: 0px;
-    top: 0px;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .Header_Input_Container {
-    position: absolute;
-    right: 160px;
-    top: 18px;
-  }
-
-  .Gradation_Header {
-    position: absolute;
-    opacity: 0.8;
-    left: 0;
-    width: 100%;
-    height: 69px;
-    background: rgb(180, 90, 36);
-    background: linear-gradient(
-      90deg,
-      rgba(180, 90, 36, 0.97) 2.991%,
-      rgba(251, 176, 59, 0.5) 51.3966%,
-      rgba(180, 90, 36, 1) 100%
-    );
-  }
-
-  .Dark_Gradation_Header {
-    position: absolute;
-    opacity: 0.8;
-    left: 0;
-    width: 100%;
-    height: 69px;
-  }
-
-  .Dark_Header_Image {
-    display: none;
-  }
-
-  .Header_Image_Desktop {
-    width: 1025px;
-    display: block;
-    position: relative;
-    right: 10.1px;
-    bottom: 0.5px;
-    height: 69.2px;
-  }
-
-  .Dark_Header_Image_Desktop {
-    width: 1025px;
-    display: block;
-    position: relative;
-    right: 10.1px;
-    bottom: 0.5px;
-    height: 69.2px;
-  }
-
   .Header_Image {
     display: none;
   }
 
+  .Dark_Header_Image {
+    display: none;
+  }
+
   .Home_Button_Container {
-    z-index: 1;
-    height: 18px;
-    margin-left: 36.499px;
-    text-decoration: none;
     position: absolute;
-    left: 50px;
+    left: 7%;
+  }
+
+  .Header_Input_Container {
+    position: absolute;
+    right: 110px;
+    top: 18px;
+  }
+
+  .Header_Image_Desktop {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    right: 0px;
+    bottom: 1px;
+  }
+
+  .Dark_Header_Image_Desktop {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    right: 0px;
+    bottom: 1px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .Home_Button_Container {
+    left: 8%;
+  }
+
+  .Header_Input_Container {
+    right: 160px;
+    top: 18px;
+  }
+
+  .Header_Image_Desktop {
+    width: 1024px;
+    position: relative;
+    right: 0px;
+    bottom: 0.5px;
+  }
+
+  .Dark_Header_Image_Desktop {
+    width: 1024px;
+    position: relative;
+    right: 0px;
+    bottom: 0.5px;
   }
 }
