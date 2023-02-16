@@ -28,19 +28,27 @@ const NavBody = styled.div`
     bottom: 0;
     border-radius: 50px;
     border: 5px solid transparent;
-    background: linear-gradient(
-        90deg,
-        rgba(251, 190, 59, 1) 0%,
-        rgba(247, 147, 30, 1) 100%
-      )
-      border-box;
+    background: ${(props) =>
+      props.darkMode
+        ? `linear-gradient(
+      -30deg,
+      rgba(159, 111, 172, 1) 0%,
+      rgba(148, 220, 176, 1) 100%
+    )
+    border-box;`
+        : `linear-gradient(
+      90deg,
+      rgba(251, 190, 59, 1) 0%,
+      rgba(247, 147, 30, 1) 100%
+    )
+    border-box;`}
     -webkit-mask: linear-gradient(#fff 0 0) padding-box,
       linear-gradient(#fff 0 0);
     -webkit-mask-composite: destination-out;
     mask-composite: exclude;
   }
 
-  .NavButton_Base{
+  .NavButton_Base {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -51,7 +59,7 @@ const NavBody = styled.div`
   .NavButton_top {
     width: ${(props) => (props.clickCheck ? "45.3px" : "58.5px")};
     height: ${(props) => (props.clickCheck ? "45.3px" : "58.5px")};
-    background-color: #ffdc6e;
+    background-color: ${(props) => (props.darkMode ? "#94DCB0" : "#ffdc6e")};
     border-radius: ${(props) => (props.clickCheck ? "45.3px" : "58.5px")};
     z-index: 10005;
   }
@@ -62,8 +70,12 @@ const NavBody = styled.div`
     border-radius: ${(props) => (props.clickCheck ? "58.5px" : "71.7px")};
     background: linear-gradient(
       315deg,
-      rgba(241, 90, 36, 0) 0%,
-      rgba(247, 147, 30, 1) 100%
+      ${(props) =>
+        props.darkMode
+          ? `white 0%,
+      #94DCB0 100%`
+          : `rgba(241, 90, 36, 0) 0%,
+      rgba(247, 147, 30, 1) 100%`}
     );
     z-index: 10001;
   }
@@ -72,8 +84,12 @@ const NavBody = styled.div`
     height: ${(props) => (props.clickCheck ? "45.3px" : "58.5px")};
     background: linear-gradient(
       135deg,
-      rgba(241, 90, 36, 0) 0%,
-      rgba(247, 147, 30, 1) 100%
+      ${(props) =>
+        props.darkMode
+          ? `white 0%,
+      #94DCB0 100%`
+          : `rgba(241, 90, 36, 0) 0%,
+      rgba(247, 147, 30, 1) 100%`}
     );
     border-radius: ${(props) => (props.clickCheck ? "45.3px" : "58.5px")};
     z-index: 10006;
@@ -95,8 +111,12 @@ const NavButton = styled.button`
   border-radius: ${(props) => (props.clickCheck ? "58.5px" : "71.7px")};
   background: linear-gradient(
     90deg,
-    rgba(241, 90, 36, 0) 0%,
-    rgba(247, 147, 30, 1) 100%
+    ${(props) =>
+      props.darkMode
+        ? `#94DCB0 0%,
+    white 100%`
+        : `rgba(241, 90, 36, 0) 0%,
+    rgba(247, 147, 30, 1) 100%`}
   );
   transition: 1s;
   z-index: 10000;
@@ -110,7 +130,7 @@ const SubNavBtn = styled.button`
   border-radius: ${(props) => (props.clickCheck ? "50px" : "30px")};
   transition: ${(props) => props.speed};
   z-index: 999;
-  background-color: #ffdc6e;
+  background-color: ${(props) => (props.darkMode ? '#78DCB4' : `#ffdc6e`)};
   position: absolute;
   bottom: ${(props) => (props.clickCheck ? props.bottom : "30%")};
   right: ${(props) => (props.clickCheck ? props.right : "30%")};
@@ -124,11 +144,6 @@ const SubNavBtn = styled.button`
     width: 100%;
     height: 100%;
     position: absolute;
-    background: linear-gradient(
-      135deg,
-      rgba(241, 90, 36, 0) 0%,
-      rgba(247, 147, 30, 1) 100%
-    );
     border-radius: 100%;
     z-index: 1000;
   }
@@ -136,11 +151,6 @@ const SubNavBtn = styled.button`
     width: 100%;
     height: 100%;
     position: absolute;
-    background: linear-gradient(
-      315deg,
-      rgba(241, 90, 36, 0) 0%,
-      rgba(247, 147, 30, 1) 100%
-    );
     border-radius: 100%;
     z-index: 1001;
   }
@@ -153,7 +163,7 @@ const Nav = ({ modalCheck, setModalCheck, setDarkMode, darkMode }) => {
   }
 
   const ModeChage = () => {
-    setDarkMode(!darkMode)
+    setDarkMode(!darkMode);
   };
 
   const TopScroll = () => {
@@ -172,13 +182,28 @@ const Nav = ({ modalCheck, setModalCheck, setDarkMode, darkMode }) => {
   };
 
   return (
-    <NavBody clickCheck={clickCheck} onClick={NavClick}>
-      <NavButton_Base clickCheck={clickCheck} className="NavButton_Base NavButton_top2"></NavButton_Base>
-      <NavButton_Base clickCheck={clickCheck} className="NavButton_Base NavButton_top2"></NavButton_Base>
-      <NavButton_Base clickCheck={clickCheck} className="NavButton_Base NavButton_top3"></NavButton_Base>
-      <NavButton_Base clickCheck={clickCheck} className="NavButton_Base NavButton_top3"></NavButton_Base>
-      <NavButton_Base clickCheck={clickCheck} className="NavButton_Base NavButton_top"></NavButton_Base>
-      <NavButton clickCheck={clickCheck} />
+    <NavBody clickCheck={clickCheck} onClick={NavClick} darkMode={darkMode}>
+      <NavButton_Base
+        clickCheck={clickCheck}
+        className="NavButton_Base NavButton_top2"
+      ></NavButton_Base>
+      <NavButton_Base
+        clickCheck={clickCheck}
+        className="NavButton_Base NavButton_top2"
+      ></NavButton_Base>
+      <NavButton_Base
+        clickCheck={clickCheck}
+        className="NavButton_Base NavButton_top3"
+      ></NavButton_Base>
+      <NavButton_Base
+        clickCheck={clickCheck}
+        className="NavButton_Base NavButton_top3"
+      ></NavButton_Base>
+      <NavButton_Base
+        clickCheck={clickCheck}
+        className="NavButton_Base NavButton_top"
+      ></NavButton_Base>
+      <NavButton clickCheck={clickCheck} darkMode={darkMode} />
       <SubNavBtn
         clickCheck={clickCheck}
         backgroundColor={"red"}
@@ -186,6 +211,7 @@ const Nav = ({ modalCheck, setModalCheck, setDarkMode, darkMode }) => {
         right={"40px"}
         speed={"0.5s"}
         onClick={TopScroll}
+        darkMode={darkMode}
       >
         <div className="subBox">
           <div className="sub_nav"></div>
@@ -202,6 +228,7 @@ const Nav = ({ modalCheck, setModalCheck, setDarkMode, darkMode }) => {
         right={"100px"}
         speed={"0.7s"}
         onClick={OPListOpen}
+        darkMode={darkMode}
       >
         <div className="subBox">
           <div className="sub_nav"></div>
@@ -218,6 +245,7 @@ const Nav = ({ modalCheck, setModalCheck, setDarkMode, darkMode }) => {
         right={"100px"}
         speed={"0.9s"}
         onClick={SummonerSerchOpen}
+        darkMode={darkMode}
       >
         <div className="subBox">
           <div className="sub_nav"></div>
@@ -234,6 +262,7 @@ const Nav = ({ modalCheck, setModalCheck, setDarkMode, darkMode }) => {
         right={"40px"}
         speed={"1s"}
         onClick={ModeChage}
+        darkMode={darkMode}
       >
         <div className="subBox">
           <div className="sub_nav"></div>
