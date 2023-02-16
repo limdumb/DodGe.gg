@@ -93,7 +93,7 @@ const Container = styled.div`
         width: 65%;
         justify-content: space-evenly;
 
-        h2 {
+        .Champion_Title {
           font-size: 24px;
         }
 
@@ -113,7 +113,9 @@ const Container = styled.div`
     }
   }
   @media only screen and (min-width: 1024px) {
-    width: 550px;
+    width: 560px;
+    height: 350px;
+    padding: 10px 0;
 
     .Champion_Basics {
       margin-bottom: 10px;

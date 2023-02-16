@@ -65,6 +65,7 @@ const Runes_Container = styled.div`
   .Runes_Header {
     display: flex;
     justify-content: center;
+    align-items: center;
     width: 90%;
     margin: 10px auto 0 auto;
     padding-bottom: 15px;
