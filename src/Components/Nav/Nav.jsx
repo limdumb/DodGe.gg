@@ -162,7 +162,7 @@ const Nav = ({ modalCheck, setModalCheck, setDarkMode, darkMode }) => {
     setClickCheck(!clickCheck);
   }
 
-  const ModeChage = () => {
+  const ModeChange = () => {
     setDarkMode(!darkMode);
   };
 
@@ -261,8 +261,8 @@ const Nav = ({ modalCheck, setModalCheck, setDarkMode, darkMode }) => {
         bottom={"-65px"}
         right={"40px"}
         speed={"1s"}
-        onClick={ModeChage}
         darkMode={darkMode}
+        onClick={ModeChange}
       >
         <div className="subBox">
           <div className="sub_nav"></div>

@@ -15,7 +15,7 @@ const Container = styled.div`
     padding-bottom: 10px;
     background: transparent;
     border-bottom: ${(props) =>
-      props.isDarkMode
+      props.darkMode
         ? "3px solid rgb(120, 220, 180)"
         : " 3px solid rgb(255, 210, 90)"};
   }
@@ -25,16 +25,14 @@ const Container = styled.div`
     margin: 0;
     width: 100%;
     background-color: ${(props) =>
-      props.isDarkMode
-        ? "rgba(41, 171, 226, 0.2)"
-        : "rgba(198, 156, 109, 0.2)"};
+      props.darkMode ? "rgba(41, 171, 226, 0.2)" : "rgba(198, 156, 109, 0.2)"};
   }
 
   .Trapezoid {
     margin: 0 auto;
     width: 40%;
     border-top: ${(props) =>
-      props.isDarkMode
+      props.darkMode
         ? "12.5px solid rgb(120, 220, 180)"
         : "12.5px solid rgb(255, 210, 90)"};
     border-left: 7.5px solid transparent;
@@ -49,7 +47,7 @@ const Container = styled.div`
     align-items: center;
     font-size: 16px;
     border-bottom: ${(props) =>
-      props.isDarkMode
+      props.darkMode
         ? "solid 1px rgba(120, 220, 180, 0.5)"
         : "solid 1px rgba(255, 210, 90, 0.5)"};
 
@@ -68,7 +66,7 @@ const Container = styled.div`
 
     .Counter_Win_Rate {
       color: ${(props) =>
-        props.isDarkMode ? "rgb(255, 210, 90)" : "rgb(120, 220, 180)"};
+        props.darkMode ? "rgb(255, 210, 90)" : "rgb(120, 220, 180)"};
     }
   }
 
@@ -85,9 +83,9 @@ const Container = styled.div`
   }
 `;
 
-export default function CountersList({ currentChamp, isDarkMode }) {
+export default function CountersList({ currentChamp, darkMode }) {
   return (
-    <Container isDarkMode={isDarkMode}>
+    <Container darkMode={darkMode}>
       <div className="Header">카운터 리스트</div>
       <ul className="Counter_List">
         <div className="Trapezoid"></div>
@@ -102,7 +100,7 @@ export default function CountersList({ currentChamp, isDarkMode }) {
 }
 
 function CounterChampion({ currentChamp, idx }) {
-  const baseURL = "http://ddragon.leagueoflegends.com/cdn/12.21.1/img";
+  const baseURL = "http://ddragon.leagueoflegends.com/cdn/13.3.1/img";
   return (
     <li className="Counter_List_Item" key={idx}>
       <div>

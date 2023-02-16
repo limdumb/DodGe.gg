@@ -11,7 +11,7 @@ import ChampionSearchList from "./Components/ChampList/ChampionSearchList";
 import OpList from "./Components/OPList/OPList";
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false)
+  const [darkMode, setDarkMode] = useState(false);
   const [modalCheck, setModalCheck] = useState([false, false]);
   const [champSelected, setChampSelected] = useState(null);
   return (
@@ -23,15 +23,24 @@ function App() {
         <aside>
           <ChampionSearchList setChampSelected={setChampSelected} darkMode={darkMode}/>
           <OpList position={'main'} darkMode={darkMode}/>
+
         </aside>
         <Routes>
           <Route
             path="/champion/:champion"
             element={
-              champSelected && <ChampionGuide champSelected={champSelected} />
+              champSelected && (
+                <ChampionGuide
+                  champSelected={champSelected}
+                  darkMode={darkMode}
+                />
+              )
             }
           />
-          <Route path="/mypage/:summoner" element={<MyPages />} />
+          <Route
+            path="/mypage/:summoner"
+            element={<MyPages darkMode={darkMode} />}
+          />
         </Routes>
       </main>
       <MainFooter />
