@@ -22,6 +22,7 @@ const EasterEggSpan = styled(StyleSpan)`
 `;
 
 export default function MyPages({ darkMode }) {
+  console.log(darkMode);
   const summonerName = useParams();
 
   const [currentTab, setCurrentTab] = useState("All_Game_Record");
@@ -60,73 +61,69 @@ export default function MyPages({ darkMode }) {
   }, [summonerName]);
 
   return (
-    <>
-      <div id="Main_Container">
-        <main className={darkMode ? "Dark_Mode" : "Light_Mode"}>
-          {getUserProfile && (
-            <UserInformation
-              userRankTier={userRankTier}
-              profileIconId={getUserProfile.profileIconId}
-              name={getUserProfile.name}
-              darkMode={darkMode}
-            />
-          )}
+    <div className="Main_Container">
+      <div className={darkMode ? "Dark_Mode" : "Light_Mode"}>
+        {getUserProfile && (
+          <UserInformation
+            userRankTier={userRankTier}
+            profileIconId={getUserProfile.profileIconId}
+            name={getUserProfile.name}
+            darkMode={darkMode}
+          />
+        )}
+        <div
+          className={darkMode ? "Dark_Wrapper_Line" : "Light_Wrapper_Line"}
+        ></div>
+        <div
+          className={
+            darkMode ? "Dark_Easter_Egg_Wrapper" : "Light_Easter_Egg_Wrapper"
+          }
+        >
           <div
-            className={darkMode ? "Dark_Wrapper_Line" : "Light_Wrapper_Line"}
+            className={darkMode ? "Dark_Trapezoid" : "Light_Trapezoid"}
           ></div>
-          <div
-            className={
-              darkMode ? "Dark_Easter_Egg_Wrapper" : "Light_Easter_Egg_Wrapper"
+          <EasterEggSpan className="Did_You_Know">
+            혹시 알고 계셨나요?
+          </EasterEggSpan>
+          <EasterEggSpan>
+            {
+              easterEgg.data.info[
+                Math.floor(Math.random() * easterEgg.data.info.length)
+              ]
             }
-          >
-            <div
-              className={darkMode ? "Dark_Trapezoid" : "Light_Trapezoid"}
-            ></div>
-            <EasterEggSpan className="Did_You_Know">
-              혹시 알고 계셨나요?
-            </EasterEggSpan>
-            <EasterEggSpan>
-              {
-                easterEgg.data.info[
-                  Math.floor(Math.random() * easterEgg.data.info.length)
-                ]
-              }
-            </EasterEggSpan>
-          </div>
-          <div
-            className={darkMode ? "Dark_Wrapper_Line" : "Light_Wrapper_Line"}
-          ></div>
+          </EasterEggSpan>
+        </div>
+        <div
+          className={darkMode ? "Dark_Wrapper_Line" : "Light_Wrapper_Line"}
+        ></div>
 
+        <div
+          className={darkMode ? "Dark_Record_Wrapper" : "Light_Record_Wrapper"}
+        >
           <div
-            className={
-              darkMode ? "Dark_Record_Wrapper" : "Light_Record_Wrapper"
-            }
-          >
-            <div
-              className={darkMode ? "Dark_Trapezoid" : "Light_Trapezoid"}
-            ></div>
-            <TypeTab
-              onTabChange={(index) => {
-                if (index === 0) {
-                  setCurrentTab("All_Game_Record");
-                } else if (index === 1) {
-                  setCurrentTab("Solo_Rank_Record");
-                } else if (index === 2) {
-                  setCurrentTab("Free_Rank_Record");
-                } else {
-                  setCurrentTab("Normal_Game_Record");
-                }
-              }}
-            />
-            <RecordList
-              tab={currentTab}
-              getUserMatchData={getUserMatchData}
-              runesData={runesData}
-              getSpell={getSpell}
-            />
-          </div>
-        </main>
+            className={darkMode ? "Dark_Trapezoid" : "Light_Trapezoid"}
+          ></div>
+          <TypeTab
+            onTabChange={(index) => {
+              if (index === 0) {
+                setCurrentTab("All_Game_Record");
+              } else if (index === 1) {
+                setCurrentTab("Solo_Rank_Record");
+              } else if (index === 2) {
+                setCurrentTab("Free_Rank_Record");
+              } else {
+                setCurrentTab("Normal_Game_Record");
+              }
+            }}
+          />
+          <RecordList
+            tab={currentTab}
+            getUserMatchData={getUserMatchData}
+            runesData={runesData}
+            getSpell={getSpell}
+          />
+        </div>
       </div>
-    </>
+    </div>
   );
 }

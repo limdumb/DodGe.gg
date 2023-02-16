@@ -46,8 +46,7 @@ function App() {
           />
           <Route
             path="/mypage/:summoner"
-            element={<MyPages />}
-            darkMode={darkMode}
+            element={<MyPages darkMode={darkMode} />}
           />
         </Routes>
       </main>

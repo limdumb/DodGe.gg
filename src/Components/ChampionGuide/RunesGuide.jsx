@@ -96,6 +96,7 @@ const Runes_Container = styled.div`
   .Trapezoid {
     margin: 0 auto;
     width: 40%;
+
     border-top: ${(props) =>
       props.darkMode
         ? "12.5px solid rgb(120, 220, 180)"

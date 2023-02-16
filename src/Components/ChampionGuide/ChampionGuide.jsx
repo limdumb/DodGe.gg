@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { fetchChampData } from "../../API/RiotAPI";
 
 const Main_Container = styled.div`
-  height: 1650px;
+  height: 1700px;
 
   .Light {
     color: rgb(255, 210, 90);

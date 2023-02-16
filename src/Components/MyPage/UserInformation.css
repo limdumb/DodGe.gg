@@ -1,5 +1,6 @@
 .Dark_User_Information_Container {
   height: 200px;
+  padding-bottom: 10px;
   display: flex;
   flex-direction: column;
   margin: 25px 5px;
@@ -8,6 +9,7 @@
 
 .Light_User_Information_Container {
   height: 200px;
+  padding-bottom: 10px;
   display: flex;
   flex-direction: column;
   margin: 25px 5px;
