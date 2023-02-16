@@ -20,6 +20,7 @@ const NavBody = styled.div`
   height: 89px;
   cursor: pointer;
   z-index: 10000;
+  touch-action: pinch-zoom;
 
   &::before {
     content: "";
@@ -209,7 +210,9 @@ const Nav = ({ modalCheck, setModalCheck, setDarkMode, darkMode }) => {
   return (
     <div {...bindNavPos()}
       style={{
-        position: "relative",
+        width: "100%",
+        zIndex: "10000",
+        position: "fixed",
         top: navPos.y,
         left: navPos.x,
       }}
