@@ -21,7 +21,6 @@
   width: 400px;
   height: 150px;
   background-image: url('/public/Image/Light_OPBG.png');
-  background-color: red;
   padding: 10px;
   border-radius: 5px;
   display: flex;
@@ -32,4 +31,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.Dark_Modal_Search_Box{
+  background-image: url('/public/Image/Dark_OPBG.png');
 }
