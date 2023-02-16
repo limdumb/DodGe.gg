@@ -146,17 +146,14 @@ const SubNavBtn = styled.button`
   }
 `;
 
-const Nav = ({ modalCheck, setModalCheck }) => {
+const Nav = ({ modalCheck, setModalCheck, setDarkMode, darkMode }) => {
   const [clickCheck, setClickCheck] = useState(false);
   function NavClick() {
     setClickCheck(!clickCheck);
   }
 
-  const ChampionSearchScroll = () => {
-    window.scroll({
-      top: 70,
-      behavior: "smooth",
-    });
+  const ModeChage = () => {
+    setDarkMode(!darkMode)
   };
 
   const TopScroll = () => {
@@ -188,7 +185,7 @@ const Nav = ({ modalCheck, setModalCheck }) => {
         bottom={"100px"}
         right={"40px"}
         speed={"0.5s"}
-        onClick={ChampionSearchScroll}
+        onClick={TopScroll}
       >
         <div className="subBox">
           <div className="sub_nav"></div>
@@ -236,7 +233,7 @@ const Nav = ({ modalCheck, setModalCheck }) => {
         bottom={"-65px"}
         right={"40px"}
         speed={"1s"}
-        onClick={TopScroll}
+        onClick={ModeChage}
       >
         <div className="subBox">
           <div className="sub_nav"></div>
