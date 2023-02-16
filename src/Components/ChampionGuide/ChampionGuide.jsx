@@ -3,19 +3,15 @@ import QuickGuide from "./QuickGuide";
 import DetailedGuide from "./DetailedGuide";
 import { useState, useEffect } from "react";
 import { fetchChampData } from "../../API/RiotAPI";
-import lightBG from "./../Assets/LightBG.png";
-import darkBG from "./../Assets/DarkBG.png";
 
 const Main_Container = styled.div`
   height: 1650px;
 
   .Light {
-    background-image: url(${lightBG});
     color: rgb(255, 210, 90);
   }
 
   .Dark {
-    background-image: url(${darkBG});
     color: rgb(255, 0, 255);
   }
 

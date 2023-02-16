@@ -4411,7 +4411,7 @@
       ]
     },
     "Ashe": {
-      "line": "adc",
+      "line": "support",
       "rates": {
         "win_rate": "49.49%",
         "pick_rate": "6.22%",
@@ -4420,8 +4420,8 @@
       "skill_tree": ["W", "Q", "E"],
       "core_items": [6672, 3046, 3031],
       "runes": {
-        "main_rune_id": 8000,
-        "main_rune_order": [8008, 8009, 9103, 8014],
+        "main_rune_id": 8100,
+        "main_rune_order": [9923, 8126, 8136, 8106],
         "sub_rune_id": 8300,
         "sub_rune_order": [8345, 8410],
         "stat": [5005, 5008, 5002]

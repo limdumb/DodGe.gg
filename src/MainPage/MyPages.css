@@ -1,11 +1,9 @@
 .Dark_Mode {
   color: rgb(255, 0, 255);
-  background-image: url("./../Components/Assets/DarkBG.png");
 }
 
 .Light_Mode {
   color: rgb(255, 210, 90);
-  background-image: url("./../Components/Assets/LightBG.png");
 }
 
 .Dark_Wrapper_Line {

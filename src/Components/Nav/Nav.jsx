@@ -40,7 +40,7 @@ const NavBody = styled.div`
     mask-composite: exclude;
   }
 
-  .NavButton_Base{
+  .NavButton_Base {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -152,8 +152,8 @@ const Nav = ({ modalCheck, setModalCheck, setDarkMode, darkMode }) => {
     setClickCheck(!clickCheck);
   }
 
-  const ModeChage = () => {
-    setDarkMode(!darkMode)
+  const ModeChange = () => {
+    setDarkMode(!darkMode);
   };
 
   const TopScroll = () => {
@@ -173,11 +173,26 @@ const Nav = ({ modalCheck, setModalCheck, setDarkMode, darkMode }) => {
 
   return (
     <NavBody clickCheck={clickCheck} onClick={NavClick}>
-      <NavButton_Base clickCheck={clickCheck} className="NavButton_Base NavButton_top2"></NavButton_Base>
-      <NavButton_Base clickCheck={clickCheck} className="NavButton_Base NavButton_top2"></NavButton_Base>
-      <NavButton_Base clickCheck={clickCheck} className="NavButton_Base NavButton_top3"></NavButton_Base>
-      <NavButton_Base clickCheck={clickCheck} className="NavButton_Base NavButton_top3"></NavButton_Base>
-      <NavButton_Base clickCheck={clickCheck} className="NavButton_Base NavButton_top"></NavButton_Base>
+      <NavButton_Base
+        clickCheck={clickCheck}
+        className="NavButton_Base NavButton_top2"
+      ></NavButton_Base>
+      <NavButton_Base
+        clickCheck={clickCheck}
+        className="NavButton_Base NavButton_top2"
+      ></NavButton_Base>
+      <NavButton_Base
+        clickCheck={clickCheck}
+        className="NavButton_Base NavButton_top3"
+      ></NavButton_Base>
+      <NavButton_Base
+        clickCheck={clickCheck}
+        className="NavButton_Base NavButton_top3"
+      ></NavButton_Base>
+      <NavButton_Base
+        clickCheck={clickCheck}
+        className="NavButton_Base NavButton_top"
+      ></NavButton_Base>
       <NavButton clickCheck={clickCheck} />
       <SubNavBtn
         clickCheck={clickCheck}
@@ -233,7 +248,7 @@ const Nav = ({ modalCheck, setModalCheck, setDarkMode, darkMode }) => {
         bottom={"-65px"}
         right={"40px"}
         speed={"1s"}
-        onClick={ModeChage}
+        onClick={ModeChange}
       >
         <div className="subBox">
           <div className="sub_nav"></div>

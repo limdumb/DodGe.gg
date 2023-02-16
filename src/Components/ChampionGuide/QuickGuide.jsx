@@ -106,7 +106,7 @@ const Container = styled.div`
 `;
 
 export default function QuickGuide({ currentChamp, darkMode }) {
-  const baseURL = "http://ddragon.leagueoflegends.com/cdn/12.23.1/img";
+  const baseURL = "http://ddragon.leagueoflegends.com/cdn/13.3.1/img";
   return (
     <Container>
       <div className="Champion_Basics">

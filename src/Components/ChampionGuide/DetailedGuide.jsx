@@ -14,11 +14,11 @@ const Guide_Container = styled.div`
   }
 `;
 
-export default function DetailedGuide({ currentChamp, isDarkMode }) {
+export default function DetailedGuide({ currentChamp, darkMode }) {
   return (
     <Guide_Container>
-      <RunesGuide currentChamp={currentChamp} isDarkMode={isDarkMode} />
-      <CountersList currentChamp={currentChamp} isDarkMode={isDarkMode} />
+      <RunesGuide currentChamp={currentChamp} darkMode={darkMode} />
+      <CountersList currentChamp={currentChamp} darkMode={darkMode} />
     </Guide_Container>
   );
 }

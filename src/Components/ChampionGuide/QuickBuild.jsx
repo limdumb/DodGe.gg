@@ -82,7 +82,7 @@ export default function QuickBuild({ currentChamp, darkMode }) {
     ChampionStatistics[0][currentChamp.id].skill_tree,
     currentChamp
   );
-  const baseURL = "http://ddragon.leagueoflegends.com/cdn/12.23.1/img";
+  const baseURL = "http://ddragon.leagueoflegends.com/cdn/13.3.1/img";
   return (
     <Container>
       <div className="Recommend_Container">
@@ -274,7 +274,7 @@ function recommendStartItems(champion) {
 
 /**
  * 현재 선택된 챔피언이 주로 사용하는 소환사 주문을 추천해줍니다.
- * 정글러는 "강타"를 필수로 가지고 있습니다.
+ * 정글러는 소환사 주문 "강타"를 필수로 가지고 있습니다.
  * @param {currentChamp} currentChamp 현재 선택된 챔피언(props)
  * @returns 각 소환사주문의 id(String)를 포함한 배열
  */
