@@ -14,7 +14,7 @@ const Container = styled.div`
   }
 
   .Champion_Portrait {
-    height: 125px;
+    height: 100px;
 
     img {
       width: 100px;
@@ -103,6 +103,15 @@ const Container = styled.div`
           font-size: 20px;
         }
       }
+    }
+  }
+  @media only screen and (min-width: 1024px) {
+    width: 550px;
+    margin-left: 83px;
+    padding-top: 10px;
+    .Champion_Basics {
+      margin-bottom: 10px;
+      width: 550px;
     }
   }
 `;
