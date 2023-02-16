@@ -13,8 +13,8 @@ const NavButton_Base = styled.div`
 
 const NavBody = styled.div`
   position: fixed;
-  right: 5vw;
-  top: 60vh;
+  right: 8vw;
+  top: 67vh;
   width: 89px;
   height: 89px;
   z-index: 10000;

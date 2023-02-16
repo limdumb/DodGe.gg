@@ -15,7 +15,7 @@ const ParallelogramShape = styled.div`
   right: ${(props) => props.right};
 `;
 
-export const SearchInput = ({modalCheck, setModalCheck}) => {
+export const SearchInput = ({ modalCheck, setModalCheck }) => {
   const navigate = useNavigate();
   const [summonerName, setSummonerName] = useState("");
 
@@ -30,7 +30,7 @@ export const SearchInput = ({modalCheck, setModalCheck}) => {
     }
   }
 
-  function inputClick(){
+  function inputClick() {
     setModalCheck([false, false]);
   }
 
@@ -64,7 +64,9 @@ export const SearchInput = ({modalCheck, setModalCheck}) => {
         }}
       ></input>
       <Link to={`/mypage/${summonerName}`}>
-        <button className="Search_Button" onClick={inputClick}>.GG</button>
+        <button className="Search_Button" onClick={inputClick}>
+          .GG
+        </button>
       </Link>
       <ParallelogramShape
         width={"7.5855px"}
@@ -84,19 +86,21 @@ export const SearchInput = ({modalCheck, setModalCheck}) => {
 
 export const ChampSearchBar = ({ searchInputValue, setSearchInputValue }) => {
   return (
-    <div className="Tab_SearchBox">
-      <img
-        className="Tab_SearchImg"
-        src="https://s-lol-web.op.gg/images/icon/icon-search.svg"
-      />
-      <input
-        className="Tab_Search"
-        type="text"
-        placeholder="챔피언 검색"
-        autoComplete="off"
-        defaultValue={searchInputValue}
-        onChange={(e) => setSearchInputValue(e.target.value)}
-      />
+    <div className ="Tab_Champ_SearchBox">
+      <div className="Tab_SearchBox">
+        <img
+          className="Tab_SearchImg"
+          src="https://s-lol-web.op.gg/images/icon/icon-search.svg"
+        />
+        <input
+          className="Tab_Search"
+          type="text"
+          placeholder="챔피언 검색"
+          autoComplete="off"
+          defaultValue={searchInputValue}
+          onChange={(e) => setSearchInputValue(e.target.value)}
+        />
+      </div>
     </div>
   );
 };
