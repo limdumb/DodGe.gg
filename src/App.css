@@ -20,10 +20,7 @@ html {
 main {
   display: flex;
   flex-direction: column;
-}
-
-aside{
-  background-image: url(./Components/Assets/LightBG.png);
+  background-image: url(/public/Image/Light_BG.png);
   background-size: cover;
 }
 
