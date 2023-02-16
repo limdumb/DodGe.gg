@@ -21,7 +21,7 @@ const EasterEggSpan = styled(StyleSpan)`
   justify-content: center;
 `;
 
-export default function MyPages() {
+export default function MyPages({ darkMode }) {
   const summonerName = useParams();
 
   const [currentTab, setCurrentTab] = useState("All_Game_Record");
@@ -30,8 +30,6 @@ export default function MyPages() {
   const [getUserMatchData, setGetUserMatchData] = useState(null);
   const [getSpell, setGetSpell] = useState(null);
   const [runesData, setRunesData] = useState(null);
-  // 다크모드 라이트모드 상태 => 추후 삭제 예정
-  const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
     const userInfoData = async () => {
@@ -64,27 +62,25 @@ export default function MyPages() {
   return (
     <>
       <div id="Main_Container">
-        <main className={isDarkMode ? "Dark_Mode" : "Light_Mode"}>
+        <main className={darkMode ? "Dark_Mode" : "Light_Mode"}>
           {getUserProfile && (
             <UserInformation
               userRankTier={userRankTier}
               profileIconId={getUserProfile.profileIconId}
               name={getUserProfile.name}
-              isDarkMode={isDarkMode}
+              darkMode={darkMode}
             />
           )}
           <div
-            className={isDarkMode ? "Dark_Wrapper_Line" : "Light_Wrapper_Line"}
+            className={darkMode ? "Dark_Wrapper_Line" : "Light_Wrapper_Line"}
           ></div>
           <div
             className={
-              isDarkMode
-                ? "Dark_Easter_Egg_Wrapper"
-                : "Light_Easter_Egg_Wrapper"
+              darkMode ? "Dark_Easter_Egg_Wrapper" : "Light_Easter_Egg_Wrapper"
             }
           >
             <div
-              className={isDarkMode ? "Dark_Trapezoid" : "Light_Trapezoid"}
+              className={darkMode ? "Dark_Trapezoid" : "Light_Trapezoid"}
             ></div>
             <EasterEggSpan className="Did_You_Know">
               혹시 알고 계셨나요?
@@ -98,16 +94,16 @@ export default function MyPages() {
             </EasterEggSpan>
           </div>
           <div
-            className={isDarkMode ? "Dark_Wrapper_Line" : "Light_Wrapper_Line"}
+            className={darkMode ? "Dark_Wrapper_Line" : "Light_Wrapper_Line"}
           ></div>
 
           <div
             className={
-              isDarkMode ? "Dark_Record_Wrapper" : "Light_Record_Wrapper"
+              darkMode ? "Dark_Record_Wrapper" : "Light_Record_Wrapper"
             }
           >
             <div
-              className={isDarkMode ? "Dark_Trapezoid" : "Light_Trapezoid"}
+              className={darkMode ? "Dark_Trapezoid" : "Light_Trapezoid"}
             ></div>
             <TypeTab
               onTabChange={(index) => {

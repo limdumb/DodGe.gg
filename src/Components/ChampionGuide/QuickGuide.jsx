@@ -105,7 +105,7 @@ const Container = styled.div`
   }
 `;
 
-export default function QuickGuide({ currentChamp, isDarkMode }) {
+export default function QuickGuide({ currentChamp, darkMode }) {
   const baseURL = "http://ddragon.leagueoflegends.com/cdn/12.23.1/img";
   return (
     <Container>
@@ -156,7 +156,7 @@ export default function QuickGuide({ currentChamp, isDarkMode }) {
           </div>
         </div>
       </div>
-      <QuickBuild currentChamp={currentChamp} isDarkMode={isDarkMode} />
+      <QuickBuild currentChamp={currentChamp} darkMode={darkMode} />
     </Container>
   );
 }

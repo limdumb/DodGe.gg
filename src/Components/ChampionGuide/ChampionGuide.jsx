@@ -34,11 +34,9 @@ const Main_Container = styled.div`
   }
 `;
 
-export default function ChampionGuide({ champSelected }) {
+export default function ChampionGuide({ champSelected, darkMode }) {
   const [currentChamp, setCurrentChamp] = useState(null);
   const [isPending, setIsPending] = useState(true);
-  // 더미 데이터 => 이후 수정 전역 상태로 받아올 예정
-  const [isDarkMode, setDarkMode] = useState();
 
   useEffect(() => {
     fetchChampData(champSelected).then((val) => {
@@ -48,15 +46,15 @@ export default function ChampionGuide({ champSelected }) {
   }, [champSelected]);
 
   return (
-    <Main_Container isDarkMode={isDarkMode}>
+    <Main_Container darkMode={darkMode}>
       {isPending && <div> Loading ... </div>}
 
-      <div className={isDarkMode ? "Container Dark" : "Container Light"}>
+      <div className={darkMode ? "Container Dark" : "Container Light"}>
         {currentChamp && (
-          <QuickGuide currentChamp={currentChamp} isDarkMode={isDarkMode} />
+          <QuickGuide currentChamp={currentChamp} darkMode={darkMode} />
         )}
         {currentChamp && (
-          <DetailedGuide currentChamp={currentChamp} isDarkMode={isDarkMode} />
+          <DetailedGuide currentChamp={currentChamp} darkMode={darkMode} />
         )}
       </div>
     </Main_Container>
