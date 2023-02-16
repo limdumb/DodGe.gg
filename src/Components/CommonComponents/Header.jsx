@@ -7,20 +7,15 @@ import { SummonerSerch } from "./SummonerSerch";
 const Header = styled.header`
   box-sizing: border-box;
   display: flex;
-  width: 390px;
-  height: 61px;
+  width: 100%;
+  height: 69px;
   background-color: ${(props) =>
     props.backgroundColor ? "#1E1E46" : "#ff6432"};
   align-items: center;
-  padding: 0 10px 0 10px;
   position: relative;
-  @media screen and (min-width: 768px) {
-    width: 100%;
-    height: 69px;
-  }
+
   @media screen and (min-width: 1024px) {
     width: 1024px;
-    height: 69px;
   }
 `;
 

@@ -17,7 +17,7 @@ function App() {
   return (
     <BrowserRouter>
       <Modal modalCheck={modalCheck} setModalCheck={setModalCheck}/>
-      <Nav modalCheck={modalCheck} setModalCheck={setModalCheck} />
+      <Nav modalCheck={modalCheck} setModalCheck={setModalCheck} setDarkMode={setDarkMode} darkMode={darkMode}/>
       <MainHeader darkMode={darkMode}/>
       <main>
         <aside>
