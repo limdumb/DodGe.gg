@@ -25,6 +25,9 @@ const Main_Container = styled.div`
   }
 
   @media only screen and (min-width: 1024px) {
+    margin-left: 60px;
+    width: 600px;
+    border: solid red 1px;
   }
 `;
 

@@ -16,15 +16,29 @@ function App() {
   const [champSelected, setChampSelected] = useState(null);
   return (
     <BrowserRouter>
-      <Modal modalCheck={modalCheck} setModalCheck={setModalCheck} darkMode={darkMode}/>
-      <Nav modalCheck={modalCheck} setModalCheck={setModalCheck} setDarkMode={setDarkMode} darkMode={darkMode}/>
-      <MainHeader darkMode={darkMode}/>
+      <Modal
+        modalCheck={modalCheck}
+        setModalCheck={setModalCheck}
+        darkMode={darkMode}
+      />
+      
+        <Nav
+          modalCheck={modalCheck}
+          setModalCheck={setModalCheck}
+          setDarkMode={setDarkMode}
+          darkMode={darkMode}
+        />
+
+      <MainHeader darkMode={darkMode} setDarkMode={setDarkMode} />
       <main className={darkMode ? "Dark_BG" : null}>
         <aside>
-          <ChampionSearchList setChampSelected={setChampSelected} darkMode={darkMode}/>
-          <OpList position={'main'} darkMode={darkMode}/>
-
+          <ChampionSearchList
+            setChampSelected={setChampSelected}
+            darkMode={darkMode}
+          />
+          <OpList position={"main"} darkMode={darkMode} />
         </aside>
+        <img className="SideBar" src={`${process.env.PUBLIC_URL}/Image/Light_SideBar.png`}/>
         <Routes>
           <Route
             path="/champion/:champion"

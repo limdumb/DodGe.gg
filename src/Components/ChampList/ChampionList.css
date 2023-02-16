@@ -26,7 +26,7 @@
 
 .Champion_List_Container {
   position: absolute;
-  top: 272px;
+  top: 202px;
   padding-top: 10px;
   display: flex;
   flex-wrap: wrap;
@@ -40,7 +40,7 @@
 
 .Dark_Champion_List_Container {
   position: absolute;
-  top: 272px;
+  top: 202px;
   padding-top: 10px;
   display: flex;
   flex-wrap: wrap;
@@ -115,7 +115,7 @@
 @media screen and (min-width: 1024px) {
   .Champion_List_Container {
     position: absolute;
-    top: 280px;
+    top: 220px;
     padding-top: 10px;
     display: flex;
     flex-wrap: wrap;
@@ -136,7 +136,7 @@
 
   .Dark_Champion_List_Container {
     position: absolute;
-    top: 280px;
+    top: 220px;
     padding-top: 10px;
     display: flex;
     flex-wrap: wrap;

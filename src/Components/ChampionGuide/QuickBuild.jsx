@@ -72,6 +72,30 @@ const Container = styled.div`
       }
     }
   }
+
+  @media only screen and (min-width: 1024px) {
+    display:grid;
+    width: 400px;
+    margin: 0 auto;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    .Recommend_Container{
+      h6{
+        font-size: 15px;
+        margin: 0;
+      }
+      img{
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    .Recommend_Container:nth-child(1){
+      width: 100%;
+      grid-column-start: 1;
+      grid-column-end: 3;
+    }
+  }
 `;
 
 export default function QuickBuild({ currentChamp, darkMode }) {

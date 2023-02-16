@@ -3,7 +3,8 @@ import styled from "styled-components";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-const ParallelogramShape = styled.div`
+const ParallelogramShape = styled.span`
+  display: block;
   position: relative;
   width: ${(props) => props.width};
   height: ${(props) => props.height};
@@ -31,12 +32,17 @@ export const SearchInput = ({ setModalCheck }) => {
     }
   }
 
+  function modalClose() {
+    setModalCheck([false, false]);
+  }
+
   function inputClick() {
     setModalCheck([false, false]);
   }
 
   return (
     <div className="Search_Input_Box">
+      <div className="close" onClick={modalClose}></div>
       <ParallelogramShape
         width={"7.5855px"}
         height={"28.89px"}
