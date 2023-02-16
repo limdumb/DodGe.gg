@@ -9,7 +9,7 @@ export default function Modal({ modalCheck, setModalCheck, darkMode }) {
         <div className="Modal_Container">
           <div className="Modal_Contents">
             {modalCheck[0] ? (
-              <div className="Modal_Search_Box">
+              <div className={darkMode ? "Modal_Search_Box Dark_Modal_Search_Box" : "Modal_Search_Box"}>
                 <SearchInput
                   modalCheck={modalCheck[0]}
                   setModalCheck={setModalCheck}

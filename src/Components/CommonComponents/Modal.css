@@ -33,3 +33,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+.Dark_Modal_Search_Box{
+  background-image: url('/public/Image/Dark_OPBG.png');
+}
