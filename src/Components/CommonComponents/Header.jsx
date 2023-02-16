@@ -14,6 +14,10 @@ const Header = styled.header`
   align-items: center;
   padding: 0 10px 0 10px;
   position: relative;
+  @media screen and (min-width: 768px) {
+    width: 100%;
+    height: 69px;
+  }
   @media screen and (min-width: 1024px) {
     width: 1024px;
     height: 69px;
