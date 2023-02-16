@@ -17,6 +17,7 @@ const NavBody = styled.div`
   top: 67vh;
   width: 89px;
   height: 89px;
+  cursor: pointer;
   z-index: 10000;
 
   &::before {
@@ -124,6 +125,7 @@ const NavButton = styled.button`
 
 const SubNavBtn = styled.button`
   border: none;
+  cursor: pointer;
   transform: ${(props) => (props.clickCheck ? "none" : "translate(0%, 0%)")};
   width: ${(props) => (props.clickCheck ? "50px" : "30px")};
   height: ${(props) => (props.clickCheck ? "50px" : "30px")};
