@@ -15,13 +15,14 @@ const ParallelogramShape = styled.div`
   right: ${(props) => props.right};
 `;
 
-export const SearchInput = ({ modalCheck, setModalCheck }) => {
+export const SearchInput = ({ setModalCheck }) => {
   const navigate = useNavigate();
   const [summonerName, setSummonerName] = useState("");
 
   function handleSummonerInput(e) {
     setSummonerName(e.target.value);
   }
+  
   function inputEnter(e) {
     if (e.key === "Enter") {
       setSummonerName(e.target.value);
