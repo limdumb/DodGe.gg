@@ -4,8 +4,6 @@ import lineIconImg from "./imgLink";
 import TabBtn from "./TabBtn";
 import { ChampSearchBar } from "../CommonComponents/SearchInput";
 import tabLine from "./img/tab_line.png";
-import OPtabLine from "./img/OPtab_line.png";
-import OPListLine from "./img/OPList_line.png";
 
 export const ChampionTab = ({
   line,
