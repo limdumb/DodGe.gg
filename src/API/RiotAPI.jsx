@@ -127,7 +127,7 @@ export async function matchSummaryData(gameUuids, userName) {
 export async function summonerSpell(spellId1, spellId2) {
   try {
     const response = await ddragonInstance.get(
-      "/cdn/12.23.1/data/en_US/summoner.json"
+      "/cdn/13.3.1/data/en_US/summoner.json"
     );
     const summonerSpellName = response.data.data;
     const twiceArr = [];
@@ -139,7 +139,7 @@ export async function summonerSpell(spellId1, spellId2) {
           summonerSpellName[key].key === spellId2[i].toString()
         ) {
           result.push(
-            `http://ddragon.leagueoflegends.com/cdn/12.23.1/img/spell/${summonerSpellName[key].image.full}`
+            `http://ddragon.leagueoflegends.com/cdn/13.3.1/img/spell/${summonerSpellName[key].image.full}`
           );
         }
       }
@@ -157,7 +157,7 @@ export async function champName() {
   let champion = [];
   let ko_name;
   await ddragonInstance
-    .get("/cdn/12.23.1/data/ko_KR/champion.json")
+    .get("/cdn/13.3.1/data/ko_KR/champion.json")
     .then((res) => {
       let name = Object.keys(res.data.data);
       ko_name = name.map((data) => res.data.data[data].name);
@@ -175,7 +175,7 @@ export async function champName() {
 export async function fetchChampData(champName) {
   let userData = [];
   await ddragonInstance
-    .get(`/cdn/12.23.1/data/ko_KR/champion/${champName}.json`)
+    .get(`/cdn/13.3.1/data/ko_KR/champion/${champName}.json`)
     .then((res) => {
       userData.push(res.data.data);
     })
@@ -187,7 +187,7 @@ export async function fetchChampData(champName) {
 export async function fetchRunesData() {
   let runes = [];
   await ddragonInstance
-    .get(`/cdn/12.23.1/data/ko_KR/runesReforged.json`)
+    .get(`/cdn/13.3.1/data/ko_KR/runesReforged.json`)
     .then((res) => {
       runes.push(res.data);
     })
