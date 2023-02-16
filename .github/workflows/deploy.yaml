@@ -24,11 +24,11 @@ jobs:
 
       - name: npm install
         run: npm install
-        working-directory: ./DodGe.gg
+        working-directory: ./
 
       - name: Build
         run: npm run build
-        working-directory: ./DodGe.gg
+        working-directory: ./
         env:
           CI: ""
 
