@@ -1,21 +1,26 @@
-.Logo_Container{
+.Logo_Container {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
   margin: auto;
 }
 
-.Gradation_Header{
+.Gradation_Header {
   position: absolute;
   opacity: 0.8;
   left: 0;
   width: 390px;
   height: 61px;
-  background: rgb(180,90,36);
-  background: linear-gradient(90deg, rgba(180,90,36,0.97) 2.991%, rgba(251,176,59,0.5) 51.3966%, rgba(180,90,36,1) 100%);
+  background: rgb(180, 90, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(180, 90, 36, 0.97) 2.991%,
+    rgba(251, 176, 59, 0.5) 51.3966%,
+    rgba(180, 90, 36, 1) 100%
+  );
 }
 
-.Home_Button_Container{
+.Home_Button_Container {
   z-index: 1;
   height: 18px;
   margin-left: 36.499px;
@@ -23,38 +28,61 @@
   position: absolute;
 }
 
-.Header_Image{
+.Header_Image {
   position: relative;
   right: 16px;
   bottom: 1px;
 }
 
-.Dark_Header_Image{
+.Dark_Header_Image {
   position: absolute;
   right: 0px;
   top: 0px;
 }
 
-.Header_Image_Desktop{
+.Header_Image_Desktop {
   display: none;
 }
 
-.Dark_Header_Image_Desktop{
+.Dark_Header_Image_Desktop {
   display: none;
 }
 
-@media screen and (min-width: 1024px){
-  .Gradation_Header{
+@media screen and (max-width: 768px){
+  .Header_Input_Container{
+    display: none;
+  }
+}
+
+@media screen and (max-width: 480px){
+  .Header_Input_Container{
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .Header_Input_Container{
+    position: absolute;
+    right: 160px;
+    top: 18px;
+  }
+
+  .Gradation_Header {
     position: absolute;
     opacity: 0.8;
     left: 0;
     width: 100%;
     height: 69px;
-    background: rgb(180,90,36);
-    background: linear-gradient(90deg, rgba(180,90,36,0.97) 2.991%, rgba(251,176,59,0.5) 51.3966%, rgba(180,90,36,1) 100%);
+    background: rgb(180, 90, 36);
+    background: linear-gradient(
+      90deg,
+      rgba(180, 90, 36, 0.97) 2.991%,
+      rgba(251, 176, 59, 0.5) 51.3966%,
+      rgba(180, 90, 36, 1) 100%
+    );
   }
 
-  .Dark_Gradation_Header{
+  .Dark_Gradation_Header {
     position: absolute;
     opacity: 0.8;
     left: 0;
@@ -62,11 +90,11 @@
     height: 69px;
   }
 
-  .Dark_Header_Image{
+  .Dark_Header_Image {
     display: none;
   }
 
-  .Header_Image_Desktop{
+  .Header_Image_Desktop {
     width: 1025px;
     display: block;
     position: relative;
@@ -75,7 +103,7 @@
     height: 69.2px;
   }
 
-  .Dark_Header_Image_Desktop{
+  .Dark_Header_Image_Desktop {
     width: 1025px;
     display: block;
     position: relative;
@@ -84,11 +112,11 @@
     height: 69.2px;
   }
 
-  .Header_Image{
+  .Header_Image {
     display: none;
   }
 
-  .Home_Button_Container{
+  .Home_Button_Container {
     z-index: 1;
     height: 18px;
     margin-left: 36.499px;
