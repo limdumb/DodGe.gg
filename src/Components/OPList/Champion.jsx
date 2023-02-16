@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 const ChampionData = styled.span`
   width: ${(props) => props.width};
+  font-family: 'Roboto';
   img {
     width: 24px;
     height: 24px;
