@@ -1,6 +1,7 @@
 import React from "react";
 import "./Nav.css";
 import styled from "styled-components";
+import {useDrag} from 'react-use-gesture';
 import { useState } from "react";
 
 const NavButton_Base = styled.div`
@@ -12,9 +13,9 @@ const NavButton_Base = styled.div`
 `;
 
 const NavBody = styled.div`
-  position: fixed;
+  position: absolute;
   right: 8vw;
-  top: 67vh;
+  top: 70vh;
   width: 89px;
   height: 89px;
   cursor: pointer;
@@ -173,6 +174,15 @@ const SubNavBtn = styled.button`
 
 const Nav = ({ modalCheck, setModalCheck, setDarkMode, darkMode }) => {
   const [clickCheck, setClickCheck] = useState(false);
+  
+  const [navPos, setNavPos] = useState({ x: 0, y: 0 });
+  const bindNavPos = useDrag((params)=>{
+    setNavPos({
+      x: params.offset[0],
+      y: params.offset[1]
+    })
+  });
+
   function NavClick() {
     setClickCheck(!clickCheck);
   }
@@ -197,95 +207,103 @@ const Nav = ({ modalCheck, setModalCheck, setDarkMode, darkMode }) => {
   };
 
   return (
-    <NavBody clickCheck={clickCheck} onClick={NavClick} darkMode={darkMode}>
-      <NavButton_Base
-        clickCheck={clickCheck}
-        className="NavButton_Base NavButton_top2"
-      ></NavButton_Base>
-      <NavButton_Base
-        clickCheck={clickCheck}
-        className="NavButton_Base NavButton_top2"
-      ></NavButton_Base>
-      <NavButton_Base
-        clickCheck={clickCheck}
-        className="NavButton_Base NavButton_top3"
-      ></NavButton_Base>
-      <NavButton_Base
-        clickCheck={clickCheck}
-        className="NavButton_Base NavButton_top3"
-      ></NavButton_Base>
-      <NavButton_Base
-        clickCheck={clickCheck}
-        className="NavButton_Base NavButton_top"
-      ></NavButton_Base>
-      <NavButton clickCheck={clickCheck} darkMode={darkMode} />
-      <SubNavBtn
-        clickCheck={clickCheck}
-        backgroundColor={"red"}
-        bottom={"100px"}
-        right={"40px"}
-        speed={"0.5s"}
-        onClick={TopScroll}
-        darkMode={darkMode}
-      >
-        <div className="subBox">
-          <div className="sub_nav">
-            <img src="https://img.icons8.com/ios-glyphs/512/circled-up.png" />
+    <div {...bindNavPos()}
+      style={{
+        position: "relative",
+        top: navPos.y,
+        left: navPos.x,
+      }}
+    >
+      <NavBody clickCheck={clickCheck} onClick={NavClick} darkMode={darkMode}>
+        <NavButton_Base
+          clickCheck={clickCheck}
+          className="NavButton_Base NavButton_top2"
+        ></NavButton_Base>
+        <NavButton_Base
+          clickCheck={clickCheck}
+          className="NavButton_Base NavButton_top2"
+        ></NavButton_Base>
+        <NavButton_Base
+          clickCheck={clickCheck}
+          className="NavButton_Base NavButton_top3"
+        ></NavButton_Base>
+        <NavButton_Base
+          clickCheck={clickCheck}
+          className="NavButton_Base NavButton_top3"
+        ></NavButton_Base>
+        <NavButton_Base
+          clickCheck={clickCheck}
+          className="NavButton_Base NavButton_top"
+        ></NavButton_Base>
+        <NavButton clickCheck={clickCheck} darkMode={darkMode} />
+        <SubNavBtn
+          clickCheck={clickCheck}
+          backgroundColor={"red"}
+          bottom={"100px"}
+          right={"40px"}
+          speed={"0.5s"}
+          onClick={TopScroll}
+          darkMode={darkMode}
+        >
+          <div className="subBox">
+            <div className="sub_nav">
+              <img src="https://img.icons8.com/ios-glyphs/512/circled-up.png" />
+            </div>
           </div>
-        </div>
-      </SubNavBtn>
-      <SubNavBtn
-        clickCheck={clickCheck}
-        backgroundColor={"blue"}
-        bottom={"50px"}
-        right={"100px"}
-        speed={"0.7s"}
-        onClick={OPListOpen}
-        darkMode={darkMode}
-      >
-        <div className="subBox">
-          <div className="sub_nav">
-            <p>OP</p>
+        </SubNavBtn>
+        <SubNavBtn
+          clickCheck={clickCheck}
+          backgroundColor={"blue"}
+          bottom={"50px"}
+          right={"100px"}
+          speed={"0.7s"}
+          onClick={OPListOpen}
+          darkMode={darkMode}
+        >
+          <div className="subBox">
+            <div className="sub_nav">
+              <p>OP</p>
+            </div>
           </div>
-        </div>
-      </SubNavBtn>
-      <SubNavBtn
-        clickCheck={clickCheck}
-        backgroundColor={"green"}
-        bottom={"-20px"}
-        right={"100px"}
-        speed={"0.9s"}
-        onClick={SummonerSerchOpen}
-        darkMode={darkMode}
-      >
-        <div className="subBox">
-          <div className="sub_nav sub_small">
-            <img src="https://img.icons8.com/metro/512/witch.png" />
+        </SubNavBtn>
+        <SubNavBtn
+          clickCheck={clickCheck}
+          backgroundColor={"green"}
+          bottom={"-20px"}
+          right={"100px"}
+          speed={"0.9s"}
+          onClick={SummonerSerchOpen}
+          darkMode={darkMode}
+        >
+          <div className="subBox">
+            <div className="sub_nav sub_small">
+              <img src="https://img.icons8.com/metro/512/witch.png" />
+            </div>
           </div>
-        </div>
-      </SubNavBtn>
-      <SubNavBtn
-        clickCheck={clickCheck}
-        backgroundColor={"yellow"}
-        bottom={"-65px"}
-        right={"40px"}
-        speed={"1s"}
-        darkMode={darkMode}
-        onClick={ModeChange}
-      >
-        <div className="subBox">
-          <div className="sub_nav">
-            <img
-              src={
-                darkMode
-                  ? "https://img.icons8.com/ios-filled/512/crescent-moon.png"
-                  : "https://img.icons8.com/sf-black-filled/512/sun.png"
-              }
-            />
+        </SubNavBtn>
+        <SubNavBtn
+          clickCheck={clickCheck}
+          backgroundColor={"yellow"}
+          bottom={"-65px"}
+          right={"40px"}
+          speed={"1s"}
+          darkMode={darkMode}
+          onClick={ModeChange}
+        >
+          <div className="subBox">
+            <div className="sub_nav">
+              <img
+                src={
+                  darkMode
+                    ? "https://img.icons8.com/ios-filled/512/crescent-moon.png"
+                    : "https://img.icons8.com/sf-black-filled/512/sun.png"
+                }
+              />
+            </div>
           </div>
-        </div>
-      </SubNavBtn>
-    </NavBody>
+        </SubNavBtn>
+      </NavBody>
+    </div>
   );
 };
 
