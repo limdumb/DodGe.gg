@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import { StyleSpan } from "../MyPage/RecordList";
-import "./Header.css";
 import { SummonerSerch } from "./SummonerSerch";
+import "./Header.css";
 
 const Header = styled.header`
   box-sizing: border-box;
