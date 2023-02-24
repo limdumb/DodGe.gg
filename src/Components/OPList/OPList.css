@@ -58,4 +58,7 @@
     background-image: none;
     border: none;
   }
+  .close {
+    display: none;
+  }
 }
