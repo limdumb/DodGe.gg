@@ -27,6 +27,7 @@ main {
 }
 
 img.SideBar{
+  display: none;
   position: absolute;
   top: 80px;
   left: 370px;
@@ -55,4 +56,7 @@ img.SideBar{
   main {
     flex-direction: row;
   }
+  img.SideBar{
+    display: block;
+    }
 }
