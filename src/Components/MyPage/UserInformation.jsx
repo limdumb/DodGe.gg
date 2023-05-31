@@ -24,7 +24,7 @@ export const UserInformation = ({
           <div className="Information_Contents">
             <img
               className="Icon_Image"
-              src={`https://ddragon.leagueoflegends.com/cdn/13.3.1/img/profileicon/${profileIconId}.png`}
+              src={`https://ddragon.leagueoflegends.com/cdn/13.9.1/img/profileicon/${profileIconId}.png`}
             />
             <div>
               <span className="User_Name">{name}</span>

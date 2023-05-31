@@ -65,6 +65,10 @@
 }
 
 @media only screen and (min-width: 768px) {
+  .Main_Container {
+    padding-left: 75px;
+  }
+
   .Dark_Mode {
     background-size: contain;
   }
