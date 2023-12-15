@@ -21,13 +21,13 @@ function App() {
         setModalCheck={setModalCheck}
         darkMode={darkMode}
       />
-      
-        <Nav
-          modalCheck={modalCheck}
-          setModalCheck={setModalCheck}
-          setDarkMode={setDarkMode}
-          darkMode={darkMode}
-        />
+
+      <Nav
+        modalCheck={modalCheck}
+        setModalCheck={setModalCheck}
+        setDarkMode={setDarkMode}
+        darkMode={darkMode}
+      />
 
       <MainHeader darkMode={darkMode} setDarkMode={setDarkMode} />
       <main className={darkMode ? "Dark_BG" : null}>
@@ -38,7 +38,11 @@ function App() {
           />
           <OpList position={"main"} darkMode={darkMode} />
         </aside>
-        <img className="SideBar" src={`${process.env.PUBLIC_URL}/Image/Light_SideBar.png`}/>
+        <img
+          className="SideBar"
+          alt="SideBar"
+          src={`${process.env.PUBLIC_URL}/Image/Light_SideBar.png`}
+        />
         <Routes>
           <Route
             path="/champion/:champion"
