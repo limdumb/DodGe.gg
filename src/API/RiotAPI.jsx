@@ -153,23 +153,29 @@ export async function summonerSpell(spellId1, spellId2) {
   }
 }
 
-export async function champName() {
-  let champion = [];
-  let ko_name;
-  await ddragonInstance
-    .get("/cdn/13.3.1/data/ko_KR/champion.json")
-    .then((res) => {
-      let name = Object.keys(res.data.data);
-      ko_name = name.map((data) => res.data.data[data].name);
-      ko_name.forEach((data, index) =>
-        champion.push({
-          name: data,
-          en_name: name[index],
-        })
-      );
-      champion.sort((name, data) => (name.name < data.name ? -1 : 1));
+export function sortChampName(responseData) {
+  const champions = [];
+
+  const name = Object.keys(responseData.data);
+
+  const championArray = Object.entries(responseData.data).map(
+    ([championName, championInfo]) => {
+      return { [championName]: championInfo };
+    }
+  );
+
+  championArray.forEach((el, index) => {
+    const champInfoObj = el[name[index]];
+    champions.push({
+      id: champInfoObj.key,
+      kr_name: champInfoObj.name,
+      en_name: champInfoObj.id,
     });
-  return champion;
+  });
+
+  champions.sort((name, data) => (name.name < data.name ? -1 : 1));
+
+  return champions;
 }
 
 export async function fetchChampData(champName) {
@@ -211,9 +217,11 @@ export const rotationData = async () => {
       dummyObj[champion[objKey].key] = objKey;
       obj = { ...obj, ...dummyObj };
     }
+
     let output = response.data.freeChampionIds.map((data) => {
       return obj[data];
     });
+
     return output;
   } catch (err) {
     console.log(err);

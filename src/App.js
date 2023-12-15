@@ -28,7 +28,6 @@ function App() {
         setDarkMode={setDarkMode}
         darkMode={darkMode}
       />
-
       <MainHeader darkMode={darkMode} setDarkMode={setDarkMode} />
       <main className={darkMode ? "Dark_BG" : null}>
         <aside>

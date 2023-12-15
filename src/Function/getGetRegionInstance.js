@@ -9,7 +9,7 @@ export const regionInstance = (region) => {
     return asiaInstance
   }
 
-  if(region === "dragon"){
+  if(region === "ddragon"){
     return ddragonInstance
   }
 }
