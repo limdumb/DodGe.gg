@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import ChampionLine from "../OPList/Json/Champion.json";
 import "./ChampionList.css";
 import { useFetch } from "../../CustomHook/useFetch";
-import { Spinner } from "react-bootstrap";
+import Spinner from "../CommonComponents/Spinner";
 
 export default function ChampionList({
   CheckLine,
@@ -34,7 +34,6 @@ export default function ChampionList({
       const championNames = {};
       const response = sortChampName(champion);
       const rotationChamp = await rotationData();
-      // rotation챔프 정리해
       let championLine = ChampionLine[CheckLine];
       const filterChamp = [];
 
@@ -94,7 +93,8 @@ export default function ChampionList({
           darkMode ? "Dark_Champion_List_Container" : "Champion_List_Container"
         }
       >
-        {filterChampionName &&
+        {!nameLoading ? (
+          filterChampionName &&
           filterChampionName.map((data, index) => {
             return (
               <li
@@ -123,7 +123,10 @@ export default function ChampionList({
                 </div>
               </li>
             );
-          })}
+          })
+        ) : (
+          <Spinner />
+        )}
       </ul>
     </aside>
   );
