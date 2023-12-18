@@ -4,7 +4,7 @@ import DetailedGuide from "./DetailedGuide";
 import { useState, useEffect } from "react";
 import { fetchChampData } from "../../API/RiotAPI";
 
-const Main_Container = styled.div`
+const MainContainer = styled.div`
   height: 1700px;
 
   .Light {
@@ -44,7 +44,7 @@ export default function ChampionGuide({ champSelected, darkMode }) {
   }, [champSelected]);
 
   return (
-    <Main_Container darkMode={darkMode}>
+    <MainContainer darkMode={darkMode}>
       {isPending && <div> Loading ... </div>}
 
       <div className={darkMode ? "Container Dark" : "Container Light"}>
@@ -55,6 +55,6 @@ export default function ChampionGuide({ champSelected, darkMode }) {
           <DetailedGuide currentChamp={currentChamp} darkMode={darkMode} />
         )}
       </div>
-    </Main_Container>
+    </MainContainer>
   );
 }

@@ -1,7 +1,7 @@
 import axios from "axios";
-const apiKrBase = "https://kr.api.riotgames.com";
-const apiAsiaBase = "https://asia.api.riotgames.com";
-const ddragonDataUrl = "http://ddragon.leagueoflegends.com";
+const apiKrBase = process.env.REACT_APP_KR_BASE;
+const apiAsiaBase = process.env.REACT_APP_ASIA_BASE;
+const ddragonDataUrl = process.env.REACT_APP_DRAGON_DATA_URL;
 const apiKey = process.env.REACT_APP_API_KEY;
 
 export const krInstance = axios.create({
