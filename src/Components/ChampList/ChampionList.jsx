@@ -1,12 +1,10 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import { sortChampName, rotationData } from "../../API/RiotAPI";
+import { champName, rotationData } from "../../API/RiotAPI";
 import { filterChampName } from "../../Function/Search";
 import { useNavigate } from "react-router-dom";
 import ChampionLine from "../OPList/Json/Champion.json";
 import "./ChampionList.css";
-import { useFetch } from "../../CustomHook/useFetch";
-import Spinner from "../CommonComponents/Spinner";
 
 export default function ChampionList({
   CheckLine,
@@ -14,33 +12,18 @@ export default function ChampionList({
   setChampSelected,
   darkMode,
 }) {
-  const navigate = useNavigate();
-  const {
-    data: champion,
-    isLoading: nameLoading,
-    error: nameError,
-  } = useFetch("/cdn/13.3.1/data/ko_KR/champion.json", "ddragon");
-
-  const {
-    data: rotationList,
-    isLoading: rotationLoading,
-    error: rotationError,
-  } = useFetch("/lol/platform/v3/champion-rotations", "kr");
-  // 로테이션 = 로테이션 데이터와 챔프 데이터를 가져와서 로테이션에 id를 챔프데이터의 id와 비교해서 맞는것만 로테이션에 노출
+  let navigate = useNavigate();
   const [champNormalName, setChampNormalName] = useState(null);
-
   useEffect(() => {
     const championNameData = async () => {
       const championNames = {};
-      const response = sortChampName(champion);
+      const response = await champName();
       const rotationChamp = await rotationData();
       let championLine = ChampionLine[CheckLine];
       const filterChamp = [];
-
       if (CheckLine === "ALL") {
         setChampNormalName(response);
-      }
-      if (CheckLine === "ROTATION") {
+      } else if (CheckLine === "ROTATION") {
         response.forEach((el) => {
           championNames[el.en_name] = el.name;
           rotationChamp.forEach((data) => {
@@ -69,14 +52,14 @@ export default function ChampionList({
       }
     };
     championNameData();
-  }, [champion, CheckLine]);
+  }, [CheckLine]);
 
   const regex = filterChampName(searchInputValue);
 
   const filterChampionName =
     champNormalName &&
     champNormalName.filter((el) => {
-      return regex.test(el.kr_name);
+      return regex.test(el.name);
     });
 
   return (
@@ -93,8 +76,7 @@ export default function ChampionList({
           darkMode ? "Dark_Champion_List_Container" : "Champion_List_Container"
         }
       >
-        {!nameLoading ? (
-          filterChampionName &&
+        {filterChampionName &&
           filterChampionName.map((data, index) => {
             return (
               <li
@@ -108,7 +90,6 @@ export default function ChampionList({
                 }}
               >
                 <img
-                  alt="AurelionSol"
                   className={
                     data.en_name !== "AurelionSol" ? "Champ_Image" : "RIP"
                   }
@@ -116,17 +97,14 @@ export default function ChampionList({
                 />
                 <div>
                   <span className="Champion_List_Name" key={index}>
-                    {data.kr_name.length > 3
-                      ? data.kr_name.substr(0, 3) + "..."
-                      : data.kr_name}
+                    {data.name.length > 3
+                      ? data.name.substr(0, 3) + "..."
+                      : data.name}
                   </span>
                 </div>
               </li>
             );
-          })
-        ) : (
-          <Spinner />
-        )}
+          })}
       </ul>
     </aside>
   );
