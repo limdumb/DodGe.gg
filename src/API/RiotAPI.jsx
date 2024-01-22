@@ -124,6 +124,25 @@ export async function matchSummaryData(gameUuids, userName) {
   return results;
 }
 
+export async function champName() {
+  let champion = [];
+  let ko_name;
+  await ddragonInstance
+    .get("/cdn/13.3.1/data/ko_KR/champion.json")
+    .then((res) => {
+      let name = Object.keys(res.data.data);
+      ko_name = name.map((data) => res.data.data[data].name);
+      ko_name.forEach((data, index) =>
+        champion.push({
+          name: data,
+          en_name: name[index],
+        })
+      );
+      champion.sort((name, data) => (name.name < data.name ? -1 : 1));
+    });
+  return champion;
+}
+
 export async function summonerSpell(spellId1, spellId2) {
   try {
     const response = await ddragonInstance.get(
