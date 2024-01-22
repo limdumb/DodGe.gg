@@ -86,6 +86,7 @@ MIT &copy; [NoHack](mailto:lbjp114@gmail.com)
 
 <!-- Stack Icon Refernces -->
 
+
 [js]: /images/stack/javascript.svg
 [ts]: /images/stack/typescript.svg
 [react]: /images/stack/react.svg
